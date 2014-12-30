@@ -20,15 +20,15 @@
     
     [QBChat instance].delegate = self;
     // Join room
+    QBChatRoom* room = [chatDialog chatRoom];
+    self.chatRoom = room;
     if(self.chatDialog.type != QBChatDialogTypePrivate){
-        self.chatRoom = [self.chatDialog chatRoom];
-        [[ChatService instance] joinRoom:self.chatRoom completionBlock:^(QBChatRoom *joinedChatRoom) {
-            // joined
+        [[ChatService instance] joinRoom:room completionBlock:^(QBChatRoom *joinedChatRoom) {
         }];
     }
     
     // get messages history
-    [QBChat messagesWithDialogID:self.chatDialog.ID extendedRequest:nil delegate:self];
+    [QBChat messagesWithDialogID:chatDialog.ID extendedRequest:nil delegate:self];
 
 }
 
@@ -50,7 +50,7 @@
     QBChatMessage *message = notification.userInfo[kMessage];
     NSString *roomJID = notification.userInfo[kRoomJID];
     
-    if(![self.chatRoom.JID isEqualToString:roomJID]){
+    if(![[self.chatDialog chatRoom].JID isEqualToString:roomJID]){
         return;
     }
     
@@ -59,13 +59,13 @@
 }
 -(void)sendMessage:(NSString *)msg toChatRoom:(QBChatRoom *)chatRoom
 {
-    // create a message
+   
+    
     QBChatMessage *message = [[QBChatMessage alloc] init];
     message.text = msg;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"save_to_history"] = @YES;
     [message setCustomParameters:params];
-    
     [[ChatService instance] sendMessage:message toRoom:self.chatRoom];
     
 

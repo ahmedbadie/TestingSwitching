@@ -106,6 +106,7 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
 }
 
 - (void)chatRoomDidEnter:(QBChatRoom *)room{
+    
     self.joinRoomCompletionBlock(room);
     self.joinRoomCompletionBlock = nil;
 }
@@ -132,6 +133,10 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
                                                         object:nil userInfo:@{kMessage: message, kRoomJID: roomJID}];
 }
 
+-(void)chatRoomDidLeave:(NSString *)roomName
+{
+    NSLog(@"Left chat room %@",roomName);
+}
 
 #pragma mark
 #pragma mark Additional

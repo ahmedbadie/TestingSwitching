@@ -8,10 +8,13 @@
 
 #import "AbstractViewController.h"
 #import "ChatMessageTableViewCell.h"
-@interface ClientViewController : AbstractViewController<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
+#import "SingleCardViewController.h"
+@interface ClientViewController : AbstractViewController<UITextFieldDelegate,UIPageViewControllerDataSource,SingleCardViewControllerDelegate,UIPageViewControllerDelegate>
+@property (nonatomic,strong) UIPageViewController* pageController;
+
 @property (nonatomic,strong) NSMutableArray* messages;
-@property (nonatomic,strong) QBChatRoom* chatRoom;
+@property (nonatomic) NSInteger index;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (weak, nonatomic) IBOutlet UIView *pageView;
 
 @end

@@ -22,7 +22,6 @@
     self.handler.delegate = self;
     self.handler.chatDialog = self.chatDialog;
     self.handler.user = self.user;
-    self.handler.chatRoom = self.chatRoom;
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [QBChat instance].delegate = self.handler;
     // Do any additional setup after loading the view.
@@ -30,10 +29,7 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
-    [[NSNotificationCenter defaultCenter] removeObserver:self.handler];
     
-    [self.chatRoom leaveRoom];
-    self.chatRoom = nil;
 
 }
 - (void)didReceiveMemoryWarning {
@@ -106,7 +102,7 @@
         return;
     }
     
-    [self.handler sendMessage:[self.messageTextField text] toChatRoom:self.chatRoom];
+    [self.handler sendMessage:[self.messageTextField text] toChatRoom:[self.chatDialog chatRoom]];
     // Reload table
     [self.tableView reloadData];
     if(self.msgs.count > 0){

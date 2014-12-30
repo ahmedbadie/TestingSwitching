@@ -17,9 +17,8 @@
 @interface MeetingHandler : NSObject<QBChatDelegate,QBActionStatusDelegate>
 
 @property(nonatomic,strong) QBChatDialog* chatDialog;
-@property(nonatomic,strong) QBChatRoom* chatRoom;
 @property (nonatomic,strong) QBUUser* user;
-
+@property (nonatomic,strong) QBChatRoom* chatRoom;
 @property (nonatomic,strong) UIViewController<MeetingHandlerDelegate>* delegate;
 
 

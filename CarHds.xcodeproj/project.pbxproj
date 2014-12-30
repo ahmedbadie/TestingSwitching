@@ -13,16 +13,17 @@
 		390424B01A53182F00370E80 /* CJSONDeserializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 390424591A53182F00370E80 /* CJSONDeserializer.m */; };
 		390424B11A53182F00370E80 /* CJSONSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904245B1A53182F00370E80 /* CJSONSerializer.m */; };
 		390424B21A53182F00370E80 /* NSDictionary_JSONExtensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904245E1A53182F00370E80 /* NSDictionary_JSONExtensions.m */; };
-		3908BF2F1A532C5000017D84 /* caRHds for odesk project.001.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF251A532C5000017D84 /* caRHds for odesk project.001.png */; };
-		3908BF301A532C5000017D84 /* caRHds for odesk project.002.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF261A532C5000017D84 /* caRHds for odesk project.002.png */; };
-		3908BF311A532C5000017D84 /* caRHds for odesk project.003.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF271A532C5000017D84 /* caRHds for odesk project.003.png */; };
-		3908BF321A532C5000017D84 /* caRHds for odesk project.004.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF281A532C5000017D84 /* caRHds for odesk project.004.png */; };
-		3908BF331A532C5000017D84 /* caRHds for odesk project.005.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF291A532C5000017D84 /* caRHds for odesk project.005.png */; };
-		3908BF341A532C5000017D84 /* caRHds for odesk project.006.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2A1A532C5000017D84 /* caRHds for odesk project.006.png */; };
-		3908BF351A532C5000017D84 /* caRHds for odesk project.007.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2B1A532C5000017D84 /* caRHds for odesk project.007.png */; };
-		3908BF361A532C5000017D84 /* caRHds for odesk project.008.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2C1A532C5000017D84 /* caRHds for odesk project.008.png */; };
-		3908BF371A532C5000017D84 /* caRHds for odesk project.009.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2D1A532C5000017D84 /* caRHds for odesk project.009.png */; };
-		3908BF381A532C5000017D84 /* caRHds for odesk project.010.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2E1A532C5000017D84 /* caRHds for odesk project.010.png */; };
+		3908BF2F1A532C5000017D84 /* caRHds for odesk project.1a.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF251A532C5000017D84 /* caRHds for odesk project.1a.png */; };
+		3908BF301A532C5000017D84 /* caRHds for odesk project.1b.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF261A532C5000017D84 /* caRHds for odesk project.1b.png */; };
+		3908BF311A532C5000017D84 /* caRHds for odesk project.2a.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF271A532C5000017D84 /* caRHds for odesk project.2a.png */; };
+		3908BF321A532C5000017D84 /* caRHds for odesk project.2b.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF281A532C5000017D84 /* caRHds for odesk project.2b.png */; };
+		3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF291A532C5000017D84 /* caRHds for odesk project.3a.png */; };
+		3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2A1A532C5000017D84 /* caRHds for odesk project.3b.png */; };
+		3908BF351A532C5000017D84 /* caRHds for odesk project.4a.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2B1A532C5000017D84 /* caRHds for odesk project.4a.png */; };
+		3908BF361A532C5000017D84 /* caRHds for odesk project.4b.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2C1A532C5000017D84 /* caRHds for odesk project.4b.png */; };
+		3908BF371A532C5000017D84 /* caRHds for odesk project.5a.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2D1A532C5000017D84 /* caRHds for odesk project.5a.png */; };
+		3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2E1A532C5000017D84 /* caRHds for odesk project.5b.png */; };
+		3908BF3C1A532E9200017D84 /* SingleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3908BF3B1A532E9200017D84 /* SingleCardViewController.m */; };
 		395E4CB91A51E354006361BA /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CB81A51E354006361BA /* ParseManager.m */; };
 		395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CBB1A51E36E006361BA /* QuickBloxManager.m */; };
 		395E4CBE1A51E401006361BA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E4CBD1A51E401006361BA /* libxml2.dylib */; };
@@ -75,16 +76,18 @@
 		3904245C1A53182F00370E80 /* JSONRepresentation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONRepresentation.h; sourceTree = "<group>"; };
 		3904245D1A53182F00370E80 /* NSDictionary_JSONExtensions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NSDictionary_JSONExtensions.h; sourceTree = "<group>"; };
 		3904245E1A53182F00370E80 /* NSDictionary_JSONExtensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NSDictionary_JSONExtensions.m; sourceTree = "<group>"; };
-		3908BF251A532C5000017D84 /* caRHds for odesk project.001.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.001.png"; sourceTree = "<group>"; };
-		3908BF261A532C5000017D84 /* caRHds for odesk project.002.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.002.png"; sourceTree = "<group>"; };
-		3908BF271A532C5000017D84 /* caRHds for odesk project.003.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.003.png"; sourceTree = "<group>"; };
-		3908BF281A532C5000017D84 /* caRHds for odesk project.004.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.004.png"; sourceTree = "<group>"; };
-		3908BF291A532C5000017D84 /* caRHds for odesk project.005.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.005.png"; sourceTree = "<group>"; };
-		3908BF2A1A532C5000017D84 /* caRHds for odesk project.006.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.006.png"; sourceTree = "<group>"; };
-		3908BF2B1A532C5000017D84 /* caRHds for odesk project.007.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.007.png"; sourceTree = "<group>"; };
-		3908BF2C1A532C5000017D84 /* caRHds for odesk project.008.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.008.png"; sourceTree = "<group>"; };
-		3908BF2D1A532C5000017D84 /* caRHds for odesk project.009.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.009.png"; sourceTree = "<group>"; };
-		3908BF2E1A532C5000017D84 /* caRHds for odesk project.010.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.010.png"; sourceTree = "<group>"; };
+		3908BF251A532C5000017D84 /* caRHds for odesk project.1a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.1a.png"; sourceTree = "<group>"; };
+		3908BF261A532C5000017D84 /* caRHds for odesk project.1b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.1b.png"; sourceTree = "<group>"; };
+		3908BF271A532C5000017D84 /* caRHds for odesk project.2a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.2a.png"; sourceTree = "<group>"; };
+		3908BF281A532C5000017D84 /* caRHds for odesk project.2b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.2b.png"; sourceTree = "<group>"; };
+		3908BF291A532C5000017D84 /* caRHds for odesk project.3a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.3a.png"; sourceTree = "<group>"; };
+		3908BF2A1A532C5000017D84 /* caRHds for odesk project.3b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.3b.png"; sourceTree = "<group>"; };
+		3908BF2B1A532C5000017D84 /* caRHds for odesk project.4a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.4a.png"; sourceTree = "<group>"; };
+		3908BF2C1A532C5000017D84 /* caRHds for odesk project.4b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.4b.png"; sourceTree = "<group>"; };
+		3908BF2D1A532C5000017D84 /* caRHds for odesk project.5a.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.5a.png"; sourceTree = "<group>"; };
+		3908BF2E1A532C5000017D84 /* caRHds for odesk project.5b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.5b.png"; sourceTree = "<group>"; };
+		3908BF3A1A532E9200017D84 /* SingleCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleCardViewController.h; sourceTree = "<group>"; };
+		3908BF3B1A532E9200017D84 /* SingleCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleCardViewController.m; sourceTree = "<group>"; };
 		395E4CB71A51E354006361BA /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		395E4CB81A51E354006361BA /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		395E4CBA1A51E36E006361BA /* QuickBloxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickBloxManager.h; sourceTree = "<group>"; };
@@ -208,18 +211,27 @@
 		3908BF241A532C5000017D84 /* CardsPhotos */ = {
 			isa = PBXGroup;
 			children = (
-				3908BF251A532C5000017D84 /* caRHds for odesk project.001.png */,
-				3908BF261A532C5000017D84 /* caRHds for odesk project.002.png */,
-				3908BF271A532C5000017D84 /* caRHds for odesk project.003.png */,
-				3908BF281A532C5000017D84 /* caRHds for odesk project.004.png */,
-				3908BF291A532C5000017D84 /* caRHds for odesk project.005.png */,
-				3908BF2A1A532C5000017D84 /* caRHds for odesk project.006.png */,
-				3908BF2B1A532C5000017D84 /* caRHds for odesk project.007.png */,
-				3908BF2C1A532C5000017D84 /* caRHds for odesk project.008.png */,
-				3908BF2D1A532C5000017D84 /* caRHds for odesk project.009.png */,
-				3908BF2E1A532C5000017D84 /* caRHds for odesk project.010.png */,
+				3908BF251A532C5000017D84 /* caRHds for odesk project.1a.png */,
+				3908BF261A532C5000017D84 /* caRHds for odesk project.1b.png */,
+				3908BF271A532C5000017D84 /* caRHds for odesk project.2a.png */,
+				3908BF281A532C5000017D84 /* caRHds for odesk project.2b.png */,
+				3908BF291A532C5000017D84 /* caRHds for odesk project.3a.png */,
+				3908BF2A1A532C5000017D84 /* caRHds for odesk project.3b.png */,
+				3908BF2B1A532C5000017D84 /* caRHds for odesk project.4a.png */,
+				3908BF2C1A532C5000017D84 /* caRHds for odesk project.4b.png */,
+				3908BF2D1A532C5000017D84 /* caRHds for odesk project.5a.png */,
+				3908BF2E1A532C5000017D84 /* caRHds for odesk project.5b.png */,
 			);
 			path = CardsPhotos;
+			sourceTree = "<group>";
+		};
+		3908BF391A532E8100017D84 /* SingleCardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				3908BF3A1A532E9200017D84 /* SingleCardViewController.h */,
+				3908BF3B1A532E9200017D84 /* SingleCardViewController.m */,
+			);
+			path = SingleCardViewController;
 			sourceTree = "<group>";
 		};
 		395E4CB51A51E343006361BA /* ParseManager */ = {
@@ -272,6 +284,7 @@
 		395E4CD41A521693006361BA /* ClientViewController */ = {
 			isa = PBXGroup;
 			children = (
+				3908BF391A532E8100017D84 /* SingleCardViewController */,
 				390424461A52D9FC00370E80 /* ClientViewController.h */,
 				390424471A52D9FC00370E80 /* ClientViewController.m */,
 			);
@@ -510,18 +523,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3908BF361A532C5000017D84 /* caRHds for odesk project.008.png in Resources */,
-				3908BF311A532C5000017D84 /* caRHds for odesk project.003.png in Resources */,
-				3908BF321A532C5000017D84 /* caRHds for odesk project.004.png in Resources */,
-				3908BF351A532C5000017D84 /* caRHds for odesk project.007.png in Resources */,
+				3908BF361A532C5000017D84 /* caRHds for odesk project.4b.png in Resources */,
+				3908BF311A532C5000017D84 /* caRHds for odesk project.2a.png in Resources */,
+				3908BF321A532C5000017D84 /* caRHds for odesk project.2b.png in Resources */,
+				3908BF351A532C5000017D84 /* caRHds for odesk project.4a.png in Resources */,
 				398AADAB1A51DE530003EF8C /* Main.storyboard in Resources */,
 				398AADB01A51DE530003EF8C /* LaunchScreen.xib in Resources */,
-				3908BF371A532C5000017D84 /* caRHds for odesk project.009.png in Resources */,
-				3908BF301A532C5000017D84 /* caRHds for odesk project.002.png in Resources */,
-				3908BF2F1A532C5000017D84 /* caRHds for odesk project.001.png in Resources */,
-				3908BF341A532C5000017D84 /* caRHds for odesk project.006.png in Resources */,
-				3908BF381A532C5000017D84 /* caRHds for odesk project.010.png in Resources */,
-				3908BF331A532C5000017D84 /* caRHds for odesk project.005.png in Resources */,
+				3908BF371A532C5000017D84 /* caRHds for odesk project.5a.png in Resources */,
+				3908BF301A532C5000017D84 /* caRHds for odesk project.1b.png in Resources */,
+				3908BF2F1A532C5000017D84 /* caRHds for odesk project.1a.png in Resources */,
+				3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */,
+				3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */,
+				3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */,
 				398AADAD1A51DE530003EF8C /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,6 +557,7 @@
 				395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */,
 				395E4CC31A51E4E1006361BA /* APIResponse.m in Sources */,
 				395E4CE51A521AC0006361BA /* ChatService.m in Sources */,
+				3908BF3C1A532E9200017D84 /* SingleCardViewController.m in Sources */,
 				395E4CDC1A521826006361BA /* ChatMessageTableViewCell.m in Sources */,
 				3904244C1A52F74200370E80 /* MeetingHandler.m in Sources */,
 				395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */,

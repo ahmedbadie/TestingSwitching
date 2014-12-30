@@ -10,7 +10,6 @@
 #import "ChatService.h"
 #import "ChatMessageTableViewCell.h"
 @interface HostViewController : AbstractViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
-@property (nonatomic,strong) QBChatRoom* chatRoom;
 @property (nonatomic,strong) NSMutableArray* msgs;
 @property (weak, nonatomic) IBOutlet UITextField *messageTextField;
 

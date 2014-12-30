@@ -13,9 +13,9 @@
 #import "MeetingHandler.h"
 #import "JsonMessageParser.h"
 @interface AbstractViewController : UIViewController< MeetingHandlerDelegate,JsonMessageParserDelegate>
-@property(nonatomic,strong) QBUUser* user;
-@property(nonatomic,strong) QBChatDialog* chatDialog;
-@property(nonatomic,strong) MBProgressHUD* hud;
+@property(nonatomic,retain) QBUUser* user;
+@property(nonatomic,retain) QBChatDialog* chatDialog;
+@property(nonatomic,retain) MBProgressHUD* hud;
 -(void) warnUserWithMessage:(NSString*) msg;
 @property (nonatomic,strong) MeetingHandler* handler;
 @end
