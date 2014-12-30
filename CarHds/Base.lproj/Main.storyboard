@@ -152,7 +152,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bY-HZ-PmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="486" y="571"/>
+            <point key="canvasLocation" x="440" y="478"/>
         </scene>
         <!--Client View Controller-->
         <scene sceneID="N12-Ro-3ph">
@@ -231,7 +231,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hlf-bH-RS2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="660" y="175"/>
+            <point key="canvasLocation" x="904" y="131"/>
+        </scene>
+        <!--Page View Controller-->
+        <scene sceneID="6i0-UY-KFl">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="4nB-zT-VLH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2z-Kb-ds9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1441" y="257"/>
         </scene>
     </scenes>
     <resources>
