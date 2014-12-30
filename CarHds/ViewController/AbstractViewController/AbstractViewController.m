@@ -61,6 +61,25 @@
 
 }
 
+#pragma mark - json message parser delegate -
+-(void)receivedCardVoteForCard:(NSInteger)cardNo withValue:(BOOL)val
+{
+}
+
+-(void)receivedConclusionSignal
+{
+
+}
+
+-(void)receivedContributionMessageForType:(CONTRIBUTION_TYPE)type withValue:(CONTRIBUTION_VALUE)val fromUserID:(NSUInteger)userID
+{
+
+}
+
+-(void)receivedLoginMessageForUsername:(NSString *)username andUserID:(NSUInteger)userID
+{
+
+}
 
 
 @end

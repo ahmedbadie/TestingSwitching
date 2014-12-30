@@ -12,7 +12,7 @@
 #import "ChatService.h"
 #import "MeetingHandler.h"
 #import "JsonMessageParser.h"
-@interface AbstractViewController : UIViewController< MeetingHandlerDelegate>
+@interface AbstractViewController : UIViewController< MeetingHandlerDelegate,JsonMessageParserDelegate>
 @property(nonatomic,strong) QBUUser* user;
 @property(nonatomic,strong) QBChatDialog* chatDialog;
 @property(nonatomic,strong) MBProgressHUD* hud;

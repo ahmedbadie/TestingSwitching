@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "CJSONDeserializer.h"
 #import "CJSONSerializer.h"
-
+#import <Quickblox/Quickblox.h>
 #define MESSAGE_TARGET @"target"
 #define MESSAGE_TARGET_BROADCAST @"broadcast"
 #define MESSAGE_TARGET_HOST @"host"
@@ -31,11 +31,31 @@ typedef enum
     CONTRIBUTION_TYPE_PERSONAL,
 }CONTRIBUTION_TYPE;
 
+typedef enum{
+    CONTRIBUTION_VALUE_FIRST=0,
+    CONTRIBUTION_VALUE_SECOND,
+    CONTRIBUTION_VALUE_THIRD
+    
+} CONTRIBUTION_VALUE;
+typedef enum{
+    MessageTragetBroadcast=0,
+    MessageTragetHost
+} MessageTraget;
+
+
+@protocol JsonMessageParserDelegate <NSObject>
+
+-(void) receivedLoginMessageForUsername:(NSString*) username andUserID:(NSUInteger) userID;
+-(void) receivedConclusionSignal;
+-(void) receivedCardVoteForCard:(NSInteger) cardNo withValue:(BOOL) val;
+-(void) receivedContributionMessageForType:(CONTRIBUTION_TYPE) type withValue:(CONTRIBUTION_VALUE) val fromUserID:(NSUInteger) userID;
+
+@end
 @interface JsonMessageParser : NSObject
 
 +(NSString*) loginMessageWithUsername:(NSString*)username;
-+(NSString*) contributionMessageWithContributionIndex:(CONTRIBUTION_TYPE) contributionIndex withValue:(NSInteger) value;
++(NSString*) contributionMessageWithContributionIndex:(CONTRIBUTION_TYPE) contributionIndex withValue:(CONTRIBUTION_VALUE) value;
 +(NSString*) broadcastContributionSignal;
-+(NSString*) cardVoteMessageForCard:(NSInteger) cardNo withValue:(NSInteger) value;
-
++(NSString*) cardVoteMessageForCard:(NSInteger) cardNo withValue:(BOOL) value;
++(BOOL) decodeMessage:(QBChatMessage*) message withDelegate:(NSObject<JsonMessageParserDelegate>*) delegate;
 @end

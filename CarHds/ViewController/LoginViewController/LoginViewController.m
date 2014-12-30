@@ -26,12 +26,6 @@
                                               otherButtonTitles:nil];
         [alert show];
     }];
-
-    NSString* json = [JsonMessageParser loginMessageWithUsername:@"zonkoly"];
-    NSLog(@"%@",json);
-    NSData *theData = [json dataUsingEncoding:NSUTF8StringEncoding];
-    NSDictionary* dict = [[CJSONDeserializer deserializer] deserialize:theData error:nil];
-    NSLog(@"%@",[dict description]);
     // Do any additional setup after loading the view.
 }
 
