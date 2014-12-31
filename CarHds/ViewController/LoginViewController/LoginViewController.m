@@ -61,6 +61,10 @@
 //            NSLog(@"Account created");
 //        }
 //    }];
+    if([[QBChat instance]isLoggedIn])
+    {
+        [[QBChat instance] logout];
+    }
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= @"Login";
     [QuickBloxManager loginWithUser:[self.usernameTextField text] andPassword:[self.passwordTextField text] withCompletionHandler:^(APIResponse *response) {
