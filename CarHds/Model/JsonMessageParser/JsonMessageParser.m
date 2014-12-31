@@ -72,26 +72,27 @@
             [delegate receivedConclusionSignal];
             return YES;
         }
-    }else if ([target isEqualToString:MESSAGE_HOST_TYPE])
+        
+    }else if ([target isEqualToString:MESSAGE_TARGET_HOST])
     {
         
         NSString* type = [dict objectForKey:MESSAGE_HOST_TYPE];
         if([type isEqualToString:MESSAGE_HOST_TYPE_LOGIN])
         {
-            [delegate receivedLoginMessageForUsername:[dict objectForKey:MESSAGE_LOGIN_USERNAME] andUserID:message.senderID];
+            [delegate receivedLoginMessageForUsername:[dict objectForKey:MESSAGE_LOGIN_USERNAME] fromMsg:message];
             return YES;
         }else if ([type isEqualToString:MESSAGE_HOST_TYPE_CONCLUDE])
         {
             
             CONTRIBUTION_TYPE subType = (CONTRIBUTION_TYPE)[dict objectForKey:MESSAGE_CONCLUDE_CONTRIBUTION_TYPE];
             CONTRIBUTION_VALUE value = (CONTRIBUTION_VALUE) [dict objectForKey:MESSAGE_CONCLUDE_CONTRIBUTION_VALUE];
-            [delegate receivedContributionMessageForType:subType withValue:value fromUserID:message.senderID];
+            [delegate receivedContributionMessageForType:subType withValue:value fromMsg:message];
             return YES;
         }else if ([type isEqualToString:MESSAGE_HOST_TYPE_CARD_VOTE])
         {
            NSInteger number =  [[dict objectForKey:MESSAGE_CARD_VOTE_CARD_NO] integerValue];
             BOOL val = [[dict objectForKey:MESSAGE_CARD_VOTE_VALUE] boolValue];
-            [delegate receivedCardVoteForCard:number withValue:val];
+            [delegate receivedCardVoteForCard:number withValue:val fromMsg:message];
             return YES;
         }
         

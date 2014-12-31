@@ -12,10 +12,11 @@
 #import "ChatService.h"
 #import "MeetingHandler.h"
 #import "JsonMessageParser.h"
+
+#define IS_IPAD  UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad 
 @interface AbstractViewController : UIViewController< MeetingHandlerDelegate,JsonMessageParserDelegate>
 @property(nonatomic,retain) QBUUser* user;
 @property(nonatomic,retain) QBChatDialog* chatDialog;
 @property(nonatomic,retain) MBProgressHUD* hud;
 -(void) warnUserWithMessage:(NSString*) msg;
-@property (nonatomic,strong) MeetingHandler* handler;
 @end

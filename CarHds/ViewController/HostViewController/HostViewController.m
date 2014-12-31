@@ -7,10 +7,18 @@
 //
 
 #import "HostViewController.h"
-
+#import "SingleCardViewController.h"
 @interface HostViewController ()
-@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIView *IphoneView;
+@property (weak, nonatomic) IBOutlet UIView *IpadView;
+@property (weak, nonatomic) IBOutlet UIView *card0View;
+@property (weak, nonatomic) IBOutlet UIView *card1View;
+@property (weak, nonatomic) IBOutlet UIView *card2View;
+@property (weak, nonatomic) IBOutlet UIView *card3View;
+@property (weak, nonatomic) IBOutlet UIView *card4View;
 
+@property (nonatomic,strong) NSMutableDictionary* users;
+@property (nonatomic,strong) NSMutableArray* viewControllers;
 @end
 
 @implementation HostViewController
@@ -18,12 +26,36 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.msgs = [NSMutableArray array];
-    self.handler = [[MeetingHandler alloc]init];
-    self.handler.delegate = self;
-    self.handler.chatDialog = self.chatDialog;
-    self.handler.user = self.user;
-    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    [QBChat instance].delegate = self.handler;
+    self.users = [NSMutableDictionary dictionary];
+    [MeetingHandler sharedInstance].delegate = self;
+   
+    [QBChat instance].delegate = [MeetingHandler sharedInstance];
+    
+    if(IS_IPAD)
+    {
+        [self.IphoneView removeFromSuperview];
+        [self.IpadView setHidden:NO];
+        UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        NSArray* cardsViews = @[self.card1View,self.card2View,self.card3View,self.card4View,self.card0View];
+        self.viewControllers = [NSMutableArray arrayWithCapacity:[cardsViews count]];
+        for(int i=0 ;i<[cardsViews count] ; i++)
+            [self.viewControllers addObject:@(YES)];
+        for(UIView* view in cardsViews)
+        {
+            SingleCardViewController* card= [storyBoard instantiateViewControllerWithIdentifier:@"SingleCardViewController"];
+            card.index = view.tag;
+            card.value = YES;
+            card.view.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+            [self addChildViewController:card];
+            [view addSubview:card.view];
+            [card didMoveToParentViewController:self];
+            [self.viewControllers replaceObjectAtIndex:card.index withObject:card];
+        }
+        
+    }else{
+        [self.IphoneView setHidden:NO];
+        [self.IpadView removeFromSuperview];
+    }
     // Do any additional setup after loading the view.
 }
 -(void)viewWillDisappear:(BOOL)animated
@@ -49,7 +81,7 @@
     
     self.title = self.chatDialog.name;
     
-    [self.handler connectToChatDialog:self.chatDialog];
+    [[MeetingHandler sharedInstance] connectToChatDialog:self.chatDialog];
 
 }
 /*
@@ -64,33 +96,6 @@
 
 
 
-#pragma mark -Table Methods -
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.msgs count];
-}
-
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    static NSString *ChatMessageCellIdentifier = @"ChatMessageCellIdentifier";
-    
-    ChatMessageTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ChatMessageCellIdentifier];
-    if(cell == nil){
-        cell = [[ChatMessageTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ChatMessageCellIdentifier];
-    }
-    
-    QBChatAbstractMessage *message = self.msgs[indexPath.row];
-    //
-    [cell configureCellWithMessage:message];
-    cell.user = self.user;
-    return cell;
-}
 
 
 
@@ -98,20 +103,7 @@
 #
 - (IBAction)sendMessage:(id)sender {
     
-    if(self.messageTextField.text.length == 0){
-        return;
-    }
-    
-    [self.handler sendMessage:[self.messageTextField text] toChatRoom:[self.chatDialog chatRoom]];
-    // Reload table
-    [self.tableView reloadData];
-    if(self.msgs.count > 0){
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.msgs count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
-    }
-    
-    // Clean text field
-    [self.messageTextField setText:nil];
-}
+  }
 
 #pragma mark
 #pragma mark - Meeting Handler Delegate Methods -
@@ -119,9 +111,8 @@
 -(void)didReciveMessages:(NSArray *)msgs
 {
     [self.msgs addObjectsFromArray:msgs];
-    [self.tableView reloadData];
-    if([self.msgs count]>0)
-        [self.tableView scrollToRowAtIndexPath:[NSIndexPath indexPathForRow:[self.msgs count]-1 inSection:0] atScrollPosition:UITableViewScrollPositionBottom animated:YES];
+    for(QBChatMessage* msg in msgs)
+        [JsonMessageParser decodeMessage:msg withDelegate:self];
 
 }
 
@@ -131,6 +122,66 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField resignFirstResponder];
     return YES;
+}
+
+
+-(void)receivedCardVoteForCard:(NSInteger)cardNo withValue:(BOOL)val fromMsg:(QBChatMessage *)msg
+{
+    NSUInteger userId = msg.senderID;
+    NSMutableDictionary* dictionary = [self.users objectForKey:@(userId)];
+    if(dictionary==nil)
+    {
+        dictionary = [NSMutableDictionary dictionary];
+        [dictionary setObject:[NSString stringWithFormat:@"%u",userId] forKey:MESSAGE_LOGIN_USERNAME];
+        NSMutableArray* cards = [NSMutableArray array];
+        for(int i=0;i<5;i++)
+            [cards addObject:@YES];
+        [dictionary setObject:cards forKey:@"cards"];
+        [self.users setObject:dictionary forKey:@(userId)];
+    }
+    NSMutableArray* cards = [dictionary objectForKey:@"cards"];
+    [cards replaceObjectAtIndex:cardNo withObject:@(val)];
+    SingleCardViewController* vc = [self.viewControllers objectAtIndex:cardNo];
+//    vc.value = vc.value & val;
+    BOOL value = YES;
+    
+    NSArray* allKeys = [self.users allKeys];
+    
+    for(NSString* key in allKeys)
+    {
+        value = value & [[[[self.users objectForKey:key] objectForKey:@"cards"] objectAtIndex:cardNo] boolValue];
+    }
+    vc.value = value;
+    [vc setImage];
+}
+
+-(void)receivedConclusionSignal
+{
+
+}
+
+-(void)receivedContributionMessageForType:(CONTRIBUTION_TYPE)type withValue:(CONTRIBUTION_VALUE)val fromMsg:(QBChatMessage *)msg
+{
+    
+}
+
+-(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
+{
+    NSUInteger userId = msg.senderID;
+
+    NSMutableDictionary* dictionary = [self.users objectForKey:@(userId)];
+    
+    if(dictionary==nil)
+    {
+        dictionary = [NSMutableDictionary dictionary];
+        [dictionary setObject:username forKey:MESSAGE_LOGIN_USERNAME];
+        NSMutableArray* cards = [NSMutableArray array];
+        for(int i=0;i<5;i++)
+            [cards addObject:@YES];
+        [dictionary setObject:cards forKey:@"cards"];
+        [self.users setObject:dictionary forKey:@(userId)];
+    }
+    
 }
 
 @end

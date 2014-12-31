@@ -29,11 +29,8 @@
     // Do any additional setup after loading the view.
     
     self.messages = [NSMutableArray array];
+    [MeetingHandler sharedInstance].delegate = self;
     
-       self.handler = [[MeetingHandler alloc]init];
-    self.handler.delegate = self;
-    self.handler.chatDialog =self.chatDialog;
-    self.handler.user = self.user;
     
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
@@ -49,6 +46,7 @@
     [self.pageController didMoveToParentViewController:self];
     
     // Do any additional setup after loading the view.
+    [QBChat instance].delegate = [MeetingHandler sharedInstance];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -57,7 +55,7 @@
     
         
             self.title = self.chatDialog.name;
-    [self.handler connectToChatDialog:self.chatDialog];
+    [[MeetingHandler sharedInstance] connectToChatDialog:self.chatDialog];
    
 
 }
@@ -178,8 +176,8 @@
 #pragma mark - View Controller For Card At Index -
 -(SingleCardViewController*) viewControllerForIndex:(NSInteger) index
 {
-    
-    SingleCardViewController* controller = [[SingleCardViewController alloc]init];
+    UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    SingleCardViewController* controller = [sb instantiateViewControllerWithIdentifier:@"SingleCardViewController"];
     controller.index = index;
     controller.value = [[self.values objectAtIndex:index] boolValue];
     controller.type = 0;
@@ -202,6 +200,15 @@
     [self.values replaceObjectAtIndex:pageIndex withObject:@(!pageOldValue)];
     NSString* msg = [JsonMessageParser cardVoteMessageForCard:pageIndex withValue:!pageOldValue];
     QBChatRoom* chatRoom = [self.chatDialog chatRoom];
-    [self.handler sendMessage:msg toChatRoom:chatRoom];
+        
+    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
+}
+
+#pragma mark - Meeting Handler Delegate -
+
+-(void)didConnectToRoom:(QBChatRoom *)chatRoom
+{
+   NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:[MeetingHandler sharedInstance].qbUser.login];
+    [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom];
 }
 @end

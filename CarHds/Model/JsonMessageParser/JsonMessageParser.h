@@ -45,10 +45,10 @@ typedef enum{
 
 @protocol JsonMessageParserDelegate <NSObject>
 
--(void) receivedLoginMessageForUsername:(NSString*) username andUserID:(NSUInteger) userID;
+-(void) receivedLoginMessageForUsername:(NSString*) username  fromMsg:(QBChatMessage*) msg;
 -(void) receivedConclusionSignal;
--(void) receivedCardVoteForCard:(NSInteger) cardNo withValue:(BOOL) val;
--(void) receivedContributionMessageForType:(CONTRIBUTION_TYPE) type withValue:(CONTRIBUTION_VALUE) val fromUserID:(NSUInteger) userID;
+-(void) receivedCardVoteForCard:(NSInteger) cardNo withValue:(BOOL) val fromMsg:(QBChatMessage*) msg;
+-(void) receivedContributionMessageForType:(CONTRIBUTION_TYPE) type withValue:(CONTRIBUTION_VALUE) val fromMsg:(QBChatMessage*)msg;
 
 @end
 @interface JsonMessageParser : NSObject

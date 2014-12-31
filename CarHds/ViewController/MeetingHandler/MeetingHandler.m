@@ -10,7 +10,16 @@
 #import "ChatService.h"
 @implementation MeetingHandler
 
+static MeetingHandler* handler;
 
++(instancetype)sharedInstance
+{
+    if(handler==nil)
+    {
+        handler = [[MeetingHandler alloc]init];
+    }
+    return handler;
+}
 -(void)connectToChatDialog:(QBChatDialog *)chatDialog
 {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatDidReceiveMessageNotification:)
@@ -20,15 +29,18 @@
     
     [QBChat instance].delegate = self;
     // Join room
-    QBChatRoom* room = [chatDialog chatRoom];
+    QBChatRoom* room = self.chatDialog.chatRoom;
     self.chatRoom = room;
+    
     if(self.chatDialog.type != QBChatDialogTypePrivate){
-        [[ChatService instance] joinRoom:room completionBlock:^(QBChatRoom *joinedChatRoom) {
+        [[ChatService instance] joinRoom:self.chatRoom completionBlock:^(QBChatRoom * room) {
+            [self chatRoomDidEnter:self.chatRoom];
         }];
+
     }
     
     // get messages history
-    [QBChat messagesWithDialogID:chatDialog.ID extendedRequest:nil delegate:self];
+    [QBChat messagesWithDialogID:self.chatDialog.ID extendedRequest:nil delegate:self];
 
 }
 
@@ -66,7 +78,7 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"save_to_history"] = @YES;
     [message setCustomParameters:params];
-    [[ChatService instance] sendMessage:message toRoom:self.chatRoom];
+    [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
     
 
 }
@@ -82,5 +94,13 @@
     }
 }
 
+#pragma mark 
+#pragma mark -QBChatDelegate -
+
+-(void)chatRoomDidEnter:(QBChatRoom *)room
+{
+    
+    [self.delegate didConnectToRoom:room];
+}
 
 @end

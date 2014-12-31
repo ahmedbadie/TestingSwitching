@@ -7,7 +7,7 @@
 //
 
 #import "QuickBloxManager.h"
-
+#import "MeetingHandler.h"
 @implementation QuickBloxManager
 
 #pragma mark - User Creation methods -
@@ -25,6 +25,7 @@
 //    }else{
 //                apiResponse.error = [NSError errorWithDomain:@"" code:response.status userInfo:nil];
 //            }
+        [MeetingHandler sharedInstance].qbUser = user;
         handler(apiResponse);
     } errorBlock:^(QBResponse *response) {
         APIResponse* apiResponse =[APIResponse apiResponse];
@@ -37,9 +38,12 @@
 +(void)loginWithUser:(NSString *)username andPassword:(NSString *)password withCompletionHandler:(void (^)(APIResponse *))handler
 {
     
+    
     [QBRequest logInWithUserLogin:username password:password successBlock:^(QBResponse *response, QBUUser *user) {
         APIResponse* apiResponse = [APIResponse apiResponse];
         apiResponse.result = user;
+        QBUUser* userTemp = user;
+        [MeetingHandler sharedInstance].qbUser = userTemp;
         handler(apiResponse);
         
     } errorBlock:^(QBResponse *response) {

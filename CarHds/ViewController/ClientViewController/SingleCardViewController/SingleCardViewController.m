@@ -9,7 +9,7 @@
 #import "SingleCardViewController.h"
 
 @interface SingleCardViewController ()
-@property (nonatomic,strong) UIImageView* imageView;
+@property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @end
 
 @implementation SingleCardViewController
@@ -21,17 +21,14 @@
     // Do any additional setup after loading the view.
 }
 
--(void) setImage
+-(void)setImage
 {
-    if(self.imageView)
-    {
-        [self.imageView removeFromSuperview];
-    }
+   
     NSString* imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
     UIImage* image = [UIImage imageNamed:imageName];
-    self.imageView = [[UIImageView alloc] initWithFrame:self.view.frame];
     
     [self.imageView  setImage:[self imageRotatedByDegrees:image deg:90]];
+    
     [self.view addSubview:self.imageView];
 
 }

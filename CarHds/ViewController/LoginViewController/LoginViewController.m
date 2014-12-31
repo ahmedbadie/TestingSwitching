@@ -125,14 +125,20 @@
     {
         
         QBChatDialogResult * dialogRes = (QBChatDialogResult*) result;
-        self.chatDialog = dialogRes.dialog;
+        QBChatDialog* dialog = dialogRes.dialog;
+        self.chatDialog = dialog;
+        [MeetingHandler sharedInstance].chatDialog = dialog;
+        QBChatRoom* room = dialog.chatRoom;
+        
+        [MeetingHandler sharedInstance].chatRoom = room;
         [self performSegueWithIdentifier:@"HostViewSegue" sender:self];
         
     }else if (result.success && [result isKindOfClass:[QBDialogsPagedResult class]]) {
         QBDialogsPagedResult *pagedResult = (QBDialogsPagedResult *)result;
         //
         NSArray *dialogs = pagedResult.dialogs;
-        
+        QBChatDialog* chatDialog;
+        QBChatRoom* room ;
         for(QBChatDialog* dialog in dialogs)
         {
             if([dialog.name isEqualToString:[self.meetingIDTextField text]])
@@ -142,7 +148,11 @@
                         [self warnUserWithMessage:@"Meeting ID already exists"];
                         break;
                     case JOIN_MEETING_INDEX:
-                        self.chatDialog = dialog;
+                        chatDialog = dialog;
+                        self.chatDialog = chatDialog;
+                        [MeetingHandler sharedInstance].chatDialog = chatDialog;
+                        room = chatDialog.chatRoom;
+                        [MeetingHandler sharedInstance].chatRoom = room;
                         [self joinMeetingRoom];
                         break;
                     default:
@@ -178,6 +188,7 @@
     // If successfully loged in to chat
     NSMutableDictionary* dictionary =[NSMutableDictionary dictionary];
     [dictionary setObject:[self.meetingIDTextField text] forKey:@"name"];
+    [MeetingHandler sharedInstance].qbUser= [QBChat instance].currentUser;
     [QBChat dialogsWithExtendedRequest:dictionary delegate:self];
 //    switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
 //        case HOST_MEETING_INDEX:

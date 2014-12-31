@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <Quickblox/Quickblox.h>
+#import "JsonMessageParser.h"
 @protocol MeetingHandlerDelegate <NSObject>
 
 -(void) didReciveMessages:(NSArray*) msgs;
@@ -17,10 +18,13 @@
 @interface MeetingHandler : NSObject<QBChatDelegate,QBActionStatusDelegate>
 
 @property(nonatomic,strong) QBChatDialog* chatDialog;
-@property (nonatomic,strong) QBUUser* user;
+@property (nonatomic,strong) QBUUser* qbUser;
 @property (nonatomic,strong) QBChatRoom* chatRoom;
 @property (nonatomic,strong) UIViewController<MeetingHandlerDelegate>* delegate;
+@property (nonatomic) BOOL isLoggedIn;
+@property (nonatomic) BOOL isJoinedToChat;
 
++(instancetype) sharedInstance;
 
 -(void) connectToChatDialog:(QBChatDialog*) chatDialog;
 -(void) sendMessage:(NSString*)msg toChatRoom:(QBChatRoom*) chatRoom;

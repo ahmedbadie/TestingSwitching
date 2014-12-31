@@ -9,8 +9,11 @@
 #import "AbstractViewController.h"
 #import "ChatService.h"
 #import "ChatMessageTableViewCell.h"
-@interface HostViewController : AbstractViewController<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate>
+@interface HostViewController : AbstractViewController<UITextFieldDelegate>
 @property (nonatomic,strong) NSMutableArray* msgs;
-@property (weak, nonatomic) IBOutlet UITextField *messageTextField;
+
+@property (nonatomic,strong) UIPageViewController* pageController;
+@property (weak, nonatomic) IBOutlet UIView *pageView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 
 @end
