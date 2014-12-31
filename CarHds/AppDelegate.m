@@ -25,6 +25,8 @@
     [QBConnection registerServiceSecret:QUICK_BLOX_SERVICE_SECRET];
     [QBSettings setAccountKey:QUICK_BLOX_ACCOUNT_KEY];
 
+    
+    [Instabug startWithToken:INSTABUG_APP_TOKEN captureSource:IBGCaptureSourceUIKit invocationEvent:IBGInvocationEventShake];
     return YES;
 }
 

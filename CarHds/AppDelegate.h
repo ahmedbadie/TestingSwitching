@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import <Quickblox/Quickblox.h>
+#import <Instabug/Instabug.h>
 
 
 #pragma mark - Definitions -
@@ -16,6 +17,7 @@
 #define QUICK_BLOX_SERVICE_SECRET @"pM-Q78bztM3jv6f"
 #define QUICK_BLOX_ACCOUNT_KEY @"kaM8D8YrLtxqbajo1qfo"
 
+#define INSTABUG_APP_TOKEN @"adcd586d6f5830fe42d60d744248c8c9"
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

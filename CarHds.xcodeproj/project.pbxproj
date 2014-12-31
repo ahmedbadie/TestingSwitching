@@ -24,6 +24,17 @@
 		3908BF371A532C5000017D84 /* caRHds for odesk project.5a.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2D1A532C5000017D84 /* caRHds for odesk project.5a.png */; };
 		3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */ = {isa = PBXBuildFile; fileRef = 3908BF2E1A532C5000017D84 /* caRHds for odesk project.5b.png */; };
 		3908BF3C1A532E9200017D84 /* SingleCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3908BF3B1A532E9200017D84 /* SingleCardViewController.m */; };
+		39116A051A5453170043C245 /* libc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A041A5453170043C245 /* libc++.dylib */; };
+		39116A071A54531F0043C245 /* CoreMotion.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A061A54531F0043C245 /* CoreMotion.framework */; };
+		39116A091A5453250043C245 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A081A5453250043C245 /* CoreTelephony.framework */; };
+		39116A0B1A54532B0043C245 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A0A1A54532B0043C245 /* AudioToolbox.framework */; };
+		39116A0D1A5453310043C245 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A0C1A5453310043C245 /* QuartzCore.framework */; };
+		39116A0F1A54533E0043C245 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A0E1A54533E0043C245 /* MessageUI.framework */; };
+		39116A111A54534B0043C245 /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A101A54534B0043C245 /* OpenGLES.framework */; };
+		39116A131A5453520043C245 /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A121A5453520043C245 /* GLKit.framework */; };
+		39116A151A5453600043C245 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A141A5453600043C245 /* Foundation.framework */; };
+		39116A181A5453840043C245 /* Instabug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39116A161A5453840043C245 /* Instabug.bundle */; };
+		39116A191A5453840043C245 /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A171A5453840043C245 /* Instabug.framework */; };
 		395E4CB91A51E354006361BA /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CB81A51E354006361BA /* ParseManager.m */; };
 		395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CBB1A51E36E006361BA /* QuickBloxManager.m */; };
 		395E4CBE1A51E401006361BA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E4CBD1A51E401006361BA /* libxml2.dylib */; };
@@ -88,6 +99,17 @@
 		3908BF2E1A532C5000017D84 /* caRHds for odesk project.5b.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "caRHds for odesk project.5b.png"; sourceTree = "<group>"; };
 		3908BF3A1A532E9200017D84 /* SingleCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SingleCardViewController.h; sourceTree = "<group>"; };
 		3908BF3B1A532E9200017D84 /* SingleCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SingleCardViewController.m; sourceTree = "<group>"; };
+		39116A041A5453170043C245 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "usr/lib/libc++.dylib"; sourceTree = SDKROOT; };
+		39116A061A54531F0043C245 /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		39116A081A5453250043C245 /* CoreTelephony.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreTelephony.framework; path = System/Library/Frameworks/CoreTelephony.framework; sourceTree = SDKROOT; };
+		39116A0A1A54532B0043C245 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		39116A0C1A5453310043C245 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		39116A0E1A54533E0043C245 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		39116A101A54534B0043C245 /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
+		39116A121A5453520043C245 /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		39116A141A5453600043C245 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		39116A161A5453840043C245 /* Instabug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Instabug.bundle; sourceTree = "<group>"; };
+		39116A171A5453840043C245 /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Instabug.framework; sourceTree = "<group>"; };
 		395E4CB71A51E354006361BA /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		395E4CB81A51E354006361BA /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		395E4CBA1A51E36E006361BA /* QuickBloxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickBloxManager.h; sourceTree = "<group>"; };
@@ -138,14 +160,24 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39116A151A5453600043C245 /* Foundation.framework in Frameworks */,
+				398AADD31A51DF470003EF8C /* CoreGraphics.framework in Frameworks */,
+				39116A131A5453520043C245 /* GLKit.framework in Frameworks */,
+				39116A111A54534B0043C245 /* OpenGLES.framework in Frameworks */,
+				39116A191A5453840043C245 /* Instabug.framework in Frameworks */,
+				395E4CC71A51EA80006361BA /* SystemConfiguration.framework in Frameworks */,
+				39116A0F1A54533E0043C245 /* MessageUI.framework in Frameworks */,
+				398AADD11A51DF360003EF8C /* UIKit.framework in Frameworks */,
+				39116A0D1A5453310043C245 /* QuartzCore.framework in Frameworks */,
+				39116A0B1A54532B0043C245 /* AudioToolbox.framework in Frameworks */,
+				39116A091A5453250043C245 /* CoreTelephony.framework in Frameworks */,
+				39116A071A54531F0043C245 /* CoreMotion.framework in Frameworks */,
+				39116A051A5453170043C245 /* libc++.dylib in Frameworks */,
 				395E4CCF1A51F05B006361BA /* libresolv.dylib in Frameworks */,
 				395E4CCD1A51EAF2006361BA /* CFNetwork.framework in Frameworks */,
 				395E4CCB1A51EAE6006361BA /* libz.dylib in Frameworks */,
-				395E4CC71A51EA80006361BA /* SystemConfiguration.framework in Frameworks */,
 				395E4CC51A51EA5D006361BA /* MobileCoreServices.framework in Frameworks */,
 				395E4CBE1A51E401006361BA /* libxml2.dylib in Frameworks */,
-				398AADD31A51DF470003EF8C /* CoreGraphics.framework in Frameworks */,
-				398AADD11A51DF360003EF8C /* UIKit.framework in Frameworks */,
 				398AADD51A51DF5F0003EF8C /* Quickblox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -388,6 +420,17 @@
 		398AADC51A51DE870003EF8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39116A161A5453840043C245 /* Instabug.bundle */,
+				39116A171A5453840043C245 /* Instabug.framework */,
+				39116A141A5453600043C245 /* Foundation.framework */,
+				39116A121A5453520043C245 /* GLKit.framework */,
+				39116A101A54534B0043C245 /* OpenGLES.framework */,
+				39116A0E1A54533E0043C245 /* MessageUI.framework */,
+				39116A0C1A5453310043C245 /* QuartzCore.framework */,
+				39116A0A1A54532B0043C245 /* AudioToolbox.framework */,
+				39116A081A5453250043C245 /* CoreTelephony.framework */,
+				39116A061A54531F0043C245 /* CoreMotion.framework */,
+				39116A041A5453170043C245 /* libc++.dylib */,
 				395E4CCE1A51F05B006361BA /* libresolv.dylib */,
 				395E4CCC1A51EAF2006361BA /* CFNetwork.framework */,
 				395E4CCA1A51EAE6006361BA /* libz.dylib */,
@@ -525,6 +568,7 @@
 			files = (
 				3908BF361A532C5000017D84 /* caRHds for odesk project.4b.png in Resources */,
 				3908BF311A532C5000017D84 /* caRHds for odesk project.2a.png in Resources */,
+				39116A181A5453840043C245 /* Instabug.bundle in Resources */,
 				3908BF321A532C5000017D84 /* caRHds for odesk project.2b.png in Resources */,
 				3908BF351A532C5000017D84 /* caRHds for odesk project.4a.png in Resources */,
 				398AADAB1A51DE530003EF8C /* Main.storyboard in Resources */,
