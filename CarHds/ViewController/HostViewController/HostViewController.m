@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UIView *card2View;
 @property (weak, nonatomic) IBOutlet UIView *card3View;
 @property (weak, nonatomic) IBOutlet UIView *card4View;
+@property (weak, nonatomic) IBOutlet UILabel *numberOfParticipants;
 
 @property (nonatomic,strong) NSMutableDictionary* users;
 @property (nonatomic,strong) NSMutableArray* viewControllers;
@@ -50,13 +51,20 @@
             [self addChildViewController:card];
             [view addSubview:card.view];
             [card didMoveToParentViewController:self];
+            self.numberOfParticipants.layer.borderWidth=1.0f;
+            [self.numberOfParticipants.layer setCornerRadius:self.numberOfParticipants.frame.size.width/2];
+            self.numberOfParticipants.clipsToBounds = YES;
+            
             [self.viewControllers replaceObjectAtIndex:card.index withObject:card];
         }
+        [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
         
     }else{
         [self.IphoneView setHidden:NO];
         [self.IpadView removeFromSuperview];
     }
+    
+    
     // Do any additional setup after loading the view.
 }
 -(void)viewWillDisappear:(BOOL)animated
@@ -184,7 +192,8 @@
         [dictionary setObject:cards forKey:@"cards"];
         [self.users setObject:dictionary forKey:@(userId)];
     }
-    
+    [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
+
 }
 
 -(void)logOutUser:(NSString *)username fromMsg:(QBChatMessage *)msg
@@ -197,7 +206,8 @@
         BOOL value = YES;
         
         NSArray* allKeys = [self.users allKeys];
-        
+        [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
+
         for(NSString* key in allKeys)
         {
             value = value & [[[[self.users objectForKey:key] objectForKey:@"cards"] objectAtIndex:i] boolValue];
