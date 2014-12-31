@@ -11,7 +11,7 @@
 #import "SingleCardViewController.h"
 @interface ClientViewController : AbstractViewController<UITextFieldDelegate,UIPageViewControllerDataSource,SingleCardViewControllerDelegate,UIPageViewControllerDelegate>
 @property (nonatomic,strong) UIPageViewController* pageController;
-
+@property (nonatomic,strong) MBProgressHUD* hud;
 @property (nonatomic,strong) NSMutableArray* messages;
 @property (nonatomic) NSInteger index;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;

@@ -61,6 +61,10 @@
 
 }
 
+-(void)didLogOut
+{
+    
+}
 #pragma mark - json message parser delegate -
 -(void)receivedCardVoteForCard:(NSInteger)cardNo withValue:(BOOL)val
 {

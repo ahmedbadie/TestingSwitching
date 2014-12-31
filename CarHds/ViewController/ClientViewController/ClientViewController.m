@@ -11,6 +11,7 @@
 @interface ClientViewController ()
 
 @property (nonatomic,strong) NSMutableArray* values;
+@property (nonatomic) NSInteger currentIndex;
 @end
 
 @implementation ClientViewController
@@ -18,6 +19,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.index = 0;
+    [MeetingHandler sharedInstance].logOut = NO;
     // Do any additional setup after loading the view.
     self.values = [NSMutableArray array];
     for(int i=0;i<5;i++)
@@ -32,10 +34,13 @@
     [MeetingHandler sharedInstance].delegate = self;
     
     
+    [QBChat instance].delegate = [MeetingHandler sharedInstance];
+    self.currentIndex = 0;
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageController.dataSource = self;
     self.pageController.delegate =self;
+    self.pageController.doubleSided = YES;
     SingleCardViewController *initialViewController = [self viewControllerForIndex:0];
     
     NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
@@ -138,7 +143,7 @@
     NSUInteger index = [(SingleCardViewController *)viewController index];
     
     if (index == 0) {
-        return nil;
+        index = 5;
     }
     
     // Decrease the index by 1 to return
@@ -154,7 +159,7 @@
     index++;
     
     if (index == 5) {
-        return nil;
+        index=0;
     }
     self.index = index;
     return [self viewControllerForIndex:index];
@@ -169,6 +174,7 @@
 {
     NSInteger index = ((SingleCardViewController*)[pageViewController.viewControllers firstObject]).index;
     [self.pageControl setCurrentPage:index];
+    self.currentIndex = index;
     NSLog(@"Index %d",index);
 }
 
@@ -201,15 +207,39 @@
     [self.values replaceObjectAtIndex:pageIndex withObject:@(!pageOldValue)];
     NSString* msg = [JsonMessageParser cardVoteMessageForCard:pageIndex withValue:!pageOldValue];
     QBChatRoom* chatRoom = [self.chatDialog chatRoom];
-        
+    [MeetingHandler sharedInstance].logOut = YES;
     [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
 }
 
+- (IBAction)leaveMeeting:(id)sender {
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText = @"Leave Meeting";
+    NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
+    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    [MeetingHandler sharedInstance].logOut = YES;
+    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
+    [self didLogOut];
+
+}
 #pragma mark - Meeting Handler Delegate -
 
 -(void)didConnectToRoom:(QBChatRoom *)chatRoom
 {
    NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:[MeetingHandler sharedInstance].qbUser.login];
     [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom];
+}
+- (IBAction)valueChanged:(id)sender forEvent:(UIEvent *)event {
+    
+    NSInteger index = ((UIPageControl*) sender).currentPage;
+    SingleCardViewController* card = [self viewControllerForIndex:index];
+    [self.pageController setViewControllers:@[card] direction:(self.currentIndex> index) ? UIPageViewControllerNavigationDirectionReverse:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+    self.currentIndex = index;
+    
+}
+
+-(void)didLogOut
+{   [[MeetingHandler sharedInstance].chatRoom leaveRoom];
+    [self.hud hide:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 @end

@@ -13,7 +13,7 @@
 
 -(void) didReciveMessages:(NSArray*) msgs;
 -(void) didConnectToRoom:(QBChatRoom*) chatRoom;
-
+-(void) didLogOut;
 @end
 @interface MeetingHandler : NSObject<QBChatDelegate,QBActionStatusDelegate>
 
@@ -23,9 +23,11 @@
 @property (nonatomic,strong) UIViewController<MeetingHandlerDelegate>* delegate;
 @property (nonatomic) BOOL isLoggedIn;
 @property (nonatomic) BOOL isJoinedToChat;
-
+@property (nonatomic) BOOL logOut;
+@property (nonatomic,strong) NSString* logOutmsgID;
 +(instancetype) sharedInstance;
 
 -(void) connectToChatDialog:(QBChatDialog*) chatDialog;
 -(void) sendMessage:(NSString*)msg toChatRoom:(QBChatRoom*) chatRoom;
+-(void) leaveRoom;
 @end

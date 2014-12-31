@@ -10,6 +10,8 @@
 #import "ChatService.h"
 @implementation MeetingHandler
 
+
+
 static MeetingHandler* handler;
 
 +(instancetype)sharedInstance
@@ -17,6 +19,7 @@ static MeetingHandler* handler;
     if(handler==nil)
     {
         handler = [[MeetingHandler alloc]init];
+        handler.logOut = NO;
     }
     return handler;
 }
@@ -62,6 +65,12 @@ static MeetingHandler* handler;
     QBChatMessage *message = notification.userInfo[kMessage];
     NSString *roomJID = notification.userInfo[kRoomJID];
     
+    
+//    if(self.logOut && [message.ID isEqualToString:self.logOutmsgID])
+//    {
+//        [self.delegate didLogOut];
+//    }
+
     if(![[self.chatDialog chatRoom].JID isEqualToString:roomJID]){
         return;
     }
@@ -78,8 +87,20 @@ static MeetingHandler* handler;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"save_to_history"] = @YES;
     [message setCustomParameters:params];
-    [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
+    [[ChatService instance] sendMessage:message toRoom:self.chatRoom];
     
+
+}
+
+-(void)leaveRoom
+{
+    QBChatMessage *message = [[QBChatMessage alloc] init];
+    message.text = [JsonMessageParser logOutMessageForUser:self.qbUser.login];
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    params[@"save_to_history"] = @YES;
+    [message setCustomParameters:params];
+    
+    [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
 
 }
 #pragma mark QBActionStatusDelegate
@@ -102,5 +123,9 @@ static MeetingHandler* handler;
     
     [self.delegate didConnectToRoom:room];
 }
+
+-(void)chatDidDeliverMessageWithID:(NSString *)messageID
+{
+    }
 
 @end

@@ -17,6 +17,7 @@
 #define MESSAGE_BROADCAST_TYPE_CONCLUDE @"conclude"
 #define MESSAGE_HOST_TYPE @"type"
 #define MESSAGE_HOST_TYPE_LOGIN @"login"
+#define MESSAGE_HOST_TYPE_LOGOUT @"logout"
 #define MESSAGE_HOST_TYPE_CARD_VOTE @"cardVote"
 #define MESSAGE_HOST_TYPE_CONCLUDE @"conclude"
 #define MESSAGE_CARD_VOTE_CARD_NO @"cardNo"
@@ -49,6 +50,7 @@ typedef enum{
 -(void) receivedConclusionSignal;
 -(void) receivedCardVoteForCard:(NSInteger) cardNo withValue:(BOOL) val fromMsg:(QBChatMessage*) msg;
 -(void) receivedContributionMessageForType:(CONTRIBUTION_TYPE) type withValue:(CONTRIBUTION_VALUE) val fromMsg:(QBChatMessage*)msg;
+-(void) logOutUser:(NSString*) username fromMsg:(QBChatMessage*) msg;
 
 @end
 @interface JsonMessageParser : NSObject
@@ -57,5 +59,6 @@ typedef enum{
 +(NSString*) contributionMessageWithContributionIndex:(CONTRIBUTION_TYPE) contributionIndex withValue:(CONTRIBUTION_VALUE) value;
 +(NSString*) broadcastContributionSignal;
 +(NSString*) cardVoteMessageForCard:(NSInteger) cardNo withValue:(BOOL) value;
++(NSString*) logOutMessageForUser:(NSString*)username;
 +(BOOL) decodeMessage:(QBChatMessage*) message withDelegate:(NSObject<JsonMessageParserDelegate>*) delegate;
 @end

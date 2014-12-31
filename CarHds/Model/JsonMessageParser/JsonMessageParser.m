@@ -58,6 +58,16 @@
     
 }
 
++(NSString *)logOutMessageForUser:(NSString *)username{
+    NSDictionary* dictionary = @{
+                                 MESSAGE_TARGET:MESSAGE_TARGET_HOST,
+                                 MESSAGE_HOST_TYPE: MESSAGE_HOST_TYPE_LOGOUT,
+                                 MESSAGE_LOGIN_USERNAME: username
+                                 };
+    CJSONSerializer* json = [[CJSONSerializer alloc]init];
+    NSData *jsonData = [json serializeDictionary:dictionary error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];;
+}
 +(BOOL)decodeMessage:(QBChatMessage *)message withDelegate:(NSObject<JsonMessageParserDelegate> *)delegate
 {
     NSData *theData = [message.text dataUsingEncoding:NSUTF8StringEncoding];
@@ -94,6 +104,9 @@
             BOOL val = [[dict objectForKey:MESSAGE_CARD_VOTE_VALUE] boolValue];
             [delegate receivedCardVoteForCard:number withValue:val fromMsg:message];
             return YES;
+        }else if ([type isEqualToString:MESSAGE_HOST_TYPE_LOGOUT])
+        {
+            [delegate logOutUser:[dict objectForKey:MESSAGE_LOGIN_USERNAME] fromMsg:message];
         }
         
     }

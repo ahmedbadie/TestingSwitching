@@ -125,6 +125,11 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
                                                         object:nil userInfo:@{kMessage: message}];
 }
 
+-(void)chatDidDeliverMessageWithID:(NSString *)messageID
+{
+    NSLog(@"Message sent");
+}
+
 - (void)chatRoomDidReceiveMessage:(QBChatMessage *)message fromRoomJID:(NSString *)roomJID{
     // play sound notification
     [self playNotificationSound];

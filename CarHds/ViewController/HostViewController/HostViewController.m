@@ -42,7 +42,7 @@
             [self.viewControllers addObject:@(YES)];
         for(UIView* view in cardsViews)
         {
-            SingleCardViewController* card= [storyBoard instantiateViewControllerWithIdentifier:@"SingleCardViewController"];
+            SingleCardViewController* card= [storyBoard instantiateViewControllerWithIdentifier:@"SingleCardViewController2"];
             card.index = view.tag;
             card.value = YES;
             card.view.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
@@ -143,7 +143,6 @@
     NSMutableArray* cards = [dictionary objectForKey:@"cards"];
     [cards replaceObjectAtIndex:cardNo withObject:@(val)];
     SingleCardViewController* vc = [self.viewControllers objectAtIndex:cardNo];
-//    vc.value = vc.value & val;
     BOOL value = YES;
     
     NSArray* allKeys = [self.users allKeys];
@@ -152,8 +151,11 @@
     {
         value = value & [[[[self.users objectForKey:key] objectForKey:@"cards"] objectAtIndex:cardNo] boolValue];
     }
-    vc.value = value;
-    [vc setImageWithAnimation:YES];
+    if(vc.value != value){
+        vc.value = value;
+        [vc setImageWithAnimation:YES];
+    }
+
 }
 
 -(void)receivedConclusionSignal
@@ -185,4 +187,27 @@
     
 }
 
+-(void)logOutUser:(NSString *)username fromMsg:(QBChatMessage *)msg
+{
+    [self.users removeObjectForKey:@(msg.senderID)];
+    
+    for(int i=0;i<5;i++)
+    {
+        SingleCardViewController* vc = [self.viewControllers objectAtIndex:i];
+        BOOL value = YES;
+        
+        NSArray* allKeys = [self.users allKeys];
+        
+        for(NSString* key in allKeys)
+        {
+            value = value & [[[[self.users objectForKey:key] objectForKey:@"cards"] objectAtIndex:i] boolValue];
+        }
+        if(vc.value != value){
+            vc.value = value;
+            [vc setImageWithAnimation:YES];
+        }
+
+    }
+    
+}
 @end

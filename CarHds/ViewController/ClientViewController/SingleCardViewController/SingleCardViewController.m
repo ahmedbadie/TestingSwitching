@@ -29,12 +29,13 @@
     
     if(animated)
     {
-        [UIView transitionWithView:self.imageView
+        [UIView transitionWithView:self.view
                           duration:0.4
                            options:(self.value? UIViewAnimationOptionTransitionFlipFromLeft:UIViewAnimationOptionTransitionFlipFromRight)
                         animations:^{
                             //  Set the new image
                             //  Since its done in animation block, the change will be animated
+                            
                             self.imageView.image = image;
                         } completion:^(BOOL finished) {
                             //  Do whatever when the animation is finished
