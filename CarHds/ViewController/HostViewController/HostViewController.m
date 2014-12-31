@@ -46,6 +46,7 @@
             card.index = view.tag;
             card.value = YES;
             card.view.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+            card.shouldHandleTap = NO;
             [self addChildViewController:card];
             [view addSubview:card.view];
             [card didMoveToParentViewController:self];
@@ -152,7 +153,7 @@
         value = value & [[[[self.users objectForKey:key] objectForKey:@"cards"] objectAtIndex:cardNo] boolValue];
     }
     vc.value = value;
-    [vc setImage];
+    [vc setImageWithAnimation:YES];
 }
 
 -(void)receivedConclusionSignal

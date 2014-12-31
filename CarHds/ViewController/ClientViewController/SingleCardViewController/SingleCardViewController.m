@@ -16,29 +16,45 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setImage];
+    [self setImageWithAnimation:NO];
     
     // Do any additional setup after loading the view.
 }
 
--(void)setImage
+-(void)setImageWithAnimation:(BOOL)animated
 {
    
     NSString* imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
-    UIImage* image = [UIImage imageNamed:imageName];
+    UIImage* image = [self imageRotatedByDegrees:[UIImage imageNamed:imageName] deg:90];
     
-    [self.imageView  setImage:[self imageRotatedByDegrees:image deg:90]];
+    if(animated)
+    {
+        [UIView transitionWithView:self.imageView
+                          duration:0.4
+                           options:(self.value? UIViewAnimationOptionTransitionFlipFromLeft:UIViewAnimationOptionTransitionFlipFromRight)
+                        animations:^{
+                            //  Set the new image
+                            //  Since its done in animation block, the change will be animated
+                            self.imageView.image = image;
+                        } completion:^(BOOL finished) {
+                            //  Do whatever when the animation is finished
+                        }];
     
-    [self.view addSubview:self.imageView];
+    }else{
+    [self.imageView  setImage:image];
+        //    [self.view addSubview:self.imageView];
+
+    }
 
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    if(self.shouldHandleTap){
     self.gesuterRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap)];
     self.gesuterRecognizer.delegate = self;
     [self.view addGestureRecognizer:self.gesuterRecognizer];
-    
+    }
 }
 -(void)viewDidAppear:(BOOL)animated
 {
@@ -48,9 +64,11 @@
 
 -(void)viewWillDisappear:(BOOL)animated
 {
+    if(self.shouldHandleTap){
     [self.gesuterRecognizer removeTarget:self action:@selector(handleTap)];
     self.gesuterRecognizer.delegate = self;
     [self.view removeGestureRecognizer:self.gesuterRecognizer];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -62,7 +80,7 @@
     
     [self.delegate changePageState:self.index :self.value];
     self.value = !self.value;
-    [self setImage];
+    [self setImageWithAnimation:YES];
     
 }
 /*

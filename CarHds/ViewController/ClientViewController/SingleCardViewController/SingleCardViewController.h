@@ -21,6 +21,6 @@
 @property (nonatomic) NSInteger type;
 @property (nonatomic,strong) UITapGestureRecognizer* gesuterRecognizer;
 @property (nonatomic,strong) UIViewController<SingleCardViewControllerDelegate>* delegate;
-
--(void) setImage;
+@property (nonatomic) BOOL shouldHandleTap;
+-(void) setImageWithAnimation:(BOOL) animated;
 @end

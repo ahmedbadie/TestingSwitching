@@ -182,6 +182,7 @@
     controller.value = [[self.values objectAtIndex:index] boolValue];
     controller.type = 0;
     controller.delegate = self;
+    controller.shouldHandleTap = YES;
     return controller;
 }
 
