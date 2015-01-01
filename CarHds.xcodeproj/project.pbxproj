@@ -35,6 +35,8 @@
 		39116A151A5453600043C245 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A141A5453600043C245 /* Foundation.framework */; };
 		39116A181A5453840043C245 /* Instabug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39116A161A5453840043C245 /* Instabug.bundle */; };
 		39116A191A5453840043C245 /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A171A5453840043C245 /* Instabug.framework */; };
+		39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39116A1C1A55A42D0043C245 /* RegisterViewController.m */; };
+		39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39116A1E1A55B0C90043C245 /* Localizable.strings */; };
 		395E4CB91A51E354006361BA /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CB81A51E354006361BA /* ParseManager.m */; };
 		395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CBB1A51E36E006361BA /* QuickBloxManager.m */; };
 		395E4CBE1A51E401006361BA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E4CBD1A51E401006361BA /* libxml2.dylib */; };
@@ -110,6 +112,10 @@
 		39116A141A5453600043C245 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		39116A161A5453840043C245 /* Instabug.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Instabug.bundle; sourceTree = "<group>"; };
 		39116A171A5453840043C245 /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Instabug.framework; sourceTree = "<group>"; };
+		39116A1B1A55A42D0043C245 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		39116A1C1A55A42D0043C245 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
+		39116A1E1A55B0C90043C245 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		39116A201A55B1CB0043C245 /* CarHds-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarHds-Prefix.pch"; sourceTree = "<group>"; };
 		395E4CB71A51E354006361BA /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		395E4CB81A51E354006361BA /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		395E4CBA1A51E36E006361BA /* QuickBloxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickBloxManager.h; sourceTree = "<group>"; };
@@ -266,6 +272,15 @@
 			path = SingleCardViewController;
 			sourceTree = "<group>";
 		};
+		39116A1A1A55A4180043C245 /* RegisterViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39116A1B1A55A42D0043C245 /* RegisterViewController.h */,
+				39116A1C1A55A42D0043C245 /* RegisterViewController.m */,
+			);
+			path = RegisterViewController;
+			sourceTree = "<group>";
+		};
 		395E4CB51A51E343006361BA /* ParseManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -396,6 +411,8 @@
 				398AADAE1A51DE530003EF8C /* LaunchScreen.xib */,
 				398AADA01A51DE530003EF8C /* Info.plist */,
 				398AADA11A51DE530003EF8C /* main.m */,
+				39116A1E1A55B0C90043C245 /* Localizable.strings */,
+				39116A201A55B1CB0043C245 /* CarHds-Prefix.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -459,6 +476,7 @@
 		398AADC71A51DE870003EF8C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				39116A1A1A55A4180043C245 /* RegisterViewController */,
 				390424491A52F73100370E80 /* MeetingHandler */,
 				395E4CD41A521693006361BA /* ClientViewController */,
 				395E4CD51A521693006361BA /* HostViewController */,
@@ -576,6 +594,7 @@
 				3908BF371A532C5000017D84 /* caRHds for odesk project.5a.png in Resources */,
 				3908BF301A532C5000017D84 /* caRHds for odesk project.1b.png in Resources */,
 				3908BF2F1A532C5000017D84 /* caRHds for odesk project.1a.png in Resources */,
+				39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */,
 				3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */,
 				3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */,
 				3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */,
@@ -601,6 +620,7 @@
 				395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */,
 				395E4CC31A51E4E1006361BA /* APIResponse.m in Sources */,
 				395E4CE51A521AC0006361BA /* ChatService.m in Sources */,
+				39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */,
 				3908BF3C1A532E9200017D84 /* SingleCardViewController.m in Sources */,
 				395E4CDC1A521826006361BA /* ChatMessageTableViewCell.m in Sources */,
 				3904244C1A52F74200370E80 /* MeetingHandler.m in Sources */,
@@ -744,6 +764,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
 				);
+				GCC_PREFIX_HEADER = "CarHds/CarHds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
@@ -768,6 +789,7 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
 				);
+				GCC_PREFIX_HEADER = "CarHds/CarHds-Prefix.pch";
 				HEADER_SEARCH_PATHS = (
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,

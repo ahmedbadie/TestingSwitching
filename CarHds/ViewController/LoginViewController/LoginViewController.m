@@ -6,6 +6,8 @@
 //  Copyright (c) 2014 Inova. All rights reserved.
 //
 
+
+
 #import "LoginViewController.h"
 @interface LoginViewController ()
 
@@ -19,10 +21,10 @@
     [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
 //        [self performSelector:@selector(hideSplash) withObject:nil afterDelay:2];
     } errorBlock:^(QBResponse *response) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"Error", "")
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:STRING(@"Error")
                                                         message:[response.error description]
                                                        delegate:nil
-                                              cancelButtonTitle:NSLocalizedString(@"OK", "")
+                                              cancelButtonTitle:STRING(@"Ok")
                                               otherButtonTitles:nil];
         [alert show];
     }];
@@ -66,15 +68,16 @@
         [[QBChat instance] logout];
     }
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText= @"Login";
+    self.hud.labelText= STRING(@"Login");
     [QuickBloxManager loginWithUser:[self.usernameTextField text] andPassword:[self.passwordTextField text] withCompletionHandler:^(APIResponse *response) {
         if(response.error)
         {        [self.hud hide:YES];
-
-            NSLog(@"Login Failed with error %@",[response.error description]);
+            NSString* msg =[NSString stringWithFormat:STRING(@"LoginFailed"),[response.error description]];
+            NSLog(@"%@",msg);
+            [self warnUserWithMessage:msg];
             
         }else{
-            NSLog(@"Login Succeded");
+            NSLog(STRING(@"LoginSucceded"));
             // If logged In continue to next step
             if(!self.user || self.user.ID != ((QBUUser*)response.result).ID){
             self.user = (QBUUser*)response.result;
@@ -96,7 +99,7 @@
 
 -(void) createMeetingRoom
 {
-    self.hud.labelText = @"Creating Meeting";
+    self.hud.labelText = STRING(@"CreatingMeeting");
     
     // First check if chat dialouge exists or not?
     QBChatDialog* chatDialog = [QBChatDialog new];
@@ -271,6 +274,21 @@
         ClientViewController* dst = segue.destinationViewController;
         dst.chatDialog = self.chatDialog;
         dst.user = self.user;
+    }else if ([segue.identifier isEqualToString:@"RegisterNewUser"])
+    {
+        RegisterViewController* dst = (RegisterViewController*)segue.destinationViewController;
+        dst.delegate = self;
     }
 }
+
+
+#pragma mark - Register - 
+
+
+- (IBAction)registerUser:(id)sender {
+
+    
+    
+}
+
 @end

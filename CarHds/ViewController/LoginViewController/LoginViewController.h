@@ -10,7 +10,7 @@
 #import "QuickBloxManager.h"
 #import "HostViewController.h"
 #import "NSDictionary_JSONExtensions.h"
-
+#import "RegisterViewController.h"
 #import "ClientViewController.h"
 #define HOST_MEETING_INDEX 0
 #define JOIN_MEETING_INDEX 1
