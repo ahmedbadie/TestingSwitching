@@ -63,6 +63,7 @@
 		398AADD11A51DF360003EF8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD01A51DF360003EF8C /* UIKit.framework */; };
 		398AADD31A51DF470003EF8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD21A51DF470003EF8C /* CoreGraphics.framework */; };
 		398AADD51A51DF5F0003EF8C /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD41A51DF5F0003EF8C /* Quickblox.framework */; };
+		39F9CC981A55F3800017B14E /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F9CC971A55F3800017B14E /* CardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,8 @@
 		398AADD01A51DF360003EF8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		398AADD21A51DF470003EF8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		398AADD41A51DF5F0003EF8C /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
+		39F9CC961A55F3800017B14E /* CardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
+		39F9CC971A55F3800017B14E /* CardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -482,6 +485,8 @@
 				395E4CD51A521693006361BA /* HostViewController */,
 				398AADC81A51DF030003EF8C /* AbstractViewController */,
 				398AADCB1A51DF030003EF8C /* LoginViewController */,
+				39F9CC961A55F3800017B14E /* CardViewController.h */,
+				39F9CC971A55F3800017B14E /* CardViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -620,6 +625,7 @@
 				395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */,
 				395E4CC31A51E4E1006361BA /* APIResponse.m in Sources */,
 				395E4CE51A521AC0006361BA /* ChatService.m in Sources */,
+				39F9CC981A55F3800017B14E /* CardViewController.m in Sources */,
 				39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */,
 				3908BF3C1A532E9200017D84 /* SingleCardViewController.m in Sources */,
 				395E4CDC1A521826006361BA /* ChatMessageTableViewCell.m in Sources */,
