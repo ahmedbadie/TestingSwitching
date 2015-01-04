@@ -25,8 +25,8 @@
 {
    
     NSString* imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
-    UIImage* image = [self imageRotatedByDegrees:[UIImage imageNamed:imageName] deg:90];
-    
+//    UIImage* image = [self imageRotatedByDegrees:[UIImage imageNamed:imageName] deg:90];
+    UIImage* image = [UIImage imageNamed:imageName];
     if(animated)
     {
         [UIView transitionWithView:self.view

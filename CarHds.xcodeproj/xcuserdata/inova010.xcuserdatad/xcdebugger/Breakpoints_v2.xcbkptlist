@@ -296,22 +296,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/HostViewController/HostViewController.m"
-            timestampString = "441732926.396771"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "28"
-            endingLineNumber = "28"
-            landmarkName = "-viewDidLoad"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarHds/ViewController/HostViewController/HostViewController.m"
             timestampString = "442062263.672564"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -407,7 +391,7 @@
                   symbolName = "+[QuickBloxManager loginWithUser:andPassword:withCompletionHandler:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/Model/QuickBloxManager/QuickBloxManager.m"
-                  timestampString = "442063222.518398"
+                  timestampString = "442067459.557616"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -421,7 +405,7 @@
                   symbolName = "__68+[QuickBloxManager loginWithUser:andPassword:withCompletionHandler:]_block_invoke"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/Model/QuickBloxManager/QuickBloxManager.m"
-                  timestampString = "442063222.518563"
+                  timestampString = "442067459.557771"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -444,38 +428,6 @@
             startingLineNumber = "214"
             endingLineNumber = "214"
             landmarkName = "-leaveMeeting:"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarHds/ViewController/LoginViewController/LoginViewController.m"
-            timestampString = "442060909.14219"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
-            landmarkName = "-createMeetingRoom"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "CarHds/ViewController/LoginViewController/LoginViewController.m"
-            timestampString = "442061569.725456"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "112"
-            endingLineNumber = "112"
-            landmarkName = "-completedWithResult:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -604,6 +556,22 @@
             startingLineNumber = "228"
             endingLineNumber = "228"
             landmarkName = "-didConnectToRoom:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarHds/ViewController/HostViewController/HostViewController.m"
+            timestampString = "442067396.018386"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "52"
+            endingLineNumber = "52"
+            landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
