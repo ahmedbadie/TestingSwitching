@@ -16,5 +16,8 @@
 #import "AbstractViewController.h"
 #import "MeetingHandler.h"
 #define STRING(key) NSLocalizedString(key,@"")
-
+#define USER_ID_KEY @"userId"
+#define USER_PASSWORD_KEY @"userPassword"
+#define HOST_VIEW_SEGUE @"HostViewSegue"
+#define CLIENT_VIEW_SEGUE @"ClientViewSegue"
 #endif

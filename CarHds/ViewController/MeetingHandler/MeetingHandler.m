@@ -30,11 +30,10 @@ static MeetingHandler* handler;
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatRoomDidReceiveMessageNotification:)
                                                  name:kNotificationDidReceiveNewMessageFromRoom object:nil];
     
-    [QBChat instance].delegate = self;
     // Join room
     QBChatRoom* room = self.chatDialog.chatRoom;
     self.chatRoom = room;
-    
+    [QBChat instance].delegate = [ChatService instance];
     if(self.chatDialog.type != QBChatDialogTypePrivate){
         [[ChatService instance] joinRoom:self.chatRoom completionBlock:^(QBChatRoom * room) {
             [self chatRoomDidEnter:self.chatRoom];

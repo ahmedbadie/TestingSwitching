@@ -36,7 +36,7 @@
                             //  Set the new image
                             //  Since its done in animation block, the change will be animated
                             
-                            self.imageView.image = image;
+                            [self.imageView setImage: image];
                         } completion:^(BOOL finished) {
                             //  Do whatever when the animation is finished
                         }];

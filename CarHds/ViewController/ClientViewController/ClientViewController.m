@@ -34,7 +34,6 @@
     [MeetingHandler sharedInstance].delegate = self;
     
     
-    [QBChat instance].delegate = [MeetingHandler sharedInstance];
     self.currentIndex = 0;
     
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
@@ -51,7 +50,6 @@
     [self.pageController didMoveToParentViewController:self];
     
     // Do any additional setup after loading the view.
-    [QBChat instance].delegate = [MeetingHandler sharedInstance];
 }
 
 -(void)viewWillAppear:(BOOL)animated
@@ -60,6 +58,7 @@
     
         
             self.title = self.chatDialog.name;
+    [MeetingHandler sharedInstance].delegate = self;
     [[MeetingHandler sharedInstance] connectToChatDialog:self.chatDialog];
    
 
@@ -214,18 +213,20 @@
 - (IBAction)leaveMeeting:(id)sender {
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Leave Meeting";
-    NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
+    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
     QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     [MeetingHandler sharedInstance].logOut = YES;
     [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
     [self didLogOut];
+    
 
 }
 #pragma mark - Meeting Handler Delegate -
 
 -(void)didConnectToRoom:(QBChatRoom *)chatRoom
 {
-   NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:[MeetingHandler sharedInstance].qbUser.login];
+    NSString* username = [MeetingHandler sharedInstance].qbUser.login;
+   NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:username];
     [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom];
 }
 - (IBAction)valueChanged:(id)sender forEvent:(UIEvent *)event {
@@ -238,7 +239,8 @@
 }
 
 -(void)didLogOut
-{   [[MeetingHandler sharedInstance].chatRoom leaveRoom];
+{
+    [[ChatService instance] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
     [self.hud hide:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }

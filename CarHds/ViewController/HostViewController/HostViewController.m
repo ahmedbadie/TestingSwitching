@@ -30,7 +30,6 @@
     self.users = [NSMutableDictionary dictionary];
     [MeetingHandler sharedInstance].delegate = self;
    
-    [QBChat instance].delegate = [MeetingHandler sharedInstance];
     
     if(IS_IPAD)
     {

@@ -17,19 +17,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
- 
-    [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
-//        [self performSelector:@selector(hideSplash) withObject:nil afterDelay:2];
-    } errorBlock:^(QBResponse *response) {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:STRING(@"Error")
-                                                        message:[response.error description]
-                                                       delegate:nil
-                                              cancelButtonTitle:STRING(@"Ok")
-                                              otherButtonTitles:nil];
-        [alert show];
-    }];
-    // Do any additional setup after loading the view.
-}
+ }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -47,50 +35,42 @@
 */
 
 - (IBAction)startMeeting:(id)sender {
-    /* 
-     First Login with username and password, then 
-        if Host 
-            check if there is an existing room with the same name or not, if exist warn user, else create it
-        else 
-            check if there is an existing room with the same name, if exists join it
-     */
-//    [QuickBloxManager registerUserWithUsername:[self.usernameTextField text] andPassword:[self.passwordTextField text] withCompletionHandler:^(APIResponse *response) {
-//
-//        if(response.error)
-//        {
-//            NSLog(@"Failed with error %@",[response.error description]);
-//        }else{
-//            NSLog(@"Account created");
-//        }
-//    }];
     if([[QBChat instance]isLoggedIn])
     {
         [[QBChat instance] logout];
     }
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= STRING(@"Login");
-    [QuickBloxManager loginWithUser:[self.usernameTextField text] andPassword:[self.passwordTextField text] withCompletionHandler:^(APIResponse *response) {
-        if(response.error)
-        {        [self.hud hide:YES];
-            NSString* msg =[NSString stringWithFormat:STRING(@"LoginFailed"),[response.error description]];
-            NSLog(@"%@",msg);
-            [self warnUserWithMessage:msg];
-            
-        }else{
-            NSLog(STRING(@"LoginSucceded"));
-            // If logged In continue to next step
-            if(!self.user || self.user.ID != ((QBUUser*)response.result).ID){
-            self.user = (QBUUser*)response.result;
-            self.user.password = [self.passwordTextField text];
-            
-            [QBChat instance].delegate =self;
-                [[QBChat instance] loginWithUser:self.user];
+    QBSessionParameters* parameters = [QBSessionParameters new];
+    parameters.userLogin = [self.usernameTextField text];
+    parameters.userPassword =[self.passwordTextField text];
+    [QBRequest createSessionWithExtendedParameters:parameters successBlock:^(QBResponse *response, QBASession *session) {
 
-            }else
-            [self chatDidLogin];
-        }
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         
+        NSLog(STRING(@"LoginSucceded"));
+        // If logged In continue to next step
         
+            self.user =[QBUUser new];
+            self.user.ID = session.userID;
+            self.user.login = [self.usernameTextField text];
+            self.user.password = [self.passwordTextField text];
+            [defaults setObject:@(self.user.ID) forKey: USER_ID_KEY];
+            [defaults setObject:self.user.password forKey:USER_PASSWORD_KEY];
+            [QBChat instance].delegate =self;
+            [[ChatService instance] loginWithUser:self.user completionBlock:^{
+                [MeetingHandler sharedInstance].qbUser = [QBUUser new];
+                [MeetingHandler sharedInstance].qbUser.login = [self.usernameTextField text];
+                [MeetingHandler sharedInstance].qbUser.ID = self.user.ID;
+                [MeetingHandler sharedInstance].qbUser.password= [self.passwordTextField text];
+                [self chatDidLogin];
+            }];
+            
+        
+    } errorBlock:^(QBResponse *response) {
+        
+        [self.hud hide:YES];
+        [self warnUserWithMessage:[response.error description]];
     }];
     
 }
@@ -104,16 +84,18 @@
     // First check if chat dialouge exists or not?
     QBChatDialog* chatDialog = [QBChatDialog new];
     chatDialog.type = QBChatDialogTypePublicGroup;
-    
+    self.chatDialog = chatDialog;
     chatDialog.name = [self.meetingIDTextField text];
+    
     [QBChat createDialog:chatDialog delegate:self];
-}
+    
+    }
 
 #pragma mark - Join Meeting Methods -
 
 -(void) joinMeetingRoom
 {
-    [self performSegueWithIdentifier:@"ClientViewSegue" sender:self];
+    [self performSegueWithIdentifier:CLIENT_VIEW_SEGUE sender:self];
     
 }
 #pragma mark - UITextField Delegate - 
@@ -195,19 +177,7 @@
     // If successfully loged in to chat
     NSMutableDictionary* dictionary =[NSMutableDictionary dictionary];
     [dictionary setObject:[self.meetingIDTextField text] forKey:@"name"];
-    [MeetingHandler sharedInstance].qbUser= [QBChat instance].currentUser;
     [QBChat dialogsWithExtendedRequest:dictionary delegate:self];
-//    switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
-//        case HOST_MEETING_INDEX:
-//            [self createMeetingRoom];
-//            break;
-//        case JOIN_MEETING_INDEX:
-//            [self joinMeetingRoom];
-//            break;
-//        default:
-//            [self warnUserWithMessage:@"Operation Not defined"];
-//            break;
-//    }
     
 }
 
@@ -219,7 +189,10 @@
 
 -(void)chatRoomDidCreate:(NSString *)roomName
 {
-    NSLog(@"Chat room Created");
+                QBChatDialog* chatDialog = self.chatDialog;
+                [MeetingHandler sharedInstance].chatDialog = chatDialog;
+
+            [self performSegueWithIdentifier:HOST_VIEW_SEGUE sender:self];
 }
 
 -(void)chatRoomDidEnter:(QBChatRoom *)room
@@ -264,12 +237,12 @@
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
 
-    if([segue.identifier isEqualToString:@"HostViewSegue"])
+    if([segue.identifier isEqualToString:HOST_VIEW_SEGUE])
     {
         HostViewController* dst = segue.destinationViewController;
         dst.chatDialog = self.chatDialog;
         dst.user = self.user;
-    }else if ([segue.identifier isEqualToString:@"ClientViewSegue"])
+    }else if ([segue.identifier isEqualToString:CLIENT_VIEW_SEGUE])
     {
         ClientViewController* dst = segue.destinationViewController;
         dst.chatDialog = self.chatDialog;

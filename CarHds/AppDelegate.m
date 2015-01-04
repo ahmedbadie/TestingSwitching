@@ -38,10 +38,19 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
+    [[QBChat instance]logout];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
     // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+    NSUserDefaults* defualts = [NSUserDefaults standardUserDefaults];
+    if([defualts objectForKey:USER_ID_KEY] !=nil && [defualts objectForKey:USER_PASSWORD_KEY]!=nil)
+    {
+        QBUUser* user = [QBUUser new];
+        user.ID = [[defualts objectForKey:USER_ID_KEY] unsignedIntegerValue];
+        user.password = [defualts objectForKey:USER_PASSWORD_KEY];
+        [[QBChat instance]loginWithUser:user];
+    }
 }
 
 - (void)applicationDidBecomeActive:(UIApplication *)application {
@@ -50,6 +59,7 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[QBChat instance] logout];
 }
 
 @end
