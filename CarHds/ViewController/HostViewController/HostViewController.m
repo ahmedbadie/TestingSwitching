@@ -102,9 +102,34 @@
 }
 */
 
+- (IBAction)leaveMeeting:(id)sender {
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText = @"Leave Meeting";
+    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
+    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    [MeetingHandler sharedInstance].logOut = YES;
+    [self didLogOut];
+    
+    
+}
+-(void)didLogOut
+{
+    [[ChatService instance] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
+    [self.hud hide:YES];
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+-(void)didConnectToRoom:(QBChatRoom *)chatRoom
+{
+    if(chatRoom == nil)
+    {
+        [self warnUserWithMessage:@"Failed to join room"];
+        [self leaveMeeting:self];
+        return;
+        
+    }
 
-
+}
 
 
 

@@ -56,19 +56,24 @@
     NSString* password =[self.passwordTextField text];
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Creating user";
-    [QuickBloxManager registerUserWithUsername:username andPassword:password withCompletionHandler:^(APIResponse *response) {
-        [self.hud hide:YES];
-        if(response.error)
-        {
-            [self warnUserWithMessage:[response.error description]];
-        }else{
-            [self.delegate warnUserWithMessage:[NSString stringWithFormat:@"User %@ created",username]];
-             
-            [self dismissViewControllerAnimated:YES completion:nil];
+    [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
+        [QuickBloxManager registerUserWithUsername:username andPassword:password withCompletionHandler:^(APIResponse *response) {
+            [self.hud hide:YES];
+            if(response.error)
+            {
+                [self warnUserWithMessage:DESC(response.error)];
+            }else{
+                [self.delegate warnUserWithMessage:[NSString stringWithFormat:@"User %@ created",username]];
+                
+                [self dismissViewControllerAnimated:YES completion:nil];
+                
+            }
             
-        }
-        
-    }];
+        }];
 
+    } errorBlock:^(QBResponse *response) {
+        [self warnUserWithMessage:@"Failed to Start Session"];
+    }];
+   
 }
 @end

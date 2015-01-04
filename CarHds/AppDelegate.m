@@ -25,7 +25,9 @@
     [QBConnection registerServiceSecret:QUICK_BLOX_SERVICE_SECRET];
     [QBSettings setAccountKey:QUICK_BLOX_ACCOUNT_KEY];
 
-    
+    NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObjectForKey:USER_ID_KEY];
+    [defaults removeObjectForKey:USER_PASSWORD_KEY];
     [Instabug startWithToken:INSTABUG_APP_TOKEN captureSource:IBGCaptureSourceUIKit invocationEvent:IBGInvocationEventShake];
     return YES;
 }
@@ -49,7 +51,15 @@
         QBUUser* user = [QBUUser new];
         user.ID = [[defualts objectForKey:USER_ID_KEY] unsignedIntegerValue];
         user.password = [defualts objectForKey:USER_PASSWORD_KEY];
-        [[QBChat instance]loginWithUser:user];
+        [[ChatService instance] loginWithUser:user completionBlock:^{
+        
+            if([MeetingHandler sharedInstance].chatDialog!=nil)
+            {
+                QBChatDialog* chatDialog  = [MeetingHandler sharedInstance].chatDialog;
+                [[MeetingHandler sharedInstance] connectToChatDialog:chatDialog];
+                }
+        }];
+        
     }
 }
 

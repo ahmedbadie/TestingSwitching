@@ -223,9 +223,17 @@
 }
 #pragma mark - Meeting Handler Delegate -
 
+
 -(void)didConnectToRoom:(QBChatRoom *)chatRoom
 {
-    NSString* username = [MeetingHandler sharedInstance].qbUser.login;
+    if(chatRoom == nil)
+    {
+        [self warnUserWithMessage:@"Failed to join room"];
+        [self leaveMeeting:self];
+        return;
+        
+    }
+    NSString* username = [MeetingHandler sharedInstance].qbUser.login== nil ? self.user.login : [MeetingHandler sharedInstance].qbUser.login;
    NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:username];
     [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom];
 }

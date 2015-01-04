@@ -14,6 +14,10 @@
 +(NSString *)loginMessageWithUsername:(NSString *)username
 {
     
+    if(username==nil)
+    {
+        username= @"";
+    }
     NSDictionary* dictionary = @{
                                  MESSAGE_TARGET:MESSAGE_TARGET_HOST,
                                  MESSAGE_HOST_TYPE: MESSAGE_HOST_TYPE_LOGIN,

@@ -10,13 +10,22 @@
 
 #import "LoginViewController.h"
 @interface LoginViewController ()
-
+@property (nonatomic) NSInteger index;
+@property (nonatomic) BOOL state;
+@property (nonatomic) BOOL close;
 @end
+
 
 @implementation LoginViewController
 
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.index = 0;
+    self.state = NO;
  }
 
 - (void)didReceiveMemoryWarning {
@@ -33,19 +42,37 @@
     // Pass the selected object to the new view controller.
 }
 */
+-(void) stopTasks :(NSInteger) index
+{
+    if(self.index == index + 1 && self.state)
+    {
+        self.state = NO;
 
+        [self.hud hide:YES];
+        [self warnUserWithMessage:@"Time out"];
+    }
+}
 - (IBAction)startMeeting:(id)sender {
     if([[QBChat instance]isLoggedIn])
     {
         [[QBChat instance] logout];
+    }
+    
+    if(!IS_IPAD && [self.operationTypeSegmentedControl selectedSegmentIndex] == HOST_MEETING_INDEX)
+    {
+        [self warnUserWithMessage:@"Host Meeting is currently supported by IPad version only."];
+        return;
     }
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= STRING(@"Login");
     QBSessionParameters* parameters = [QBSessionParameters new];
     parameters.userLogin = [self.usernameTextField text];
     parameters.userPassword =[self.passwordTextField text];
+   
+//    [self performSelector:@selector(stopTasks:) withObject:@(self.index) afterDelay:3];
     [QBRequest createSessionWithExtendedParameters:parameters successBlock:^(QBResponse *response, QBASession *session) {
-
+        self.index++ ;
+        
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         
         NSLog(STRING(@"LoginSucceded"));
@@ -69,8 +96,12 @@
         
     } errorBlock:^(QBResponse *response) {
         
+        NSLog(@"error login");
+        NSLog(@"error login message [%@]",DESC(response.error.error));
+        self.state = NO;
+
         [self.hud hide:YES];
-        [self warnUserWithMessage:[response.error description]];
+        [self warnUserWithMessage:DESC(response.error.error)];
     }];
     
 }
@@ -95,6 +126,7 @@
 
 -(void) joinMeetingRoom
 {
+    self.state = NO;
     [self performSegueWithIdentifier:CLIENT_VIEW_SEGUE sender:self];
     
 }
@@ -163,6 +195,12 @@
                 break;
         }
 
+    }else{
+        
+        
+        NSArray* errors = result.errors;
+        for(NSString* error in errors)
+            [self warnUserWithMessage:error];
     }
 
 }
@@ -185,13 +223,13 @@
 {
     [self.hud hide:YES];
     [self warnUserWithMessage:@"Failed to login"];
+    self.state = NO;
 }
 
 -(void)chatRoomDidCreate:(NSString *)roomName
 {
                 QBChatDialog* chatDialog = self.chatDialog;
                 [MeetingHandler sharedInstance].chatDialog = chatDialog;
-
             [self performSegueWithIdentifier:HOST_VIEW_SEGUE sender:self];
 }
 
@@ -202,11 +240,11 @@
 
 -(void)chatRoomDidNotEnter:(NSString *)roomName error:(NSError *)error
 {
-    NSLog(@"Chat room wasn't entered due to error %@",[error description]);
+    NSLog(@"Chat room wasn't entered due to error %@",DESC(error));
 }
 - (void)chatRoomDidNotEnterRoomWithJID:(NSString *)roomJID error:(NSError *)error;
 {
-    NSLog(@"Chat room wasn't entered due to error %@",[error description]);
+    NSLog(@"Chat room wasn't entered due to error %@",DESC(error));
 
 }
 - (void)chatRoomDidLeave:(NSString *)roomName

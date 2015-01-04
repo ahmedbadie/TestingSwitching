@@ -110,6 +110,12 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
     self.joinRoomCompletionBlock(room);
     self.joinRoomCompletionBlock = nil;
 }
+-(void)chatRoomDidNotEnter:(NSString *)roomName error:(NSError *)error
+{
+
+    self.joinRoomCompletionBlock (nil);
+    self.joinRoomCompletionBlock = nil;
+}
 
 - (void)chatDidReceiveListOfRooms:(NSArray *)rooms{
     self.requestRoomsCompletionBlock(rooms);

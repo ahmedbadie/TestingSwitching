@@ -37,6 +37,8 @@
 		39116A191A5453840043C245 /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A171A5453840043C245 /* Instabug.framework */; };
 		39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39116A1C1A55A42D0043C245 /* RegisterViewController.m */; };
 		39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39116A1E1A55B0C90043C245 /* Localizable.strings */; };
+		391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 391F93721A599A540062A7E5 /* ErrorMapper.m */; };
+		391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 391F93741A599BFA0062A7E5 /* ErrorMessages.plist */; };
 		395E4CB91A51E354006361BA /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CB81A51E354006361BA /* ParseManager.m */; };
 		395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CBB1A51E36E006361BA /* QuickBloxManager.m */; };
 		395E4CBE1A51E401006361BA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E4CBD1A51E401006361BA /* libxml2.dylib */; };
@@ -117,6 +119,9 @@
 		39116A1C1A55A42D0043C245 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		39116A1E1A55B0C90043C245 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		39116A201A55B1CB0043C245 /* CarHds-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarHds-Prefix.pch"; sourceTree = "<group>"; };
+		391F93711A599A540062A7E5 /* ErrorMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorMapper.h; sourceTree = "<group>"; };
+		391F93721A599A540062A7E5 /* ErrorMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorMapper.m; sourceTree = "<group>"; };
+		391F93741A599BFA0062A7E5 /* ErrorMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessages.plist; sourceTree = "<group>"; };
 		395E4CB71A51E354006361BA /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		395E4CB81A51E354006361BA /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		395E4CBA1A51E36E006361BA /* QuickBloxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickBloxManager.h; sourceTree = "<group>"; };
@@ -284,6 +289,15 @@
 			path = RegisterViewController;
 			sourceTree = "<group>";
 		};
+		391F93701A599A470062A7E5 /* ErrorMapper */ = {
+			isa = PBXGroup;
+			children = (
+				391F93711A599A540062A7E5 /* ErrorMapper.h */,
+				391F93721A599A540062A7E5 /* ErrorMapper.m */,
+			);
+			path = ErrorMapper;
+			sourceTree = "<group>";
+		};
 		395E4CB51A51E343006361BA /* ParseManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -305,6 +319,7 @@
 		395E4CBF1A51E4C1006361BA /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				391F93701A599A470062A7E5 /* ErrorMapper */,
 				390424511A53182F00370E80 /* TouchJSON-master */,
 				395E4CDD1A521AC0006361BA /* Services */,
 				395E4CD01A51F204006361BA /* MBProgressHUD */,
@@ -416,6 +431,7 @@
 				398AADA11A51DE530003EF8C /* main.m */,
 				39116A1E1A55B0C90043C245 /* Localizable.strings */,
 				39116A201A55B1CB0043C245 /* CarHds-Prefix.pch */,
+				391F93741A599BFA0062A7E5 /* ErrorMessages.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -604,6 +620,7 @@
 				3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */,
 				3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */,
 				398AADAD1A51DE530003EF8C /* Images.xcassets in Resources */,
+				391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -621,6 +638,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */,
 				390424B21A53182F00370E80 /* NSDictionary_JSONExtensions.m in Sources */,
 				395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */,
 				395E4CC31A51E4E1006361BA /* APIResponse.m in Sources */,
@@ -766,6 +784,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Inova Eg (6GR2XQ5654)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -782,6 +801,7 @@
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "febc4109-804a-4ffd-ad68-ae71e30278a4";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv6 armv7 armv7s";
 			};
@@ -791,6 +811,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Inova Eg (6GR2XQ5654)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -806,6 +827,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "febc4109-804a-4ffd-ad68-ae71e30278a4";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv6 armv7 armv7s";
 			};
