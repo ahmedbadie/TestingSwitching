@@ -17,6 +17,7 @@
 @end
 @interface MeetingHandler : NSObject<QBChatDelegate,QBActionStatusDelegate>
 
+@property (nonatomic) BOOL terminate;
 @property(nonatomic,strong) QBChatDialog* chatDialog;
 @property (nonatomic,strong) QBUUser* qbUser;
 @property (nonatomic,strong) QBChatRoom* chatRoom;

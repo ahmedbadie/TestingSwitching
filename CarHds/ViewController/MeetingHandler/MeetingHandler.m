@@ -36,8 +36,14 @@ static MeetingHandler* handler;
     [QBChat instance].delegate = [ChatService instance];
     if(self.chatDialog.type != QBChatDialogTypePrivate){
         [[ChatService instance] joinRoom:self.chatRoom completionBlock:^(QBChatRoom * room) {
+            if(self.terminate)
+            {
+                [[MeetingHandler sharedInstance] leaveRoom];
+                [[QBChat instance]logout];
+            }else{
             [self chatRoomDidEnter:self.chatRoom];
-        }];
+            }
+            }];
 
     }
     
@@ -93,6 +99,8 @@ static MeetingHandler* handler;
 
 -(void)leaveRoom
 {
+    if(self.chatDialog == nil)
+        return;
     QBChatMessage *message = [[QBChatMessage alloc] init];
     message.text = [JsonMessageParser logOutMessageForUser:self.qbUser.login];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];

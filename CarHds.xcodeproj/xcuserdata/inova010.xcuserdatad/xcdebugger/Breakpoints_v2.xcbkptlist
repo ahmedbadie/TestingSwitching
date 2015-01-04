@@ -216,11 +216,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/MeetingHandler/MeetingHandler.m"
-            timestampString = "442062334.905048"
+            timestampString = "442081356.414035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "128"
-            endingLineNumber = "128"
+            startingLineNumber = "136"
+            endingLineNumber = "136"
             landmarkName = "-chatDidDeliverMessageWithID:"
             landmarkType = "5">
          </BreakpointContent>
@@ -264,11 +264,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/MeetingHandler/MeetingHandler.m"
-            timestampString = "442062334.905048"
+            timestampString = "442081356.414035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "54"
-            endingLineNumber = "54"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
             landmarkName = "-chatDidReceiveMessageNotification:"
             landmarkType = "5">
          </BreakpointContent>
@@ -280,11 +280,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/MeetingHandler/MeetingHandler.m"
-            timestampString = "442062334.905048"
+            timestampString = "442081356.414035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "96"
-            endingLineNumber = "96"
+            startingLineNumber = "104"
+            endingLineNumber = "104"
             landmarkName = "-leaveRoom"
             landmarkType = "5">
          </BreakpointContent>
@@ -391,7 +391,7 @@
                   symbolName = "+[QuickBloxManager loginWithUser:andPassword:withCompletionHandler:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/Model/QuickBloxManager/QuickBloxManager.m"
-                  timestampString = "442080272.784592"
+                  timestampString = "442080663.844681"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -405,7 +405,7 @@
                   symbolName = "__68+[QuickBloxManager loginWithUser:andPassword:withCompletionHandler:]_block_invoke"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/Model/QuickBloxManager/QuickBloxManager.m"
-                  timestampString = "442080272.784752"
+                  timestampString = "442080663.844913"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
@@ -454,11 +454,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/MeetingHandler/MeetingHandler.m"
-            timestampString = "442062334.905048"
+            timestampString = "442081356.414035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "39"
-            endingLineNumber = "39"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
             landmarkName = "-connectToChatDialog:"
             landmarkType = "5">
          </BreakpointContent>
@@ -470,11 +470,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/MeetingHandler/MeetingHandler.m"
-            timestampString = "442062334.905048"
+            timestampString = "442081356.414035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "64"
-            endingLineNumber = "64"
+            startingLineNumber = "70"
+            endingLineNumber = "70"
             landmarkName = "-chatRoomDidReceiveMessageNotification:"
             landmarkType = "5">
          </BreakpointContent>
@@ -486,11 +486,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/MeetingHandler/MeetingHandler.m"
-            timestampString = "442062334.905048"
+            timestampString = "442081356.414035"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "90"
+            endingLineNumber = "90"
             landmarkName = "-sendMessage:toChatRoom:"
             landmarkType = "5">
          </BreakpointContent>
@@ -741,7 +741,7 @@
                   symbolName = "-[LoginViewController startMeeting:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/ViewController/LoginViewController/LoginViewController.m"
-                  timestampString = "442080272.797684"
+                  timestampString = "442080663.865017"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "73"
@@ -755,7 +755,7 @@
                   symbolName = "__36-[LoginViewController startMeeting:]_block_invoke"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/ViewController/LoginViewController/LoginViewController.m"
-                  timestampString = "442080272.797931"
+                  timestampString = "442080663.865234"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "73"
@@ -794,6 +794,22 @@
             startingLineNumber = "30"
             endingLineNumber = "30"
             landmarkName = "+getErrorMessage:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarHds/ViewController/MeetingHandler/MeetingHandler.m"
+            timestampString = "442081356.414035"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
+            landmarkName = "-leaveRoom"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

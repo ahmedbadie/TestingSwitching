@@ -69,7 +69,26 @@
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
-    [[QBChat instance] logout];
+    NSUserDefaults* defualts = [NSUserDefaults standardUserDefaults];
+    if([defualts objectForKey:USER_ID_KEY] !=nil && [defualts objectForKey:USER_PASSWORD_KEY]!=nil)
+    {
+        QBUUser* user = [QBUUser new];
+        user.ID = [[defualts objectForKey:USER_ID_KEY] unsignedIntegerValue];
+        user.password = [defualts objectForKey:USER_PASSWORD_KEY];
+        [[ChatService instance] loginWithUser:user completionBlock:^{
+            
+            if([MeetingHandler sharedInstance].chatDialog!=nil)
+            {
+                QBChatDialog* chatDialog  = [MeetingHandler sharedInstance].chatDialog;
+//                [MeetingHandler sharedInstance].terminate = YES;
+//                [[MeetingHandler sharedInstance] connectToChatDialog:chatDialog];
+
+                [[MeetingHandler sharedInstance] leaveRoom];
+            }
+        }];
+        
+    }
+
 }
 
 @end
