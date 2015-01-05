@@ -37,6 +37,12 @@
 		39116A191A5453840043C245 /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A171A5453840043C245 /* Instabug.framework */; };
 		39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39116A1C1A55A42D0043C245 /* RegisterViewController.m */; };
 		39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39116A1E1A55B0C90043C245 /* Localizable.strings */; };
+		391C209E1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C209A1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png */; };
+		391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C209B1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png */; };
+		391C20A01A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C209C1A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png */; };
+		391C20A11A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C209D1A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png */; };
+		391C20A41A5AE08000A44F30 /* registerButton_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A21A5AE08000A44F30 /* registerButton_ipad@2x.png */; };
+		391C20A51A5AE08000A44F30 /* registerButton_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A31A5AE08000A44F30 /* registerButton_ipad.png */; };
 		391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 391F93721A599A540062A7E5 /* ErrorMapper.m */; };
 		391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 391F93741A599BFA0062A7E5 /* ErrorMessages.plist */; };
 		395E4CB91A51E354006361BA /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CB81A51E354006361BA /* ParseManager.m */; };
@@ -119,6 +125,12 @@
 		39116A1C1A55A42D0043C245 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		39116A1E1A55B0C90043C245 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		39116A201A55B1CB0043C245 /* CarHds-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarHds-Prefix.pch"; sourceTree = "<group>"; };
+		391C209A1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailFieldBgRegister_ipad.png; sourceTree = "<group>"; };
+		391C209B1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emailFieldBgRegister_ipad@2x.png"; sourceTree = "<group>"; };
+		391C209C1A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = passwordFieldBgRegister_iphone.png; sourceTree = "<group>"; };
+		391C209D1A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passwordFieldBgRegister_iphone@2x.png"; sourceTree = "<group>"; };
+		391C20A21A5AE08000A44F30 /* registerButton_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "registerButton_ipad@2x.png"; sourceTree = "<group>"; };
+		391C20A31A5AE08000A44F30 /* registerButton_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerButton_ipad.png; sourceTree = "<group>"; };
 		391F93711A599A540062A7E5 /* ErrorMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorMapper.h; sourceTree = "<group>"; };
 		391F93721A599A540062A7E5 /* ErrorMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorMapper.m; sourceTree = "<group>"; };
 		391F93741A599BFA0062A7E5 /* ErrorMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessages.plist; sourceTree = "<group>"; };
@@ -249,6 +261,7 @@
 		3908BF231A532C5000017D84 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				391C20991A5AD73900A44F30 /* Register */,
 				3908BF241A532C5000017D84 /* CardsPhotos */,
 			);
 			path = Graphics;
@@ -287,6 +300,19 @@
 				39116A1C1A55A42D0043C245 /* RegisterViewController.m */,
 			);
 			path = RegisterViewController;
+			sourceTree = "<group>";
+		};
+		391C20991A5AD73900A44F30 /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				391C20A21A5AE08000A44F30 /* registerButton_ipad@2x.png */,
+				391C20A31A5AE08000A44F30 /* registerButton_ipad.png */,
+				391C209A1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png */,
+				391C209B1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png */,
+				391C209C1A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png */,
+				391C209D1A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 		391F93701A599A470062A7E5 /* ErrorMapper */ = {
@@ -607,21 +633,27 @@
 			buildActionMask = 2147483647;
 			files = (
 				3908BF361A532C5000017D84 /* caRHds for odesk project.4b.png in Resources */,
+				391C20A11A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png in Resources */,
 				3908BF311A532C5000017D84 /* caRHds for odesk project.2a.png in Resources */,
 				39116A181A5453840043C245 /* Instabug.bundle in Resources */,
 				3908BF321A532C5000017D84 /* caRHds for odesk project.2b.png in Resources */,
 				3908BF351A532C5000017D84 /* caRHds for odesk project.4a.png in Resources */,
 				398AADAB1A51DE530003EF8C /* Main.storyboard in Resources */,
+				391C20A41A5AE08000A44F30 /* registerButton_ipad@2x.png in Resources */,
+				391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */,
 				398AADB01A51DE530003EF8C /* LaunchScreen.xib in Resources */,
 				3908BF371A532C5000017D84 /* caRHds for odesk project.5a.png in Resources */,
+				391C209E1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png in Resources */,
 				3908BF301A532C5000017D84 /* caRHds for odesk project.1b.png in Resources */,
 				3908BF2F1A532C5000017D84 /* caRHds for odesk project.1a.png in Resources */,
+				391C20A51A5AE08000A44F30 /* registerButton_ipad.png in Resources */,
 				39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */,
 				3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */,
 				3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */,
 				3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */,
 				398AADAD1A51DE530003EF8C /* Images.xcassets in Resources */,
 				391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */,
+				391C20A01A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

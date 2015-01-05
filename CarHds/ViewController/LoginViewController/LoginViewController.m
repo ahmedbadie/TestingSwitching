@@ -63,12 +63,28 @@
         [self warnUserWithMessage:@"Host Meeting is currently supported by IPad version only."];
         return;
     }
-    
-    if([self.usernameTextField text]==nil || [self.passwordTextField text]==nil || [self.meetingIDTextField text]==nil)
+
+    if([self.meetingIDTextField text]==nil && [self.meetingIDTextField text].length==0)
     {
-        [self warnUserWithMessage:@"Missing parameters"];
+        [self warnUserWithMessage:@"Missing meeting name"];
         return;
     }
+    if([self.usernameTextField text]==nil && [self.usernameTextField text].length==0)
+    {
+        [self warnUserWithMessage:@"Missing Username"];
+        return;
+    }
+    
+    if([self.passwordTextField text]==nil && [self.passwordTextField text].length==0)
+    {
+        [self warnUserWithMessage:@"Missing password"];
+        return;
+    }else if ([self.passwordTextField text].length <8)
+    {
+        [self warnUserWithMessage:@"Password too shor"];
+        return;
+    }
+    
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= STRING(@"Login");
@@ -176,7 +192,7 @@
             {
                 switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
                     case HOST_MEETING_INDEX:
-                        [self warnUserWithMessage:@"Meeting ID already exists"];
+                        [self warnUserWithMessage:@"Meeting room already exists"];
                         break;
                     case JOIN_MEETING_INDEX:
                         chatDialog = dialog;
@@ -199,7 +215,7 @@
                 [self createMeetingRoom];
                 break;
             case JOIN_MEETING_INDEX:
-                [self warnUserWithMessage:@"Meeting Id doesn't exists"];
+                [self warnUserWithMessage:@"Meeting room doesn't exist"];
                 break;
             default:
                 break;
@@ -295,7 +311,7 @@
         ClientViewController* dst = segue.destinationViewController;
         dst.chatDialog = self.chatDialog;
         dst.user = self.user;
-    }else if ([segue.identifier isEqualToString:@"RegisterNewUser"])
+    }else if ([segue.identifier isEqualToString:@"RegisterNewUserIPad"] || [segue.identifier isEqualToString:@"RegisterNewUserIPhone"])
     {
         RegisterViewController* dst = (RegisterViewController*)segue.destinationViewController;
         dst.delegate = self;
@@ -308,6 +324,12 @@
 
 - (IBAction)registerUser:(id)sender {
 
+    if(IS_IPAD)
+    {
+        [self performSegueWithIdentifier:@"RegisterNewUserIPad" sender:self];
+    }else{
+        [self performSegueWithIdentifier:@"RegisterNewUserIPhone" sender:self];
+    }
     
     
 }
