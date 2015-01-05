@@ -79,7 +79,7 @@
             
             if([MeetingHandler sharedInstance].chatDialog!=nil)
             {
-                QBChatDialog* chatDialog  = [MeetingHandler sharedInstance].chatDialog;
+//                QBChatDialog* chatDialog  = [MeetingHandler sharedInstance].chatDialog;
 //                [MeetingHandler sharedInstance].terminate = YES;
 //                [[MeetingHandler sharedInstance] connectToChatDialog:chatDialog];
 

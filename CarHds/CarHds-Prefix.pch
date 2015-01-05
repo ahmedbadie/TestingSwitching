@@ -21,6 +21,7 @@
 #pragma mark
 #pragma mark - Block Defines - 
 #define DESC(error) [ErrorMapper getErrorMessage:error]
+#define QBDESC(error) [ErrorMapper getQBErrorMessage:error]
 #define STRING(key) NSLocalizedString(key,@"")
 
 #pragma mark 

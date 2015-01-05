@@ -12,7 +12,7 @@ typedef void(^CompletionBlock)();
 typedef void(^JoinRoomCompletionBlock)(QBChatRoom *);
 typedef void(^CompletionBlockWithResult)(NSArray *);
 
-@interface ChatService () <QBChatDelegate>
+@interface ChatService () 
 
 @property (copy) QBUUser *currentUser;
 @property (retain) NSTimer *presenceTimer;

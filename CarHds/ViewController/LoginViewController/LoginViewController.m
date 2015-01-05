@@ -63,6 +63,13 @@
         [self warnUserWithMessage:@"Host Meeting is currently supported by IPad version only."];
         return;
     }
+    
+    if([self.usernameTextField text]==nil || [self.passwordTextField text]==nil || [self.meetingIDTextField text]==nil)
+    {
+        [self warnUserWithMessage:@"Missing parameters"];
+        return;
+    }
+    
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= STRING(@"Login");
     QBSessionParameters* parameters = [QBSessionParameters new];
@@ -97,11 +104,14 @@
     } errorBlock:^(QBResponse *response) {
         
         NSLog(@"error login");
-        NSLog(@"error login message [%@]",DESC(response.error.error));
+        
+        NSDictionary* reasons =  response.error.reasons;
+        NSLog(@"%@",[reasons description]);
+        NSLog(@"error login message [%@]",QBDESC(response.error));
         self.state = NO;
 
         [self.hud hide:YES];
-        [self warnUserWithMessage:DESC(response.error.error)];
+        [self warnUserWithMessage:QBDESC(response.error)];
     }];
     
 }

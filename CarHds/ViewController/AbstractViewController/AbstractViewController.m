@@ -66,25 +66,24 @@
     
 }
 #pragma mark - json message parser delegate -
--(void)receivedCardVoteForCard:(NSInteger)cardNo withValue:(BOOL)val
-{
-}
-
 -(void)receivedConclusionSignal
 {
-
 }
 
--(void)receivedContributionMessageForType:(CONTRIBUTION_TYPE)type withValue:(CONTRIBUTION_VALUE)val fromUserID:(NSUInteger)userID
+-(void)receivedContributionMessageForType:(CONTRIBUTION_TYPE)type withValue:(CONTRIBUTION_VALUE)val fromMsg:(QBChatMessage *)msg
+{
+}
+-(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
 {
 
 }
+-(void)receivedCardVoteForCard:(NSInteger)cardNo withValue:(BOOL)val fromMsg:(QBChatMessage *)msg{
 
--(void)receivedLoginMessageForUsername:(NSString *)username andUserID:(NSUInteger)userID
+}
+-(void)logOutUser:(NSString *)username fromMsg:(QBChatMessage *)msg
 {
 
 }
-
 #pragma mark
 #pragma mark - UITextField Delegate -
 

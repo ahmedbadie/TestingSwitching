@@ -12,4 +12,5 @@
 @property (nonatomic,strong) NSMutableDictionary* errorDictionary;
 
 +(NSString*) getErrorMessage:(NSError*) error;
++(NSString*) getQBErrorMessage:(QBError *)error;
 @end

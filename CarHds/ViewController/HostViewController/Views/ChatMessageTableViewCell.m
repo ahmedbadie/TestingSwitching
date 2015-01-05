@@ -35,6 +35,7 @@ static UIImage *aquaBubble;
 
     
 	CGSize  textSize = {260.0, 10000.0};
+    
 	CGSize size = [text sizeWithFont:[UIFont boldSystemFontOfSize:13]
                    constrainedToSize:textSize
                        lineBreakMode:NSLineBreakByWordWrapping];

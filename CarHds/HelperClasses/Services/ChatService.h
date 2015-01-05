@@ -14,7 +14,7 @@
 #define kMessage @"kMessage"
 #define kRoomJID @"kRoomJID"
 
-@interface ChatService : NSObject
+@interface ChatService : NSObject<QBChatDelegate>
 
 + (instancetype)instance;
 

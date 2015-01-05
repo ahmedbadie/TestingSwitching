@@ -51,9 +51,18 @@
 
 -(void) registerUser
 {
-    NSString* username = [self.usernameTextField text];
+    NSString* username = [[self.usernameTextField text] lowercaseString];
 //    NSString* email = [self.emailTextField text];
     NSString* password =[self.passwordTextField text];
+    if(password==nil||password.length < 8 )
+    {
+        [self warnUserWithMessage:@"Password should be more than 8 letters"];
+        return;
+    }else if (username ==nil)
+    {
+        [self warnUserWithMessage:@"Can't create a user with empty username"];
+        return;
+    }
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Creating user";
     [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {

@@ -38,4 +38,25 @@
         return msg;
     return [error description];
 }
+
++(NSString *)getQBErrorMessage:(QBError *)error
+{
+    NSString* string = @"";
+    NSDictionary* dictionary = error.reasons;
+    
+    NSArray* keys = [dictionary allKeys];
+    
+    for(NSString* key in keys)
+    {
+        NSArray* array = [dictionary objectForKey:key];
+        string= [string stringByAppendingString:[array firstObject]];
+        
+        }
+    if(string.length ==0)
+    {
+        string = DESC(error.error);
+    }
+    
+    return string;
+}
 @end
