@@ -120,8 +120,8 @@
                         <outlet property="usernameTextField" destination="35Q-vi-0MV" id="Rfm-oN-5ob"/>
                         <segue destination="YAk-f5-8XZ" kind="modal" identifier="HostViewSegue" id="u9g-xR-R2m"/>
                         <segue destination="CBa-mb-4AC" kind="modal" identifier="ClientViewSegue" id="R62-gf-qAt"/>
-                        <segue destination="6Xq-wp-JXt" kind="push" identifier="RegisterNewUserIPad" id="j1u-l1-epu"/>
-                        <segue destination="7xD-L5-2Dy" kind="push" identifier="RegisterNewUserIPhone" id="cRv-6z-h2X"/>
+                        <segue destination="6Xq-wp-JXt" kind="modal" identifier="RegisterNewUserIPad" id="j1u-l1-epu"/>
+                        <segue destination="7xD-L5-2Dy" kind="modal" identifier="RegisterNewUserIPhone" id="cRv-6z-h2X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -143,7 +143,7 @@
                                     <color key="titleColor" red="0.51764705879999995" green="0.83137254900000002" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonClicked:" destination="6Xq-wp-JXt" eventType="touchUpInside" id="bhd-al-Ddr"/>
+                                    <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="cr3-9c-19Z"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" id="6da-3s-KNE" userLabel="Fields View">
@@ -200,7 +200,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="buttonClicked:" destination="6Xq-wp-JXt" eventType="touchUpInside" id="goR-Wp-HRK"/>
+                                    <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="MLe-2W-QNC"/>
                                 </connections>
                             </button>
                         </subviews>

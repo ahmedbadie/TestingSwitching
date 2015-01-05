@@ -391,12 +391,12 @@
                   symbolName = "+[QuickBloxManager loginWithUser:andPassword:withCompletionHandler:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/Model/QuickBloxManager/QuickBloxManager.m"
-                  timestampString = "442159762.380709"
+                  timestampString = "442164756.650783"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "138">
+                  offsetFromSymbolStart = "147">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -405,12 +405,12 @@
                   symbolName = "__68+[QuickBloxManager loginWithUser:andPassword:withCompletionHandler:]_block_invoke"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/Model/QuickBloxManager/QuickBloxManager.m"
-                  timestampString = "442159762.380919"
+                  timestampString = "442164756.65097"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "80">
+                  offsetFromSymbolStart = "83">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -725,12 +725,12 @@
                   symbolName = "-[LoginViewController startMeeting:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/ViewController/LoginViewController/LoginViewController.m"
-                  timestampString = "442159762.392574"
+                  timestampString = "442164756.689342"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
-                  offsetFromSymbolStart = "2792">
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "2900">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -739,12 +739,12 @@
                   symbolName = "__36-[LoginViewController startMeeting:]_block_invoke"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/ViewController/LoginViewController/LoginViewController.m"
-                  timestampString = "442159762.392751"
+                  timestampString = "442164756.689517"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "80"
-                  endingLineNumber = "80"
-                  offsetFromSymbolStart = "104">
+                  startingLineNumber = "96"
+                  endingLineNumber = "96"
+                  offsetFromSymbolStart = "86">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -842,6 +842,22 @@
             startingLineNumber = "88"
             endingLineNumber = "88"
             landmarkName = "-startMeeting:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarHds/ViewController/RegisterViewController/RegisterViewController.m"
+            timestampString = "442164724.207781"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "-buttonClicked:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
