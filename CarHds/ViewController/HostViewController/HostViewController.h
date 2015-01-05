@@ -9,7 +9,8 @@
 #import "AbstractViewController.h"
 #import "ChatService.h"
 #import "ChatMessageTableViewCell.h"
-@interface HostViewController : AbstractViewController<UITextFieldDelegate>
+#import "CardViewController.h"
+@interface HostViewController : AbstractViewController<UITextFieldDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong) NSMutableArray* msgs;
 
 @property (nonatomic,strong) UIPageViewController* pageController;

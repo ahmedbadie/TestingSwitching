@@ -11,4 +11,8 @@
 @interface CardViewController : UIViewController
 @property (nonatomic) NSInteger cardVotes;
 @property (nonatomic,strong) UIImage* cardImage;
+@property (nonatomic) NSInteger type;
+@property (nonatomic) NSInteger index;
+-(void) setValueLabel:(NSInteger) value;
+-(void) setImage;
 @end

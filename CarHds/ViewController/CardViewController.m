@@ -22,8 +22,28 @@
     [self.cardLabel.layer setCornerRadius:self.cardLabel.frame.size.width/2];
     self.cardLabel.clipsToBounds = YES;
     [self.cardLabel setText:[NSString stringWithFormat:@"%d",self.cardVotes]];
-    [self.cardImageView setImage:self.cardImage];
-    // Do any additional setup after loading the view.
+
+    [self setImage];
+    
+}
+
+-(void) setImage
+{
+    NSString* imageName = @"";
+    switch (self.type) {
+        case 0:
+            imageName = @"participantConclusion";
+            break;
+        case 1:
+            imageName = @"meetingConclusion";
+            break;
+        default:
+            break;
+    }
+    
+    imageName = [NSString stringWithFormat:@"%@%d.png",imageName,(self.index+1)];
+    UIImage* image = [UIImage imageNamed:imageName];
+    [self.cardImageView setImage:image];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -31,14 +51,11 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+-(void)setValueLabel:(NSInteger)value
+{
+    self.cardVotes = value;
+    [self.cardLabel setText:[NSString stringWithFormat:@"%d",self.cardVotes]];
 }
-*/
 
 @end

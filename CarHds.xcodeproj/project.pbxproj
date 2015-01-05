@@ -43,6 +43,12 @@
 		391C20A11A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C209D1A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png */; };
 		391C20A41A5AE08000A44F30 /* registerButton_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A21A5AE08000A44F30 /* registerButton_ipad@2x.png */; };
 		391C20A51A5AE08000A44F30 /* registerButton_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A31A5AE08000A44F30 /* registerButton_ipad.png */; };
+		391C20AC1A5B0B3F00A44F30 /* meetingConclusion1.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A61A5B0B3F00A44F30 /* meetingConclusion1.png */; };
+		391C20AD1A5B0B3F00A44F30 /* meetingConclusion2.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A71A5B0B3F00A44F30 /* meetingConclusion2.png */; };
+		391C20AE1A5B0B3F00A44F30 /* meetingConclusion3.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A81A5B0B3F00A44F30 /* meetingConclusion3.png */; };
+		391C20AF1A5B0B3F00A44F30 /* participantConclusion1.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A91A5B0B3F00A44F30 /* participantConclusion1.png */; };
+		391C20B01A5B0B3F00A44F30 /* participantConclusion2.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20AA1A5B0B3F00A44F30 /* participantConclusion2.png */; };
+		391C20B11A5B0B3F00A44F30 /* participantConclusion3.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20AB1A5B0B3F00A44F30 /* participantConclusion3.png */; };
 		391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 391F93721A599A540062A7E5 /* ErrorMapper.m */; };
 		391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 391F93741A599BFA0062A7E5 /* ErrorMessages.plist */; };
 		395E4CB91A51E354006361BA /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CB81A51E354006361BA /* ParseManager.m */; };
@@ -131,6 +137,12 @@
 		391C209D1A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "passwordFieldBgRegister_iphone@2x.png"; sourceTree = "<group>"; };
 		391C20A21A5AE08000A44F30 /* registerButton_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "registerButton_ipad@2x.png"; sourceTree = "<group>"; };
 		391C20A31A5AE08000A44F30 /* registerButton_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = registerButton_ipad.png; sourceTree = "<group>"; };
+		391C20A61A5B0B3F00A44F30 /* meetingConclusion1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetingConclusion1.png; sourceTree = "<group>"; };
+		391C20A71A5B0B3F00A44F30 /* meetingConclusion2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetingConclusion2.png; sourceTree = "<group>"; };
+		391C20A81A5B0B3F00A44F30 /* meetingConclusion3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetingConclusion3.png; sourceTree = "<group>"; };
+		391C20A91A5B0B3F00A44F30 /* participantConclusion1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion1.png; sourceTree = "<group>"; };
+		391C20AA1A5B0B3F00A44F30 /* participantConclusion2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion2.png; sourceTree = "<group>"; };
+		391C20AB1A5B0B3F00A44F30 /* participantConclusion3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion3.png; sourceTree = "<group>"; };
 		391F93711A599A540062A7E5 /* ErrorMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorMapper.h; sourceTree = "<group>"; };
 		391F93721A599A540062A7E5 /* ErrorMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorMapper.m; sourceTree = "<group>"; };
 		391F93741A599BFA0062A7E5 /* ErrorMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessages.plist; sourceTree = "<group>"; };
@@ -270,6 +282,12 @@
 		3908BF241A532C5000017D84 /* CardsPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				391C20A61A5B0B3F00A44F30 /* meetingConclusion1.png */,
+				391C20A71A5B0B3F00A44F30 /* meetingConclusion2.png */,
+				391C20A81A5B0B3F00A44F30 /* meetingConclusion3.png */,
+				391C20A91A5B0B3F00A44F30 /* participantConclusion1.png */,
+				391C20AA1A5B0B3F00A44F30 /* participantConclusion2.png */,
+				391C20AB1A5B0B3F00A44F30 /* participantConclusion3.png */,
 				3908BF251A532C5000017D84 /* caRHds for odesk project.1a.png */,
 				3908BF261A532C5000017D84 /* caRHds for odesk project.1b.png */,
 				3908BF271A532C5000017D84 /* caRHds for odesk project.2a.png */,
@@ -642,17 +660,23 @@
 				391C20A41A5AE08000A44F30 /* registerButton_ipad@2x.png in Resources */,
 				391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */,
 				398AADB01A51DE530003EF8C /* LaunchScreen.xib in Resources */,
+				391C20AE1A5B0B3F00A44F30 /* meetingConclusion3.png in Resources */,
+				391C20AC1A5B0B3F00A44F30 /* meetingConclusion1.png in Resources */,
 				3908BF371A532C5000017D84 /* caRHds for odesk project.5a.png in Resources */,
 				391C209E1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png in Resources */,
 				3908BF301A532C5000017D84 /* caRHds for odesk project.1b.png in Resources */,
 				3908BF2F1A532C5000017D84 /* caRHds for odesk project.1a.png in Resources */,
 				391C20A51A5AE08000A44F30 /* registerButton_ipad.png in Resources */,
 				39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */,
+				391C20AD1A5B0B3F00A44F30 /* meetingConclusion2.png in Resources */,
 				3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */,
 				3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */,
+				391C20B01A5B0B3F00A44F30 /* participantConclusion2.png in Resources */,
 				3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */,
 				398AADAD1A51DE530003EF8C /* Images.xcassets in Resources */,
+				391C20B11A5B0B3F00A44F30 /* participantConclusion3.png in Resources */,
 				391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */,
+				391C20AF1A5B0B3F00A44F30 /* participantConclusion1.png in Resources */,
 				391C20A01A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

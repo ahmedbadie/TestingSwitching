@@ -19,6 +19,7 @@
 @property(nonatomic)NSInteger index;
 @property (nonatomic) BOOL value;
 @property (nonatomic) NSInteger type;
+
 @property (nonatomic,strong) UITapGestureRecognizer* gesuterRecognizer;
 @property (nonatomic,strong) UIViewController<SingleCardViewControllerDelegate>* delegate;
 @property (nonatomic) BOOL shouldHandleTap;

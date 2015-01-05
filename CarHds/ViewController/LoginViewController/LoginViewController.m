@@ -26,6 +26,10 @@
     [super viewDidLoad];
     self.index = 0;
     self.state = NO;
+    if(!IS_IPAD)
+    {
+        [self.operationTypeSegmentedControl setSelectedSegmentIndex:1];
+    }
  }
 
 - (void)didReceiveMemoryWarning {

@@ -16,5 +16,6 @@
 @property (nonatomic) NSInteger index;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UIView *pageView;
+@property (strong, nonatomic) IBOutlet UIView *endView;
 
 @end

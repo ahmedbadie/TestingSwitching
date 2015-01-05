@@ -17,9 +17,20 @@
 @property (weak, nonatomic) IBOutlet UIView *card3View;
 @property (weak, nonatomic) IBOutlet UIView *card4View;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfParticipants;
+@property (weak, nonatomic) IBOutlet UIView *concludeIPadView;
 
+@property (strong,nonatomic) NSMutableArray* conclusionCards;
 @property (nonatomic,strong) NSMutableDictionary* users;
 @property (nonatomic,strong) NSMutableArray* viewControllers;
+@property (nonatomic,strong) NSMutableDictionary* conclusionDictionary;
+@property (weak, nonatomic) IBOutlet UIView *topLeftViewConclude;
+@property (weak, nonatomic) IBOutlet UIView *topMiddleViewConclude;
+@property (weak, nonatomic) IBOutlet UIView *topRightViewConclude;
+@property (weak, nonatomic) IBOutlet UIView *BottomLeftViewConclude;
+@property (weak, nonatomic) IBOutlet UIView *BottomMiddleViewConclude;
+@property (weak, nonatomic) IBOutlet UIView *BottomRightViewConclude;
+
+
 @end
 
 @implementation HostViewController
@@ -56,6 +67,7 @@
             
             [self.viewControllers replaceObjectAtIndex:card.index withObject:card];
         }
+        [self.view addSubview:self.IpadView];
         [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
         
     }else{
@@ -189,15 +201,38 @@
     }
 
 }
-
+bool concludeMeetingOn = NO;
 -(void)receivedConclusionSignal
 {
+    [self.hud hide:YES];
+    canConclude = NO;
+    [self warnUserWithMessage:@"Meeting Conclusion started"];
+    if(!concludeMeetingOn)
+    {
+        concludeMeetingOn = YES;
+        [self showConcludeMeetingView];
+    }
+    
 
 }
 
 -(void)receivedContributionMessageForType:(CONTRIBUTION_TYPE)type withValue:(CONTRIBUTION_VALUE)val fromMsg:(QBChatMessage *)msg
 {
+    NSUInteger key = msg.senderID;
+    NSMutableArray* array = [self.conclusionDictionary objectForKey:@(key)];
+    if(array)
+    {
+        [array replaceObjectAtIndex:type withObject:@(val)];
+    }
     
+    for(CardViewController* card in self.conclusionCards)
+    {
+        NSInteger count = [self getCardsCountForType:card.type andIndex:card.index];
+        card.cardVotes = count;
+        [card setValueLabel:count];
+    }
+    
+
 }
 
 -(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
@@ -243,5 +278,97 @@
 
     }
     
+}
+
+bool canConclude = YES;
+- (IBAction)concludeMeeting:(id)sender {
+    NSLog(@"Conclude Meeting");
+       if(canConclude){
+           
+         UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"NO!"
+                                      message:@"Are you sure you want to conclude the meeting"
+                                     delegate:self
+                            cancelButtonTitle:@"Yes"
+                            otherButtonTitles:@"No", nil];
+
+           [alertView show];
+           
+               }
+    }
+#pragma mark 
+#pragma mark - UIAlertView Delegate -
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(buttonIndex == 0)
+    {
+        canConclude = NO;
+        self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        self.hud.labelText = @"Preparing for meeting conclusion";
+        NSString* msg = [JsonMessageParser broadcastContributionSignal];
+        QBChatRoom* room = self.chatDialog.chatRoom;
+        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+
+    }
+}
+#pragma mark
+#pragma mark - Conclude Meeting -
+-(void)showConcludeMeetingView
+{
+    [self.view addSubview:self.concludeIPadView];
+    self.conclusionCards = [NSMutableArray array];
+    UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
+    int index =0 ;
+    for(int i=0;i<[views count];i++)
+        [self.conclusionCards addObject:@2];
+    
+    self.conclusionDictionary = [NSMutableDictionary dictionary];
+    
+    NSArray* users = [self.users allKeys];
+    
+    for(NSString* user in users)
+    {
+        NSMutableArray* array = [NSMutableArray arrayWithObjects:@-1,@-1, nil];
+        [self.conclusionDictionary setObject:array forKey:user];
+        
+    }
+    for(UIView* view in views)
+    {
+        CardViewController* card = [storyBoard instantiateViewControllerWithIdentifier:@"HostConclusionCard"];
+        card.view.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
+        [self addChildViewController:card];
+        [view addSubview:card.view];
+        [card didMoveToParentViewController:self];
+        NSInteger type = index / 3;
+        NSInteger tIndex = index %3;
+        card.type = type;
+        card.index = tIndex;
+        card.cardVotes = 0;
+        [card setImage];
+        self.numberOfParticipants.layer.borderWidth=1.0f;
+        [self.numberOfParticipants.layer setCornerRadius:self.numberOfParticipants.frame.size.width/2];
+        self.numberOfParticipants.clipsToBounds = YES;
+        [self.conclusionCards replaceObjectAtIndex:index withObject:card];
+        index++;
+    }
+    
+}
+
+
+-(NSInteger) getCardsCountForType:(CONTRIBUTION_TYPE) type andIndex:(NSInteger) index
+{
+    NSInteger count = 0;
+    
+    NSArray* keys = [self.conclusionDictionary allKeys];
+    
+    for(NSString* key in keys)
+    {
+        NSArray* values = [self.conclusionDictionary objectForKey:key];
+            if([[values objectAtIndex:type] integerValue]==index)
+            {
+                count++;
+            }
+    }
+    return count;
 }
 @end

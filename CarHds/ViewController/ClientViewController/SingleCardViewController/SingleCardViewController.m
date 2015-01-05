@@ -23,9 +23,18 @@
 
 -(void)setImageWithAnimation:(BOOL)animated
 {
-   
-    NSString* imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
-//    UIImage* image = [self imageRotatedByDegrees:[UIImage imageNamed:imageName] deg:90];
+    NSString* imageName = @"";
+    if(self.type == 0)
+     imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
+    if(self.type==1)
+    {
+        imageName= [NSString stringWithFormat:@"participantConclusion%d.png",(self.index+1)];
+        animated= NO;
+    }else if (self.type == 2)
+    {
+        imageName= [NSString stringWithFormat:@"meetingConclusion%d.png",(self.index+1)];
+        animated= NO;
+    }
     UIImage* image = [UIImage imageNamed:imageName];
     if(animated)
     {

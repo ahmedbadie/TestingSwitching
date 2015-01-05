@@ -98,8 +98,8 @@
         }else if ([type isEqualToString:MESSAGE_HOST_TYPE_CONCLUDE])
         {
             
-            CONTRIBUTION_TYPE subType = (CONTRIBUTION_TYPE)[dict objectForKey:MESSAGE_CONCLUDE_CONTRIBUTION_TYPE];
-            CONTRIBUTION_VALUE value = (CONTRIBUTION_VALUE) [dict objectForKey:MESSAGE_CONCLUDE_CONTRIBUTION_VALUE];
+            CONTRIBUTION_TYPE subType = (CONTRIBUTION_TYPE)[[dict objectForKey:MESSAGE_CONCLUDE_CONTRIBUTION_TYPE]integerValue];
+            CONTRIBUTION_VALUE value = (CONTRIBUTION_VALUE) [[dict objectForKey:MESSAGE_CONCLUDE_CONTRIBUTION_VALUE] integerValue];
             [delegate receivedContributionMessageForType:subType withValue:value fromMsg:message];
             return YES;
         }else if ([type isEqualToString:MESSAGE_HOST_TYPE_CARD_VOTE])

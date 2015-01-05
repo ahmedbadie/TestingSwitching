@@ -12,11 +12,19 @@
 
 @property (nonatomic,strong) NSMutableArray* values;
 @property (nonatomic) NSInteger currentIndex;
+@property (strong, nonatomic) IBOutlet UIView *cardVotingView;
+@property (nonatomic) NSInteger state;
+@property (nonatomic) NSInteger maxNumber;
+#define STATE_CARD_VOTING 0
+#define STATE_SELF_CONCLUDE 2
+#define STATE_MEETING_CONCLUDE 1
 @end
 
 @implementation ClientViewController
 
 - (void)viewDidLoad {
+    self.maxNumber = 5;
+    self.state = STATE_CARD_VOTING;
     [super viewDidLoad];
     self.index = 0;
     [MeetingHandler sharedInstance].logOut = NO;
@@ -35,7 +43,7 @@
     
     
     self.currentIndex = 0;
-    
+    [self.view addSubview:self.cardVotingView];
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageController.dataSource = self;
     self.pageController.delegate =self;
@@ -129,7 +137,8 @@
 -(void)didReciveMessages:(NSArray *)msgs
 {
     [self.messages addObjectsFromArray:msgs];
-
+    for(QBChatMessage* msg in msgs)
+        [JsonMessageParser decodeMessage:msg withDelegate:self];
 }
 
 
@@ -142,7 +151,7 @@
     NSUInteger index = [(SingleCardViewController *)viewController index];
     
     if (index == 0) {
-        index = 5;
+        index = self.maxNumber;
     }
     
     // Decrease the index by 1 to return
@@ -157,7 +166,7 @@
     
     index++;
     
-    if (index == 5) {
+    if (index == self.maxNumber) {
         index=0;
     }
     self.index = index;
@@ -185,7 +194,7 @@
     SingleCardViewController* controller = [sb instantiateViewControllerWithIdentifier:@"SingleCardViewController"];
     controller.index = index;
     controller.value = [[self.values objectAtIndex:index] boolValue];
-    controller.type = 0;
+    controller.type = self.state;
     controller.delegate = self;
     controller.shouldHandleTap = YES;
     return controller;
@@ -203,11 +212,26 @@
 
 -(void) changePageState:(NSInteger) pageIndex :(BOOL) pageOldValue
 {
+    if(self.state== STATE_CARD_VOTING){
     [self.values replaceObjectAtIndex:pageIndex withObject:@(!pageOldValue)];
     NSString* msg = [JsonMessageParser cardVoteMessageForCard:pageIndex withValue:!pageOldValue];
     QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     [MeetingHandler sharedInstance].logOut = YES;
     [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
+    }else if (self.state == STATE_MEETING_CONCLUDE)
+    {
+       NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_MEETING withValue:pageIndex];
+        QBChatRoom* room = self.chatDialog.chatRoom;
+        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+        [self showConcludeMenuWithIndex:STATE_SELF_CONCLUDE];
+    }else if (self.state == STATE_SELF_CONCLUDE)
+    {
+        NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_PERSONAL withValue:pageIndex];
+        QBChatRoom* room = self.chatDialog.chatRoom;
+        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+        [self.cardVotingView removeFromSuperview];
+        [self.view addSubview: self.endView ];
+    }
 }
 
 - (IBAction)leaveMeeting:(id)sender {
@@ -251,5 +275,63 @@
     [[ChatService instance] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
     [self.hud hide:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+
+#pragma mark - json message parser delegate -
+-(void)receivedConclusionSignal
+{
+    
+    NSLog(@"Contribution");
+    if(self.state == STATE_CARD_VOTING){
+    [self warnUserWithMessage:@"Start conclude meeting"];
+    [self showConcludeMenuWithIndex:STATE_MEETING_CONCLUDE];
+    }
+}
+
+-(void)receivedContributionMessageForType:(CONTRIBUTION_TYPE)type withValue:(CONTRIBUTION_VALUE)val fromMsg:(QBChatMessage *)msg
+{
+//    if(val == CONTRIBUTION_TYPE_PERSONAL&& msg.senderID == self.user.ID)
+//    {
+//        [self warnUserWithMessage:@"Meeting ended"];
+//        [self dismissViewControllerAnimated:YES completion:nil];
+//    }
+}
+-(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
+{
+    
+}
+-(void)receivedCardVoteForCard:(NSInteger)cardNo withValue:(BOOL)val fromMsg:(QBChatMessage *)msg{
+    
+}
+-(void)logOutUser:(NSString *)username fromMsg:(QBChatMessage *)msg
+{
+    
+}
+
+#pragma mark
+#pragma mark - Conclude Menu -
+-(void) showConcludeMenuWithIndex:(NSInteger) index
+{
+    self.state = index;
+    if(self.state == STATE_MEETING_CONCLUDE || self.state == STATE_SELF_CONCLUDE)
+    {self.maxNumber = 3;
+        self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+        self.pageController.dataSource = self;
+        self.pageController.delegate =self;
+        self.pageController.doubleSided = YES;
+        SingleCardViewController *initialViewController = [self viewControllerForIndex:0];
+        
+        NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
+        
+        [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+        [self addChildViewController:self.pageController];
+        [[self pageView] addSubview:[self.pageController view]];
+        [self.pageController didMoveToParentViewController:self];
+        [self.pageControl setCurrentPage:0];
+        [self.pageControl setNumberOfPages:3];
+
+    }
+    
 }
 @end
