@@ -391,12 +391,12 @@
                   symbolName = "+[QuickBloxManager loginWithUser:andPassword:withCompletionHandler:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/Model/QuickBloxManager/QuickBloxManager.m"
-                  timestampString = "442164756.650783"
+                  timestampString = "442166293.806489"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "147">
+                  offsetFromSymbolStart = "138">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -405,12 +405,12 @@
                   symbolName = "__68+[QuickBloxManager loginWithUser:andPassword:withCompletionHandler:]_block_invoke"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/Model/QuickBloxManager/QuickBloxManager.m"
-                  timestampString = "442164756.65097"
+                  timestampString = "442166293.806644"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "42"
                   endingLineNumber = "42"
-                  offsetFromSymbolStart = "83">
+                  offsetFromSymbolStart = "80">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -725,12 +725,12 @@
                   symbolName = "-[LoginViewController startMeeting:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/ViewController/LoginViewController/LoginViewController.m"
-                  timestampString = "442164756.689342"
+                  timestampString = "442166293.819688"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
                   endingLineNumber = "96"
-                  offsetFromSymbolStart = "2900">
+                  offsetFromSymbolStart = "2972">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -739,12 +739,12 @@
                   symbolName = "__36-[LoginViewController startMeeting:]_block_invoke"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/ViewController/LoginViewController/LoginViewController.m"
-                  timestampString = "442164756.689517"
+                  timestampString = "442166293.819949"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "96"
                   endingLineNumber = "96"
-                  offsetFromSymbolStart = "86">
+                  offsetFromSymbolStart = "104">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -859,6 +859,52 @@
             endingLineNumber = "39"
             landmarkName = "-buttonClicked:"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarHds/ViewController/RegisterViewController/RegisterViewController.h"
+            timestampString = "442166276.595979"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "13"
+            endingLineNumber = "13"
+            landmarkName = "usernameTextField"
+            landmarkType = "19">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RegisterViewController usernameTextField]"
+                  moduleName = "CarHds"
+                  urlString = "file:///Users/inova010/carhds/CarHds/ViewController/RegisterViewController/RegisterViewController.h"
+                  timestampString = "442166293.827606"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "10">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RegisterViewController setUsernameTextField:]"
+                  moduleName = "CarHds"
+                  urlString = "file:///Users/inova010/carhds/CarHds/ViewController/RegisterViewController/RegisterViewController.h"
+                  timestampString = "442166293.827787"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "13"
+                  endingLineNumber = "13"
+                  offsetFromSymbolStart = "22">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
