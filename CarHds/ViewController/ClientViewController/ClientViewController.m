@@ -307,7 +307,6 @@ int selectedPageIndex;
         alertView.tag = 1;
         [alertView show];
     
-    [self warnUserWithMessage:@"Start conclude meeting"];
     [self showConcludeMenuWithIndex:STATE_MEETING_CONCLUDE];
     }
 }
