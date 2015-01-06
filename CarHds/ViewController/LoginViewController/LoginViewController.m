@@ -29,7 +29,8 @@
     {
         [self.operationTypeSegmentedControl setSelectedSegmentIndex:1];
     }
-    
+    self.operationTypeSegmentedControl.layer.cornerRadius = 4.0f;
+    self.operationTypeSegmentedControl.layer.masksToBounds = YES;
     
 }
 

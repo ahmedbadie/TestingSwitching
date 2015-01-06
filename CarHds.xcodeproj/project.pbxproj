@@ -66,6 +66,7 @@
 		395E4CE41A521AC0006361BA /* CharactersEscapeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CDF1A521AC0006361BA /* CharactersEscapeService.m */; };
 		395E4CE51A521AC0006361BA /* ChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CE11A521AC0006361BA /* ChatService.m */; };
 		395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CE31A521AC0006361BA /* LocalStorageService.m */; };
+		396208901A5C70D4004E18F6 /* AKSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3962088F1A5C70D4004E18F6 /* AKSegmentedControl.m */; };
 		396769991A5BFC99003444D2 /* caRHds Logo white.psd in Resources */ = {isa = PBXBuildFile; fileRef = 396769951A5BFC99003444D2 /* caRHds Logo white.psd */; };
 		3967699A1A5BFC99003444D2 /* icon.psd in Resources */ = {isa = PBXBuildFile; fileRef = 396769961A5BFC99003444D2 /* icon.psd */; };
 		3967699B1A5BFC99003444D2 /* Logon Screen.001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 396769971A5BFC99003444D2 /* Logon Screen.001.jpg */; };
@@ -187,6 +188,8 @@
 		395E4CE11A521AC0006361BA /* ChatService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatService.m; sourceTree = "<group>"; };
 		395E4CE21A521AC0006361BA /* LocalStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalStorageService.h; sourceTree = "<group>"; };
 		395E4CE31A521AC0006361BA /* LocalStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalStorageService.m; sourceTree = "<group>"; };
+		3962088E1A5C70D4004E18F6 /* AKSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AKSegmentedControl.h; sourceTree = "<group>"; };
+		3962088F1A5C70D4004E18F6 /* AKSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AKSegmentedControl.m; sourceTree = "<group>"; };
 		396769951A5BFC99003444D2 /* caRHds Logo white.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "caRHds Logo white.psd"; sourceTree = "<group>"; };
 		396769961A5BFC99003444D2 /* icon.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon.psd; sourceTree = "<group>"; };
 		396769971A5BFC99003444D2 /* Logon Screen.001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Logon Screen.001.jpg"; sourceTree = "<group>"; };
@@ -397,6 +400,7 @@
 		395E4CBF1A51E4C1006361BA /* HelperClasses */ = {
 			isa = PBXGroup;
 			children = (
+				3962088D1A5C70D4004E18F6 /* AKSegmentedControl */,
 				391F93701A599A470062A7E5 /* ErrorMapper */,
 				390424511A53182F00370E80 /* TouchJSON-master */,
 				395E4CDD1A521AC0006361BA /* Services */,
@@ -464,6 +468,15 @@
 				395E4CE31A521AC0006361BA /* LocalStorageService.m */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		3962088D1A5C70D4004E18F6 /* AKSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				3962088E1A5C70D4004E18F6 /* AKSegmentedControl.h */,
+				3962088F1A5C70D4004E18F6 /* AKSegmentedControl.m */,
+			);
+			path = AKSegmentedControl;
 			sourceTree = "<group>";
 		};
 		396769921A5BFC99003444D2 /* Login */ = {
@@ -791,6 +804,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				396208901A5C70D4004E18F6 /* AKSegmentedControl.m in Sources */,
 				391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */,
 				390424B21A53182F00370E80 /* NSDictionary_JSONExtensions.m in Sources */,
 				395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */,
