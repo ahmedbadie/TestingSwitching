@@ -24,4 +24,7 @@
 @property (nonatomic,strong) UIViewController<SingleCardViewControllerDelegate>* delegate;
 @property (nonatomic) BOOL shouldHandleTap;
 -(void) setImageWithAnimation:(BOOL) animated;
+-(void) setImageForced:(UIImage*)image;
+-(UIImage*) getImage;
+-(void)setImageWithAnimation:(BOOL) animated ofType:(UIViewAnimationOptions) animationType;
 @end

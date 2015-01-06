@@ -29,6 +29,8 @@
 @property (weak, nonatomic) IBOutlet UIView *BottomLeftViewConclude;
 @property (weak, nonatomic) IBOutlet UIView *BottomMiddleViewConclude;
 @property (weak, nonatomic) IBOutlet UIView *BottomRightViewConclude;
+@property (nonatomic) BOOL  canConclude ;
+@property (nonatomic) BOOL concludeMeetingOn;
 
 
 @end
@@ -40,8 +42,8 @@
     self.msgs = [NSMutableArray array];
     self.users = [NSMutableDictionary dictionary];
     [MeetingHandler sharedInstance].delegate = self;
-   
-    
+    self.canConclude= YES;
+    self.concludeMeetingOn = NO;
     if(IS_IPAD)
     {
         [self.IphoneView removeFromSuperview];
@@ -201,15 +203,14 @@
     }
 
 }
-bool concludeMeetingOn = NO;
 -(void)receivedConclusionSignal
 {
     [self.hud hide:YES];
-    canConclude = NO;
+    self.canConclude = NO;
     [self warnUserWithMessage:@"Meeting Conclusion started"];
-    if(!concludeMeetingOn)
+    if(!self.concludeMeetingOn)
     {
-        concludeMeetingOn = YES;
+        self.concludeMeetingOn = YES;
         [self showConcludeMeetingView];
     }
     
@@ -280,10 +281,9 @@ bool concludeMeetingOn = NO;
     
 }
 
-bool canConclude = YES;
 - (IBAction)concludeMeeting:(id)sender {
     NSLog(@"Conclude Meeting");
-       if(canConclude){
+       if(self.canConclude){
            
          UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"NO!"
                                 message:STRING(@"ConcludeMeetingConfirmation")
@@ -301,7 +301,7 @@ bool canConclude = YES;
 {
     if(buttonIndex == 0)
     {
-        canConclude = NO;
+        self.canConclude = NO;
         self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         self.hud.labelText = @"Preparing for meeting conclusion";
         NSString* msg = [JsonMessageParser broadcastContributionSignal];

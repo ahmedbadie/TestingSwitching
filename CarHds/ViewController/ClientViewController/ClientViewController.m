@@ -9,6 +9,7 @@
 #import "ClientViewController.h"
 
 @interface ClientViewController ()
+@property (nonatomic)NSInteger  selectedPageIndex;
 
 @property (nonatomic,strong) NSMutableArray* values;
 @property (nonatomic) NSInteger currentIndex;
@@ -210,7 +211,6 @@
 //    NSLog(@"select %d",index);
 }
 
-int selectedPageIndex;
 
 -(void) changePageState:(NSInteger) pageIndex :(BOOL) pageOldValue
 {
@@ -231,7 +231,7 @@ int selectedPageIndex;
         
         [alertView show];
 
-        selectedPageIndex = pageIndex;
+        self.selectedPageIndex = pageIndex;
     }else if (self.state == STATE_SELF_CONCLUDE)
     {
         
@@ -244,7 +244,7 @@ int selectedPageIndex;
         
         [alertView show];
         
-        selectedPageIndex = pageIndex;
+        self.selectedPageIndex = pageIndex;
 
             }
 }
@@ -335,21 +335,34 @@ int selectedPageIndex;
 #pragma mark - Conclude Menu -
 -(void) showConcludeMenuWithIndex:(NSInteger) index
 {
+    
+    NSInteger selectedPage = [self.pageControl currentPage];
+    UIImage* image = [[self viewControllerForIndex:selectedPage] getImage];
+    
     self.state = index;
     if(self.state == STATE_MEETING_CONCLUDE || self.state == STATE_SELF_CONCLUDE)
     {self.maxNumber = 3;
-        self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-        self.pageController.dataSource = self;
-        self.pageController.delegate =self;
-        self.pageController.doubleSided = YES;
+//        self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+//        self.pageController.dataSource = self;
+//        self.pageController.delegate =self;
+//        self.pageController.doubleSided = YES;
         SingleCardViewController *initialViewController = [self viewControllerForIndex:0];
-        
+        [initialViewController setImageForced:image];
+        __weak ClientViewController* current = self;
         NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
-        
-        [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
-        [self addChildViewController:self.pageController];
-        [[self pageView] addSubview:[self.pageController view]];
-        [self.pageController didMoveToParentViewController:self];
+        [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
+            if(finished)
+            {
+                if(current.state== STATE_SELF_CONCLUDE)
+                {
+                     SingleCardViewController *initialViewController = [current viewControllerForIndex:0];
+                    [initialViewController setImageWithAnimation:YES ofType:UIViewAnimationOptionTransitionCurlUp];
+                }
+            }
+        }];
+//        [self addChildViewController:self.pageController];
+//        [[self pageView] addSubview:[self.pageController view]];
+//        [self.pageController didMoveToParentViewController:self];
         [self.pageControl setCurrentPage:0];
         [self.pageControl setNumberOfPages:3];
 
@@ -366,14 +379,14 @@ int selectedPageIndex;
     {
         if(self.state == STATE_MEETING_CONCLUDE)
         {
-            NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_MEETING withValue:selectedPageIndex];
+            NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_MEETING withValue:self.selectedPageIndex];
             QBChatRoom* room = self.chatDialog.chatRoom;
             [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
             [self showConcludeMenuWithIndex:STATE_SELF_CONCLUDE];
 
         }else if (self.state == STATE_SELF_CONCLUDE)
         {
-            NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_PERSONAL withValue:selectedPageIndex];
+            NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_PERSONAL withValue:self.selectedPageIndex];
             QBChatRoom* room = self.chatDialog.chatRoom;
             [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
             [self.cardVotingView removeFromSuperview];
@@ -387,6 +400,10 @@ int selectedPageIndex;
         if(buttonIndex==1)
         {
             [self leaveMeeting:nil];
+        }else{
+        
+            SingleCardViewController*  card = [self viewControllerForIndex:0];
+            [card setImageWithAnimation:YES ofType:UIViewAnimationOptionTransitionCurlUp];
         }
     }
 }

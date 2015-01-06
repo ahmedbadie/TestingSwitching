@@ -132,4 +132,50 @@
 {
     return YES;
     }
+
+-(UIImage *)getImage
+{
+    return [self.imageView image];
+}
+-(void)setImageForced:(UIImage *)image
+{
+    [self.imageView setImage:image];
+}
+
+-(void)setImageWithAnimation:(BOOL)animated ofType:(UIViewAnimationOptions)animationType
+{
+    NSString* imageName = @"";
+    if(self.type == 0)
+        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
+    if(self.type==1)
+    {
+        imageName= [NSString stringWithFormat:@"participantConclusion%d.png",(self.index+1)];
+        animated= NO;
+    }else if (self.type == 2)
+    {
+        imageName= [NSString stringWithFormat:@"meetingConclusion%d.png",(self.index+1)];
+        animated= NO;
+    }
+    UIImage* image = [UIImage imageNamed:imageName];
+    if(animated)
+    {
+        [UIView transitionWithView:self.view
+                          duration:0.4
+                           options:animationType
+                        animations:^{
+                            //  Set the new image
+                            //  Since its done in animation block, the change will be animated
+                            
+                            [self.imageView setImage: image];
+                        } completion:^(BOOL finished) {
+                            //  Do whatever when the animation is finished
+                        }];
+        
+    }else{
+        [self.imageView  setImage:image];
+        //    [self.view addSubview:self.imageView];
+        
+    }
+
+}
 @end
