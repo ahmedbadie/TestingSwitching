@@ -4,6 +4,20 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6244"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Arial Narrow.ttf">
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--Card View Controller-->
         <scene sceneID="PpA-HP-gAk">
@@ -29,7 +43,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="60" height="60"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="60"/>
+                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="60"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -62,7 +76,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user1" borderStyle="roundedRect" placeholder="username" minimumFontSize="17" id="35Q-vi-0MV" userLabel="username">
                                 <rect key="frame" x="37" y="168" width="246" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="89U-Zi-9E3"/>
@@ -81,7 +95,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="12345678" borderStyle="roundedRect" placeholder="password" minimumFontSize="17" id="Lr2-Ad-REX" userLabel="password">
                                 <rect key="frame" x="37" y="226" width="246" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" secureTextEntry="YES"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="lsu-UK-vSf"/>
@@ -90,7 +104,7 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="inova" borderStyle="roundedRect" placeholder="Meeting name" minimumFontSize="17" id="CiA-u0-7s3" userLabel="Meeting name">
                                 <rect key="frame" x="37" y="107" width="246" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Qua-qH-QVc"/>
@@ -99,6 +113,7 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Sav-78-g6z">
                                 <rect key="frame" x="116" y="511" width="88" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="15"/>
                                 <state key="normal" title="REGISTER ?">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -115,6 +130,7 @@
                                 <rect key="frame" x="135" y="361" width="50" height="38"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="15"/>
                                 <state key="normal" title="GO">
                                     <color key="titleColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -152,6 +168,7 @@
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b8L-CX-hyu">
                                 <rect key="frame" x="30" y="465" width="260" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="15"/>
                                 <state key="normal" title="Already Registered?">
                                     <color key="titleColor" red="0.51764705879999995" green="0.83137254900000002" blue="0.87450980389999999" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
@@ -174,7 +191,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" id="hOL-Cf-9br">
                                                 <rect key="frame" x="17" y="0.0" width="217" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="7xD-L5-2Dy" id="wOI-as-TkZ"/>
@@ -194,7 +211,7 @@
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="8" id="ZB2-Nx-swi">
                                                 <rect key="frame" x="17" y="0.0" width="273" height="30"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="7xD-L5-2Dy" id="5Mg-1s-YsS"/>
@@ -411,6 +428,71 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bY-HZ-PmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view hidden="YES" contentMode="scaleToFill" id="o0M-93-8h5" userLabel="IpadView">
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <view tag="1" contentMode="scaleToFill" id="SA3-JG-Wfz" userLabel="topLeft">
+                            <rect key="frame" x="20" y="20" width="275" height="470"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view tag="2" contentMode="scaleToFill" id="MKg-DF-OpE" userLabel="topRight">
+                            <rect key="frame" x="472.99999961853035" y="20" width="275" height="470"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view tag="4" contentMode="scaleToFill" id="Ey4-uK-aza" userLabel="bottonLeft">
+                            <rect key="frame" x="20" y="533.99999995941812" width="275" height="470"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <view tag="3" contentMode="scaleToFill" id="7gZ-rU-I1w" userLabel="bottomRight">
+                            <rect key="frame" x="473" y="533.99999995941812" width="274.99999961853035" height="470"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="fUk-2z-2zj">
+                            <rect key="frame" x="15" y="23" width="80" height="80"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="60"/>
+                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <view contentMode="scaleToFill" id="WTQ-UW-3DU" userLabel="Center">
+                            <rect key="frame" x="247" y="277" width="275" height="470"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                        </view>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w0Y-Z3-gD9">
+                            <rect key="frame" x="361" y="8" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" title="Leave">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="leaveMeeting:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="8am-1p-dX9"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kPx-xn-rVs" userLabel="concludeMeeting">
+                            <rect key="frame" x="15" y="23" width="80" height="80"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal">
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="concludeMeeting:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="Wtf-vz-D6R"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.12941176470588234" green="0.19607843137254902" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
                 <view contentMode="scaleToFill" id="kR1-SA-aLi" userLabel="ConcludeIPad">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -445,71 +527,6 @@
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
-                    </subviews>
-                    <color key="backgroundColor" red="0.12941176470588234" green="0.19607843137254902" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
-                </view>
-                <view hidden="YES" contentMode="scaleToFill" id="o0M-93-8h5" userLabel="IpadView">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <view tag="1" contentMode="scaleToFill" id="SA3-JG-Wfz" userLabel="topLeft">
-                            <rect key="frame" x="20" y="20" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view tag="2" contentMode="scaleToFill" id="MKg-DF-OpE" userLabel="topRight">
-                            <rect key="frame" x="472.99999961853024" y="20" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view tag="4" contentMode="scaleToFill" id="Ey4-uK-aza" userLabel="bottonLeft">
-                            <rect key="frame" x="20" y="533.99999996428187" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view tag="3" contentMode="scaleToFill" id="7gZ-rU-I1w" userLabel="bottomRight">
-                            <rect key="frame" x="472.99999961853024" y="533.99999995941812" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="fUk-2z-2zj">
-                            <rect key="frame" x="15" y="23" width="80" height="80"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="60"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleToFill" id="WTQ-UW-3DU" userLabel="Center">
-                            <rect key="frame" x="247" y="277" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w0Y-Z3-gD9">
-                            <rect key="frame" x="361" y="8" width="46" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal" title="Leave">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="leaveMeeting:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="8am-1p-dX9"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kPx-xn-rVs" userLabel="concludeMeeting">
-                            <rect key="frame" x="15" y="23" width="80" height="80"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="concludeMeeting:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="Wtf-vz-D6R"/>
-                            </connections>
-                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.12941176470588234" green="0.19607843137254902" blue="0.32941176470588235" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
