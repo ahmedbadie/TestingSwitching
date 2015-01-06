@@ -12,3 +12,7 @@
 "LoginFailed"="Login Failed with error %@";
 "LoginSucceded"= "Login Succeded";
 "CreatingMeeting" = "Creating Meeting";
+"ConcludeMeetingConfirmation" = "Really conclude the Meeting?";
+"ConcludeMeetingMessage" = "Meeting concluded, please rate the quality of this Meeting.";
+"MeetingConclusionConfirmation" = "Confirm your choice and move on to rating your own contribution making the best possible Meeting.";
+"SelfConclusionConfirmation" = "Please confirm your choice and stay hungry and foolish.";

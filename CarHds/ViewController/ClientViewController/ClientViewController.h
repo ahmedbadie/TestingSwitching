@@ -9,7 +9,7 @@
 #import "AbstractViewController.h"
 #import "ChatMessageTableViewCell.h"
 #import "SingleCardViewController.h"
-@interface ClientViewController : AbstractViewController<UITextFieldDelegate,UIPageViewControllerDataSource,SingleCardViewControllerDelegate,UIPageViewControllerDelegate>
+@interface ClientViewController : AbstractViewController<UITextFieldDelegate,UIPageViewControllerDataSource,SingleCardViewControllerDelegate,UIPageViewControllerDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong) UIPageViewController* pageController;
 @property (nonatomic,strong) MBProgressHUD* hud;
 @property (nonatomic,strong) NSMutableArray* messages;

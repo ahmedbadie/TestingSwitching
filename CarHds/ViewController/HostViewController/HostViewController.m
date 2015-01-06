@@ -286,7 +286,7 @@ bool canConclude = YES;
        if(canConclude){
            
          UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"NO!"
-                                      message:@"Are you sure you want to conclude the meeting"
+                                message:STRING(@"ConcludeMeetingConfirmation")
                                      delegate:self
                             cancelButtonTitle:@"Yes"
                             otherButtonTitles:@"No", nil];
@@ -315,6 +315,7 @@ bool canConclude = YES;
 -(void)showConcludeMeetingView
 {
     [self.view addSubview:self.concludeIPadView];
+    [self.IpadView removeFromSuperview];
     self.conclusionCards = [NSMutableArray array];
     UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];

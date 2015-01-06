@@ -40,8 +40,8 @@
     
     self.messages = [NSMutableArray array];
     [MeetingHandler sharedInstance].delegate = self;
-    
-    
+    self.cardVotingView.frame = self.view.frame;
+
     self.currentIndex = 0;
     [self.view addSubview:self.cardVotingView];
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
@@ -210,6 +210,8 @@
 //    NSLog(@"select %d",index);
 }
 
+int selectedPageIndex;
+
 -(void) changePageState:(NSInteger) pageIndex :(BOOL) pageOldValue
 {
     if(self.state== STATE_CARD_VOTING){
@@ -220,18 +222,31 @@
     [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
     }else if (self.state == STATE_MEETING_CONCLUDE)
     {
-       NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_MEETING withValue:pageIndex];
-        QBChatRoom* room = self.chatDialog.chatRoom;
-        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
-        [self showConcludeMenuWithIndex:STATE_SELF_CONCLUDE];
+        
+        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Meeting Conclusion"
+                                                           message:STRING(@"MeetingConclusionConfirmation")
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Yes"
+                                                 otherButtonTitles:@"No", nil];
+        
+        [alertView show];
+
+        selectedPageIndex = pageIndex;
     }else if (self.state == STATE_SELF_CONCLUDE)
     {
-        NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_PERSONAL withValue:pageIndex];
-        QBChatRoom* room = self.chatDialog.chatRoom;
-        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
-        [self.cardVotingView removeFromSuperview];
-        [self.view addSubview: self.endView ];
-    }
+        
+        
+        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Meeting Conclusion"
+                                                           message:STRING(@"SelfConclusionConfirmation")
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Yes"
+                                                 otherButtonTitles:@"No", nil];
+        
+        [alertView show];
+        
+        selectedPageIndex = pageIndex;
+
+            }
 }
 
 - (IBAction)leaveMeeting:(id)sender {
@@ -284,6 +299,14 @@
     
     NSLog(@"Contribution");
     if(self.state == STATE_CARD_VOTING){
+        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Meeting Conclusion"
+                                                           message:STRING(@"ConcludeMeetingMessage")
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Yes"
+                                                 otherButtonTitles:@"No", nil];
+        alertView.tag = 1;
+        [alertView show];
+    
     [self warnUserWithMessage:@"Start conclude meeting"];
     [self showConcludeMenuWithIndex:STATE_MEETING_CONCLUDE];
     }
@@ -333,5 +356,39 @@
 
     }
     
+}
+
+#pragma mark
+#pragma mark - UIAlertView Delegate -
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if(alertView.tag==0){
+    if(buttonIndex == 0)
+    {
+        if(self.state == STATE_MEETING_CONCLUDE)
+        {
+            NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_MEETING withValue:selectedPageIndex];
+            QBChatRoom* room = self.chatDialog.chatRoom;
+            [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+            [self showConcludeMenuWithIndex:STATE_SELF_CONCLUDE];
+
+        }else if (self.state == STATE_SELF_CONCLUDE)
+        {
+            NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_PERSONAL withValue:selectedPageIndex];
+            QBChatRoom* room = self.chatDialog.chatRoom;
+            [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+            [self.cardVotingView removeFromSuperview];
+//            [self.view addSubview: self.endView ];
+
+            [self.endView setHidden:NO];
+        }
+        
+    }}else if (alertView.tag==1)
+    {
+        if(buttonIndex==1)
+        {
+            [self leaveMeeting:nil];
+        }
+    }
 }
 @end
