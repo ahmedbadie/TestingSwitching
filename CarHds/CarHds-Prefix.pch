@@ -23,7 +23,7 @@
 #define DESC(error) [ErrorMapper getErrorMessage:error]
 #define QBDESC(error) [ErrorMapper getQBErrorMessage:error]
 #define STRING(key) NSLocalizedString(key,@"")
-
+#define MIN_TIME_INTERVAL 3
 #pragma mark 
 #pragma mark - Values Defines-
 #define USER_ID_KEY @"userId"

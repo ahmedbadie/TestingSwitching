@@ -196,9 +196,14 @@
         {
             if([dialog.name isEqualToString:[self.meetingIDTextField text]])
             {
+                
+                NSDate* date = dialog.lastMessageDate;
+                
                 switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
                     case HOST_MEETING_INDEX:
-                        [self warnUserWithMessage:@"Meeting room already exists"];
+                        
+                        [QBChat deleteDialogWithID:dialog.ID delegate:self];
+//                        [self warnUserWithMessage:@"Meeting room already exists"];
                         break;
                     case JOIN_MEETING_INDEX:
                         chatDialog = dialog;
@@ -227,6 +232,17 @@
                 break;
         }
 
+        
+    }else if ([result.answer isKindOfClass:[QBRestResponse class]])
+    {
+        if(result.success)
+        {
+            [self createMeetingRoom];
+            
+        }else{
+            [self warnUserWithMessage:@"Meeting room already exists"];
+        }
+    
     }else{
         
         

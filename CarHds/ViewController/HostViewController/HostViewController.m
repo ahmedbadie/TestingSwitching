@@ -314,7 +314,8 @@
 #pragma mark - Conclude Meeting -
 -(void)showConcludeMeetingView
 {
-    
+    NSArray* participants = [self.chatDialog occupantIDs];
+    NSLog(@"%d",[participants count]);
 
     self.conclusionCards = [NSMutableArray array];
     UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
