@@ -23,6 +23,7 @@
 @property (nonatomic,strong) UITapGestureRecognizer* gesuterRecognizer;
 @property (nonatomic,strong) UIViewController<SingleCardViewControllerDelegate>* delegate;
 @property (nonatomic) BOOL shouldHandleTap;
+@property (nonatomic) BOOL manualImage;
 -(void) setImageWithAnimation:(BOOL) animated;
 -(void) setImageForced:(UIImage*)image;
 -(UIImage*) getImage;

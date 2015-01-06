@@ -16,6 +16,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    if(!self.manualImage)
     [self setImageWithAnimation:NO];
     
     // Do any additional setup after loading the view.

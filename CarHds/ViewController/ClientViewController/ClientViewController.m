@@ -198,6 +198,7 @@
     controller.type = self.state;
     controller.delegate = self;
     controller.shouldHandleTap = YES;
+    controller.manualImage=NO;
     return controller;
 }
 
@@ -336,8 +337,7 @@
 -(void) showConcludeMenuWithIndex:(NSInteger) index
 {
     
-    NSInteger selectedPage = [self.pageControl currentPage];
-    UIImage* image = [[self viewControllerForIndex:selectedPage] getImage];
+    UIImage* image = [((SingleCardViewController*)[[self.pageController viewControllers] firstObject]) getImage];
     
     self.state = index;
     if(self.state == STATE_MEETING_CONCLUDE || self.state == STATE_SELF_CONCLUDE)
@@ -347,18 +347,17 @@
 //        self.pageController.delegate =self;
 //        self.pageController.doubleSided = YES;
         SingleCardViewController *initialViewController = [self viewControllerForIndex:0];
-        [initialViewController setImageForced:image];
-        __weak ClientViewController* current = self;
+//        [initialViewController setImageForced:image];
+//        initialViewController.manualImage = YES;
         NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
+//        __weak UIPageViewController* controller =self.pageController;
         [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
-            if(finished)
-            {
-                if(current.state== STATE_SELF_CONCLUDE)
-                {
-                     SingleCardViewController *initialViewController = [current viewControllerForIndex:0];
-                    [initialViewController setImageWithAnimation:YES ofType:UIViewAnimationOptionTransitionCurlUp];
-                }
-            }
+//            if(finished)
+//            {
+//                                     SingleCardViewController *initialViewController = [[controller viewControllers] firstObject];
+//                    [initialViewController setImageWithAnimation:YES ofType:UIViewAnimationOptionTransitionCrossDissolve];
+//                
+//            }
         }];
 //        [self addChildViewController:self.pageController];
 //        [[self pageView] addSubview:[self.pageController view]];
@@ -402,8 +401,9 @@
             [self leaveMeeting:nil];
         }else{
         
-            SingleCardViewController*  card = [self viewControllerForIndex:0];
-            [card setImageWithAnimation:YES ofType:UIViewAnimationOptionTransitionCurlUp];
+            
+//            SingleCardViewController*  card = (SingleCardViewController*)[[self.pageController viewControllers] firstObject];
+//            [card setImageWithAnimation:YES ofType:UIViewAnimationOptionTransitionCrossDissolve];
         }
     }
 }
