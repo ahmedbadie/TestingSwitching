@@ -80,6 +80,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground.jpg" id="ZLp-fC-z6I">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="user1" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" id="35Q-vi-0MV" userLabel="username">
                                 <rect key="frame" x="37" y="180" width="246" height="30"/>
@@ -466,27 +467,27 @@
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
                         <view contentMode="scaleToFill" id="wKU-Pv-85c" userLabel="TopRightView">
-                            <rect key="frame" x="534.99999975452988" y="8" width="224" height="371"/>
+                            <rect key="frame" x="535" y="55" width="224" height="371"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" id="Cag-vG-umX" userLabel="BottomLeftView">
-                            <rect key="frame" x="8" y="645.00000010282201" width="224" height="371"/>
+                            <rect key="frame" x="8" y="598" width="224" height="371"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" id="Evd-Jr-xzu" userLabel="BottomMiddleView">
-                            <rect key="frame" x="272" y="645.00000010282201" width="224" height="371"/>
+                            <rect key="frame" x="272" y="598" width="224" height="371"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" id="B8j-x0-ijx" userLabel="BottomRightView">
-                            <rect key="frame" x="535" y="645.00000010282201" width="225" height="371"/>
+                            <rect key="frame" x="535" y="598" width="225" height="371"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
                         <view contentMode="scaleToFill" id="wzM-kK-XqA" userLabel="TopLeftView">
-                            <rect key="frame" x="8" y="8" width="224" height="371"/>
+                            <rect key="frame" x="8" y="55" width="224" height="371"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
@@ -502,7 +503,7 @@
                             </connections>
                         </button>
                         <view contentMode="scaleToFill" id="9uo-i4-Q1t" userLabel="TopMiddleView">
-                            <rect key="frame" x="272" y="8" width="224" height="371"/>
+                            <rect key="frame" x="272" y="55" width="224" height="371"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>

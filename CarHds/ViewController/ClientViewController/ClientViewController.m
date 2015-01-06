@@ -308,7 +308,6 @@
         alertView.tag = 1;
         [alertView show];
     
-    [self showConcludeMenuWithIndex:STATE_MEETING_CONCLUDE];
     }
 }
 
@@ -337,33 +336,33 @@
 -(void) showConcludeMenuWithIndex:(NSInteger) index
 {
     
-    UIImage* image = [((SingleCardViewController*)[[self.pageController viewControllers] firstObject]) getImage];
     
     self.state = index;
     if(self.state == STATE_MEETING_CONCLUDE || self.state == STATE_SELF_CONCLUDE)
-    {self.maxNumber = 3;
-//        self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
-//        self.pageController.dataSource = self;
-//        self.pageController.delegate =self;
-//        self.pageController.doubleSided = YES;
-        SingleCardViewController *initialViewController = [self viewControllerForIndex:0];
-//        [initialViewController setImageForced:image];
-//        initialViewController.manualImage = YES;
-        NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
-//        __weak UIPageViewController* controller =self.pageController;
-        [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:^(BOOL finished) {
-//            if(finished)
-//            {
-//                                     SingleCardViewController *initialViewController = [[controller viewControllers] firstObject];
-//                    [initialViewController setImageWithAnimation:YES ofType:UIViewAnimationOptionTransitionCrossDissolve];
-//                
-//            }
-        }];
-//        [self addChildViewController:self.pageController];
-//        [[self pageView] addSubview:[self.pageController view]];
-//        [self.pageController didMoveToParentViewController:self];
-        [self.pageControl setCurrentPage:0];
-        [self.pageControl setNumberOfPages:3];
+    {
+        self.maxNumber = 3;
+        
+        [UIView transitionWithView:self.view
+                          duration:1
+                           options:UIViewAnimationOptionTransitionCurlUp
+                        animations:^{
+                            [self.pageController removeFromParentViewController];
+                            self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+                            self.pageController.dataSource = self;
+                            self.pageController.delegate =self;
+                            self.pageController.doubleSided = YES;
+                            SingleCardViewController *initialViewController = [self viewControllerForIndex:0];
+                            NSArray *viewControllers = [NSArray arrayWithObject:initialViewController];
+                            [self.pageController setViewControllers:viewControllers direction:UIPageViewControllerNavigationDirectionForward animated:YES completion:nil];
+                            [self addChildViewController:self.pageController];
+                            [[self pageView] addSubview:[self.pageController view]];
+                            [self.pageController didMoveToParentViewController:self];
+                            [self.pageControl setCurrentPage:0];
+                            [self.pageControl setNumberOfPages:3];
+                            
+                        } completion:^(BOOL finished) {
+                            //  Do whatever when the animation is finished
+                        }];
 
     }
     
@@ -401,9 +400,8 @@
             [self leaveMeeting:nil];
         }else{
         
-            
-//            SingleCardViewController*  card = (SingleCardViewController*)[[self.pageController viewControllers] firstObject];
-//            [card setImageWithAnimation:YES ofType:UIViewAnimationOptionTransitionCrossDissolve];
+            [self showConcludeMenuWithIndex:STATE_MEETING_CONCLUDE];
+
         }
     }
 }

@@ -314,8 +314,8 @@
 #pragma mark - Conclude Meeting -
 -(void)showConcludeMeetingView
 {
-    [self.view addSubview:self.concludeIPadView];
-    [self.IpadView removeFromSuperview];
+    
+
     self.conclusionCards = [NSMutableArray array];
     UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
@@ -352,7 +352,16 @@
         [self.conclusionCards replaceObjectAtIndex:index withObject:card];
         index++;
     }
-    
+    [UIView transitionWithView:self.view
+                      duration:0.4
+                       options:UIViewAnimationOptionTransitionCurlUp
+                    animations:^{
+                        
+                        [self.view addSubview:self.concludeIPadView];
+                        [self.IpadView removeFromSuperview];
+                    } completion:^(BOOL finished) {
+                        //  Do whatever when the animation is finished
+                    }];
 }
 
 
