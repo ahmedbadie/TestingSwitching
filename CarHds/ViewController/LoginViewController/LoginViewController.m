@@ -30,7 +30,9 @@
     {
         [self.operationTypeSegmentedControl setSelectedSegmentIndex:1];
     }
- }
+    
+    
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

@@ -66,6 +66,13 @@
 		395E4CE41A521AC0006361BA /* CharactersEscapeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CDF1A521AC0006361BA /* CharactersEscapeService.m */; };
 		395E4CE51A521AC0006361BA /* ChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CE11A521AC0006361BA /* ChatService.m */; };
 		395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CE31A521AC0006361BA /* LocalStorageService.m */; };
+		396769991A5BFC99003444D2 /* caRHds Logo white.psd in Resources */ = {isa = PBXBuildFile; fileRef = 396769951A5BFC99003444D2 /* caRHds Logo white.psd */; };
+		3967699A1A5BFC99003444D2 /* icon.psd in Resources */ = {isa = PBXBuildFile; fileRef = 396769961A5BFC99003444D2 /* icon.psd */; };
+		3967699B1A5BFC99003444D2 /* Logon Screen.001.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 396769971A5BFC99003444D2 /* Logon Screen.001.jpg */; };
+		3967699E1A5BFCB1003444D2 /* Arial Narrow.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3967699D1A5BFCB1003444D2 /* Arial Narrow.ttf */; };
+		396769A11A5BFDA9003444D2 /* icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 3967699F1A5BFDA9003444D2 /* icon.png */; };
+		396769A21A5BFDA9003444D2 /* icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 396769A01A5BFDA9003444D2 /* icon@2x.png */; };
+		396769A41A5BFE4C003444D2 /* loginBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 396769A31A5BFE4C003444D2 /* loginBackground.jpg */; };
 		398AADA21A51DE530003EF8C /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 398AADA11A51DE530003EF8C /* main.m */; };
 		398AADA51A51DE530003EF8C /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 398AADA41A51DE530003EF8C /* AppDelegate.m */; };
 		398AADAB1A51DE530003EF8C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 398AADA91A51DE530003EF8C /* Main.storyboard */; };
@@ -171,6 +178,13 @@
 		395E4CE11A521AC0006361BA /* ChatService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatService.m; sourceTree = "<group>"; };
 		395E4CE21A521AC0006361BA /* LocalStorageService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LocalStorageService.h; sourceTree = "<group>"; };
 		395E4CE31A521AC0006361BA /* LocalStorageService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LocalStorageService.m; sourceTree = "<group>"; };
+		396769951A5BFC99003444D2 /* caRHds Logo white.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = "caRHds Logo white.psd"; sourceTree = "<group>"; };
+		396769961A5BFC99003444D2 /* icon.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = icon.psd; sourceTree = "<group>"; };
+		396769971A5BFC99003444D2 /* Logon Screen.001.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "Logon Screen.001.jpg"; sourceTree = "<group>"; };
+		3967699D1A5BFCB1003444D2 /* Arial Narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Narrow.ttf"; sourceTree = "<group>"; };
+		3967699F1A5BFDA9003444D2 /* icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon.png; sourceTree = "<group>"; };
+		396769A01A5BFDA9003444D2 /* icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "icon@2x.png"; sourceTree = "<group>"; };
+		396769A31A5BFE4C003444D2 /* loginBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = loginBackground.jpg; sourceTree = "<group>"; };
 		398AAD9C1A51DE530003EF8C /* CarHds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarHds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		398AADA01A51DE530003EF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		398AADA11A51DE530003EF8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -273,6 +287,7 @@
 		3908BF231A532C5000017D84 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				396769921A5BFC99003444D2 /* Login */,
 				391C20991A5AD73900A44F30 /* Register */,
 				3908BF241A532C5000017D84 /* CardsPhotos */,
 			);
@@ -432,6 +447,35 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		396769921A5BFC99003444D2 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				3967699F1A5BFDA9003444D2 /* icon.png */,
+				396769A01A5BFDA9003444D2 /* icon@2x.png */,
+				396769931A5BFC99003444D2 /* caRHds background */,
+				396769951A5BFC99003444D2 /* caRHds Logo white.psd */,
+				396769961A5BFC99003444D2 /* icon.psd */,
+				396769971A5BFC99003444D2 /* Logon Screen.001.jpg */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		396769931A5BFC99003444D2 /* caRHds background */ = {
+			isa = PBXGroup;
+			children = (
+				396769A31A5BFE4C003444D2 /* loginBackground.jpg */,
+			);
+			path = "caRHds background";
+			sourceTree = "<group>";
+		};
+		3967699C1A5BFCB1003444D2 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				3967699D1A5BFCB1003444D2 /* Arial Narrow.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
 		398AAD931A51DE530003EF8C = {
 			isa = PBXGroup;
 			children = (
@@ -454,6 +498,7 @@
 		398AAD9E1A51DE530003EF8C /* CarHds */ = {
 			isa = PBXGroup;
 			children = (
+				3967699C1A5BFCB1003444D2 /* Fonts */,
 				3908BF231A532C5000017D84 /* Graphics */,
 				395E4CBF1A51E4C1006361BA /* HelperClasses */,
 				398AADC61A51DE870003EF8C /* Model */,
@@ -650,18 +695,25 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3967699B1A5BFC99003444D2 /* Logon Screen.001.jpg in Resources */,
+				396769A41A5BFE4C003444D2 /* loginBackground.jpg in Resources */,
 				3908BF361A532C5000017D84 /* caRHds for odesk project.4b.png in Resources */,
 				391C20A11A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png in Resources */,
+				396769991A5BFC99003444D2 /* caRHds Logo white.psd in Resources */,
 				3908BF311A532C5000017D84 /* caRHds for odesk project.2a.png in Resources */,
 				39116A181A5453840043C245 /* Instabug.bundle in Resources */,
 				3908BF321A532C5000017D84 /* caRHds for odesk project.2b.png in Resources */,
 				3908BF351A532C5000017D84 /* caRHds for odesk project.4a.png in Resources */,
+				3967699E1A5BFCB1003444D2 /* Arial Narrow.ttf in Resources */,
 				398AADAB1A51DE530003EF8C /* Main.storyboard in Resources */,
 				391C20A41A5AE08000A44F30 /* registerButton_ipad@2x.png in Resources */,
+				396769A11A5BFDA9003444D2 /* icon.png in Resources */,
 				391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */,
+				396769A21A5BFDA9003444D2 /* icon@2x.png in Resources */,
 				398AADB01A51DE530003EF8C /* LaunchScreen.xib in Resources */,
 				391C20AE1A5B0B3F00A44F30 /* meetingConclusion3.png in Resources */,
 				391C20AC1A5B0B3F00A44F30 /* meetingConclusion1.png in Resources */,
+				3967699A1A5BFC99003444D2 /* icon.psd in Resources */,
 				3908BF371A532C5000017D84 /* caRHds for odesk project.5a.png in Resources */,
 				391C209E1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png in Resources */,
 				3908BF301A532C5000017D84 /* caRHds for odesk project.1b.png in Resources */,
