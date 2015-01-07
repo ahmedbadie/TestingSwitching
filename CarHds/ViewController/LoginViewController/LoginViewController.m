@@ -215,6 +215,7 @@
                         if([Utilities withinRoomLife:date]){
                             [self warnUserWithMessage:@"Meeting room already exists"];
                         }else{
+//                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
                             chatDialog = dialog;
                             self.chatDialog = chatDialog;
                             [MeetingHandler sharedInstance].chatDialog = chatDialog;

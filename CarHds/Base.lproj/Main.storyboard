@@ -638,7 +638,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7wc-qT-Y4Y">
-                                        <rect key="frame" x="117" y="624.00000031489333" width="142" height="35"/>
+                                        <rect key="frame" x="117" y="624.00000031490833" width="142" height="35"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="15"/>
                                         <state key="normal" title="Leave Meeting">
