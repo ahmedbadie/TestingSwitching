@@ -300,8 +300,12 @@
 - (IBAction)concludeMeeting:(id)sender {
     NSLog(@"Conclude Meeting");
        if(self.canConclude){
-           
-         UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"NO!"
+           if([[self.users allKeys] count] <1)
+           {
+               [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
+               return;
+           }
+         UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Conclude Meeting"
                                 message:STRING(@"ConcludeMeetingConfirmation")
                                      delegate:self
                             cancelButtonTitle:@"Yes"
@@ -370,8 +374,8 @@
         index++;
     }
     [UIView transitionWithView:self.view
-                      duration:0.4
-                       options:UIViewAnimationOptionTransitionCurlUp
+                      duration:1.0
+                       options:UIViewAnimationOptionTransitionFlipFromBottom
                     animations:^{
                         
                         [self.view addSubview:self.concludeIPadView];

@@ -16,6 +16,7 @@
 @property (strong, nonatomic) IBOutlet UIView *cardVotingView;
 @property (nonatomic) NSInteger state;
 @property (nonatomic) NSInteger maxNumber;
+@property (nonatomic) BOOL showingMsg;
 #define STATE_CARD_VOTING 0
 #define STATE_SELF_CONCLUDE 2
 #define STATE_MEETING_CONCLUDE 1
@@ -38,7 +39,7 @@
     self.messages = [NSMutableArray array];
     
     // Do any additional setup after loading the view.
-    
+    self.showingMsg = NO;
     self.messages = [NSMutableArray array];
     [MeetingHandler sharedInstance].delegate = self;
     self.cardVotingView.frame = self.view.frame;
@@ -303,7 +304,8 @@
 {
     
     NSLog(@"Contribution");
-    if(self.state == STATE_CARD_VOTING){
+    if(self.state == STATE_CARD_VOTING && !self.showingMsg){
+        self.showingMsg = YES;
         UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Meeting Conclusion"
                                                            message:STRING(@"ConcludeMeetingMessage")
                                                           delegate:self
@@ -377,6 +379,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
     if(alertView.tag==0){
+        self.showingMsg = NO;
     if(buttonIndex == 0)
     {
         if(self.state == STATE_MEETING_CONCLUDE)

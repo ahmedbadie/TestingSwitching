@@ -29,6 +29,8 @@
     if(!IS_IPAD)
     {
         [self.operationTypeSegmentedControl setSelectedSegmentIndex:1];
+        [self.operationTypeSegmentedControl setHidden:YES];
+        [self.operationTypeSegmentedControl setEnabled:NO forSegmentAtIndex:0];
     }
     self.operationTypeSegmentedControl.layer.cornerRadius = 4.0f;
     self.operationTypeSegmentedControl.layer.masksToBounds = YES;

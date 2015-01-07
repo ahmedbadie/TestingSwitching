@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/ClientViewController/ClientViewController.m"
-            timestampString = "442254778.09623"
+            timestampString = "442339739.26903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
             landmarkName = "-viewDidLoad"
             landmarkType = "5">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "CarHds/ViewController/ClientViewController/ClientViewController.m"
-            timestampString = "442327280.421347"
+            timestampString = "442339739.26903"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "344"
-            endingLineNumber = "344"
+            startingLineNumber = "346"
+            endingLineNumber = "346"
             landmarkName = "-showConcludeMenuWithIndex:"
             landmarkType = "5">
          </BreakpointContent>
@@ -153,12 +153,12 @@
                   symbolName = "-[LoginViewController completedWithResult:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/ViewController/LoginViewController/LoginViewController.m"
-                  timestampString = "442336104.957065"
+                  timestampString = "442339834.201772"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "260"
                   endingLineNumber = "260"
-                  offsetFromSymbolStart = "3053">
+                  offsetFromSymbolStart = "2754">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -167,12 +167,12 @@
                   symbolName = "-[LoginViewController completedWithResult:]"
                   moduleName = "CarHds"
                   urlString = "file:///Users/inova010/carhds/CarHds/ViewController/LoginViewController/LoginViewController.m"
-                  timestampString = "442336104.957361"
+                  timestampString = "442339834.20192"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "260"
                   endingLineNumber = "260"
-                  offsetFromSymbolStart = "3175">
+                  offsetFromSymbolStart = "2824">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -190,6 +190,38 @@
             startingLineNumber = "186"
             endingLineNumber = "186"
             landmarkName = "-completedWithResult:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarHds/ViewController/ClientViewController/ClientViewController.m"
+            timestampString = "442339739.26903"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "141"
+            endingLineNumber = "141"
+            landmarkName = "-didReciveMessages:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CarHds/ViewController/ClientViewController/ClientViewController.m"
+            timestampString = "442339739.26903"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "306"
+            endingLineNumber = "306"
+            landmarkName = "-receivedConclusionSignal"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

@@ -17,3 +17,4 @@
 "MeetingConclusionConfirmation" = "Confirm your choice and move on to rating your own contribution making the best possible Meeting.";
 "SelfConclusionConfirmation" = "Please confirm your choice and stay hungry and foolish.";
 "RoomExpired" = "Expired Room, can't join it";
+"NeedUsersMsg" = "Can't conclude a meeting with no users!";
