@@ -145,11 +145,21 @@
      NSString* msg = [JsonMessageParser dummyMessage];
         QBChatRoom* room = chatRoom;
         [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+        [NSTimer scheduledTimerWithTimeInterval:HOST_DUMMY_MESSAGE_INTERVAL
+                                         target:self
+                                       selector:@selector(sendDummyMessage)
+                                       userInfo:nil 
+                                        repeats:YES];
     }
 
 }
 
-
+-(void) sendDummyMessage
+{
+    NSString* msg = [JsonMessageParser dummyMessage];
+    QBChatRoom* room = self.chatDialog.chatRoom;
+    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+}
 
 #
 - (IBAction)sendMessage:(id)sender {

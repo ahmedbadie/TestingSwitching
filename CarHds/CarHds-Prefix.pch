@@ -23,7 +23,8 @@
 #define DESC(error) [ErrorMapper getErrorMessage:error]
 #define QBDESC(error) [ErrorMapper getQBErrorMessage:error]
 #define STRING(key) NSLocalizedString(key,@"")
-#define MAX_TIME_INTERVAL 60 // In seconds
+#define MAX_TIME_INTERVAL 3*60 // In seconds
+#define HOST_DUMMY_MESSAGE_INTERVAL 60 // IN seconds
 #pragma mark 
 #pragma mark - Values Defines-
 #define USER_ID_KEY @"userId"
