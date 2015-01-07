@@ -23,8 +23,8 @@
 #define DESC(error) [ErrorMapper getErrorMessage:error]
 #define QBDESC(error) [ErrorMapper getQBErrorMessage:error]
 #define STRING(key) NSLocalizedString(key,@"")
-#define MAX_TIME_INTERVAL 10*60*60 // In seconds // --> 10 min
-#define HOST_DUMMY_MESSAGE_INTERVAL 10*60 // IN seconds --> 6 hours
+#define MAX_TIME_INTERVAL 10*60*60 // In seconds // --> 6 hours  // Room Expiration Time
+#define HOST_DUMMY_MESSAGE_INTERVAL 10*60 // IN seconds --> 10 min // Host Dummy message interval
 #pragma mark 
 #pragma mark - Values Defines-
 #define USER_ID_KEY @"userId"
