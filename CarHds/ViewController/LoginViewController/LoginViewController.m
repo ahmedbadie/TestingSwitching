@@ -76,18 +76,18 @@
         return;
     }
 
-    if([self.meetingIDTextField text]==nil && [self.meetingIDTextField text].length==0)
+    if([self.meetingIDTextField text]==nil || [self.meetingIDTextField text].length==0)
     {
         [self warnUserWithMessage:@"Missing meeting name"];
         return;
     }
-    if([self.usernameTextField text]==nil && [self.usernameTextField text].length==0)
+    if([self.usernameTextField text]==nil || [self.usernameTextField text].length==0)
     {
         [self warnUserWithMessage:@"Missing Username"];
         return;
     }
     
-    if([self.passwordTextField text]==nil && [self.passwordTextField text].length==0)
+    if([self.passwordTextField text]==nil || [self.passwordTextField text].length==0)
     {
         [self warnUserWithMessage:@"Missing password"];
         return;
