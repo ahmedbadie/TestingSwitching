@@ -13,6 +13,7 @@
 @property (nonatomic) NSInteger index;
 @property (nonatomic) BOOL state;
 @property (nonatomic) BOOL close;
+@property (weak, nonatomic) IBOutlet UIButton *goButton;
 @end
 
 
@@ -31,7 +32,9 @@
     }
     self.operationTypeSegmentedControl.layer.cornerRadius = 4.0f;
     self.operationTypeSegmentedControl.layer.masksToBounds = YES;
-    
+    self.goButton.layer.cornerRadius = self.goButton.frame.size.width/2;
+    self.goButton.clipsToBounds= YES;
+
 }
 
 - (void)didReceiveMemoryWarning {
@@ -162,6 +165,12 @@
     [self performSegueWithIdentifier:CLIENT_VIEW_SEGUE sender:self];
     
 }
+
+-(void) joinMeetingRoomAsHost
+{
+    self.state = NO;
+    [self performSegueWithIdentifier:HOST_VIEW_SEGUE sender:self];
+}
 #pragma mark - UITextField Delegate - 
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -202,16 +211,29 @@
                 switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
                     case HOST_MEETING_INDEX:
                         
-                        [QBChat deleteDialogWithID:dialog.ID delegate:self];
-//                        [self warnUserWithMessage:@"Meeting room already exists"];
+                        if([Utilities withinRoomLife:date]){
+                            [self warnUserWithMessage:@"Meeting room already exists"];
+                        }else{
+                            chatDialog = dialog;
+                            self.chatDialog = chatDialog;
+                            [MeetingHandler sharedInstance].chatDialog = chatDialog;
+                            room = chatDialog.chatRoom;
+                            [MeetingHandler sharedInstance].chatRoom = room;
+
+                            [self joinMeetingRoomAsHost];
+                        }
                         break;
                     case JOIN_MEETING_INDEX:
+                        if([Utilities withinRoomLife:date]){
                         chatDialog = dialog;
                         self.chatDialog = chatDialog;
                         [MeetingHandler sharedInstance].chatDialog = chatDialog;
                         room = chatDialog.chatRoom;
                         [MeetingHandler sharedInstance].chatRoom = room;
                         [self joinMeetingRoom];
+                        }else{
+                            [self warnUserWithMessage:STRING(@"RoomExpired")];
+                        }
                         break;
                     default:
                         break;

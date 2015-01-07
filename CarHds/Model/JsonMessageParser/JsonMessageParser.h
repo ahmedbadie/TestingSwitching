@@ -15,6 +15,7 @@
 #define MESSAGE_TARGET_HOST @"host"
 #define MESSAGE_BROADCAST_TYPE @"type"
 #define MESSAGE_BROADCAST_TYPE_CONCLUDE @"conclude"
+#define MESSAGE_BROADCAST_TYPE_DUMMY @"dummy"
 #define MESSAGE_HOST_TYPE @"type"
 #define MESSAGE_HOST_TYPE_LOGIN @"login"
 #define MESSAGE_HOST_TYPE_LOGOUT @"logout"
@@ -60,5 +61,6 @@ typedef enum{
 +(NSString*) broadcastContributionSignal;
 +(NSString*) cardVoteMessageForCard:(NSInteger) cardNo withValue:(BOOL) value;
 +(NSString*) logOutMessageForUser:(NSString*)username;
++(NSString*) dummyMessage;
 +(BOOL) decodeMessage:(QBChatMessage*) message withDelegate:(NSObject<JsonMessageParserDelegate>*) delegate;
 @end

@@ -141,6 +141,10 @@
         [self leaveMeeting:self];
         return;
         
+    }else{
+     NSString* msg = [JsonMessageParser dummyMessage];
+        QBChatRoom* room = chatRoom;
+        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
     }
 
 }
@@ -158,9 +162,11 @@
 -(void)didReciveMessages:(NSArray *)msgs
 {
     [self.msgs addObjectsFromArray:msgs];
-    for(QBChatMessage* msg in msgs)
+    for(QBChatMessage* msg in msgs){
+        if([Utilities withinRoomLife:msg.datetime]){
         [JsonMessageParser decodeMessage:msg withDelegate:self];
-
+        }
+    }
 }
 
 #pragma mark

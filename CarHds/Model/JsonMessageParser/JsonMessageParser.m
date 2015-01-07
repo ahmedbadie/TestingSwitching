@@ -118,4 +118,14 @@
 
     return NO;
 }
+
++(NSString *)dummyMessage
+{
+    NSDictionary* dictionary = @{MESSAGE_TARGET:MESSAGE_TARGET_BROADCAST,
+                                 MESSAGE_BROADCAST_TYPE: MESSAGE_BROADCAST_TYPE_DUMMY};
+    CJSONSerializer* json = [[CJSONSerializer alloc]init];
+    NSData* jsonData = [json serializeDictionary:dictionary error:nil];
+    return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
+
+}
 @end

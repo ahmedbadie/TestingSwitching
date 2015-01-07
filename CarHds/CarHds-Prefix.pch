@@ -17,13 +17,13 @@
 #import "AbstractViewController.h"
 #import "MeetingHandler.h"
 #import "ErrorMapper.h"
-
+#import "Utilities.h"
 #pragma mark
 #pragma mark - Block Defines - 
 #define DESC(error) [ErrorMapper getErrorMessage:error]
 #define QBDESC(error) [ErrorMapper getQBErrorMessage:error]
 #define STRING(key) NSLocalizedString(key,@"")
-#define MIN_TIME_INTERVAL 3
+#define MAX_TIME_INTERVAL 60 // In seconds
 #pragma mark 
 #pragma mark - Values Defines-
 #define USER_ID_KEY @"userId"

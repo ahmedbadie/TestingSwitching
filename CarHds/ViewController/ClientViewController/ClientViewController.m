@@ -138,8 +138,12 @@
 -(void)didReciveMessages:(NSArray *)msgs
 {
     [self.messages addObjectsFromArray:msgs];
-    for(QBChatMessage* msg in msgs)
-        [JsonMessageParser decodeMessage:msg withDelegate:self];
+    for(QBChatMessage* msg in msgs){
+        if([Utilities withinRoomLife:msg.datetime]){
+            [JsonMessageParser decodeMessage:msg withDelegate:self];
+        }
+    }
+
 }
 
 

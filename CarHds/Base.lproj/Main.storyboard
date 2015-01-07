@@ -127,7 +127,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Odd-Op-LYq">
-                                <rect key="frame" x="135" y="373" width="50" height="38"/>
+                                <rect key="frame" x="135" y="373" width="50" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="15"/>
@@ -152,6 +152,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="goButton" destination="Odd-Op-LYq" id="Y5l-0U-ZHb"/>
                         <outlet property="meetingIDTextField" destination="CiA-u0-7s3" id="4R0-zb-K37"/>
                         <outlet property="operationTypeSegmentedControl" destination="PjG-xy-up4" id="ViW-R9-RAN"/>
                         <outlet property="passwordTextField" destination="Lr2-Ad-REX" id="5vd-vg-4ET"/>
@@ -636,7 +637,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7wc-qT-Y4Y">
-                                        <rect key="frame" x="100" y="530" width="121" height="30.000000315421538"/>
+                                        <rect key="frame" x="100" y="530" width="121" height="30.000000314913649"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="15"/>
                                         <state key="normal" title="Leave Meeting">
