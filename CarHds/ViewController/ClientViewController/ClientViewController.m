@@ -197,13 +197,14 @@
 -(SingleCardViewController*) viewControllerForIndex:(NSInteger) index
 {
     UIStoryboard *sb = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    SingleCardViewController* controller = [sb instantiateViewControllerWithIdentifier:@"SingleCardViewController"];
+    SingleCardViewController* controller = [sb instantiateViewControllerWithIdentifier:[NSString stringWithFormat:@"SingleCardViewController%@",IS_IPAD? @"IPad":@""]];
     controller.index = index;
     controller.value = [[self.values objectAtIndex:index] boolValue];
     controller.type = self.state;
     controller.delegate = self;
     controller.shouldHandleTap = YES;
     controller.manualImage=NO;
+    controller.view.frame = self.view.frame;
     return controller;
 }
 
@@ -258,7 +259,7 @@
 - (IBAction)leaveMeeting:(id)sender {
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Leave Meeting";
-    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
+    NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
     QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     [MeetingHandler sharedInstance].logOut = YES;
     [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
@@ -278,7 +279,7 @@
         return;
         
     }
-    NSString* username = [MeetingHandler sharedInstance].qbUser.login== nil ? self.user.login : [MeetingHandler sharedInstance].qbUser.login;
+    NSString* username = self.user.login;
    NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:username];
     [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom];
 }
@@ -295,6 +296,8 @@
 {
     [[ChatService instance] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
     [self.hud hide:YES];
+    self.pageController.delegate =nil;
+    [MeetingHandler sharedInstance].delegate = nil;
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 

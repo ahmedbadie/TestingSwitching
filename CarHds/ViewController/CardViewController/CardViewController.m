@@ -23,11 +23,11 @@
     self.cardLabel.clipsToBounds = YES;
     [self.cardLabel setText:[NSString stringWithFormat:@"%d",self.cardVotes]];
 
-    [self setImage];
+    [self setImage:NO];
     
 }
 
--(void) setImage
+-(void) setImage:(BOOL)grayScale
 {
     NSString* imageName = @"";
     switch (self.type) {
@@ -41,7 +41,7 @@
             break;
     }
     
-    imageName = [NSString stringWithFormat:@"%@%d.png",imageName,(self.index+1)];
+    imageName = [NSString stringWithFormat:@"%@%d%@.png",imageName,(self.index+1),grayScale? @"Gray":@"" ];
     UIImage* image = [UIImage imageNamed:imageName];
     [self.cardImageView setImage:image];
 }

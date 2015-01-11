@@ -51,6 +51,15 @@
 		391C20B11A5B0B3F00A44F30 /* participantConclusion3.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20AB1A5B0B3F00A44F30 /* participantConclusion3.png */; };
 		391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 391F93721A599A540062A7E5 /* ErrorMapper.m */; };
 		391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 391F93741A599BFA0062A7E5 /* ErrorMessages.plist */; };
+		394680BB1A62B53800ECA925 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394680BA1A62B53800ECA925 /* HostViewController.m */; };
+		394680C41A62B91900ECA925 /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394680C31A62B91900ECA925 /* CardViewController.m */; };
+		394680C81A62E33E00ECA925 /* HostConcludeCardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394680C71A62E33E00ECA925 /* HostConcludeCardViewController.m */; };
+		394680CF1A63168700ECA925 /* meetingConclusion1Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 394680C91A63168700ECA925 /* meetingConclusion1Gray.png */; };
+		394680D01A63168700ECA925 /* meetingConclusion2Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 394680CA1A63168700ECA925 /* meetingConclusion2Gray.png */; };
+		394680D11A63168700ECA925 /* meetingConclusion3Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 394680CB1A63168700ECA925 /* meetingConclusion3Gray.png */; };
+		394680D21A63168700ECA925 /* participantConclusion1Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 394680CC1A63168700ECA925 /* participantConclusion1Gray.png */; };
+		394680D31A63168700ECA925 /* participantConclusion2Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 394680CD1A63168700ECA925 /* participantConclusion2Gray.png */; };
+		394680D41A63168700ECA925 /* participantConclusion3Gray.png in Resources */ = {isa = PBXBuildFile; fileRef = 394680CE1A63168700ECA925 /* participantConclusion3Gray.png */; };
 		395E4CB91A51E354006361BA /* ParseManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CB81A51E354006361BA /* ParseManager.m */; };
 		395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CBB1A51E36E006361BA /* QuickBloxManager.m */; };
 		395E4CBE1A51E401006361BA /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E4CBD1A51E401006361BA /* libxml2.dylib */; };
@@ -61,7 +70,6 @@
 		395E4CCD1A51EAF2006361BA /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E4CCC1A51EAF2006361BA /* CFNetwork.framework */; };
 		395E4CCF1A51F05B006361BA /* libresolv.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 395E4CCE1A51F05B006361BA /* libresolv.dylib */; };
 		395E4CD31A51F204006361BA /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CD21A51F204006361BA /* MBProgressHUD.m */; };
-		395E4CD81A5216A0006361BA /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CD71A5216A0006361BA /* HostViewController.m */; };
 		395E4CDC1A521826006361BA /* ChatMessageTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CDB1A521826006361BA /* ChatMessageTableViewCell.m */; };
 		395E4CE41A521AC0006361BA /* CharactersEscapeService.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CDF1A521AC0006361BA /* CharactersEscapeService.m */; };
 		395E4CE51A521AC0006361BA /* ChatService.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E4CE11A521AC0006361BA /* ChatService.m */; };
@@ -94,7 +102,6 @@
 		398AADD11A51DF360003EF8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD01A51DF360003EF8C /* UIKit.framework */; };
 		398AADD31A51DF470003EF8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD21A51DF470003EF8C /* CoreGraphics.framework */; };
 		398AADD51A51DF5F0003EF8C /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD41A51DF5F0003EF8C /* Quickblox.framework */; };
-		39F9CC981A55F3800017B14E /* CardViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F9CC971A55F3800017B14E /* CardViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -163,6 +170,18 @@
 		391F93711A599A540062A7E5 /* ErrorMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorMapper.h; sourceTree = "<group>"; };
 		391F93721A599A540062A7E5 /* ErrorMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorMapper.m; sourceTree = "<group>"; };
 		391F93741A599BFA0062A7E5 /* ErrorMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessages.plist; sourceTree = "<group>"; };
+		394680B91A62B53800ECA925 /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
+		394680BA1A62B53800ECA925 /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
+		394680C21A62B91900ECA925 /* CardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
+		394680C31A62B91900ECA925 /* CardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
+		394680C61A62E33E00ECA925 /* HostConcludeCardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostConcludeCardViewController.h; sourceTree = "<group>"; };
+		394680C71A62E33E00ECA925 /* HostConcludeCardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostConcludeCardViewController.m; sourceTree = "<group>"; };
+		394680C91A63168700ECA925 /* meetingConclusion1Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetingConclusion1Gray.png; sourceTree = "<group>"; };
+		394680CA1A63168700ECA925 /* meetingConclusion2Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetingConclusion2Gray.png; sourceTree = "<group>"; };
+		394680CB1A63168700ECA925 /* meetingConclusion3Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetingConclusion3Gray.png; sourceTree = "<group>"; };
+		394680CC1A63168700ECA925 /* participantConclusion1Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion1Gray.png; sourceTree = "<group>"; };
+		394680CD1A63168700ECA925 /* participantConclusion2Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion2Gray.png; sourceTree = "<group>"; };
+		394680CE1A63168700ECA925 /* participantConclusion3Gray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion3Gray.png; sourceTree = "<group>"; };
 		395E4CB71A51E354006361BA /* ParseManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParseManager.h; sourceTree = "<group>"; };
 		395E4CB81A51E354006361BA /* ParseManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParseManager.m; sourceTree = "<group>"; };
 		395E4CBA1A51E36E006361BA /* QuickBloxManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QuickBloxManager.h; sourceTree = "<group>"; };
@@ -178,8 +197,6 @@
 		395E4CCE1A51F05B006361BA /* libresolv.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libresolv.dylib; path = usr/lib/libresolv.dylib; sourceTree = SDKROOT; };
 		395E4CD11A51F204006361BA /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
 		395E4CD21A51F204006361BA /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
-		395E4CD61A5216A0006361BA /* HostViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostViewController.h; sourceTree = "<group>"; };
-		395E4CD71A5216A0006361BA /* HostViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostViewController.m; sourceTree = "<group>"; };
 		395E4CDA1A521826006361BA /* ChatMessageTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMessageTableViewCell.h; sourceTree = "<group>"; };
 		395E4CDB1A521826006361BA /* ChatMessageTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMessageTableViewCell.m; sourceTree = "<group>"; };
 		395E4CDE1A521AC0006361BA /* CharactersEscapeService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CharactersEscapeService.h; sourceTree = "<group>"; };
@@ -224,8 +241,6 @@
 		398AADD01A51DF360003EF8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		398AADD21A51DF470003EF8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		398AADD41A51DF5F0003EF8C /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
-		39F9CC961A55F3800017B14E /* CardViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CardViewController.h; sourceTree = "<group>"; };
-		39F9CC971A55F3800017B14E /* CardViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CardViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -319,6 +334,12 @@
 		3908BF241A532C5000017D84 /* CardsPhotos */ = {
 			isa = PBXGroup;
 			children = (
+				394680C91A63168700ECA925 /* meetingConclusion1Gray.png */,
+				394680CA1A63168700ECA925 /* meetingConclusion2Gray.png */,
+				394680CB1A63168700ECA925 /* meetingConclusion3Gray.png */,
+				394680CC1A63168700ECA925 /* participantConclusion1Gray.png */,
+				394680CD1A63168700ECA925 /* participantConclusion2Gray.png */,
+				394680CE1A63168700ECA925 /* participantConclusion3Gray.png */,
 				391C20A61A5B0B3F00A44F30 /* meetingConclusion1.png */,
 				391C20A71A5B0B3F00A44F30 /* meetingConclusion2.png */,
 				391C20A81A5B0B3F00A44F30 /* meetingConclusion3.png */,
@@ -377,6 +398,33 @@
 				391F93721A599A540062A7E5 /* ErrorMapper.m */,
 			);
 			path = ErrorMapper;
+			sourceTree = "<group>";
+		};
+		394680B81A62B53800ECA925 /* HostViewController */ = {
+			isa = PBXGroup;
+			children = (
+				394680B91A62B53800ECA925 /* HostViewController.h */,
+				394680BA1A62B53800ECA925 /* HostViewController.m */,
+			);
+			path = HostViewController;
+			sourceTree = "<group>";
+		};
+		394680C11A62B91900ECA925 /* CardViewController */ = {
+			isa = PBXGroup;
+			children = (
+				394680C21A62B91900ECA925 /* CardViewController.h */,
+				394680C31A62B91900ECA925 /* CardViewController.m */,
+			);
+			path = CardViewController;
+			sourceTree = "<group>";
+		};
+		394680C51A62E32A00ECA925 /* HostConcludeCardController */ = {
+			isa = PBXGroup;
+			children = (
+				394680C61A62E33E00ECA925 /* HostConcludeCardViewController.h */,
+				394680C71A62E33E00ECA925 /* HostConcludeCardViewController.m */,
+			);
+			path = HostConcludeCardController;
 			sourceTree = "<group>";
 		};
 		395E4CB51A51E343006361BA /* ParseManager */ = {
@@ -441,9 +489,9 @@
 		395E4CD51A521693006361BA /* HostViewController */ = {
 			isa = PBXGroup;
 			children = (
+				394680C51A62E32A00ECA925 /* HostConcludeCardController */,
+				394680B81A62B53800ECA925 /* HostViewController */,
 				395E4CD91A521826006361BA /* Views */,
-				395E4CD61A5216A0006361BA /* HostViewController.h */,
-				395E4CD71A5216A0006361BA /* HostViewController.m */,
 			);
 			path = HostViewController;
 			sourceTree = "<group>";
@@ -632,14 +680,13 @@
 		398AADC71A51DE870003EF8C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				394680C11A62B91900ECA925 /* CardViewController */,
 				39116A1A1A55A4180043C245 /* RegisterViewController */,
 				390424491A52F73100370E80 /* MeetingHandler */,
 				395E4CD41A521693006361BA /* ClientViewController */,
 				395E4CD51A521693006361BA /* HostViewController */,
 				398AADC81A51DF030003EF8C /* AbstractViewController */,
 				398AADCB1A51DF030003EF8C /* LoginViewController */,
-				39F9CC961A55F3800017B14E /* CardViewController.h */,
-				39F9CC971A55F3800017B14E /* CardViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -748,6 +795,7 @@
 				396769A41A5BFE4C003444D2 /* loginBackground.jpg in Resources */,
 				3908BF361A532C5000017D84 /* caRHds for odesk project.4b.png in Resources */,
 				391C20A11A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png in Resources */,
+				394680CF1A63168700ECA925 /* meetingConclusion1Gray.png in Resources */,
 				396769991A5BFC99003444D2 /* caRHds Logo white.psd in Resources */,
 				3908BF311A532C5000017D84 /* caRHds for odesk project.2a.png in Resources */,
 				39116A181A5453840043C245 /* Instabug.bundle in Resources */,
@@ -762,8 +810,10 @@
 				396769A11A5BFDA9003444D2 /* icon.png in Resources */,
 				391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */,
 				396769A21A5BFDA9003444D2 /* icon@2x.png in Resources */,
+				394680D01A63168700ECA925 /* meetingConclusion2Gray.png in Resources */,
 				398AADB01A51DE530003EF8C /* LaunchScreen.xib in Resources */,
 				396769BE1A5C2578003444D2 /* appIcon40.png in Resources */,
+				394680D41A63168700ECA925 /* participantConclusion3Gray.png in Resources */,
 				391C20AE1A5B0B3F00A44F30 /* meetingConclusion3.png in Resources */,
 				391C20AC1A5B0B3F00A44F30 /* meetingConclusion1.png in Resources */,
 				396769C01A5C2578003444D2 /* appIcon76.png in Resources */,
@@ -774,7 +824,9 @@
 				396769C11A5C2578003444D2 /* appIcon80.png in Resources */,
 				3908BF2F1A532C5000017D84 /* caRHds for odesk project.1a.png in Resources */,
 				391C20A51A5AE08000A44F30 /* registerButton_ipad.png in Resources */,
+				394680D21A63168700ECA925 /* participantConclusion1Gray.png in Resources */,
 				39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */,
+				394680D11A63168700ECA925 /* meetingConclusion3Gray.png in Resources */,
 				391C20AD1A5B0B3F00A44F30 /* meetingConclusion2.png in Resources */,
 				3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */,
 				3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */,
@@ -782,6 +834,7 @@
 				3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */,
 				398AADAD1A51DE530003EF8C /* Images.xcassets in Resources */,
 				391C20B11A5B0B3F00A44F30 /* participantConclusion3.png in Resources */,
+				394680D31A63168700ECA925 /* participantConclusion2Gray.png in Resources */,
 				391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */,
 				391C20AF1A5B0B3F00A44F30 /* participantConclusion1.png in Resources */,
 				396769C21A5C2578003444D2 /* appIcon87.png in Resources */,
@@ -809,21 +862,22 @@
 				395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */,
 				395E4CC31A51E4E1006361BA /* APIResponse.m in Sources */,
 				395E4CE51A521AC0006361BA /* ChatService.m in Sources */,
-				39F9CC981A55F3800017B14E /* CardViewController.m in Sources */,
 				39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */,
 				3908BF3C1A532E9200017D84 /* SingleCardViewController.m in Sources */,
 				395E4CDC1A521826006361BA /* ChatMessageTableViewCell.m in Sources */,
+				394680C81A62E33E00ECA925 /* HostConcludeCardViewController.m in Sources */,
 				3904244C1A52F74200370E80 /* MeetingHandler.m in Sources */,
 				395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */,
 				390424B01A53182F00370E80 /* CJSONDeserializer.m in Sources */,
+				394680BB1A62B53800ECA925 /* HostViewController.m in Sources */,
 				390424481A52D9FC00370E80 /* ClientViewController.m in Sources */,
 				398AADCF1A51DF030003EF8C /* LoginViewController.m in Sources */,
+				394680C41A62B91900ECA925 /* CardViewController.m in Sources */,
 				398AADA51A51DE530003EF8C /* AppDelegate.m in Sources */,
 				398AADCE1A51DF030003EF8C /* AbstractViewController.m in Sources */,
 				390424501A530E7900370E80 /* JsonMessageParser.m in Sources */,
 				398AADA21A51DE530003EF8C /* main.m in Sources */,
 				396993201A5D5D0700AFD089 /* Utilities.m in Sources */,
-				395E4CD81A5216A0006361BA /* HostViewController.m in Sources */,
 				395E4CB91A51E354006361BA /* ParseManager.m in Sources */,
 				395E4CE41A521AC0006361BA /* CharactersEscapeService.m in Sources */,
 				390424B11A53182F00370E80 /* CJSONSerializer.m in Sources */,
@@ -952,8 +1006,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Inova Eg (6GR2XQ5654)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Inova Eg (6GR2XQ5654)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (62W4ETCGN7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (62W4ETCGN7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -965,12 +1019,12 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = CarHds/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebe07f53-8e26-4687-a6a7-3a504d7116a4";
+				PROVISIONING_PROFILE = "fe93b2ba-42fc-4cca-8b4b-061175d2634e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv6 armv7 armv7s";
 			};
@@ -981,8 +1035,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Inova Eg (6GR2XQ5654)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Inova Eg (6GR2XQ5654)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (62W4ETCGN7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (62W4ETCGN7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -994,11 +1048,11 @@
 					"$(SDKROOT)/usr/include/libxml2",
 				);
 				INFOPLIST_FILE = CarHds/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "ebe07f53-8e26-4687-a6a7-3a504d7116a4";
+				PROVISIONING_PROFILE = "fe93b2ba-42fc-4cca-8b4b-061175d2634e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv6 armv7 armv7s";
 			};

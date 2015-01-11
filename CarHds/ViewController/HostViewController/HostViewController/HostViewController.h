@@ -10,11 +10,13 @@
 #import "ChatService.h"
 #import "ChatMessageTableViewCell.h"
 #import "CardViewController.h"
+#import "HostConcludeCardViewController.h"
 @interface HostViewController : AbstractViewController<UITextFieldDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong) NSMutableArray* msgs;
 
 @property (nonatomic,strong) UIPageViewController* pageController;
 @property (weak, nonatomic) IBOutlet UIView *pageView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
+@property (nonatomic,strong) NSMutableArray* cardVotes;
 
 @end

@@ -13,6 +13,8 @@
 @property (nonatomic,strong) UIImage* cardImage;
 @property (nonatomic) NSInteger type;
 @property (nonatomic) NSInteger index;
+@property (weak, nonatomic) IBOutlet UILabel *viewLabel;
 -(void) setValueLabel:(NSInteger) value;
--(void) setImage;
+-(void) setImage:(BOOL) grayScale;
+
 @end

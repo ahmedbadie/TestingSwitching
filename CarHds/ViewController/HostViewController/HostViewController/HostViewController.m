@@ -18,7 +18,7 @@
 @property (weak, nonatomic) IBOutlet UIView *card4View;
 @property (weak, nonatomic) IBOutlet UILabel *numberOfParticipants;
 @property (weak, nonatomic) IBOutlet UIView *concludeIPadView;
-
+@property (nonatomic,strong) NSMutableArray* origins;
 @property (strong,nonatomic) NSMutableArray* conclusionCards;
 @property (nonatomic,strong) NSMutableDictionary* users;
 @property (nonatomic,strong) NSMutableArray* viewControllers;
@@ -31,6 +31,12 @@
 @property (weak, nonatomic) IBOutlet UIView *BottomRightViewConclude;
 @property (nonatomic) BOOL  canConclude ;
 @property (nonatomic) BOOL concludeMeetingOn;
+@property (weak, nonatomic) IBOutlet UILabel *tlLabel;
+@property (weak, nonatomic) IBOutlet UILabel *tmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *trLabel;
+@property (weak, nonatomic) IBOutlet UILabel *blLabel;
+@property (weak, nonatomic) IBOutlet UILabel *bmLabel;
+@property (weak, nonatomic) IBOutlet UILabel *brLabel;
 
 
 @end
@@ -106,25 +112,41 @@
     [[MeetingHandler sharedInstance] connectToChatDialog:self.chatDialog];
 
 }
-/*
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
-- (IBAction)leaveMeeting:(id)sender {
+    
+}
+- (IBAction)buttonPressed:(UIButton *)sender {
+    
+    switch (sender.tag) {
+        case 0:
+            [self leaveMeeting];
+            break;
+            case 1:
+            [self showFinalStatistics];
+            break;
+        default:
+            break;
+    }
+}
+
+
+-(void) showFinalStatistics
+{
+    [self performSegueWithIdentifier:HOST_STATISTICS_SEGUE sender:self];
+}
+-(void) leaveMeeting
+{
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Leave Meeting";
-//    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
-//    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    //    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
+    //    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     [MeetingHandler sharedInstance].logOut = YES;
     [self didLogOut];
-    
-    
+
 }
 -(void)didLogOut
 {
@@ -138,7 +160,7 @@
     if(chatRoom == nil)
     {
         [self warnUserWithMessage:@"Failed to join room"];
-        [self leaveMeeting:self];
+        [self leaveMeeting];
         return;
         
     }else{
@@ -237,19 +259,59 @@
 {
     NSUInteger key = msg.senderID;
     NSMutableArray* array = [self.conclusionDictionary objectForKey:@(key)];
+    
     if(array)
     {
+        if([[array objectAtIndex:type] integerValue]!=-1)
+        {
+            HostConcludeCardViewController* oldCard = [self.conclusionCards objectAtIndex:(type*3 + [[array objectAtIndex:type] integerValue])];
+            [oldCard removeVoter:key];
+        }
+        int index = (type*3) + val;
+        HostConcludeCardViewController* newCard = [self.conclusionCards objectAtIndex:index];
+        [newCard addVote:[[self.users objectForKey:@(key)] objectForKey:MESSAGE_LOGIN_USERNAME] :key];
+
+        
         [array replaceObjectAtIndex:type withObject:@(val)];
+        
     }
-    
-    for(CardViewController* card in self.conclusionCards)
+    NSMutableArray* temp = [NSMutableArray array];
+    for(HostConcludeCardViewController* card in self.conclusionCards)
     {
         NSInteger count = [self getCardsCountForType:card.type andIndex:card.index];
         card.cardVotes = count;
-        [card setValueLabel:count];
+        [card.cardCountLabel setText:[NSString stringWithFormat:@"%d",count]];
+        [card reloadScreen];
+        [temp addObject:card];
     }
     
+    NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"self" ascending: NO];
+    NSArray* temp2=  [temp sortedArrayUsingDescriptors: [NSArray arrayWithObject: sortOrder]];
+    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
+    int index = 0;
+    CGSize size = self.topLeftViewConclude.frame.size;
+    for(HostConcludeCardViewController* card in temp2)
+    {
+        CGPoint origin = [[self.origins objectAtIndex:index] CGPointValue];
 
+        UIView* superView = [card.view superview];
+        if(superView.frame.origin.x != origin.x)
+        {
+            
+            [UIView transitionWithView:self.view
+                              duration:0.5
+                               options:UIViewAnimationOptionTransitionNone
+                            animations:^{
+                                
+                                superView.frame = CGRectMake(origin.x, origin.y, size.width, size.height);
+                            } completion:^(BOOL finished) {
+                                //  Do whatever when the animation is finished
+                            }];
+
+        }
+        index++;
+        
+    }
 }
 
 -(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
@@ -332,14 +394,47 @@
 }
 #pragma mark
 #pragma mark - Conclude Meeting -
+
+-(void) prepareData
+{
+    
+    
+    self.cardVotes= [NSMutableArray array];
+    for(int i=0 ;i < 6; i++ )
+    {
+        [self.cardVotes addObject:[NSMutableArray array]];
+    }
+    
+    
+    for(NSString* key in [self.users allKeys])
+    {
+        NSArray* votes= [self.users objectForKey:key];
+        
+        for(int j =0 ;j<[votes count];j++)
+        {
+            if([votes[j] integerValue]!=-1)
+            {
+                NSUInteger value= ((int)(j/3)) + [votes[j] integerValue] ;
+                [[self.cardVotes objectAtIndex:value ]addObject:key];
+            }
+        }
+    }
+    
+    
+    
+}
+
 -(void)showConcludeMeetingView
 {
+    
+    self.origins = [NSMutableArray array];
     NSArray* participants = [self.chatDialog occupantIDs];
     NSLog(@"%d",[participants count]);
 
     self.conclusionCards = [NSMutableArray array];
     UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
     NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
+    
     int index =0 ;
     for(int i=0;i<[views count];i++)
         [self.conclusionCards addObject:@2];
@@ -354,25 +449,48 @@
         [self.conclusionDictionary setObject:array forKey:user];
         
     }
+    
+    
     for(UIView* view in views)
     {
-        CardViewController* card = [storyBoard instantiateViewControllerWithIdentifier:@"HostConclusionCard"];
-        card.view.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
-        [self addChildViewController:card];
-        [view addSubview:card.view];
-        [card didMoveToParentViewController:self];
+        
+        [self.origins addObject:[NSValue valueWithCGPoint:view.frame.origin]];
+//        CGFloat offset = 20;
+        
+//        for (int k=0; k<[[self.cardVotes objectAtIndex:index] count]; k++) {
+//            
+//            CardViewController* card = [storyBoard instantiateViewControllerWithIdentifier:@"HostConclusionCard"];
+//            [self addChildViewController:card];
+//            [view addSubview:card.view];
+//            card.view.frame = CGRectMake(29, offset, 153, 262);
+//            [card didMoveToParentViewController:self];
+//
+//            
+//            [card setImage];
+//            self.numberOfParticipants.layer.borderWidth=1.0f;
+//            [self.numberOfParticipants.layer setCornerRadius:self.numberOfParticipants.frame.size.width/2];
+//            self.numberOfParticipants.clipsToBounds = YES;
+        
+        HostConcludeCardViewController* card = [storyBoard instantiateViewControllerWithIdentifier:HOST_CONCLUDE_CONTROLLER];
         NSInteger type = index / 3;
         NSInteger tIndex = index %3;
         card.type = type;
         card.index = tIndex;
         card.cardVotes = 0;
-        [card setImage];
-        self.numberOfParticipants.layer.borderWidth=1.0f;
-        [self.numberOfParticipants.layer setCornerRadius:self.numberOfParticipants.frame.size.width/2];
-        self.numberOfParticipants.clipsToBounds = YES;
+        [self addChildViewController:card];
+        [view addSubview:card.view];
+        CGSize size = view.frame.size;
+        card.view.frame = CGRectMake(0, 0, size.width, size.height);
+        [card didMoveToParentViewController:self];
+        [card reloadScreen];
+
         [self.conclusionCards replaceObjectAtIndex:index withObject:card];
+//
+//        }
+       
         index++;
     }
+    
     [UIView transitionWithView:self.view
                       duration:1.0
                        options:UIViewAnimationOptionTransitionFlipFromBottom
