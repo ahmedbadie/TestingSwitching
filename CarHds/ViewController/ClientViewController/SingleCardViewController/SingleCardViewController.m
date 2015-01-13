@@ -16,13 +16,9 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    CGRect screenRect = [[UIScreen mainScreen] bounds];
-    CGFloat screenWidth = screenRect.size.width;
-    CGFloat screenHeight = screenRect.size.height;
-    self.view.frame = CGRectMake(0, 0, screenWidth, screenHeight);
-    self.imageView.frame = self.view.frame;
+   
     if(!self.manualImage)
-    [self setImageWithAnimation:NO];
+        [self setImageWithAnimation:NO];
     
     // Do any additional setup after loading the view.
 }
