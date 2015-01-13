@@ -19,4 +19,5 @@
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (nonatomic,strong) NSMutableArray* cardVotes;
 
+@property (strong, nonatomic) IBOutlet UIView *ipadViewLandscape;
 @end

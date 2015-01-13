@@ -49,6 +49,8 @@
 		391C20AF1A5B0B3F00A44F30 /* participantConclusion1.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20A91A5B0B3F00A44F30 /* participantConclusion1.png */; };
 		391C20B01A5B0B3F00A44F30 /* participantConclusion2.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20AA1A5B0B3F00A44F30 /* participantConclusion2.png */; };
 		391C20B11A5B0B3F00A44F30 /* participantConclusion3.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20AB1A5B0B3F00A44F30 /* participantConclusion3.png */; };
+		391C63C71A6590B900CE3273 /* AbstractNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C63C61A6590B900CE3273 /* AbstractNavigationController.m */; };
+		391C63CA1A65912D00CE3273 /* RotatableNavigationControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C63C91A65912D00CE3273 /* RotatableNavigationControllerViewController.m */; };
 		391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 391F93721A599A540062A7E5 /* ErrorMapper.m */; };
 		391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 391F93741A599BFA0062A7E5 /* ErrorMessages.plist */; };
 		394680BB1A62B53800ECA925 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394680BA1A62B53800ECA925 /* HostViewController.m */; };
@@ -167,6 +169,10 @@
 		391C20A91A5B0B3F00A44F30 /* participantConclusion1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion1.png; sourceTree = "<group>"; };
 		391C20AA1A5B0B3F00A44F30 /* participantConclusion2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion2.png; sourceTree = "<group>"; };
 		391C20AB1A5B0B3F00A44F30 /* participantConclusion3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = participantConclusion3.png; sourceTree = "<group>"; };
+		391C63C51A6590B900CE3273 /* AbstractNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractNavigationController.h; sourceTree = "<group>"; };
+		391C63C61A6590B900CE3273 /* AbstractNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractNavigationController.m; sourceTree = "<group>"; };
+		391C63C81A65912D00CE3273 /* RotatableNavigationControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotatableNavigationControllerViewController.h; sourceTree = "<group>"; };
+		391C63C91A65912D00CE3273 /* RotatableNavigationControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotatableNavigationControllerViewController.m; sourceTree = "<group>"; };
 		391F93711A599A540062A7E5 /* ErrorMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorMapper.h; sourceTree = "<group>"; };
 		391F93721A599A540062A7E5 /* ErrorMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorMapper.m; sourceTree = "<group>"; };
 		391F93741A599BFA0062A7E5 /* ErrorMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessages.plist; sourceTree = "<group>"; };
@@ -286,7 +292,8 @@
 				3904244A1A52F74200370E80 /* MeetingHandler.h */,
 				3904244B1A52F74200370E80 /* MeetingHandler.m */,
 			);
-			path = MeetingHandler;
+			name = MeetingHandler;
+			path = ../MeetingHandler;
 			sourceTree = "<group>";
 		};
 		3904244D1A530E0000370E80 /* JsonMessageParser */ = {
@@ -372,6 +379,7 @@
 		39116A1A1A55A4180043C245 /* RegisterViewController */ = {
 			isa = PBXGroup;
 			children = (
+				390424491A52F73100370E80 /* MeetingHandler */,
 				39116A1B1A55A42D0043C245 /* RegisterViewController.h */,
 				39116A1C1A55A42D0043C245 /* RegisterViewController.m */,
 			);
@@ -682,11 +690,14 @@
 			children = (
 				394680C11A62B91900ECA925 /* CardViewController */,
 				39116A1A1A55A4180043C245 /* RegisterViewController */,
-				390424491A52F73100370E80 /* MeetingHandler */,
 				395E4CD41A521693006361BA /* ClientViewController */,
 				395E4CD51A521693006361BA /* HostViewController */,
 				398AADC81A51DF030003EF8C /* AbstractViewController */,
 				398AADCB1A51DF030003EF8C /* LoginViewController */,
+				391C63C51A6590B900CE3273 /* AbstractNavigationController.h */,
+				391C63C61A6590B900CE3273 /* AbstractNavigationController.m */,
+				391C63C81A65912D00CE3273 /* RotatableNavigationControllerViewController.h */,
+				391C63C91A65912D00CE3273 /* RotatableNavigationControllerViewController.m */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -866,11 +877,13 @@
 				3908BF3C1A532E9200017D84 /* SingleCardViewController.m in Sources */,
 				395E4CDC1A521826006361BA /* ChatMessageTableViewCell.m in Sources */,
 				394680C81A62E33E00ECA925 /* HostConcludeCardViewController.m in Sources */,
+				391C63C71A6590B900CE3273 /* AbstractNavigationController.m in Sources */,
 				3904244C1A52F74200370E80 /* MeetingHandler.m in Sources */,
 				395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */,
 				390424B01A53182F00370E80 /* CJSONDeserializer.m in Sources */,
 				394680BB1A62B53800ECA925 /* HostViewController.m in Sources */,
 				390424481A52D9FC00370E80 /* ClientViewController.m in Sources */,
+				391C63CA1A65912D00CE3273 /* RotatableNavigationControllerViewController.m in Sources */,
 				398AADCF1A51DF030003EF8C /* LoginViewController.m in Sources */,
 				394680C41A62B91900ECA925 /* CardViewController.m in Sources */,
 				398AADA51A51DE530003EF8C /* AppDelegate.m in Sources */,

@@ -68,6 +68,7 @@
             card.shouldHandleTap = NO;
             [self addChildViewController:card];
             [view addSubview:card.view];
+            card.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |  UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
             [card didMoveToParentViewController:self];
             self.numberOfParticipants.layer.borderWidth=1.0f;
             [self.numberOfParticipants.layer setCornerRadius:self.numberOfParticipants.frame.size.width/2];
@@ -75,9 +76,18 @@
             
             [self.viewControllers replaceObjectAtIndex:card.index withObject:card];
         }
-        [self.view addSubview:self.IpadView];
-        [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
         
+        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
+        [self.view addSubview:self.IpadView];
+//        if(UIInterfaceOrientationIsPortrait(orientation))
+//        {
+//            [self setPortaitMode];
+//        }else if (UIInterfaceOrientationIsLandscape(orientation))
+//        {
+//
+//            [self setLandscapeMode];
+//            }
     }else{
         [self.IphoneView setHidden:NO];
         [self.IpadView removeFromSuperview];
@@ -96,17 +106,37 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+-(void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    if(UIInterfaceOrientationIsPortrait(orientation))
+    {
+        [self setPortaitMode];
+    }else if (UIInterfaceOrientationIsLandscape(orientation))
+    {
+        
+        [self setLandscapeMode];
+    }
 
+}
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+//    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+//       if(UIInterfaceOrientationIsPortrait(orientation))
+//    {
+//        [self setPortaitMode];
+//    }else if (UIInterfaceOrientationIsLandscape(orientation))
+//    {
+//        
+//        [self setLandscapeMode];
+//    }
 
-//    // Set keyboard notifications
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:)
-//                                                 name:UIKeyboardWillShowNotification object:nil];
-//    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:)
-//                                                 name:UIKeyboardWillHideNotification object:nil];
+
     
+    
+#warning Uncommint the 2 lines
     self.title = self.chatDialog.name;
     
     [[MeetingHandler sharedInstance] connectToChatDialog:self.chatDialog];
@@ -519,5 +549,107 @@
             }
     }
     return count;
+}
+#pragma mark - Orientation -
+
+-(void) setLandscapeMode
+{
+    
+    CGFloat factor = 0.75;
+    CGFloat xOffset = 101;
+    CGSize size = CGSizeMake(275*factor, 470*factor);
+    [UIView transitionWithView:self.view
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionNone
+                    animations:^{
+                        
+                        self.card1View.frame = CGRectMake(xOffset, 20, size.width,size.height);
+                        self.card2View.frame = CGRectMake(1024-xOffset-(size.width), 20,size.width,size.height);
+                        self.card3View.frame = CGRectMake(1024-xOffset-(size.width), 768-20-(size.height),size.width,size.height);
+                        self.card4View.frame = CGRectMake(xOffset, 768-20-(size.height), size.width,size.height);
+                        self.card0View.frame = CGRectMake((1024/2)-(size.width/2), (768/2)-(size.height/2), size.width,size.height);
+                        self.card0View.center = self.IpadView.center;
+                        for(UIViewController* card in self.viewControllers)
+                            card.view.frame = CGRectMake(0, 0, size.width, size.height);
+                    } completion:^(BOOL finished) {
+                        //  Do whatever when the animation is finished
+                    }];
+
+    
+    NSLog(@"Center card frame = %f,%f,%f,%f",self.card0View.frame.origin.x,self.card0View.frame.origin.y,self.card0View.frame.size.width,self.card0View.frame.size.height);
+}
+-(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
+{
+
+}
+-(void) setPortaitMode
+{
+    CGFloat factor = 1;
+    CGSize size = CGSizeMake(275*factor, 470*factor);
+    
+    [UIView transitionWithView:self.view
+                      duration:0.5
+                       options:UIViewAnimationOptionTransitionNone
+                    animations:^{
+                        
+                        self.card1View.frame = CGRectMake(20, 20, 275, 470);
+                        self.card2View.frame = CGRectMake(473, 20, 275, 470);
+                        self.card3View.frame = CGRectMake(473, 534, 275, 470);
+                        self.card4View.frame = CGRectMake(20, 534, 275, 470);
+                        self.card0View.frame = CGRectMake(247, 277, 275, 470);
+                        for(UIViewController* card in self.viewControllers)
+                            card.view.frame = CGRectMake(0, 0, size.width, size.height);
+                    
+                    } completion:^(BOOL finished) {
+                        //  Do whatever when the animation is finished
+                    }];
+
+   
+
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    UIDeviceOrientation toInterfaceOrientation = [[UIDevice currentDevice] orientation];
+    switch (toInterfaceOrientation) {
+        case UIDeviceOrientationPortrait:
+            [self setPortaitMode];
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+           [self setLandscapeMode];
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            [self setLandscapeMode];
+            break;
+        default:
+            break;
+    }
+}
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    
+    if(self.canConclude)
+        return UIInterfaceOrientationMaskAll;
+    
+    UIInterfaceOrientation orientationStatusBar =[[UIApplication sharedApplication] statusBarOrientation];
+    if (orientationStatusBar != UIInterfaceOrientationPortrait) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    //this line not permit rotate is the viewController is portrait
+    return UIInterfaceOrientationPortrait;
+}
+
+
+-(BOOL)shouldAutorotate
+{
+    
+    UIInterfaceOrientation orientationStatusBar =[[UIApplication sharedApplication] statusBarOrientation];
+    if (orientationStatusBar != UIInterfaceOrientationPortrait) {
+        return YES;
+    }
+    //this line not permit rotate is the viewController is portrait
+    return self.canConclude;
+
 }
 @end

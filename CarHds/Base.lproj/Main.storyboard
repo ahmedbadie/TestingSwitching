@@ -85,7 +85,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dv-CU-8gI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="235" y="-155"/>
+            <point key="canvasLocation" x="767" y="-155"/>
         </scene>
         <!--Host Conclude Card View Controller-->
         <scene sceneID="fGd-6K-cgx">
@@ -106,6 +106,7 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="HYN-oR-od7"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="224" height="465"/>
                     <connections>
@@ -114,7 +115,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsd-re-fkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1150" y="-508"/>
+            <point key="canvasLocation" x="1682" y="-508.5"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -198,6 +199,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="nhU-za-sjZ"/>
                     <connections>
                         <outlet property="goButton" destination="Odd-Op-LYq" id="Y5l-0U-ZHb"/>
                         <outlet property="meetingIDTextField" destination="CiA-u0-7s3" id="4R0-zb-K37"/>
@@ -206,13 +208,13 @@
                         <outlet property="usernameTextField" destination="35Q-vi-0MV" id="Rfm-oN-5ob"/>
                         <segue destination="YAk-f5-8XZ" kind="modal" identifier="HostViewSegue" id="u9g-xR-R2m"/>
                         <segue destination="CBa-mb-4AC" kind="modal" identifier="ClientViewSegue" id="R62-gf-qAt"/>
-                        <segue destination="6Xq-wp-JXt" kind="modal" identifier="RegisterNewUserIPad" id="j1u-l1-epu"/>
                         <segue destination="7xD-L5-2Dy" kind="modal" identifier="RegisterNewUserIPhone" id="cRv-6z-h2X"/>
+                        <segue destination="6Xq-wp-JXt" kind="push" identifier="RegisterNewUserIPad" id="2bZ-kM-4IP"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-516" y="168"/>
+            <point key="canvasLocation" x="16" y="168"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="mEG-tj-3Ft">
@@ -310,7 +312,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asG-1N-SlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-41" y="168"/>
+            <point key="canvasLocation" x="491" y="168"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="dn6-Ir-eUr">
@@ -320,10 +322,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground.jpg" id="azk-K3-PSu">
-                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xja-kZ-iux">
                                 <rect key="frame" x="254" y="762" width="260" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
@@ -397,6 +395,10 @@
                                 <rect key="frame" x="207" y="68" width="354" height="128"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground.jpg" id="azk-K3-PSu">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -420,19 +422,19 @@
                     </connections>
                 </textField>
             </objects>
-            <point key="canvasLocation" x="-360" y="1155"/>
+            <point key="canvasLocation" x="424" y="1301"/>
         </scene>
         <!--Single Card View Controller-->
         <scene sceneID="lV5-d9-o5U">
             <objects>
                 <viewController storyboardIdentifier="SingleCardViewController2" id="Bmk-Ov-0kJ" customClass="SingleCardViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xjK-tX-UaN">
+                    <view key="view" contentMode="scaleAspectFit" id="xjK-tX-UaN">
                         <rect key="frame" x="0.0" y="0.0" width="275" height="470"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="skf-1t-UQl">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="skf-1t-UQl">
                                 <rect key="frame" x="10" y="10" width="255" height="450"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                         </subviews>
@@ -446,7 +448,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgZ-lI-NFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="552.5" y="168"/>
+            <point key="canvasLocation" x="1084.5" y="168"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7Tz-DB-grI">
@@ -486,7 +488,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ria-YJ-Xkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="908" y="208"/>
+            <point key="canvasLocation" x="1972" y="208"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="tHH-gV-YBf">
@@ -503,6 +505,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="rDV-kC-19c"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
@@ -517,6 +520,7 @@
                         <outlet property="card3View" destination="7gZ-rU-I1w" id="vsH-yq-mys"/>
                         <outlet property="card4View" destination="Ey4-uK-aza" id="287-Us-ADQ"/>
                         <outlet property="concludeIPadView" destination="kR1-SA-aLi" id="2Yf-he-ARX"/>
+                        <outlet property="ipadViewLandscape" destination="pwj-tC-Arg" id="w3g-Py-ckK"/>
                         <outlet property="numberOfParticipants" destination="fUk-2z-2zj" id="U1X-sJ-KXX"/>
                         <outlet property="pageControl" destination="lIK-sA-Kg9" id="0x5-pF-v2Z"/>
                         <outlet property="pageView" destination="wiO-Ou-yBV" id="FpN-Mf-vNY"/>
@@ -527,7 +531,12 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9bY-HZ-PmD" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <view contentMode="scaleToFill" id="kR1-SA-aLi" userLabel="ConcludeIPad">
+                <view contentMode="scaleToFill" id="pwj-tC-Arg" userLabel="ipadViewLandScape">
+                    <rect key="frame" x="0.0" y="0.0" width="1024" height="768"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <color key="backgroundColor" red="1" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                </view>
+                <view contentMode="redraw" id="kR1-SA-aLi" userLabel="ConcludeIPad">
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
@@ -580,25 +589,25 @@
                     <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                     <subviews>
-                        <view tag="1" contentMode="scaleToFill" id="SA3-JG-Wfz" userLabel="topLeft">
+                        <view tag="1" contentMode="scaleAspectFit" id="SA3-JG-Wfz" userLabel="topLeft">
                             <rect key="frame" x="20" y="20" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <view tag="2" contentMode="scaleToFill" id="MKg-DF-OpE" userLabel="topRight">
+                        <view tag="2" contentMode="scaleAspectFit" id="MKg-DF-OpE" userLabel="topRight">
                             <rect key="frame" x="472.99999961853024" y="20" width="275" height="470"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <view tag="4" contentMode="scaleToFill" id="Ey4-uK-aza" userLabel="bottonLeft">
+                        <view tag="4" contentMode="scaleAspectFit" id="Ey4-uK-aza" userLabel="bottonLeft">
                             <rect key="frame" x="20" y="533.99999996428187" width="275" height="470"/>
                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         </view>
-                        <view tag="3" contentMode="scaleToFill" id="7gZ-rU-I1w" userLabel="bottomRight">
+                        <view tag="3" contentMode="scaleAspectFit" id="7gZ-rU-I1w" userLabel="bottomRight">
                             <rect key="frame" x="472.99999961853024" y="533.99999995941812" width="275" height="470"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -612,7 +621,7 @@
                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <view contentMode="scaleToFill" id="WTQ-UW-3DU" userLabel="Center">
+                        <view contentMode="scaleAspectFit" id="WTQ-UW-3DU" userLabel="Center">
                             <rect key="frame" x="247" y="277" width="275" height="470"/>
                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -663,7 +672,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="764" y="1160"/>
+            <point key="canvasLocation" x="1296" y="1160"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="fzz-BU-I37">
@@ -677,7 +686,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L2-o1-IiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1871" y="719"/>
+            <point key="canvasLocation" x="2935" y="719"/>
         </scene>
         <!--Host Statistics View Controller-->
         <scene sceneID="7LV-Lm-X1v">
@@ -694,7 +703,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X1K-C0-bAh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1597" y="1490"/>
+            <point key="canvasLocation" x="2129" y="1490"/>
         </scene>
         <!--Client View Controller-->
         <scene sceneID="N12-Ro-3ph">
@@ -720,7 +729,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7wc-qT-Y4Y">
-                                        <rect key="frame" x="100" y="530" width="121" height="30"/>
+                                        <rect key="frame" x="100" y="530.0000000794729" width="121" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="15"/>
                                         <state key="normal" title="Leave Meeting">
@@ -788,7 +797,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="4nB-zT-VLH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2z-Kb-ds9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1441" y="257"/>
+            <point key="canvasLocation" x="1973" y="257"/>
         </scene>
     </scenes>
     <resources>

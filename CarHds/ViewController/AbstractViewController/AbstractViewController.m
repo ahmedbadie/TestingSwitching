@@ -92,4 +92,18 @@
     [textField resignFirstResponder];
     return YES;
 }
+
+#pragma mark - Orientation - 
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskPortrait;
+}
+
+
+
+-(BOOL)shouldAutorotate
+{
+    
+    return YES;
+}
 @end
