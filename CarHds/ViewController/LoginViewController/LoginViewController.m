@@ -354,6 +354,7 @@
         HostViewController* dst = segue.destinationViewController;
         dst.chatDialog = self.chatDialog;
         dst.user = self.user;
+        dst.delegate = self;
     }else if ([segue.identifier isEqualToString:CLIENT_VIEW_SEGUE])
     {
         ClientViewController* dst = segue.destinationViewController;
@@ -363,7 +364,14 @@
     {
         RegisterViewController* dst = (RegisterViewController*)segue.destinationViewController;
         dst.delegate = self;
+    }else  if([segue.identifier isEqualToString:HOST_CONCLUDE_SEGUE])
+    {
+        HostConcludeViewController* dst = segue.destinationViewController;
+        dst.delegate = self;
+        dst.users = self.users;
+        [MeetingHandler sharedInstance].delegate = dst;
     }
+
 }
 
 
@@ -382,4 +390,13 @@
     
 }
 
+
+-(void)concludeMeeting:(NSArray *)data
+{
+    self.users = [data firstObject];
+
+    [self dismissViewControllerAnimated:NO completion:^{
+        [self performSegueWithIdentifier:HOST_CONCLUDE_SEGUE sender:self];
+    }];
+}
 @end

@@ -11,6 +11,13 @@
 #import "ChatMessageTableViewCell.h"
 #import "CardViewController.h"
 #import "HostConcludeCardViewController.h"
+#import "HostConcludeViewController.h"
+//@protocol HostViewControllerDelegate
+@protocol HostViewControllerDelegate <NSObject>
+
+-(void) concludeMeeting:(NSArray*) data ;
+
+@end
 @interface HostViewController : AbstractViewController<UITextFieldDelegate,UIAlertViewDelegate>
 @property (nonatomic,strong) NSMutableArray* msgs;
 
@@ -18,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UIView *pageView;
 @property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (nonatomic,strong) NSMutableArray* cardVotes;
-
+-(void) leaveMeeting;
 @property (strong, nonatomic) IBOutlet UIView *ipadViewLandscape;
+@property (nonatomic,strong) AbstractViewController<HostViewControllerDelegate>* delegate;
+@property (weak, nonatomic) IBOutlet UIButton *concludeMeetingButton;
 @end

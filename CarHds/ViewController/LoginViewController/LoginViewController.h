@@ -14,11 +14,11 @@
 #import "ClientViewController.h"
 #define HOST_MEETING_INDEX 0
 #define JOIN_MEETING_INDEX 1
-@interface LoginViewController : AbstractViewController<UITextFieldDelegate,QBActionStatusDelegate,QBChatDelegate>
+@interface LoginViewController : AbstractViewController<UITextFieldDelegate,QBActionStatusDelegate,QBChatDelegate,HostViewControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *meetingIDTextField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *operationTypeSegmentedControl;
-
+@property (nonatomic,strong) NSMutableDictionary* users;
 
 @end

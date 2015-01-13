@@ -34,12 +34,20 @@
 }
 */
 
-//-(NSUInteger)supportedInterfaceOrientations
-//{
-//    return UIInterfaceOrientationMaskPortrait;
-//}
-//-(BOOL)shouldAutorotate
-//{
-//    return NO;
-//}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    UIViewController* controller = self.topViewController;
+    return [controller supportedInterfaceOrientations];
+
+}
+-(BOOL)shouldAutorotate
+{
+    UIViewController* controller = self.topViewController;
+    return [controller shouldAutorotate];}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+ UIViewController* controller = self.topViewController;
+    [controller didRotateFromInterfaceOrientation:fromInterfaceOrientation];
+}
 @end

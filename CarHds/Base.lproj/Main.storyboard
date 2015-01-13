@@ -27,6 +27,7 @@
             <string>ArialNarrow</string>
             <string>ArialNarrow</string>
             <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
         </mutableArray>
     </customFonts>
     <scenes>
@@ -85,17 +86,99 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0dv-CU-8gI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="767" y="-155"/>
+            <point key="canvasLocation" x="1299" y="-155"/>
         </scene>
-        <!--Host Conclude Card View Controller-->
+        <!--Host Conclude View Controller-->
         <scene sceneID="fGd-6K-cgx">
             <objects>
-                <viewController restorationIdentifier="HostConcludeController" storyboardIdentifier="HostConcludeController" id="epq-L0-nla" customClass="HostConcludeCardViewController" sceneMemberID="viewController">
+                <viewController id="epq-L0-nla" customClass="HostConcludeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4SH-u5-V97">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground.jpg" id="PmQ-pi-IT9">
+                                <rect key="frame" x="-85" y="-200" width="938" height="1425"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <view contentMode="redraw" id="djV-bM-lxE" userLabel="ConcludeIPad">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="Rfo-ot-xED" userLabel="TopRightView">
+                                        <rect key="frame" x="520" y="42" width="224" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="a9h-Io-a0t" userLabel="BottomLeftView">
+                                        <rect key="frame" x="24" y="531" width="224" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="fb4-K9-MpO" userLabel="BottomMiddleView">
+                                        <rect key="frame" x="272" y="531" width="224" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="M7A-eP-s36" userLabel="TopMiddleView">
+                                        <rect key="frame" x="272" y="42" width="224" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="1oX-ex-1nX" userLabel="TopLeftView">
+                                        <rect key="frame" x="24" y="42" width="224" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="VWW-l0-hzo" userLabel="BottomRightView">
+                                        <rect key="frame" x="520.00000086852481" y="531" width="224" height="465"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="FoX-UV-COe">
+                                        <rect key="frame" x="328" y="15" width="112" height="32"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="17"/>
+                                        <state key="normal" title="Leave Meeting">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="ZPf-HW-K8D"/>
+                                            <action selector="leaveMeating:" destination="epq-L0-nla" eventType="touchUpInside" id="XJn-GO-qrG"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="HYN-oR-od7"/>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="BottomLeftViewConclude" destination="a9h-Io-a0t" id="MoQ-0J-Nlz"/>
+                        <outlet property="BottomMiddleViewConclude" destination="fb4-K9-MpO" id="Dfa-jS-HFC"/>
+                        <outlet property="BottomRightViewConclude" destination="VWW-l0-hzo" id="D9M-Ig-YNl"/>
+                        <outlet property="concludeIPadView" destination="djV-bM-lxE" id="JZw-XK-hTb"/>
+                        <outlet property="topLeftViewConclude" destination="1oX-ex-1nX" id="eKY-8A-kXp"/>
+                        <outlet property="topMiddleViewConclude" destination="M7A-eP-s36" id="G8l-i3-eDT"/>
+                        <outlet property="topRightViewConclude" destination="Rfo-ot-xED" id="BoB-qy-e0t"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tsd-re-fkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1677" y="-508"/>
+        </scene>
+        <!--Host Conclude Card View Controller-->
+        <scene sceneID="mlg-WG-LjX">
+            <objects>
+                <viewController storyboardIdentifier="HostConcludeController" id="Azv-Ky-h8J" customClass="HostConcludeCardViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ybc-0K-5LV">
                         <rect key="frame" x="0.0" y="0.0" width="224" height="465"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.10000000149011612" id="aRk-mq-CtR">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vjz-Tr-gtH">
                                 <rect key="frame" x="18" y="0.0" width="40" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -106,16 +189,15 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="HYN-oR-od7"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="224" height="465"/>
                     <connections>
-                        <outlet property="cardCountLabel" destination="aRk-mq-CtR" id="JH9-4w-9vw"/>
+                        <outlet property="cardCountLabel" destination="vjz-Tr-gtH" id="5Sd-SP-yLj"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tsd-re-fkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SQm-Q3-s6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1682" y="-508.5"/>
+            <point key="canvasLocation" x="2272" y="-871"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -209,12 +291,13 @@
                         <segue destination="YAk-f5-8XZ" kind="modal" identifier="HostViewSegue" id="u9g-xR-R2m"/>
                         <segue destination="CBa-mb-4AC" kind="modal" identifier="ClientViewSegue" id="R62-gf-qAt"/>
                         <segue destination="7xD-L5-2Dy" kind="modal" identifier="RegisterNewUserIPhone" id="cRv-6z-h2X"/>
-                        <segue destination="6Xq-wp-JXt" kind="push" identifier="RegisterNewUserIPad" id="2bZ-kM-4IP"/>
+                        <segue destination="6Xq-wp-JXt" kind="modal" identifier="RegisterNewUserIPad" id="2bZ-kM-4IP"/>
+                        <segue destination="epq-L0-nla" kind="modal" identifier="HostConcludeSegue" id="TQq-7x-cK7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="16" y="168"/>
+            <point key="canvasLocation" x="548" y="168"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="mEG-tj-3Ft">
@@ -312,7 +395,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asG-1N-SlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="491" y="168"/>
+            <point key="canvasLocation" x="1023" y="168"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="dn6-Ir-eUr">
@@ -448,7 +531,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XgZ-lI-NFl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1084.5" y="168"/>
+            <point key="canvasLocation" x="1616.5" y="168"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="7Tz-DB-grI">
@@ -488,7 +571,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ria-YJ-Xkc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1972" y="208"/>
+            <point key="canvasLocation" x="2504" y="208"/>
         </scene>
         <!--Host View Controller-->
         <scene sceneID="tHH-gV-YBf">
@@ -502,6 +585,73 @@
                                 <rect key="frame" x="-170" y="-401" width="938" height="1425"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" id="o0M-93-8h5" userLabel="IpadView">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view tag="1" contentMode="scaleAspectFit" id="SA3-JG-Wfz" userLabel="topLeft">
+                                        <rect key="frame" x="20" y="20" width="275" height="470"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="2" contentMode="scaleAspectFit" id="MKg-DF-OpE" userLabel="topRight">
+                                        <rect key="frame" x="472.99999961853035" y="20" width="275" height="470"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="4" contentMode="scaleAspectFit" id="Ey4-uK-aza" userLabel="bottonLeft">
+                                        <rect key="frame" x="20" y="534" width="275" height="470"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <view tag="3" contentMode="scaleAspectFit" id="7gZ-rU-I1w" userLabel="bottomRight">
+                                        <rect key="frame" x="472.99999961853035" y="534" width="275" height="470"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="fUk-2z-2zj">
+                                        <rect key="frame" x="15" y="23" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="60"/>
+                                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <view contentMode="scaleAspectFit" id="WTQ-UW-3DU" userLabel="Center">
+                                        <rect key="frame" x="247" y="277" width="275" height="470"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w0Y-Z3-gD9">
+                                        <rect key="frame" x="328" y="18" width="112" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="17"/>
+                                        <state key="normal" title="Leave Meeting">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="buttonPressed:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="cHd-yT-a3L"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kPx-xn-rVs" userLabel="concludeMeeting">
+                                        <rect key="frame" x="15" y="23" width="80" height="80"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal">
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="concludeMeeting:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="Wtf-vz-D6R"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -520,7 +670,9 @@
                         <outlet property="card3View" destination="7gZ-rU-I1w" id="vsH-yq-mys"/>
                         <outlet property="card4View" destination="Ey4-uK-aza" id="287-Us-ADQ"/>
                         <outlet property="concludeIPadView" destination="kR1-SA-aLi" id="2Yf-he-ARX"/>
+                        <outlet property="concludeMeetingButton" destination="kPx-xn-rVs" id="JSv-JN-eHm"/>
                         <outlet property="ipadViewLandscape" destination="pwj-tC-Arg" id="w3g-Py-ckK"/>
+                        <outlet property="leaveMeetingButton" destination="w0Y-Z3-gD9" id="U3F-cv-NkD"/>
                         <outlet property="numberOfParticipants" destination="fUk-2z-2zj" id="U1X-sJ-KXX"/>
                         <outlet property="pageControl" destination="lIK-sA-Kg9" id="0x5-pF-v2Z"/>
                         <outlet property="pageView" destination="wiO-Ou-yBV" id="FpN-Mf-vNY"/>
@@ -585,73 +737,6 @@
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" id="o0M-93-8h5" userLabel="IpadView">
-                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
-                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                    <subviews>
-                        <view tag="1" contentMode="scaleAspectFit" id="SA3-JG-Wfz" userLabel="topLeft">
-                            <rect key="frame" x="20" y="20" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view tag="2" contentMode="scaleAspectFit" id="MKg-DF-OpE" userLabel="topRight">
-                            <rect key="frame" x="472.99999961853024" y="20" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view tag="4" contentMode="scaleAspectFit" id="Ey4-uK-aza" userLabel="bottonLeft">
-                            <rect key="frame" x="20" y="533.99999996428187" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <view tag="3" contentMode="scaleAspectFit" id="7gZ-rU-I1w" userLabel="bottomRight">
-                            <rect key="frame" x="472.99999961853024" y="533.99999995941812" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="fUk-2z-2zj">
-                            <rect key="frame" x="15" y="23" width="80" height="80"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="60"/>
-                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <view contentMode="scaleAspectFit" id="WTQ-UW-3DU" userLabel="Center">
-                            <rect key="frame" x="247" y="277" width="275" height="470"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                            <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                        </view>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w0Y-Z3-gD9">
-                            <rect key="frame" x="347" y="18" width="112" height="30"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="17"/>
-                            <state key="normal" title="Leave Meeting">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="buttonPressed:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="cHd-yT-a3L"/>
-                            </connections>
-                        </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kPx-xn-rVs" userLabel="concludeMeeting">
-                            <rect key="frame" x="15" y="23" width="80" height="80"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <state key="normal">
-                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="concludeMeeting:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="Wtf-vz-D6R"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                </view>
                 <view hidden="YES" contentMode="scaleToFill" id="XGH-pH-Y2N" userLabel="IphoneView">
                     <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -686,7 +771,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1L2-o1-IiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2935" y="719"/>
+            <point key="canvasLocation" x="3467" y="719"/>
         </scene>
         <!--Host Statistics View Controller-->
         <scene sceneID="7LV-Lm-X1v">
@@ -729,7 +814,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7wc-qT-Y4Y">
-                                        <rect key="frame" x="100" y="530.0000000794729" width="121" height="30"/>
+                                        <rect key="frame" x="100" y="530.00000016008107" width="121" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="15"/>
                                         <state key="normal" title="Leave Meeting">
@@ -797,7 +882,7 @@
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="4nB-zT-VLH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2z-Kb-ds9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1973" y="257"/>
+            <point key="canvasLocation" x="2505" y="257"/>
         </scene>
     </scenes>
     <resources>

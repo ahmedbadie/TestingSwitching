@@ -38,6 +38,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *bmLabel;
 @property (weak, nonatomic) IBOutlet UILabel *brLabel;
 
+@property (weak, nonatomic) IBOutlet UIButton *leaveMeetingButton;
 
 @end
 
@@ -80,14 +81,14 @@
         UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
         [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
         [self.view addSubview:self.IpadView];
-//        if(UIInterfaceOrientationIsPortrait(orientation))
-//        {
-//            [self setPortaitMode];
-//        }else if (UIInterfaceOrientationIsLandscape(orientation))
-//        {
-//
-//            [self setLandscapeMode];
-//            }
+        //        if(UIInterfaceOrientationIsPortrait(orientation))
+        //        {
+        //            [self setPortaitMode];
+        //        }else if (UIInterfaceOrientationIsLandscape(orientation))
+        //        {
+        //
+        //            [self setLandscapeMode];
+        //            }
     }else{
         [self.IphoneView setHidden:NO];
         [self.IpadView removeFromSuperview];
@@ -100,7 +101,7 @@
 {
     [super viewWillDisappear:animated];
     
-
+    
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -118,35 +119,35 @@
         
         [self setLandscapeMode];
     }
-
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-//    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-//       if(UIInterfaceOrientationIsPortrait(orientation))
-//    {
-//        [self setPortaitMode];
-//    }else if (UIInterfaceOrientationIsLandscape(orientation))
-//    {
-//        
-//        [self setLandscapeMode];
-//    }
-
-
+    //    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    //       if(UIInterfaceOrientationIsPortrait(orientation))
+    //    {
+    //        [self setPortaitMode];
+    //    }else if (UIInterfaceOrientationIsLandscape(orientation))
+    //    {
+    //
+    //        [self setLandscapeMode];
+    //    }
+    
+    
     
     
 #warning Uncommint the 2 lines
     self.title = self.chatDialog.name;
     
     [[MeetingHandler sharedInstance] connectToChatDialog:self.chatDialog];
-
+    
 }
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-
+    
     
 }
 - (IBAction)buttonPressed:(UIButton *)sender {
@@ -155,7 +156,7 @@
         case 0:
             [self leaveMeeting];
             break;
-            case 1:
+        case 1:
             [self showFinalStatistics];
             break;
         default:
@@ -176,7 +177,7 @@
     //    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     [MeetingHandler sharedInstance].logOut = YES;
     [self didLogOut];
-
+    
 }
 -(void)didLogOut
 {
@@ -194,16 +195,16 @@
         return;
         
     }else{
-     NSString* msg = [JsonMessageParser dummyMessage];
+        NSString* msg = [JsonMessageParser dummyMessage];
         QBChatRoom* room = chatRoom;
         [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
         [NSTimer scheduledTimerWithTimeInterval:HOST_DUMMY_MESSAGE_INTERVAL
                                          target:self
                                        selector:@selector(sendDummyMessage)
-                                       userInfo:nil 
+                                       userInfo:nil
                                         repeats:YES];
     }
-
+    
 }
 
 -(void) sendDummyMessage
@@ -216,7 +217,7 @@
 #
 - (IBAction)sendMessage:(id)sender {
     
-  }
+}
 
 #pragma mark
 #pragma mark - Meeting Handler Delegate Methods -
@@ -226,7 +227,7 @@
     [self.msgs addObjectsFromArray:msgs];
     for(QBChatMessage* msg in msgs){
         if([Utilities withinRoomLife:msg.datetime]){
-        [JsonMessageParser decodeMessage:msg withDelegate:self];
+            [JsonMessageParser decodeMessage:msg withDelegate:self];
         }
     }
 }
@@ -269,7 +270,7 @@
         vc.value = value;
         [vc setImageWithAnimation:YES];
     }
-
+    
 }
 -(void)receivedConclusionSignal
 {
@@ -282,7 +283,7 @@
         [self showConcludeMeetingView];
     }
     
-
+    
 }
 
 -(void)receivedContributionMessageForType:(CONTRIBUTION_TYPE)type withValue:(CONTRIBUTION_VALUE)val fromMsg:(QBChatMessage *)msg
@@ -300,7 +301,7 @@
         int index = (type*3) + val;
         HostConcludeCardViewController* newCard = [self.conclusionCards objectAtIndex:index];
         [newCard addVote:[[self.users objectForKey:@(key)] objectForKey:MESSAGE_LOGIN_USERNAME] :key];
-
+        
         
         [array replaceObjectAtIndex:type withObject:@(val)];
         
@@ -323,7 +324,7 @@
     for(HostConcludeCardViewController* card in temp2)
     {
         CGPoint origin = [[self.origins objectAtIndex:index] CGPointValue];
-
+        
         UIView* superView = [card.view superview];
         if(superView.frame.origin.x != origin.x)
         {
@@ -337,7 +338,7 @@
                             } completion:^(BOOL finished) {
                                 //  Do whatever when the animation is finished
                             }];
-
+            
         }
         index++;
         
@@ -347,7 +348,7 @@
 -(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
 {
     NSUInteger userId = msg.senderID;
-
+    
     NSMutableDictionary* dictionary = [self.users objectForKey:@(userId)];
     
     if(dictionary==nil)
@@ -361,7 +362,7 @@
         [self.users setObject:dictionary forKey:@(userId)];
     }
     [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
-
+    
 }
 
 -(void)logOutUser:(NSString *)username fromMsg:(QBChatMessage *)msg
@@ -375,7 +376,7 @@
         
         NSArray* allKeys = [self.users allKeys];
         [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
-
+        
         for(NSString* key in allKeys)
         {
             value = value & [[[[self.users objectForKey:key] objectForKey:@"cards"] objectAtIndex:i] boolValue];
@@ -384,30 +385,30 @@
             vc.value = value;
             [vc setImageWithAnimation:YES];
         }
-
+        
     }
     
 }
 
 - (IBAction)concludeMeeting:(id)sender {
     NSLog(@"Conclude Meeting");
-       if(self.canConclude){
-           if([[self.users allKeys] count] <1)
-           {
-               [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
-               return;
-           }
-         UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Conclude Meeting"
-                                message:STRING(@"ConcludeMeetingConfirmation")
-                                     delegate:self
-                            cancelButtonTitle:@"Yes"
-                            otherButtonTitles:@"No", nil];
-
-           [alertView show];
-           
-               }
+    if(self.canConclude){
+        if([[self.users allKeys] count] <1)
+        {
+            [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
+            return;
+        }
+        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Conclude Meeting"
+                                                           message:STRING(@"ConcludeMeetingConfirmation")
+                                                          delegate:self
+                                                 cancelButtonTitle:@"Yes"
+                                                 otherButtonTitles:@"No", nil];
+        
+        [alertView show];
+        
     }
-#pragma mark 
+}
+#pragma mark
 #pragma mark - UIAlertView Delegate -
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
 {
@@ -419,7 +420,7 @@
         NSString* msg = [JsonMessageParser broadcastContributionSignal];
         QBChatRoom* room = self.chatDialog.chatRoom;
         [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
-
+        
     }
 }
 #pragma mark
@@ -456,81 +457,7 @@
 
 -(void)showConcludeMeetingView
 {
-    
-    self.origins = [NSMutableArray array];
-    NSArray* participants = [self.chatDialog occupantIDs];
-    NSLog(@"%d",[participants count]);
-
-    self.conclusionCards = [NSMutableArray array];
-    UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
-    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
-    
-    int index =0 ;
-    for(int i=0;i<[views count];i++)
-        [self.conclusionCards addObject:@2];
-    
-    self.conclusionDictionary = [NSMutableDictionary dictionary];
-    
-    NSArray* users = [self.users allKeys];
-    
-    for(NSString* user in users)
-    {
-        NSMutableArray* array = [NSMutableArray arrayWithObjects:@-1,@-1, nil];
-        [self.conclusionDictionary setObject:array forKey:user];
-        
-    }
-    
-    
-    for(UIView* view in views)
-    {
-        
-        [self.origins addObject:[NSValue valueWithCGPoint:view.frame.origin]];
-//        CGFloat offset = 20;
-        
-//        for (int k=0; k<[[self.cardVotes objectAtIndex:index] count]; k++) {
-//            
-//            CardViewController* card = [storyBoard instantiateViewControllerWithIdentifier:@"HostConclusionCard"];
-//            [self addChildViewController:card];
-//            [view addSubview:card.view];
-//            card.view.frame = CGRectMake(29, offset, 153, 262);
-//            [card didMoveToParentViewController:self];
-//
-//            
-//            [card setImage];
-//            self.numberOfParticipants.layer.borderWidth=1.0f;
-//            [self.numberOfParticipants.layer setCornerRadius:self.numberOfParticipants.frame.size.width/2];
-//            self.numberOfParticipants.clipsToBounds = YES;
-        
-        HostConcludeCardViewController* card = [storyBoard instantiateViewControllerWithIdentifier:HOST_CONCLUDE_CONTROLLER];
-        NSInteger type = index / 3;
-        NSInteger tIndex = index %3;
-        card.type = type;
-        card.index = tIndex;
-        card.cardVotes = 0;
-        [self addChildViewController:card];
-        [view addSubview:card.view];
-        CGSize size = view.frame.size;
-        card.view.frame = CGRectMake(0, 0, size.width, size.height);
-        [card didMoveToParentViewController:self];
-        [card reloadScreen];
-
-        [self.conclusionCards replaceObjectAtIndex:index withObject:card];
-//
-//        }
-       
-        index++;
-    }
-    
-    [UIView transitionWithView:self.view
-                      duration:1.0
-                       options:UIViewAnimationOptionTransitionFlipFromBottom
-                    animations:^{
-                        
-                        [self.view addSubview:self.concludeIPadView];
-                        [self.IpadView removeFromSuperview];
-                    } completion:^(BOOL finished) {
-                        //  Do whatever when the animation is finished
-                    }];
+    [self.delegate concludeMeeting:@[self.users]];
 }
 
 
@@ -543,10 +470,10 @@
     for(NSString* key in keys)
     {
         NSArray* values = [self.conclusionDictionary objectForKey:key];
-            if([[values objectAtIndex:type] integerValue]==index)
-            {
-                count++;
-            }
+        if([[values objectAtIndex:type] integerValue]==index)
+        {
+            count++;
+        }
     }
     return count;
 }
@@ -569,18 +496,20 @@
                         self.card4View.frame = CGRectMake(xOffset, 768-20-(size.height), size.width,size.height);
                         self.card0View.frame = CGRectMake((1024/2)-(size.width/2), (768/2)-(size.height/2), size.width,size.height);
                         self.card0View.center = self.IpadView.center;
+                        self.numberOfParticipants.frame = CGRectMake(xOffset-(40), 20, 80, 80);
+                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
                         for(UIViewController* card in self.viewControllers)
                             card.view.frame = CGRectMake(0, 0, size.width, size.height);
                     } completion:^(BOOL finished) {
                         //  Do whatever when the animation is finished
                     }];
-
+    
     
     NSLog(@"Center card frame = %f,%f,%f,%f",self.card0View.frame.origin.x,self.card0View.frame.origin.y,self.card0View.frame.size.width,self.card0View.frame.size.height);
 }
 -(void)willAnimateRotationToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
 {
-
+    
 }
 -(void) setPortaitMode
 {
@@ -597,15 +526,18 @@
                         self.card3View.frame = CGRectMake(473, 534, 275, 470);
                         self.card4View.frame = CGRectMake(20, 534, 275, 470);
                         self.card0View.frame = CGRectMake(247, 277, 275, 470);
+                        self.numberOfParticipants.frame = CGRectMake(15, 23, 80, 80);
+                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
+
                         for(UIViewController* card in self.viewControllers)
                             card.view.frame = CGRectMake(0, 0, size.width, size.height);
-                    
+                        
                     } completion:^(BOOL finished) {
                         //  Do whatever when the animation is finished
                     }];
-
-   
-
+    
+    
+    
 }
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
@@ -616,7 +548,7 @@
             [self setPortaitMode];
             break;
         case UIDeviceOrientationLandscapeLeft:
-           [self setLandscapeMode];
+            [self setLandscapeMode];
             break;
         case UIDeviceOrientationLandscapeRight:
             [self setLandscapeMode];
@@ -650,6 +582,6 @@
     }
     //this line not permit rotate is the viewController is portrait
     return self.canConclude;
-
+    
 }
 @end

@@ -51,6 +51,7 @@
 		391C20B11A5B0B3F00A44F30 /* participantConclusion3.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C20AB1A5B0B3F00A44F30 /* participantConclusion3.png */; };
 		391C63C71A6590B900CE3273 /* AbstractNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C63C61A6590B900CE3273 /* AbstractNavigationController.m */; };
 		391C63CA1A65912D00CE3273 /* RotatableNavigationControllerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C63C91A65912D00CE3273 /* RotatableNavigationControllerViewController.m */; };
+		391C63CE1A65BF7300CE3273 /* HostConcludeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 391C63CD1A65BF7300CE3273 /* HostConcludeViewController.m */; };
 		391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 391F93721A599A540062A7E5 /* ErrorMapper.m */; };
 		391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */ = {isa = PBXBuildFile; fileRef = 391F93741A599BFA0062A7E5 /* ErrorMessages.plist */; };
 		394680BB1A62B53800ECA925 /* HostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394680BA1A62B53800ECA925 /* HostViewController.m */; };
@@ -173,6 +174,8 @@
 		391C63C61A6590B900CE3273 /* AbstractNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AbstractNavigationController.m; sourceTree = "<group>"; };
 		391C63C81A65912D00CE3273 /* RotatableNavigationControllerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RotatableNavigationControllerViewController.h; sourceTree = "<group>"; };
 		391C63C91A65912D00CE3273 /* RotatableNavigationControllerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RotatableNavigationControllerViewController.m; sourceTree = "<group>"; };
+		391C63CC1A65BF7300CE3273 /* HostConcludeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HostConcludeViewController.h; sourceTree = "<group>"; };
+		391C63CD1A65BF7300CE3273 /* HostConcludeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HostConcludeViewController.m; sourceTree = "<group>"; };
 		391F93711A599A540062A7E5 /* ErrorMapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorMapper.h; sourceTree = "<group>"; };
 		391F93721A599A540062A7E5 /* ErrorMapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ErrorMapper.m; sourceTree = "<group>"; };
 		391F93741A599BFA0062A7E5 /* ErrorMessages.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ErrorMessages.plist; sourceTree = "<group>"; };
@@ -399,6 +402,15 @@
 			path = Register;
 			sourceTree = "<group>";
 		};
+		391C63CB1A65BF6900CE3273 /* HostConcludeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				391C63CC1A65BF7300CE3273 /* HostConcludeViewController.h */,
+				391C63CD1A65BF7300CE3273 /* HostConcludeViewController.m */,
+			);
+			path = HostConcludeViewController;
+			sourceTree = "<group>";
+		};
 		391F93701A599A470062A7E5 /* ErrorMapper */ = {
 			isa = PBXGroup;
 			children = (
@@ -497,6 +509,7 @@
 		395E4CD51A521693006361BA /* HostViewController */ = {
 			isa = PBXGroup;
 			children = (
+				391C63CB1A65BF6900CE3273 /* HostConcludeViewController */,
 				394680C51A62E32A00ECA925 /* HostConcludeCardController */,
 				394680B81A62B53800ECA925 /* HostViewController */,
 				395E4CD91A521826006361BA /* Views */,
@@ -881,6 +894,7 @@
 				3904244C1A52F74200370E80 /* MeetingHandler.m in Sources */,
 				395E4CBC1A51E36E006361BA /* QuickBloxManager.m in Sources */,
 				390424B01A53182F00370E80 /* CJSONDeserializer.m in Sources */,
+				391C63CE1A65BF7300CE3273 /* HostConcludeViewController.m in Sources */,
 				394680BB1A62B53800ECA925 /* HostViewController.m in Sources */,
 				390424481A52D9FC00370E80 /* ClientViewController.m in Sources */,
 				391C63CA1A65912D00CE3273 /* RotatableNavigationControllerViewController.m in Sources */,
