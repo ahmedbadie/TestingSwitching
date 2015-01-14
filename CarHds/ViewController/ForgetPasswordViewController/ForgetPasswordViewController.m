@@ -10,7 +10,6 @@
 
 @interface ForgetPasswordViewController ()
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet UISegmentedControl *entryType;
 
 @end
 
@@ -19,7 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view sendSubviewToBack:self.backgroundImage];
-    // Do any additional setup after loading the view.
+    if(IS_IPAD)
+    {
+        self.preferredContentSize = CGSizeMake(400 , 350);
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -40,33 +42,14 @@
 
 - (IBAction)resetPassword:(id)sender {
        NSString* text = [self.usernameTextField text];
-    NSInteger type = self.entryType.selectedSegmentIndex;
     if(text==nil || text.length==0)
     {
-        [self warnUserWithMessage:[NSString stringWithFormat:@"%@ Missing",type==0? @"Username":@"Email"]];
+        [self warnUserWithMessage:@"Missing username/email"];
         return;
     }
+    [self forgetPasswordForText:text];
     
-    
-    if([self.entryType selectedSegmentIndex]==0)
-    {
-                [self forgetPasswordForType:0 andText:text];
-
-        
-    }else {
-    
-        if(![self NSStringIsValidEmail:text])
-        {
-            [self warnUserWithMessage:@"Invalid Email Address"];
-            return;
-            
-        }else{
-          
-            [self forgetPasswordForType:1 andText:text];
-            
-        }
-    }
-}
+   }
 - (IBAction)back:(id)sender {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -85,14 +68,14 @@
     }];
     
 }
-- (void)forgetPasswordForType:(NSInteger) type andText:(NSString*) text {
+- (void)forgetPasswordForText:(NSString*) text {
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Reset Password";
 
     [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
         
         
-        if(type==1)
+        if([self NSStringIsValidEmail:text])
         {
             [self resetPasswordForEmail:text];
         }else{
