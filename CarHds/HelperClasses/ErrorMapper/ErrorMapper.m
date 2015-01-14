@@ -42,6 +42,10 @@
         NSDictionary* dictionary = [NSJSONSerialization JSONObjectWithData:[key dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
         NSString* msgFromDictionary = @"";
         NSDictionary* errorsDictionary = [dictionary objectForKey:@"errors"];
+        if(errorsDictionary == nil)
+        {
+//            errorsDictionary = [dictionary objectForKey:[[dictionary allKeys] firstObject]];
+        }else{
         NSArray* errors = [errorsDictionary allKeys];
         BOOL addLine = NO;
         for (NSString* i  in errors) {
@@ -51,7 +55,9 @@
         }
         
         return msgFromDictionary;
+            
 
+        }
     }
     ErrorMapper* mapper = [ErrorMapper sharedManager];
     NSString* msg = [mapper.errorDictionary objectForKey:key];

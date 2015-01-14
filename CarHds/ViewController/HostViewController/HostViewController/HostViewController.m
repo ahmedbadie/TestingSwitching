@@ -393,11 +393,11 @@
 - (IBAction)concludeMeeting:(id)sender {
     NSLog(@"Conclude Meeting");
     if(self.canConclude){
-//        if([[self.users allKeys] count] <1)
-//        {
-//            [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
-//            return;
-//        }
+       if([[self.users allKeys] count] <1)
+       {
+           [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
+            return;
+}
         UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Conclude Meeting"
                                                            message:STRING(@"ConcludeMeetingConfirmation")
                                                           delegate:self

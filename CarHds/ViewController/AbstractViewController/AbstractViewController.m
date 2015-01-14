@@ -15,7 +15,9 @@
 @implementation AbstractViewController
 
 - (void)viewDidLoad {
+    
     [super viewDidLoad];
+    [self setNeedsStatusBarAppearanceUpdate];
     // Do any additional setup after loading the view.
 }
 
@@ -34,6 +36,9 @@
 }
 */
 
+-(UIStatusBarStyle)preferredStatusBarStyle{
+    return UIStatusBarStyleLightContent;
+}
 -(void) warnUserWithMessage:(NSString*) msg
 {
     MBProgressHUD *mbHud = [MBProgressHUD showHUDAddedTo:self.view animated:NO];

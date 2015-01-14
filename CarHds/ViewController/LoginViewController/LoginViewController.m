@@ -13,14 +13,91 @@
 @property (nonatomic) NSInteger index;
 @property (nonatomic) BOOL state;
 @property (nonatomic) BOOL close;
+@property (strong, nonatomic) IBOutlet UIView *forgetPasswordIphoneView;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
+@property (weak, nonatomic) IBOutlet UITextView *forgetPasswordText;
 @end
 
 
 @implementation LoginViewController
 
 
+- (IBAction)resetPasswordIPhone:(id)sender {
+    NSString* text = [self.usernameTextField text];
+    if(text==nil || text.length==0)
+    {
+        [self warnUserWithMessage:@"Missing username/email"];
+        return;
+    }
+    [self forgetPasswordForText:text];
+    
+}
+- (IBAction)back:(id)sender {
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
 
+-(void) resetPasswordForEmail:(NSString*)email
+{
+    [QBRequest resetUserPasswordWithEmail:email successBlock:^(QBResponse *response) {
+        [self.hud hide:YES];
+        
+        [self warnUserWithMessage:@"Password reset email was sent"];
+    } errorBlock:^(QBResponse *response) {
+        // Error
+        [self.hud hide:YES];
+        
+        [self warnUserWithMessage:DESC(response.error.error)];
+    }];
+    
+}
+- (void)forgetPasswordForText:(NSString*) text {
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText = @"Reset Password";
+    
+    [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
+        
+        
+        if([self NSStringIsValidEmail:text])
+        {
+            [self resetPasswordForEmail:text];
+        }else{
+            [QBRequest usersWithLogins:@[text] successBlock:^(QBResponse *response, QBGeneralResponsePage *page, NSArray *users) {
+                [self.hud hide:YES];
+                
+                if(users==nil || [users count]==0 )
+                {
+                    
+                    [self warnUserWithMessage:[NSString stringWithFormat:@"No users with username %@",[self.usernameTextField text]]];
+                    return ;
+                }
+                QBUUser* user =[users firstObject];
+                NSLog(@"User email %@",user.email);
+                if(user.email !=nil && user.email.length !=0){
+                    [self resetPasswordForEmail:user.email];
+                    
+                }else{
+                    [self warnUserWithMessage:[NSString stringWithFormat:@"User %@ doesn't have an email",text]];
+                }
+                
+            } errorBlock:^(QBResponse *response) {
+                
+                [self.hud hide:YES];
+                [self warnUserWithMessage:DESC(response.error.error)];
+            }];
+            
+        }
+    } errorBlock:^(QBResponse *response) {
+        [self.hud hide:YES];
+        
+        [self warnUserWithMessage:DESC(response.error.error)];
+        
+    }];
+}
+
+
+- (IBAction)closeForgetPasswordIphone:(id)sender {
+    [self.forgetPasswordIphoneView removeFromSuperview];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -392,8 +469,10 @@
 }
 
 - (IBAction)forgetPassword:(id)sender {
-    
+    if(IS_IPAD)
     [self performSegueWithIdentifier:[NSString stringWithFormat:@"ForgetPassword%@",IS_IPAD? @"IPad":@"IPhone" ]sender:self];
+    else
+        [self.view addSubview:self.forgetPasswordIphoneView];
 }
 
 -(void)concludeMeeting:(NSArray *)data

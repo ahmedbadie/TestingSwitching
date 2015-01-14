@@ -8,5 +8,10 @@
 	<string>Invalid Email</string>
 	<key>{&quot;errors&quot;:{&quot;email&quot;:[&quot;has already been taken&quot;]}}</key>
 	<string>Email already used</string>
+	<key>{&quot;code&quot;:null,&quot;message&quot;:&quot;User not found&quot;}</key>
+	<string>User not found</string>
+	<key>NSURLErrorDomain:-1009
+</key>
+	<string>No Internet connection</string>
 </dict>
 </plist>
