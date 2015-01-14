@@ -49,11 +49,21 @@
     }
 }
 
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString
+{
+    BOOL stricterFilter = NO; // Discussion http://blog.logichigh.com/2010/09/02/validating-an-e-mail-address/
+    NSString *stricterFilterString = @"[A-Z0-9a-z\\._%+-]+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2,4}";
+    NSString *laxString = @".+@([A-Za-z0-9-]+\\.)+[A-Za-z]{2}[A-Za-z]*";
+    NSString *emailRegex = stricterFilter ? stricterFilterString : laxString;
+    NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegex];
+    return [emailTest evaluateWithObject:checkString];
+}
 -(void) registerUser
 {
     NSString* username = [[self.usernameTextField text] lowercaseString];
 //    NSString* email = [self.emailTextField text];
     NSString* password =[self.passwordTextField text];
+    NSString* email = [self.emailTextField text];
     if (username ==nil || username.length ==0)
     {
         [self warnUserWithMessage:@"Can't create a user with empty username"];
@@ -65,11 +75,15 @@
         [self warnUserWithMessage:@"Password should be more than 8 letters"];
         return;
     }
-    
+    if(email==nil||email.length ==0 ||![self NSStringIsValidEmail:email])
+    {
+        [self warnUserWithMessage:@"Invalid email Address"];
+        return;
+    }
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Creating user";
     [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
-        [QuickBloxManager registerUserWithUsername:username andPassword:password withCompletionHandler:^(APIResponse *response) {
+        [QuickBloxManager registerUserWithUsername:username andPassword:password andEmail:email withCompletionHandler:^(APIResponse *response) {
             [self.hud hide:YES];
             if(response.error)
             {

@@ -13,5 +13,5 @@
 
 +(void) loginWithUser:(NSString*) username andPassword:(NSString*) password withCompletionHandler:(void(^) (APIResponse* response))handler;
 
-+(void) registerUserWithUsername:(NSString*) username andPassword:(NSString*) password withCompletionHandler:(void(^)(APIResponse* response))handler;
++(void) registerUserWithUsername:(NSString*) username andPassword:(NSString*) password andEmail:(NSString*)email withCompletionHandler:(void(^)(APIResponse* response))handler;
 @end

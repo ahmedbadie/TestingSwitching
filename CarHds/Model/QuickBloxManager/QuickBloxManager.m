@@ -12,11 +12,12 @@
 
 #pragma mark - User Creation methods -
 
-+(void)registerUserWithUsername:(NSString *)username andPassword:(NSString *)password withCompletionHandler:(void (^)(APIResponse *))handler
++(void)registerUserWithUsername:(NSString *)username andPassword:(NSString *)password andEmail:(NSString *)email withCompletionHandler:(void (^)(APIResponse *))handler
 {
     QBUUser* user = [QBUUser user];
     user.login = username;
     user.password = password;
+    user.email = email;
     [QBRequest signUp:user successBlock:^(QBResponse *response, QBUUser *user) {
 //        if(response.status == QBResponseStatusCodeAccepted){
         APIResponse* apiResponse =[APIResponse apiResponse];

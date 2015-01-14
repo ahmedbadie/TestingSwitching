@@ -20,17 +20,43 @@
         errorMapper.errorDictionary= [NSMutableDictionary dictionaryWithContentsOfFile:plistPath];
         if(errorMapper.errorDictionary==nil)
             errorMapper.errorDictionary = [NSMutableDictionary dictionary];
-
+        
     });
     return errorMapper;
+}
++(NSString*) removeExtrasFrom:(NSString*) string
+{
+    string = [ string stringByReplacingOccurrencesOfString:@"\n" withString:@""];
+    string = [ string stringByReplacingOccurrencesOfString:@"\"" withString:@""];
+    string = [ string stringByReplacingOccurrencesOfString:@")" withString:@""];
+    string = [ string stringByReplacingOccurrencesOfString:@"(" withString:@""];
+    return string;
 }
 +(NSString *)getErrorMessage:(NSError *)error
 {
     
-    NSString* key = [NSString stringWithFormat:@"%@:%ld",error.domain,(long)error.code];
+    NSString* key = [NSString stringWithFormat:@"%@:%d",error.domain,error.code];
+    if([error.userInfo objectForKey:@"NSLocalizedRecoverySuggestion"])
+    {
+        key = [error.userInfo objectForKey:@"NSLocalizedRecoverySuggestion"];
+        NSDictionary* dictionary = [NSJSONSerialization JSONObjectWithData:[key dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
+        NSString* msgFromDictionary = @"";
+        NSDictionary* errorsDictionary = [dictionary objectForKey:@"errors"];
+        NSArray* errors = [errorsDictionary allKeys];
+        BOOL addLine = NO;
+        for (NSString* i  in errors) {
+            NSArray* array = [NSArray arrayWithArray:[errorsDictionary objectForKey:i]];
+            msgFromDictionary = [msgFromDictionary stringByAppendingString:[NSString stringWithFormat:@"%@%@ %@",addLine? @"\n":@"" ,i,[array firstObject]]];
+            addLine = YES;
+        }
+        
+        return msgFromDictionary;
+
+    }
     ErrorMapper* mapper = [ErrorMapper sharedManager];
     NSString* msg = [mapper.errorDictionary objectForKey:key];
-
+    
+    
     if(msg)
         return msg;
     msg= [error.userInfo objectForKey:@"error"];
@@ -51,7 +77,7 @@
         NSArray* array = [dictionary objectForKey:key];
         string= [string stringByAppendingString:[array firstObject]];
         
-        }
+    }
     if(string.length ==0)
     {
         string = DESC(error.error);
