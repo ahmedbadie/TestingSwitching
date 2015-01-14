@@ -105,6 +105,7 @@
 		398AADD11A51DF360003EF8C /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD01A51DF360003EF8C /* UIKit.framework */; };
 		398AADD31A51DF470003EF8C /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD21A51DF470003EF8C /* CoreGraphics.framework */; };
 		398AADD51A51DF5F0003EF8C /* Quickblox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 398AADD41A51DF5F0003EF8C /* Quickblox.framework */; };
+		399A54671A66D199003FA861 /* ForgetPasswordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 399A54661A66D199003FA861 /* ForgetPasswordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -250,6 +251,8 @@
 		398AADD01A51DF360003EF8C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		398AADD21A51DF470003EF8C /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		398AADD41A51DF5F0003EF8C /* Quickblox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Quickblox.framework; sourceTree = "<group>"; };
+		399A54651A66D199003FA861 /* ForgetPasswordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ForgetPasswordViewController.h; sourceTree = "<group>"; };
+		399A54661A66D199003FA861 /* ForgetPasswordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ForgetPasswordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -701,6 +704,7 @@
 		398AADC71A51DE870003EF8C /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				399A54641A66D181003FA861 /* ForgetPasswordViewController */,
 				394680C11A62B91900ECA925 /* CardViewController */,
 				39116A1A1A55A4180043C245 /* RegisterViewController */,
 				395E4CD41A521693006361BA /* ClientViewController */,
@@ -731,6 +735,15 @@
 				398AADCD1A51DF030003EF8C /* LoginViewController.m */,
 			);
 			path = LoginViewController;
+			sourceTree = "<group>";
+		};
+		399A54641A66D181003FA861 /* ForgetPasswordViewController */ = {
+			isa = PBXGroup;
+			children = (
+				399A54651A66D199003FA861 /* ForgetPasswordViewController.h */,
+				399A54661A66D199003FA861 /* ForgetPasswordViewController.m */,
+			);
+			path = ForgetPasswordViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -884,6 +897,7 @@
 				391F93731A599A540062A7E5 /* ErrorMapper.m in Sources */,
 				390424B21A53182F00370E80 /* NSDictionary_JSONExtensions.m in Sources */,
 				395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */,
+				399A54671A66D199003FA861 /* ForgetPasswordViewController.m in Sources */,
 				395E4CC31A51E4E1006361BA /* APIResponse.m in Sources */,
 				395E4CE51A521AC0006361BA /* ChatService.m in Sources */,
 				39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */,

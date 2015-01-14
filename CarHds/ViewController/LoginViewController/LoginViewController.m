@@ -37,6 +37,7 @@
     self.goButton.layer.cornerRadius = self.goButton.frame.size.width/2;
     NSLog(@"----> %f    %f",self.goButton.frame.size.height/2,self.goButton.frame.size.width/2);
     self.goButton.clipsToBounds= YES;
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
 
 }
 
@@ -390,6 +391,10 @@
     
 }
 
+- (IBAction)forgetPassword:(id)sender {
+    
+    [self performSegueWithIdentifier:[NSString stringWithFormat:@"ForgetPassword%@",IS_IPAD? @"IPad":@"IPhone" ]sender:self];
+}
 
 -(void)concludeMeeting:(NSArray *)data
 {

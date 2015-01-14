@@ -19,4 +19,5 @@
 @property(nonatomic,retain) QBChatDialog* chatDialog;
 @property(nonatomic,retain) MBProgressHUD* hud;
 -(void) warnUserWithMessage:(NSString*) msg;
+-(BOOL) NSStringIsValidEmail:(NSString *)checkString;
 @end
