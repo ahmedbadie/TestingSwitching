@@ -115,7 +115,20 @@
     NSLog(@"----> %f    %f",self.goButton.frame.size.height/2,self.goButton.frame.size.width/2);
     self.goButton.clipsToBounds= YES;
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+    
+    UIDeviceOrientation currentOrientation = [[UIDevice currentDevice] orientation];
+    if(UIDeviceOrientationIsPortrait(currentOrientation))
+    {
+        [self setPortaitMode];
+    }else if (UIDeviceOrientationIsLandscape(currentOrientation))
+    {
+        
+        [self setLandscapeMode];
+    }
 
+    
+    
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -124,20 +137,20 @@
 }
 
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 -(void) stopTasks :(NSInteger) index
 {
     if(self.index == index + 1 && self.state)
     {
         self.state = NO;
-
+        
         [self.hud hide:YES];
         [self warnUserWithMessage:@"Time out"];
     }
@@ -153,7 +166,7 @@
         [self warnUserWithMessage:@"Host Meeting is currently supported by IPad version only."];
         return;
     }
-
+    
     if([self.meetingIDTextField text]==nil || [self.meetingIDTextField text].length==0)
     {
         [self warnUserWithMessage:@"Missing meeting name"];
@@ -181,8 +194,8 @@
     QBSessionParameters* parameters = [QBSessionParameters new];
     parameters.userLogin = [self.usernameTextField text];
     parameters.userPassword =[self.passwordTextField text];
-   
-//    [self performSelector:@selector(stopTasks:) withObject:@(self.index) afterDelay:3];
+    
+    //    [self performSelector:@selector(stopTasks:) withObject:@(self.index) afterDelay:3];
     [QBRequest createSessionWithExtendedParameters:parameters successBlock:^(QBResponse *response, QBASession *session) {
         self.index++ ;
         
@@ -191,21 +204,21 @@
         NSLog(STRING(@"LoginSucceded"));
         // If logged In continue to next step
         
-            self.user =[QBUUser new];
-            self.user.ID = session.userID;
-            self.user.login = [self.usernameTextField text];
-            self.user.password = [self.passwordTextField text];
-            [defaults setObject:@(self.user.ID) forKey: USER_ID_KEY];
-            [defaults setObject:self.user.password forKey:USER_PASSWORD_KEY];
-            [QBChat instance].delegate =self;
-            [[ChatService instance] loginWithUser:self.user completionBlock:^{
-                [MeetingHandler sharedInstance].qbUser = [QBUUser new];
-                [MeetingHandler sharedInstance].qbUser.login = [self.usernameTextField text];
-                [MeetingHandler sharedInstance].qbUser.ID = self.user.ID;
-                [MeetingHandler sharedInstance].qbUser.password= [self.passwordTextField text];
-                [self chatDidLogin];
-            }];
-            
+        self.user =[QBUUser new];
+        self.user.ID = session.userID;
+        self.user.login = [self.usernameTextField text];
+        self.user.password = [self.passwordTextField text];
+        [defaults setObject:@(self.user.ID) forKey: USER_ID_KEY];
+        [defaults setObject:self.user.password forKey:USER_PASSWORD_KEY];
+        [QBChat instance].delegate =self;
+        [[ChatService instance] loginWithUser:self.user completionBlock:^{
+            [MeetingHandler sharedInstance].qbUser = [QBUUser new];
+            [MeetingHandler sharedInstance].qbUser.login = [self.usernameTextField text];
+            [MeetingHandler sharedInstance].qbUser.ID = self.user.ID;
+            [MeetingHandler sharedInstance].qbUser.password= [self.passwordTextField text];
+            [self chatDidLogin];
+        }];
+        
         
     } errorBlock:^(QBResponse *response) {
         
@@ -215,7 +228,7 @@
         NSLog(@"%@",[reasons description]);
         NSLog(@"error login message [%@]",QBDESC(response.error));
         self.state = NO;
-
+        
         [self.hud hide:YES];
         [self warnUserWithMessage:QBDESC(response.error)];
     }];
@@ -236,7 +249,7 @@
     
     [QBChat createDialog:chatDialog delegate:self];
     
-    }
+}
 
 #pragma mark - Join Meeting Methods -
 
@@ -252,7 +265,7 @@
     self.state = NO;
     [self performSegueWithIdentifier:HOST_VIEW_SEGUE sender:self];
 }
-#pragma mark - UITextField Delegate - 
+#pragma mark - UITextField Delegate -
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
 {
@@ -260,7 +273,7 @@
     return YES;
 }
 
-#pragma mark - QuickBlox Delegate - 
+#pragma mark - QuickBlox Delegate -
 -(void)completedWithResult:(Result *)result
 {
     [self.hud hide:YES];
@@ -295,24 +308,24 @@
                         if([Utilities withinRoomLife:date]){
                             [self warnUserWithMessage:@"Meeting room already exists"];
                         }else{
-//                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
+                            //                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
                             chatDialog = dialog;
                             self.chatDialog = chatDialog;
                             [MeetingHandler sharedInstance].chatDialog = chatDialog;
                             room = chatDialog.chatRoom;
                             [MeetingHandler sharedInstance].chatRoom = room;
-
+                            
                             [self joinMeetingRoomAsHost];
                         }
                         break;
                     case JOIN_MEETING_INDEX:
                         if([Utilities withinRoomLife:date]){
-                        chatDialog = dialog;
-                        self.chatDialog = chatDialog;
-                        [MeetingHandler sharedInstance].chatDialog = chatDialog;
-                        room = chatDialog.chatRoom;
-                        [MeetingHandler sharedInstance].chatRoom = room;
-                        [self joinMeetingRoom];
+                            chatDialog = dialog;
+                            self.chatDialog = chatDialog;
+                            [MeetingHandler sharedInstance].chatDialog = chatDialog;
+                            room = chatDialog.chatRoom;
+                            [MeetingHandler sharedInstance].chatRoom = room;
+                            [self joinMeetingRoom];
                         }else{
                             [self warnUserWithMessage:STRING(@"RoomExpired")];
                         }
@@ -335,7 +348,7 @@
             default:
                 break;
         }
-
+        
         
     }else if ([result.answer isKindOfClass:[QBRestResponse class]])
     {
@@ -346,7 +359,7 @@
         }else{
             [self warnUserWithMessage:@"Meeting room already exists"];
         }
-    
+        
     }else{
         
         
@@ -354,7 +367,7 @@
         for(NSString* error in errors)
             [self warnUserWithMessage:error];
     }
-
+    
 }
 
 
@@ -380,9 +393,9 @@
 
 -(void)chatRoomDidCreate:(NSString *)roomName
 {
-                QBChatDialog* chatDialog = self.chatDialog;
-                [MeetingHandler sharedInstance].chatDialog = chatDialog;
-            [self performSegueWithIdentifier:HOST_VIEW_SEGUE sender:self];
+    QBChatDialog* chatDialog = self.chatDialog;
+    [MeetingHandler sharedInstance].chatDialog = chatDialog;
+    [self performSegueWithIdentifier:HOST_VIEW_SEGUE sender:self];
 }
 
 -(void)chatRoomDidEnter:(QBChatRoom *)room
@@ -397,7 +410,7 @@
 - (void)chatRoomDidNotEnterRoomWithJID:(NSString *)roomJID error:(NSError *)error;
 {
     NSLog(@"Chat room wasn't entered due to error %@",DESC(error));
-
+    
 }
 - (void)chatRoomDidLeave:(NSString *)roomName
 {
@@ -423,10 +436,10 @@
     NSLog(@"Chat Room Did Destroy");
 }
 
-#pragma mark - Prepare for Segue - 
+#pragma mark - Prepare for Segue -
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-
+    
     if([segue.identifier isEqualToString:HOST_VIEW_SEGUE])
     {
         HostViewController* dst = segue.destinationViewController;
@@ -449,15 +462,15 @@
         dst.users = self.users;
         [MeetingHandler sharedInstance].delegate = dst;
     }
-
+    
 }
 
 
-#pragma mark - Register - 
+#pragma mark - Register -
 
 
 - (IBAction)registerUser:(id)sender {
-
+    
     if(IS_IPAD)
     {
         [self performSegueWithIdentifier:@"RegisterNewUserIPad" sender:self];
@@ -470,7 +483,7 @@
 
 - (IBAction)forgetPassword:(id)sender {
     if(IS_IPAD)
-    [self performSegueWithIdentifier:[NSString stringWithFormat:@"ForgetPassword%@",IS_IPAD? @"IPad":@"IPhone" ]sender:self];
+        [self performSegueWithIdentifier:[NSString stringWithFormat:@"ForgetPassword%@",IS_IPAD? @"IPad":@"IPhone" ]sender:self];
     else
         [self.view addSubview:self.forgetPasswordIphoneView];
 }
@@ -478,15 +491,56 @@
 -(void)concludeMeeting:(NSArray *)data
 {
     self.users = [data firstObject];
-
+    
     [self dismissViewControllerAnimated:NO completion:^{
         [self performSegueWithIdentifier:HOST_CONCLUDE_SEGUE sender:self];
     }];
 }
 
+-(void) setLandscapeMode
+{
+}
+
+-(void) setPortaitMode
+{
+    
+    
+    
+    
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    UIDeviceOrientation toInterfaceOrientation = [[UIDevice currentDevice] orientation];
+    switch (toInterfaceOrientation) {
+        case UIDeviceOrientationPortrait:
+            [self setPortaitMode];
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            [self setLandscapeMode];
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            [self setLandscapeMode];
+            break;
+        default:
+            break;
+    }
+}
+
 -(NSUInteger)supportedInterfaceOrientations
 {
-    return UIInterfaceOrientationMaskAllButUpsideDown;
+    
+    return IS_IPAD? UIInterfaceOrientationMaskAll: UIInterfaceOrientationPortrait;
+    
 }
+
+
+-(BOOL)shouldAutorotate
+{
+    
+    return IS_IPAD;
+    
+}
+
 
 @end

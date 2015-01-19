@@ -79,17 +79,17 @@
         }
         
         UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+        if(UIDeviceOrientationIsPortrait(orientation))
+        {
+            [self setPortaitMode];
+        }else if (UIDeviceOrientationIsLandscape(orientation))
+        {
+            
+            [self setLandscapeMode];
+        }
         [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
         [self.view addSubview:self.IpadView];
-        //        if(UIInterfaceOrientationIsPortrait(orientation))
-        //        {
-        //            [self setPortaitMode];
-        //        }else if (UIInterfaceOrientationIsLandscape(orientation))
-        //        {
-        //
-        //            [self setLandscapeMode];
-        //            }
-    }else{
+         }else{
         [self.IphoneView setHidden:NO];
         [self.IpadView removeFromSuperview];
     }
@@ -111,10 +111,10 @@
 {
     [super viewDidAppear:animated];
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if(UIInterfaceOrientationIsPortrait(orientation))
+    if(UIDeviceOrientationIsPortrait(orientation))
     {
         [self setPortaitMode];
-    }else if (UIInterfaceOrientationIsLandscape(orientation))
+    }else if (UIDeviceOrientationIsLandscape(orientation))
     {
         
         [self setLandscapeMode];
@@ -124,15 +124,15 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    //    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    //       if(UIInterfaceOrientationIsPortrait(orientation))
-    //    {
-    //        [self setPortaitMode];
-    //    }else if (UIInterfaceOrientationIsLandscape(orientation))
-    //    {
-    //
-    //        [self setLandscapeMode];
-    //    }
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    if(UIDeviceOrientationIsPortrait(orientation))
+    {
+        [self setPortaitMode];
+    }else if (UIDeviceOrientationIsLandscape(orientation))
+    {
+        
+        [self setLandscapeMode];
+    }
     
     
     

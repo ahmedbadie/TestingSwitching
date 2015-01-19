@@ -13,6 +13,8 @@
 #import "MeetingHandler.h"
 #import "JsonMessageParser.h"
 
+#define UIDeviceOrientationIsPortrait(orientation) ((orientation) == UIDeviceOrientationPortrait || (orientation) == UIDeviceOrientationPortraitUpsideDown)
+#define UIDeviceOrientationIsLandscape(orientation) ((orientation) == UIDeviceOrientationLandscapeLeft || (orientation) == UIDeviceOrientationLandscapeRight)
 #define IS_IPAD  UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad 
 @interface AbstractViewController : UIViewController< MeetingHandlerDelegate,JsonMessageParserDelegate,UITextFieldDelegate>
 @property(nonatomic,retain) QBUUser* user;
