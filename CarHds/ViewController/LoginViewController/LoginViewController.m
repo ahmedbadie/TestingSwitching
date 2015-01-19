@@ -483,4 +483,10 @@
         [self performSegueWithIdentifier:HOST_CONCLUDE_SEGUE sender:self];
     }];
 }
+
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskAllButUpsideDown;
+}
+
 @end
