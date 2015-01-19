@@ -226,11 +226,12 @@
         
         NSDictionary* reasons =  response.error.reasons;
         NSLog(@"%@",[reasons description]);
-        NSLog(@"error login message [%@]",QBDESC(response.error));
+//        NSLog(@"error login message [%@]",QBDESC(response.error));
         self.state = NO;
         
         [self.hud hide:YES];
-        [self warnUserWithMessage:QBDESC(response.error)];
+        [self warnUserWithMessage:DESC(response.error.error)];
+         
     }];
     
 }

@@ -39,4 +39,6 @@
 #define HOST_STATISTICS_SEGUE @"HostStatisticsSegue"
 #define HOST_CONCLUDE_CONTROLLER @"HostConcludeController"
 #define HOST_CONCLUDE_SEGUE @"HostConcludeSegue"
+
+//#define DEV
 #endif

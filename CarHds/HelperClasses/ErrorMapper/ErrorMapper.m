@@ -74,7 +74,7 @@
 +(NSString *)getQBErrorMessage:(QBError *)error
 {
     NSString* string = @"";
-    NSDictionary* dictionary = error.reasons;
+    NSDictionary* dictionary = error.error.userInfo;
     
     NSArray* keys = [dictionary allKeys];
     

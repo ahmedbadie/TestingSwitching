@@ -28,7 +28,11 @@
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:USER_ID_KEY];
     [defaults removeObjectForKey:USER_PASSWORD_KEY];
+#ifdef DEV
     [Instabug startWithToken:INSTABUG_APP_TOKEN captureSource:IBGCaptureSourceUIKit invocationEvent:IBGInvocationEventShake];
+#else
+    [Instabug startWithToken:INSTABUG_APP_TOKEN captureSource:IBGCaptureSourceUIKit invocationEvent:IBGInvocationEventNone];
+#endif
     return YES;
 }
 
