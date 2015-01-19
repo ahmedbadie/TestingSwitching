@@ -116,16 +116,18 @@
     self.goButton.clipsToBounds= YES;
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     
-    UIDeviceOrientation currentOrientation = [[UIDevice currentDevice] orientation];
-    if(UIDeviceOrientationIsPortrait(currentOrientation))
+    UIInterfaceOrientation orientation = self.interfaceOrientation;
+    if(UIInterfaceOrientationIsPortrait(orientation))
     {
         [self setPortaitMode];
-    }else if (UIDeviceOrientationIsLandscape(currentOrientation))
+    }else if (UIInterfaceOrientationIsLandscape(orientation))
     {
         
         [self setLandscapeMode];
+    }else
+    {
+        [self setPortaitMode];
     }
-
     
     
     

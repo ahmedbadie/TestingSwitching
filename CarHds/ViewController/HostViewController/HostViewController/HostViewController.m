@@ -79,14 +79,14 @@
         }
         
         UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-        if(UIDeviceOrientationIsPortrait(orientation))
-        {
-            [self setPortaitMode];
-        }else if (UIDeviceOrientationIsLandscape(orientation))
-        {
-            
-            [self setLandscapeMode];
-        }
+//        if(UIDeviceOrientationIsPortrait(orientation))
+//        {
+//            [self setPortaitMode];
+//        }else if (UIDeviceOrientationIsLandscape(orientation))
+//        {
+//            
+//            [self setLandscapeMode];
+//        }
         [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
         [self.view addSubview:self.IpadView];
          }else{
@@ -111,27 +111,30 @@
 {
     [super viewDidAppear:animated];
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if(UIDeviceOrientationIsPortrait(orientation))
-    {
-        [self setPortaitMode];
-    }else if (UIDeviceOrientationIsLandscape(orientation))
-    {
-        
-        [self setLandscapeMode];
-    }
+//    if(UIDeviceOrientationIsPortrait(orientation))
+//    {
+//        [self setPortaitMode];
+//    }else if (UIDeviceOrientationIsLandscape(orientation))
+//    {
+//        
+//        [self setLandscapeMode];
+//    }
     
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-    if(UIDeviceOrientationIsPortrait(orientation))
+    UIInterfaceOrientation orientation = self.interfaceOrientation;
+    if(UIInterfaceOrientationIsPortrait(orientation))
     {
         [self setPortaitMode];
-    }else if (UIDeviceOrientationIsLandscape(orientation))
+    }else if (UIInterfaceOrientationIsLandscape(orientation))
     {
         
         [self setLandscapeMode];
+    }else
+    {
+        [self setPortaitMode];
     }
     
     
