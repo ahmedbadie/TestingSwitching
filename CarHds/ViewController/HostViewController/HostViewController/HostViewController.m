@@ -384,7 +384,7 @@
 - (IBAction)concludeMeeting:(id)sender {
     NSLog(@"Conclude Meeting");
     if(self.canConclude){
-       if([[self.users allKeys] count] <0)
+       if([[self.users allKeys] count] <1)
        {
            [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
             return;
