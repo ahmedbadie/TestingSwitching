@@ -42,10 +42,10 @@
     self.showingMsg = NO;
     self.messages = [NSMutableArray array];
     [MeetingHandler sharedInstance].delegate = self;
-    self.cardVotingView.frame = self.view.frame;
+//    self.cardVotingView.frame = self.view.frame;
 
     self.currentIndex = 0;
-    [self.view addSubview:self.cardVotingView];
+//    [self.view addSubview:self.cardVotingView];
     self.pageController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
     self.pageController.dataSource = self;
     self.pageController.delegate =self;
