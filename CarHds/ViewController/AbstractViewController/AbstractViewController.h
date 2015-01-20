@@ -22,4 +22,6 @@
 @property(nonatomic,retain) MBProgressHUD* hud;
 -(void) warnUserWithMessage:(NSString*) msg;
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString;
+-(void) setLandscapeMode;
+-(void) setPortaitMode;
 @end

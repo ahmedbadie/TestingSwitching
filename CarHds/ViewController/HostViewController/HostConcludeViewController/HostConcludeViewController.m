@@ -9,13 +9,38 @@
 #import "HostConcludeViewController.h"
 #import "HostViewController.h"
 @interface HostConcludeViewController ()
-
+@property (nonatomic,strong) NSMutableArray* landscapeOrigins;
+@property (nonatomic,strong) NSMutableArray* portraitOrigins;
 @end
 
 @implementation HostConcludeViewController
 
+-(NSMutableArray *)origins
+{
+    UIInterfaceOrientation orientation = self.interfaceOrientation;
+    if(UIInterfaceOrientationIsPortrait(orientation))
+        return _portraitOrigins;
+    else
+        return _landscapeOrigins;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.landscapeOrigins = [NSMutableArray array];
+    [self.landscapeOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(35, 42)]];
+    [self.landscapeOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(400, 42)]];
+    [self.landscapeOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(764.5, 42)]];
+    [self.landscapeOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(35, 394.5)]];
+    [self.landscapeOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(400, 394.5)]];
+    [self.landscapeOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(764.5, 394.5)]];
+    
+    self.portraitOrigins = [NSMutableArray array];
+    [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(24, 42)]];
+    [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(272, 42)]];
+    [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(520, 42)]];
+    [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(24, 531)]];
+    [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(272, 531)]];
+    [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(520, 531)]];
+
     // Do any additional setup after loading the view.
 }
 
@@ -58,7 +83,7 @@
 
 -(void)showConcludeMeetingView
 {
-    self.origins = [NSMutableArray array];
+//    self.origins = [NSMutableArray array];
     NSArray* participants = [self.chatDialog occupantIDs];
     NSLog(@"%d",[participants count]);
     
@@ -85,7 +110,7 @@
     for(UIView* view in views)
     {
         
-        [self.origins addObject:[NSValue valueWithCGPoint:view.frame.origin]];
+//        [self.origins addObject:[NSValue valueWithCGPoint:view.frame.origin]];
         
         HostConcludeCardViewController* card = [storyBoard instantiateViewControllerWithIdentifier:HOST_CONCLUDE_CONTROLLER];
         NSInteger type = index / 3;
@@ -105,6 +130,7 @@
         index++;
     }
     
+//    NSLog([self.origins description]);
     //        [UIView transitionWithView:self.view
     //                          duration:1.0
     //                           options:UIViewAnimationOptionTransitionFlipFromBottom
@@ -136,6 +162,12 @@
         [array replaceObjectAtIndex:type withObject:@(val)];
         
     }
+    
+    [self plotView];
+   }
+
+-(void) plotView
+{
     NSMutableArray* temp = [NSMutableArray array];
     for(HostConcludeCardViewController* card in self.conclusionCards)
     {
@@ -173,6 +205,7 @@
         index++;
         
     }
+
 }
 -(NSInteger) getCardsCountForType:(CONTRIBUTION_TYPE) type andIndex:(NSInteger) index
 {
@@ -198,6 +231,29 @@
             [JsonMessageParser decodeMessage:msg withDelegate:self];
         }
     }
+}
+
+-(void)setPortaitMode
+{
+//    [self plotView];
+}
+
+-(void) setLandscapeMode
+{
+//    [self plotView];
+}
+-(NSUInteger)supportedInterfaceOrientations
+{
+    
+    
+        return UIInterfaceOrientationMaskAll;
+    
+}
+
+
+-(BOOL)shouldAutorotate
+{
+        return YES;
 }
 
 @end

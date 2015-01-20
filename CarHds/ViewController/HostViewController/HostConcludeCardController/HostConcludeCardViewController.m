@@ -52,20 +52,26 @@
     [self.votersIDs removeObject:@(userId)];
 }
 
+#define LabelTag 10
 -(void)reloadScreen
 {
-    for(CardViewController* card in self.cards)
+    for(UIView* view in self.view.subviews)
     {
-        [card.view removeFromSuperview];
+        if(view.tag !=LabelTag)
+            [view removeFromSuperview];
+        
     }
     UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
 
     NSUInteger offset = 20;
-#define MAX_CARDS 7
+    UIInterfaceOrientation orientation = self.parentViewController.interfaceOrientation;
+    
+#define MAX_CARDS(orientation)  UIInterfaceOrientationIsPortrait(orientation)? 7 : 3
     int startIndex = 0;
-    if(self.cardVotes> MAX_CARDS)
+    NSInteger maxCards = MAX_CARDS(orientation);
+    if(self.cardVotes>maxCards)
     {
-        startIndex = self.cardVotes - MAX_CARDS;
+        startIndex = self.cardVotes - maxCards;
     }
     for(int i = startIndex ;i<self.cardVotes ;i++)
     {
@@ -111,4 +117,16 @@
     return [[NSNumber numberWithInteger:otherObject.type]compare:[NSNumber numberWithInteger:self.type]];
     }
 }
+
+-(void)setPortaitMode
+{
+    [self reloadScreen];
+}
+
+-(void)setLandscapeMode
+{
+    [self reloadScreen];
+
+}
+
 @end

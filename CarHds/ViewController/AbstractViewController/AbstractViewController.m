@@ -26,6 +26,33 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    UIInterfaceOrientation orientation = self.interfaceOrientation;
+    if(UIInterfaceOrientationIsPortrait(orientation))
+    {
+        [self setPortaitMode];
+    }else if (UIInterfaceOrientationIsLandscape(orientation))
+    {
+        
+        [self setLandscapeMode];
+    }else
+    {
+        [self setPortaitMode];
+    }
+
+}
+
+-(void) setPortaitMode
+{
+
+}
+
+-(void) setLandscapeMode
+{
+
+}
 /*
 #pragma mark - Navigation
 
@@ -110,6 +137,24 @@
 {
     
     return YES;
+}
+
+-(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
+{
+    UIDeviceOrientation toInterfaceOrientation = [[UIDevice currentDevice] orientation];
+    switch (toInterfaceOrientation) {
+        case UIDeviceOrientationPortrait:
+            [self setPortaitMode];
+            break;
+        case UIDeviceOrientationLandscapeLeft:
+            [self setLandscapeMode];
+            break;
+        case UIDeviceOrientationLandscapeRight:
+            [self setLandscapeMode];
+            break;
+        default:
+            break;
+    }
 }
 
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString

@@ -124,19 +124,7 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    UIInterfaceOrientation orientation = self.interfaceOrientation;
-    if(UIInterfaceOrientationIsPortrait(orientation))
-    {
-        [self setPortaitMode];
-    }else if (UIInterfaceOrientationIsLandscape(orientation))
-    {
-        
-        [self setLandscapeMode];
-    }else
-    {
-        [self setPortaitMode];
-    }
-    
+      
     
     
     
@@ -396,7 +384,7 @@
 - (IBAction)concludeMeeting:(id)sender {
     NSLog(@"Conclude Meeting");
     if(self.canConclude){
-       if([[self.users allKeys] count] <1)
+       if([[self.users allKeys] count] <0)
        {
            [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
             return;
@@ -541,24 +529,6 @@
     
     
     
-}
-
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    UIDeviceOrientation toInterfaceOrientation = [[UIDevice currentDevice] orientation];
-    switch (toInterfaceOrientation) {
-        case UIDeviceOrientationPortrait:
-            [self setPortaitMode];
-            break;
-        case UIDeviceOrientationLandscapeLeft:
-            [self setLandscapeMode];
-            break;
-        case UIDeviceOrientationLandscapeRight:
-            [self setLandscapeMode];
-            break;
-        default:
-            break;
-    }
 }
 
 -(NSUInteger)supportedInterfaceOrientations
