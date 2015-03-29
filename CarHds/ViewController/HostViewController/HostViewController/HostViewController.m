@@ -276,14 +276,14 @@
 }
 -(void)receivedConclusionSignal
 {
-    [self.hud hide:YES];
-    self.canConclude = NO;
-    [self warnUserWithMessage:@"Meeting Conclusion started"];
-    if(!self.concludeMeetingOn)
-    {
-        self.concludeMeetingOn = YES;
-        [self showConcludeMeetingView];
-    }
+//    [self.hud hide:YES];
+//    self.canConclude = NO;
+//    [self warnUserWithMessage:@"Meeting Conclusion started"];
+//    if(!self.concludeMeetingOn)
+//    {
+//        self.concludeMeetingOn = YES;
+//        [self showConcludeMeetingView];
+//    }
     
     
 }
@@ -422,6 +422,7 @@
         NSString* msg = [JsonMessageParser broadcastContributionSignal];
         QBChatRoom* room = self.chatDialog.chatRoom;
         [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room save:YES];
+        [self showConcludeMeetingView];
         
     }
 }

@@ -100,15 +100,15 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    if(IS_IPAD){
-        // Host
-        [self.usernameTextField setText:@"host"];
-    }else{
-        // Client
-        [self.usernameTextField setText:@"client"];
-    }
-    [self.passwordTextField setText:@"12345678"];
-    [self.meetingIDTextField setText:@"Inova Room"];
+//    if(IS_IPAD){
+//        // Host
+//        [self.usernameTextField setText:@"host"];
+//    }else{
+//        // Client
+//        [self.usernameTextField setText:@"client"];
+//    }
+//    [self.passwordTextField setText:@"12345678"];
+//    [self.meetingIDTextField setText:@"Inova Room"];
 
 }
 - (void)viewDidLoad {
