@@ -9,17 +9,18 @@
 #import "AppDelegate.h"
 
 @interface AppDelegate ()
-
+@property (nonatomic) BOOL loggedIn;
 @end
 
 @implementation AppDelegate
 
-
+@synthesize loggedIn;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
     // Set QuickBlox credentials (You must create application in admin.quickblox.com)
     //
+    loggedIn = NO;
     [QBApplication sharedApplication].applicationId = QUICK_BLOX_APP_ID;
     [QBConnection registerServiceKey:QUICK_BLOX_SERVICE_KEY];
     [QBConnection registerServiceSecret:QUICK_BLOX_SERVICE_SECRET];
@@ -44,7 +45,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-    [[QBChat instance]logout];
+//    loggedIn = [[QBChat instance] isLoggedIn];
+//    [[QBChat instance]logout];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {

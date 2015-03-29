@@ -76,8 +76,7 @@
 - (void)viewWillDisappear:(BOOL)animated{
     [super viewWillDisappear:animated];
     
-    
-   }
+}
 
 -(BOOL)hidesBottomBarWhenPushed
 {

@@ -2,6 +2,8 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>{&quot;errors&quot;:[&quot;Unauthorized&quot;]}</key>
+	<string>Invalid Username / Password</string>
 	<key>{&quot;errors&quot;:{&quot;login&quot;:[&quot;has already been taken&quot;]}}</key>
 	<string>User name already exists</string>
 	<key>{&quot;errors&quot;:{&quot;email&quot;:[&quot;should look like an email address&quot;]}}</key>

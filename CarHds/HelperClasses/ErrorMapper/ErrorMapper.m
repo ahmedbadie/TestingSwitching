@@ -44,19 +44,21 @@
         NSDictionary* errorsDictionary = [dictionary objectForKey:@"errors"];
         if(errorsDictionary == nil)
         {
-//            errorsDictionary = [dictionary objectForKey:[[dictionary allKeys] firstObject]];
+            //            errorsDictionary = [dictionary objectForKey:[[dictionary allKeys] firstObject]];
         }else{
-        NSArray* errors = [errorsDictionary allKeys];
-        BOOL addLine = NO;
-        for (NSString* i  in errors) {
-            NSArray* array = [NSArray arrayWithArray:[errorsDictionary objectForKey:i]];
-            msgFromDictionary = [msgFromDictionary stringByAppendingString:[NSString stringWithFormat:@"%@%@ %@",addLine? @"\n":@"" ,i,[array firstObject]]];
-            addLine = YES;
-        }
-        
-        return msgFromDictionary;
+            if([errorsDictionary respondsToSelector:@selector(allKeys)]){
+                NSArray* errors = [errorsDictionary allKeys];
+                BOOL addLine = NO;
+                for (NSString* i  in errors) {
+                    NSArray* array = [NSArray arrayWithArray:[errorsDictionary objectForKey:i]];
+                    msgFromDictionary = [msgFromDictionary stringByAppendingString:[NSString stringWithFormat:@"%@%@ %@",addLine? @"\n":@"" ,i,[array firstObject]]];
+                    addLine = YES;
+                }
+                
+                return msgFromDictionary;
+            }
             
-
+            
         }
     }
     ErrorMapper* mapper = [ErrorMapper sharedManager];
