@@ -17,17 +17,21 @@
 @property (nonatomic) NSInteger state;
 @property (nonatomic) NSInteger maxNumber;
 @property (nonatomic) BOOL showingMsg;
+@property (nonatomic,strong) NSDate* connectionDate;
+
 #define STATE_CARD_VOTING 0
 #define STATE_SELF_CONCLUDE 2
 #define STATE_MEETING_CONCLUDE 1
 @end
 
 @implementation ClientViewController
-
+@synthesize connectionDate;
 - (void)viewDidLoad {
+    
+    [super viewDidLoad];
+    connectionDate = [NSDate date];
     self.maxNumber = 5;
     self.state = STATE_CARD_VOTING;
-    [super viewDidLoad];
     self.index = 0;
     [MeetingHandler sharedInstance].logOut = NO;
     // Do any additional setup after loading the view.
@@ -137,8 +141,16 @@
 
 -(void)didReciveMessages:(NSArray *)msgs
 {
-    [self.messages addObjectsFromArray:msgs];
-    for(QBChatMessage* msg in msgs){
+    NSMutableArray* newMessages = [NSMutableArray array];
+    for (QBChatMessage* msg in msgs){
+        if([JsonMessageParser isCloseRoomMessage:msg.text] && [msg.datetime compare:connectionDate] == NSOrderedAscending){
+            newMessages = [NSMutableArray array];
+        }else{
+            [newMessages addObject:msg];
+        }
+    }
+    [self.messages addObjectsFromArray:newMessages];
+    for(QBChatMessage* msg in newMessages){
         if([Utilities withinRoomLife:msg.datetime]){
             [JsonMessageParser decodeMessage:msg withDelegate:self];
         }
@@ -225,7 +237,7 @@
     NSString* msg = [JsonMessageParser cardVoteMessageForCard:pageIndex withValue:!pageOldValue];
     QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     [MeetingHandler sharedInstance].logOut = YES;
-    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
+    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom save:YES];
     }else if (self.state == STATE_MEETING_CONCLUDE)
     {
         
@@ -260,8 +272,9 @@
     self.hud.labelText = @"Leave Meeting";
     NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
     QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    
     [MeetingHandler sharedInstance].logOut = YES;
-    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom];
+    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom save:YES];
     [self didLogOut];
     
 
@@ -280,7 +293,7 @@
     }
     NSString* username = self.user.login;
    NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:username];
-    [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom];
+    [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom save:YES];
 }
 - (IBAction)valueChanged:(id)sender forEvent:(UIEvent *)event {
     
@@ -338,6 +351,18 @@
 {
     
 }
+-(void)receivedCloseRoom{
+    [self warnUserWithMessage:@"Meeting room closed by Host"];
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText = @"Leave Meeting";
+    NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
+    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    
+    [MeetingHandler sharedInstance].logOut = YES;
+//    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom save:NO];
+    [self didLogOut];
+
+}
 
 #pragma mark
 #pragma mark - Conclude Menu -
@@ -388,14 +413,14 @@
         {
             NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_MEETING withValue:self.selectedPageIndex];
             QBChatRoom* room = self.chatDialog.chatRoom;
-            [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+            [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room save:YES];
             [self showConcludeMenuWithIndex:STATE_SELF_CONCLUDE];
 
         }else if (self.state == STATE_SELF_CONCLUDE)
         {
             NSString* msg =  [JsonMessageParser contributionMessageWithContributionIndex:CONTRIBUTION_TYPE_PERSONAL withValue:self.selectedPageIndex];
             QBChatRoom* room = self.chatDialog.chatRoom;
-            [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+            [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room save:YES];
             [self.cardVotingView removeFromSuperview];
 //            [self.view addSubview: self.endView ];
 

@@ -38,7 +38,7 @@ static MeetingHandler* handler;
         [[ChatService instance] joinRoom:self.chatRoom completionBlock:^(QBChatRoom * room) {
             if(self.terminate)
             {
-                [[MeetingHandler sharedInstance] leaveRoom];
+                [[MeetingHandler sharedInstance] leaveRoom:YES];
                 [[QBChat instance]logout];
             }else{
             [self chatRoomDidEnter:self.chatRoom];
@@ -83,28 +83,28 @@ static MeetingHandler* handler;
     // save message
     [self.delegate didReciveMessages:@[message]];
 }
--(void)sendMessage:(NSString *)msg toChatRoom:(QBChatRoom *)chatRoom
+-(void)sendMessage:(NSString *)msg toChatRoom:(QBChatRoom *)chatRoom save:(BOOL)save
 {
    
     
     QBChatMessage *message = [[QBChatMessage alloc] init];
     message.text = msg;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"save_to_history"] = @YES;
+    params[@"save_to_history"] = @(save);
     [message setCustomParameters:params];
     [[ChatService instance] sendMessage:message toRoom:self.chatRoom];
     
 
 }
 
--(void)leaveRoom
+-(void)leaveRoom:(BOOL)write
 {
     if(self.chatDialog == nil)
         return;
     QBChatMessage *message = [[QBChatMessage alloc] init];
     message.text = [JsonMessageParser logOutMessageForUser:self.qbUser.login];
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
-    params[@"save_to_history"] = @YES;
+    params[@"save_to_history"] = @(write);
     [message setCustomParameters:params];
     
     [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
@@ -134,5 +134,19 @@ static MeetingHandler* handler;
 -(void)chatDidDeliverMessageWithID:(NSString *)messageID
 {
     }
+
+-(void)closeRoom{
+    // Close the room
+    if(self.chatDialog == nil) {
+        return;
+    }
+    
+    QBChatMessage* message = [[QBChatMessage alloc]init];
+    message.text = [JsonMessageParser closeRoomMessage];
+    NSMutableDictionary* params = [NSMutableDictionary dictionary];
+    params[@"save_to_history"] = @YES;
+    [message setCustomParameters:params];
+    BOOL result = [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
+}
 
 @end

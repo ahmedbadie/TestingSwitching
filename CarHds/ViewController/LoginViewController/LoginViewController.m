@@ -319,8 +319,9 @@
                 
                 switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
                     case HOST_MEETING_INDEX:
+                        // first check for last message text
                         
-                        if([Utilities withinRoomLife:date]){
+                        if([Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText]){
                             [self warnUserWithMessage:@"Meeting room already exists"];
                         }else{
                             //                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
@@ -334,7 +335,8 @@
                         }
                         break;
                     case JOIN_MEETING_INDEX:
-                        if([Utilities withinRoomLife:date]){
+                        if([Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText]){
+                            // first check for last message text
                             chatDialog = dialog;
                             self.chatDialog = chatDialog;
                             [MeetingHandler sharedInstance].chatDialog = chatDialog;

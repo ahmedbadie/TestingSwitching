@@ -11,10 +11,11 @@
 @interface HostConcludeViewController ()
 @property (nonatomic,strong) NSMutableArray* landscapeOrigins;
 @property (nonatomic,strong) NSMutableArray* portraitOrigins;
+@property (nonatomic,strong) NSDate* connectionDate;
 @end
 
 @implementation HostConcludeViewController
-
+@synthesize connectionDate;
 -(NSMutableArray *)origins
 {
     UIInterfaceOrientation orientation = self.interfaceOrientation;
@@ -25,6 +26,7 @@
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
+    connectionDate = [NSDate date];
     self.landscapeOrigins = [NSMutableArray array];
     [self.landscapeOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(35, 42)]];
     [self.landscapeOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(400, 42)]];
@@ -69,6 +71,7 @@
     self.hud.labelText = @"Leave Meeting";
     //    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
     //    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    [[MeetingHandler sharedInstance] closeRoom];
     [MeetingHandler sharedInstance].logOut = YES;
     [self didLogOut];
     
@@ -226,7 +229,16 @@
 
 -(void)didReciveMessages:(NSArray *)msgs
 {
-    for(QBChatMessage* msg in msgs){
+    NSMutableArray* newMessages = [NSMutableArray array];
+    for (QBChatMessage* msg in msgs){
+        if([JsonMessageParser isCloseRoomMessage:msg.text] && [msg.datetime compare:connectionDate] == NSOrderedAscending){
+            newMessages = [NSMutableArray array];
+        }else{
+            [newMessages addObject:msg];
+        }
+    }
+
+    for(QBChatMessage* msg in newMessages){
         if([Utilities withinRoomLife:msg.datetime]){
             [JsonMessageParser decodeMessage:msg withDelegate:self];
         }

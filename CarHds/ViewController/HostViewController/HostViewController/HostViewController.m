@@ -39,13 +39,14 @@
 @property (weak, nonatomic) IBOutlet UILabel *brLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *leaveMeetingButton;
-
+@property (nonatomic,strong) NSDate* connectionDate;
 @end
 
 @implementation HostViewController
-
+@synthesize connectionDate;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    connectionDate = [NSDate date];
     self.msgs = [NSMutableArray array];
     self.users = [NSMutableDictionary dictionary];
     [MeetingHandler sharedInstance].delegate = self;
@@ -166,6 +167,7 @@
     self.hud.labelText = @"Leave Meeting";
     //    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
     //    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    [[MeetingHandler sharedInstance]closeRoom];
     [MeetingHandler sharedInstance].logOut = YES;
     [self didLogOut];
     
@@ -188,7 +190,7 @@
     }else{
         NSString* msg = [JsonMessageParser dummyMessage];
         QBChatRoom* room = chatRoom;
-        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room save:YES];
         [NSTimer scheduledTimerWithTimeInterval:HOST_DUMMY_MESSAGE_INTERVAL
                                          target:self
                                        selector:@selector(sendDummyMessage)
@@ -202,7 +204,7 @@
 {
     NSString* msg = [JsonMessageParser dummyMessage];
     QBChatRoom* room = self.chatDialog.chatRoom;
-    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room save:YES];
 }
 
 #
@@ -215,8 +217,17 @@
 
 -(void)didReciveMessages:(NSArray *)msgs
 {
-    [self.msgs addObjectsFromArray:msgs];
-    for(QBChatMessage* msg in msgs){
+    NSMutableArray* newMessages = [NSMutableArray array];
+    for (QBChatMessage* msg in msgs){
+        if([JsonMessageParser isCloseRoomMessage:msg.text] && [msg.datetime compare:connectionDate] == NSOrderedAscending){
+            newMessages = [NSMutableArray array];
+        }else{
+            [newMessages addObject:msg];
+        }
+    }
+
+    [self.msgs addObjectsFromArray:newMessages];
+    for(QBChatMessage* msg in newMessages){
         if([Utilities withinRoomLife:msg.datetime]){
             [JsonMessageParser decodeMessage:msg withDelegate:self];
         }
@@ -410,7 +421,7 @@
         self.hud.labelText = @"Preparing for meeting conclusion";
         NSString* msg = [JsonMessageParser broadcastContributionSignal];
         QBChatRoom* room = self.chatDialog.chatRoom;
-        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room];
+        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room save:YES];
         
     }
 }

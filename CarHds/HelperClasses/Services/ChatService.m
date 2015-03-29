@@ -12,7 +12,7 @@ typedef void(^CompletionBlock)();
 typedef void(^JoinRoomCompletionBlock)(QBChatRoom *);
 typedef void(^CompletionBlockWithResult)(NSArray *);
 
-@interface ChatService () 
+@interface ChatService ()
 
 @property (copy) QBUUser *currentUser;
 @property (retain) NSTimer *presenceTimer;
@@ -28,13 +28,13 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
 
 + (instancetype)instance{
     static id instance_ = nil;
-	
-	static dispatch_once_t onceToken;
-	dispatch_once(&onceToken, ^{
-		instance_ = [[self alloc] init];
-	});
-	
-	return instance_;
+    
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance_ = [[self alloc] init];
+    });
+    
+    return instance_;
 }
 
 - (id)init{
@@ -91,8 +91,8 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
     // Start sending presences
     [self.presenceTimer invalidate];
     self.presenceTimer = [NSTimer scheduledTimerWithTimeInterval:30
-                                     target:[QBChat instance] selector:@selector(sendPresence)
-                                   userInfo:nil repeats:YES];
+                                                          target:[QBChat instance] selector:@selector(sendPresence)
+                                                        userInfo:nil repeats:YES];
     
     if(self.loginCompletionBlock != nil){
         self.loginCompletionBlock();
@@ -106,13 +106,14 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
 }
 
 - (void)chatRoomDidEnter:(QBChatRoom *)room{
-    
-    self.joinRoomCompletionBlock(room);
-    self.joinRoomCompletionBlock = nil;
+    if(self.joinRoomCompletionBlock){
+        self.joinRoomCompletionBlock(room);
+        self.joinRoomCompletionBlock = nil;
+    }
 }
 -(void)chatRoomDidNotEnter:(NSString *)roomName error:(NSError *)error
 {
-
+    
     self.joinRoomCompletionBlock (nil);
     self.joinRoomCompletionBlock = nil;
 }
@@ -158,7 +159,7 @@ static SystemSoundID soundID;
     if(soundID == 0){
         NSString *path = [NSString stringWithFormat: @"%@/sound.mp3", [[NSBundle mainBundle] resourcePath]];
         NSURL *filePath = [NSURL fileURLWithPath: path isDirectory: NO];
-
+        
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
     }
     

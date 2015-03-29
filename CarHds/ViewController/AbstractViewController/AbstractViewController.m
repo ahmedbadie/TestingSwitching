@@ -116,6 +116,10 @@
 {
 
 }
+
+-(void) receivedCloseRoom{
+    
+}
 #pragma mark
 #pragma mark - UITextField Delegate -
 

@@ -72,6 +72,15 @@
     NSData *jsonData = [json serializeDictionary:dictionary error:nil];
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];;
 }
++(NSString *)closeRoomMessage{
+    NSDictionary* dictionary = @{
+                                 MESSAGE_TARGET:MESSAGE_TARGET_BROADCAST,
+                                 MESSAGE_HOST_TYPE: MESSAGE_BROADCAST_TYPE_CLOSE,
+                                 };
+    CJSONSerializer* json = [[CJSONSerializer alloc]init];
+    NSData *jsonData = [json serializeDictionary:dictionary error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];;
+}
 +(BOOL)decodeMessage:(QBChatMessage *)message withDelegate:(NSObject<JsonMessageParserDelegate> *)delegate
 {
     NSData *theData = [message.text dataUsingEncoding:NSUTF8StringEncoding];
@@ -85,6 +94,8 @@
         {
             [delegate receivedConclusionSignal];
             return YES;
+        }else if ([type isEqualToString:MESSAGE_BROADCAST_TYPE_CLOSE]){
+            [delegate receivedCloseRoom];
         }
         
     }else if ([target isEqualToString:MESSAGE_TARGET_HOST])
@@ -118,7 +129,21 @@
 
     return NO;
 }
++(BOOL)isCloseRoomMessage:(NSString *)msg{
+    NSData *theData = [msg dataUsingEncoding:NSUTF8StringEncoding];
+    NSDictionary* dict = [[CJSONDeserializer deserializer] deserialize:theData error:nil];
 
+    NSString* target = [dict objectForKey:MESSAGE_TARGET];
+    if([target isEqualToString:MESSAGE_TARGET_BROADCAST])
+    {
+        NSString* type = [dict objectForKey:MESSAGE_BROADCAST_TYPE];
+        if ([type isEqualToString:MESSAGE_BROADCAST_TYPE_CLOSE]){
+            return YES;
+        }
+        
+    }
+    return NO;
+}
 +(NSString *)dummyMessage
 {
     NSDictionary* dictionary = @{MESSAGE_TARGET:MESSAGE_TARGET_BROADCAST,

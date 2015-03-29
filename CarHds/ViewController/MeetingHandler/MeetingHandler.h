@@ -29,6 +29,7 @@
 +(instancetype) sharedInstance;
 
 -(void) connectToChatDialog:(QBChatDialog*) chatDialog;
--(void) sendMessage:(NSString*)msg toChatRoom:(QBChatRoom*) chatRoom;
--(void) leaveRoom;
+-(void) sendMessage:(NSString*)msg toChatRoom:(QBChatRoom*) chatRoom save:(BOOL) save;
+-(void) leaveRoom:(BOOL) write;
+-(void) closeRoom;
 @end

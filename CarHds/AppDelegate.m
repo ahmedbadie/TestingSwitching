@@ -89,7 +89,7 @@
 //                [MeetingHandler sharedInstance].terminate = YES;
 //                [[MeetingHandler sharedInstance] connectToChatDialog:chatDialog];
 
-                [[MeetingHandler sharedInstance] leaveRoom];
+                [[MeetingHandler sharedInstance] leaveRoom:YES];
             }
         }];
         
