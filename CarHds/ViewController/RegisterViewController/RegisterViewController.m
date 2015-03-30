@@ -90,6 +90,7 @@
         }];
 
     } errorBlock:^(QBResponse *response) {
+        [self.hud hide:YES];
         [self warnUserWithMessage:@"Failed to Start Session"];
     }];
    
