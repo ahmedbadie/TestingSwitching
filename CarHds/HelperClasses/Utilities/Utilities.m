@@ -17,8 +17,8 @@ static NSDate* maxInterval;
 +(BOOL)withinRoomLife:(NSDate *)startDate
 {
     NSDate *endDate = [NSDate date];
-    NSLog(@"%@",endDate);
-    NSLog(@"%@",startDate);
+    NSLog(@"withinRoomLife endDate %@",endDate);
+    NSLog(@"withinRoomLife startDate %@",startDate);
     if(startDate==nil)
     {
         return NO;

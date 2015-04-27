@@ -294,6 +294,8 @@
         NSLog(STRING(@"LoginSucceded"));
         // If logged In continue to next step
         
+        NSLog(@"loggedin with [%lu] [%@] [%lu]",(unsigned long)session.userID,session.token,(unsigned long)session.deviceID);
+
         self.user =[QBUUser new];
         self.user.ID = session.userID;
         self.user.login = [self.usernameTextField text];
@@ -367,10 +369,12 @@
 #pragma mark - QuickBlox Delegate -
 -(void)completedWithResult:(Result *)result
 {
+    NSLog(@"completedWithResult");
     [self.hud hide:YES];
     if(result.success && [result isKindOfClass:[QBChatDialogResult class]])
     {
-        
+        NSLog(@"completedWithResult success QBChatDialogResult");
+
         QBChatDialogResult * dialogRes = (QBChatDialogResult*) result;
         QBChatDialog* dialog = dialogRes.dialog;
         self.chatDialog = dialog;
@@ -381,13 +385,18 @@
         [self performSegueWithIdentifier:@"HostViewSegue" sender:self];
         
     }else if (result.success && [result isKindOfClass:[QBDialogsPagedResult class]]) {
+        NSLog(@"completedWithResult success QBDialogsPagedResult");
+
         QBDialogsPagedResult *pagedResult = (QBDialogsPagedResult *)result;
         //
         NSArray *dialogs = pagedResult.dialogs;
         QBChatDialog* chatDialog;
         QBChatRoom* room ;
+        
         for(QBChatDialog* dialog in dialogs)
         {
+            NSLog(@"[%@]  [%lu]  [%@]  [%@]",dialog.roomJID,(unsigned long)dialog.userID,dialog.ID,dialog.name);
+
             if([dialog.name isEqualToString:[self.meetingIDTextField text]])
             {
                 
@@ -395,9 +404,13 @@
                 
                 switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
                     case HOST_MEETING_INDEX:
+                    {
                         // first check for last message text
-                        
-                        if([Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText]){
+                        BOOL canResume = NO;
+                        if(dialog.userID == self.user.ID){
+                            canResume = YES;
+                        }
+                        if( !canResume && [Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText] ){
                             [self warnUserWithMessage:@"Meeting room already exists"];
                         }else{
                             //                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
@@ -409,6 +422,7 @@
                             
                             [self joinMeetingRoomAsHost];
                         }
+                    }
                         break;
                     case JOIN_MEETING_INDEX:
                         if([Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText]){
@@ -445,6 +459,9 @@
         
     }else if ([result.answer isKindOfClass:[QBRestResponse class]])
     {
+        
+        NSLog(@"completedWithResult QBRestResponse");
+
         if(result.success)
         {
             [self createMeetingRoom];
@@ -455,7 +472,8 @@
         
     }else{
         
-        
+        NSLog(@"completedWithResult errors");
+
         NSArray* errors = result.errors;
         for(NSString* error in errors)
             [self warnUserWithMessage:error];
@@ -470,6 +488,7 @@
 
 -(void)chatDidLogin
 {
+    NSLog(@"chatDidLogin");
     // If successfully loged in to chat
     NSMutableDictionary* dictionary =[NSMutableDictionary dictionary];
     [dictionary setObject:[self.meetingIDTextField text] forKey:@"name"];
