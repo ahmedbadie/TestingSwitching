@@ -16,11 +16,55 @@
 @property (strong, nonatomic) IBOutlet UIView *forgetPasswordIphoneView;
 @property (weak, nonatomic) IBOutlet UIButton *goButton;
 @property (weak, nonatomic) IBOutlet UITextView *forgetPasswordText;
+@property (weak, nonatomic) IBOutlet UIButton *rememberMeButton;
+@property (nonatomic) BOOL rememberMe;
+
 @end
 
 
 @implementation LoginViewController
 
+-(void)saveRememberMe:(BOOL)rememberMe{
+    
+    NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
+    [pref setObject:[NSNumber numberWithBool:rememberMe] forKey:@"rememberMe"];
+    [pref synchronize];
+}
+
+-(BOOL)loadRememberMe{
+    NSNumber * rememberMe;
+    NSUserDefaults *prefs=[NSUserDefaults standardUserDefaults];
+    rememberMe=[prefs objectForKey:@"rememberMe"];
+    
+    if(rememberMe != nil){
+        return  rememberMe.boolValue;
+    }
+    
+    return  false;
+}
+
+-(void)saveUsername:(NSString *)username Password:(NSString *)password{
+    
+    NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
+    [pref setObject:username forKey:@"username"];
+    [pref setObject:password forKey:@"password"];
+    [pref synchronize];
+}
+
+-(void)loadCredentials{
+    NSString *username,*password;
+    NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+    username=[prefs objectForKey:@"username"];
+    password=[prefs objectForKey:@"password"];
+    
+    if(username == nil || password == nil){
+        username = @"";
+        password = @"";
+    }
+    
+    self.usernameTextField.text = username;
+    self.passwordTextField.text = password;
+}
 
 - (IBAction)resetPasswordIPhone:(id)sender {
     NSString* text = [self.usernameTextField text];
@@ -100,19 +144,43 @@
 }
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-//    if(IS_IPAD){
-//        // Host
-//        [self.usernameTextField setText:@"host"];
-//    }else{
-//        // Client
-//        [self.usernameTextField setText:@"client"];
-//    }
-//    [self.passwordTextField setText:@"12345678"];
-//    [self.meetingIDTextField setText:@"Inova Room"];
-
+    //    if(IS_IPAD){
+    //        // Host
+    //        [self.usernameTextField setText:@"host"];
+    //    }else{
+    //        // Client
+    //        [self.usernameTextField setText:@"client"];
+    //    }
+    //    [self.passwordTextField setText:@"12345678"];
+    //    [self.meetingIDTextField setText:@"Inova Room"];
+    
 }
+
+-(void)updateRemberMeButton:(BOOL)rememberMe{
+    if(rememberMe){
+        [self.rememberMeButton setImage:[UIImage imageNamed:@"checkbox_checked"] forState:UIControlStateNormal];
+    }else{
+        [self.rememberMeButton setImage:[UIImage imageNamed:@"checkbox"] forState:UIControlStateNormal];
+    }
+}
+
+-(IBAction)rememberMeClicked:(id)sender{
+    
+    self.rememberMe = !self.rememberMe;
+    [self saveRememberMe:self.rememberMe];
+    [self updateRemberMeButton:self.rememberMe];
+    
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.rememberMe = [self loadRememberMe];
+    [self updateRemberMeButton:self.rememberMe];
+    
+        [self loadCredentials];
+    
+    
     self.index = 0;
     self.state = NO;
     if(!IS_IPAD)
@@ -170,6 +238,9 @@
     }
 }
 - (IBAction)startMeeting:(id)sender {
+    
+
+    
     if([[QBChat instance]isLoggedIn])
     {
         [[QBChat instance] logout];
@@ -198,10 +269,15 @@
         return;
     }else if ([self.passwordTextField text].length <8)
     {
-        [self warnUserWithMessage:@"Password too shor"];
+        [self warnUserWithMessage:@"Password too short"];
         return;
     }
     
+    if(self.rememberMe){
+        [self saveUsername:self.usernameTextField.text Password:self.passwordTextField.text];
+    }else{
+        [self saveUsername:@"" Password:@""];
+    }
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= STRING(@"Login");
@@ -240,12 +316,12 @@
         
         NSDictionary* reasons =  response.error.reasons;
         NSLog(@"%@",[reasons description]);
-//        NSLog(@"error login message [%@]",QBDESC(response.error));
+        //        NSLog(@"error login message [%@]",QBDESC(response.error));
         self.state = NO;
         
         [self.hud hide:YES];
         [self warnUserWithMessage:DESC(response.error.error)];
-         
+        
     }];
     
 }

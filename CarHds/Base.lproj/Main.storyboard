@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14C1514" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6751" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="6736"/>
@@ -256,7 +256,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
                             <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Odd-Op-LYq">
-                                <rect key="frame" x="131" y="367" width="59" height="59"/>
+                                <rect key="frame" x="131" y="382" width="59" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="18"/>
@@ -292,7 +292,7 @@
                                 </connections>
                             </button>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" segmentControlStyle="plain" selectedSegmentIndex="0" id="PjG-xy-up4">
-                                <rect key="frame" x="84" y="311" width="153" height="29"/>
+                                <rect key="frame" x="84" y="326" width="153" height="29"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
@@ -300,6 +300,17 @@
                                     <segment title="Join"/>
                                 </segments>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aHf-29-REy">
+                                <rect key="frame" x="37" y="288" width="246" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Remember Me" image="checkbox.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="rememberMeClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="3Eq-DY-23Q"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -312,6 +323,7 @@
                         <outlet property="meetingIDTextField" destination="CiA-u0-7s3" id="4R0-zb-K37"/>
                         <outlet property="operationTypeSegmentedControl" destination="PjG-xy-up4" id="ViW-R9-RAN"/>
                         <outlet property="passwordTextField" destination="Lr2-Ad-REX" id="5vd-vg-4ET"/>
+                        <outlet property="rememberMeButton" destination="aHf-29-REy" id="x8f-Gg-70n"/>
                         <outlet property="usernameTextField" destination="35Q-vi-0MV" id="Rfm-oN-5ob"/>
                         <segue destination="YAk-f5-8XZ" kind="modal" identifier="HostViewSegue" id="u9g-xR-R2m"/>
                         <segue destination="CBa-mb-4AC" kind="modal" identifier="ClientViewSegue" id="R62-gf-qAt"/>
@@ -1058,6 +1070,7 @@
     </scenes>
     <resources>
         <image name="caRHds for odesk project.1a.png" width="1080" height="1920"/>
+        <image name="checkbox.png" width="16" height="16"/>
         <image name="emailFieldBgRegister_ipad.png" width="365" height="60"/>
         <image name="icon.png" width="354" height="128"/>
         <image name="loginBackground.jpg" width="1080" height="1920"/>

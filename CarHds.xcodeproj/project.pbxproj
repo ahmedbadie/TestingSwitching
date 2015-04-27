@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210757E01AEE97C3005D158C /* checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757DE1AEE97C3005D158C /* checkbox_checked.png */; };
+		210757E11AEE97C3005D158C /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757DF1AEE97C3005D158C /* checkbox.png */; };
+		210757E41AEE9C31005D158C /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757E21AEE9C31005D158C /* checkbox_checked@2x.png */; };
+		210757E51AEE9C31005D158C /* checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757E31AEE9C31005D158C /* checkbox@2x.png */; };
 		390424481A52D9FC00370E80 /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390424471A52D9FC00370E80 /* ClientViewController.m */; };
 		3904244C1A52F74200370E80 /* MeetingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904244B1A52F74200370E80 /* MeetingHandler.m */; };
 		390424501A530E7900370E80 /* JsonMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904244F1A530E7900370E80 /* JsonMessageParser.m */; };
@@ -119,6 +123,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		210757DE1AEE97C3005D158C /* checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_checked.png; sourceTree = "<group>"; };
+		210757DF1AEE97C3005D158C /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
+		210757E21AEE9C31005D158C /* checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_checked@2x.png"; sourceTree = "<group>"; };
+		210757E31AEE9C31005D158C /* checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox@2x.png"; sourceTree = "<group>"; };
 		390424461A52D9FC00370E80 /* ClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientViewController.h; sourceTree = "<group>"; };
 		390424471A52D9FC00370E80 /* ClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientViewController.m; sourceTree = "<group>"; };
 		3904244A1A52F74200370E80 /* MeetingHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingHandler.h; sourceTree = "<group>"; };
@@ -545,6 +553,10 @@
 		396769921A5BFC99003444D2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				210757E21AEE9C31005D158C /* checkbox_checked@2x.png */,
+				210757E31AEE9C31005D158C /* checkbox@2x.png */,
+				210757DE1AEE97C3005D158C /* checkbox_checked.png */,
+				210757DF1AEE97C3005D158C /* checkbox.png */,
 				3967699F1A5BFDA9003444D2 /* icon.png */,
 				396769A01A5BFDA9003444D2 /* icon@2x.png */,
 				396769931A5BFC99003444D2 /* caRHds background */,
@@ -803,7 +815,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "CarHds" */;
+			buildConfigurationList = 398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "caRHds" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -842,7 +854,9 @@
 				396769C41A5C2578003444D2 /* appIcon152.png in Resources */,
 				3908BF351A532C5000017D84 /* caRHds for odesk project.4a.png in Resources */,
 				396769BD1A5C2578003444D2 /* appIcon29.png in Resources */,
+				210757E01AEE97C3005D158C /* checkbox_checked.png in Resources */,
 				398AADAB1A51DE530003EF8C /* Main.storyboard in Resources */,
+				210757E51AEE9C31005D158C /* checkbox@2x.png in Resources */,
 				391C20A41A5AE08000A44F30 /* registerButton_ipad@2x.png in Resources */,
 				396769A11A5BFDA9003444D2 /* icon.png in Resources */,
 				391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */,
@@ -864,10 +878,12 @@
 				394680D21A63168700ECA925 /* participantConclusion1Gray.png in Resources */,
 				39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */,
 				394680D11A63168700ECA925 /* meetingConclusion3Gray.png in Resources */,
+				210757E41AEE9C31005D158C /* checkbox_checked@2x.png in Resources */,
 				391C20AD1A5B0B3F00A44F30 /* meetingConclusion2.png in Resources */,
 				3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */,
 				3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */,
 				391C20B01A5B0B3F00A44F30 /* participantConclusion2.png in Resources */,
+				210757E11AEE97C3005D158C /* checkbox.png in Resources */,
 				3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */,
 				398AADAD1A51DE530003EF8C /* Images.xcassets in Resources */,
 				391C20B11A5B0B3F00A44F30 /* participantConclusion3.png in Resources */,
@@ -1136,7 +1152,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "CarHds" */ = {
+		398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "caRHds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				398AADBD1A51DE530003EF8C /* Debug */,
