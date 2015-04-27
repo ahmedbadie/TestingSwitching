@@ -11,5 +11,7 @@
 @interface Utilities : NSObject
 
 
-+(BOOL) withinRoomLife:(NSDate*) startDate;
++ (BOOL) withinRoomLife:(NSDate*) startDate;
++ (UIImage *) imageWithView:(UIView *)view;
+
 @end

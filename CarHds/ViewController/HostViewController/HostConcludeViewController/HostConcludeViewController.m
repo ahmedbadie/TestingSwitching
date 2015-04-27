@@ -42,8 +42,22 @@
     [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(24, 531)]];
     [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(272, 531)]];
     [self.portraitOrigins addObject:[NSValue valueWithCGPoint:CGPointMake(520, 531)]];
-
+    
     // Do any additional setup after loading the view.
+    
+}
+
+-(IBAction)saveScreenshot:(id)sender{
+    UIImage * screenshot = [Utilities imageWithView:self.view];
+    
+    UIImageWriteToSavedPhotosAlbum(screenshot,
+                                   self,
+                                   @selector(image:didFinishSavingWithError:contextInfo:),
+                                   nil);
+}
+
+- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo: (void *) contextInfo{
+    NSLog(@"screenshotDidSave");
 }
 
 - (void)didReceiveMemoryWarning {
@@ -86,7 +100,7 @@
 
 -(void)showConcludeMeetingView
 {
-//    self.origins = [NSMutableArray array];
+    //    self.origins = [NSMutableArray array];
     NSArray* participants = [self.chatDialog occupantIDs];
     NSLog(@"%d",[participants count]);
     
@@ -113,7 +127,7 @@
     for(UIView* view in views)
     {
         
-//        [self.origins addObject:[NSValue valueWithCGPoint:view.frame.origin]];
+        //        [self.origins addObject:[NSValue valueWithCGPoint:view.frame.origin]];
         
         HostConcludeCardViewController* card = [storyBoard instantiateViewControllerWithIdentifier:HOST_CONCLUDE_CONTROLLER];
         NSInteger type = index / 3;
@@ -133,7 +147,7 @@
         index++;
     }
     
-//    NSLog([self.origins description]);
+    //    NSLog([self.origins description]);
     //        [UIView transitionWithView:self.view
     //                          duration:1.0
     //                           options:UIViewAnimationOptionTransitionFlipFromBottom
@@ -167,7 +181,7 @@
     }
     
     [self plotView];
-   }
+}
 
 -(void) plotView
 {
@@ -208,7 +222,7 @@
         index++;
         
     }
-
+    
 }
 -(NSInteger) getCardsCountForType:(CONTRIBUTION_TYPE) type andIndex:(NSInteger) index
 {
@@ -237,7 +251,7 @@
             [newMessages addObject:msg];
         }
     }
-
+    
     for(QBChatMessage* msg in newMessages){
         if([Utilities withinRoomLife:msg.datetime]){
             [JsonMessageParser decodeMessage:msg withDelegate:self];
@@ -247,25 +261,25 @@
 
 -(void)setPortaitMode
 {
-//    [self plotView];
+    //    [self plotView];
 }
 
 -(void) setLandscapeMode
 {
-//    [self plotView];
+    //    [self plotView];
 }
 -(NSUInteger)supportedInterfaceOrientations
 {
     
     
-        return UIInterfaceOrientationMaskAll;
+    return UIInterfaceOrientationMaskAll;
     
 }
 
 
 -(BOOL)shouldAutorotate
 {
-        return YES;
+    return YES;
 }
 
 @end
