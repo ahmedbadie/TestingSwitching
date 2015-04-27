@@ -102,7 +102,7 @@
 {
     //    self.origins = [NSMutableArray array];
     NSArray* participants = [self.chatDialog occupantIDs];
-    NSLog(@"%d",[participants count]);
+    NSLog(@"showConcludeMeetingView participants count %d",[participants count]);
     
     self.conclusionCards = [NSMutableArray array];
     UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -181,6 +181,19 @@
     }
     
     [self plotView];
+    NSInteger totalVotesForPersonalCard = 0;
+    for(HostConcludeCardViewController* card in self.conclusionCards)
+    {
+        if(card.type == CONTRIBUTION_TYPE_PERSONAL){
+            totalVotesForPersonalCard += [self getCardsCountForType:card.type andIndex:card.index];
+        }
+    }
+    NSInteger participants = self.users.count;
+    if(totalVotesForPersonalCard == participants){
+        NSLog(@"Meeting Conclusion did finish");
+        [self saveScreenshot:nil];
+    }
+    
 }
 
 -(void) plotView
