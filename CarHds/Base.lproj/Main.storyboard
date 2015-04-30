@@ -116,12 +116,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="a9h-Io-a0t" userLabel="BottomLeftView">
-                                        <rect key="frame" x="24" y="531.00000040915711" width="224" height="465"/>
+                                        <rect key="frame" x="24" y="531.00000170694511" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="fb4-K9-MpO" userLabel="BottomMiddleView">
-                                        <rect key="frame" x="272" y="531.00000040915711" width="224" height="465"/>
+                                        <rect key="frame" x="272" y="531.00000170694511" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>

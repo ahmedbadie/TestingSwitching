@@ -8,33 +8,34 @@
 
 #import "SingleCardViewController.h"
 
-@interface SingleCardViewController ()
+@interface SingleCardViewController
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+
 @end
 
 @implementation SingleCardViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
+    // Do any additional setup after loading the view.
+
     if(!self.manualImage)
         [self setImageWithAnimation:NO];
     
-    // Do any additional setup after loading the view.
 }
 
 -(void)setImageWithAnimation:(BOOL)animated
 {
     NSString* imageName = @"";
     if(self.type == 0)
-     imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
+     imageName = [NSString stringWithFormat:@"caRHds for odesk project.%ld%@.png",(self.index+1),self.value? @"a":@"b"];
     if(self.type==1)
     {
-        imageName= [NSString stringWithFormat:@"participantConclusion%d.png",(self.index+1)];
+        imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(self.index+1)];
         animated= NO;
     }else if (self.type == 2)
     {
-        imageName= [NSString stringWithFormat:@"meetingConclusion%d.png",(self.index+1)];
+        imageName= [NSString stringWithFormat:@"meetingConclusion%ld.png",(self.index+1)];
         animated= NO;
     }
     UIImage* image = [UIImage imageNamed:imageName];
@@ -148,14 +149,14 @@
 {
     NSString* imageName = @"";
     if(self.type == 0)
-        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
+        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%ld%@.png",(self.index+1),self.value? @"a":@"b"];
     if(self.type==1)
     {
-        imageName= [NSString stringWithFormat:@"participantConclusion%d.png",(self.index+1)];
+        imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(self.index+1)];
         animated= NO;
     }else if (self.type == 2)
     {
-        imageName= [NSString stringWithFormat:@"meetingConclusion%d.png",(self.index+1)];
+        imageName= [NSString stringWithFormat:@"meetingConclusion%ld.png",(self.index+1)];
         animated= NO;
     }
     UIImage* image = [UIImage imageNamed:imageName];

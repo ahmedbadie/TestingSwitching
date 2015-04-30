@@ -21,7 +21,7 @@
     self.cardLabel.layer.borderWidth = 1.0f;
     [self.cardLabel.layer setCornerRadius:self.cardLabel.frame.size.width/2];
     self.cardLabel.clipsToBounds = YES;
-    [self.cardLabel setText:[NSString stringWithFormat:@"%d",self.cardVotes]];
+    [self.cardLabel setText:[NSString stringWithFormat:@"%ld",(long)self.cardVotes]];
 
     [self setImage:NO];
     
@@ -41,7 +41,7 @@
             break;
     }
     
-    imageName = [NSString stringWithFormat:@"%@%d%@.png",imageName,(self.index+1),grayScale? @"Gray":@"" ];
+    imageName = [NSString stringWithFormat:@"%@%ld%@.png",imageName,(self.index+1),grayScale? @"Gray":@"" ];
     UIImage* image = [UIImage imageNamed:imageName];
     [self.cardImageView setImage:image];
 }
@@ -55,7 +55,7 @@
 -(void)setValueLabel:(NSInteger)value
 {
     self.cardVotes = value;
-    [self.cardLabel setText:[NSString stringWithFormat:@"%d",self.cardVotes]];
+    [self.cardLabel setText:[NSString stringWithFormat:@"%ld",(long)self.cardVotes]];
 }
 
 @end

@@ -146,7 +146,7 @@ static MeetingHandler* handler;
     NSMutableDictionary* params = [NSMutableDictionary dictionary];
     params[@"save_to_history"] = @YES;
     [message setCustomParameters:params];
-    BOOL result = [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
+     [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
 }
 
 @end

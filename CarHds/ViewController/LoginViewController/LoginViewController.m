@@ -303,6 +303,7 @@
         [defaults setObject:@(self.user.ID) forKey: USER_ID_KEY];
         [defaults setObject:self.user.password forKey:USER_PASSWORD_KEY];
         [QBChat instance].delegate =self;
+
         [[ChatService instance] loginWithUser:self.user completionBlock:^{
             [MeetingHandler sharedInstance].qbUser = [QBUUser new];
             [MeetingHandler sharedInstance].qbUser.login = [self.usernameTextField text];

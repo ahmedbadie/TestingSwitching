@@ -35,7 +35,7 @@
 +(NSString *)getErrorMessage:(NSError *)error
 {
     
-    NSString* key = [NSString stringWithFormat:@"%@:%d",error.domain,error.code];
+    NSString* key = [NSString stringWithFormat:@"%@:%ld",error.domain,(long)error.code];
     if([error.userInfo objectForKey:@"NSLocalizedRecoverySuggestion"])
     {
         key = [error.userInfo objectForKey:@"NSLocalizedRecoverySuggestion"];

@@ -47,18 +47,38 @@
     
 }
 
--(IBAction)saveScreenshot:(id)sender{
+-(void)votingDidFinish{
     UIImage * screenshot = [Utilities imageWithView:self.view];
     
-    UIImageWriteToSavedPhotosAlbum(screenshot,
-                                   self,
-                                   @selector(image:didFinishSavingWithError:contextInfo:),
-                                   nil);
+    UIActivityViewController *activityViewController =
+    [[UIActivityViewController alloc] initWithActivityItems:@[screenshot]
+                                      applicationActivities:nil];
+    
+    if ( [activityViewController respondsToSelector:@selector(popoverPresentationController)] )
+    {
+        activityViewController.popoverPresentationController.sourceView = self.view;
+        
+    }
+    
+    [self presentViewController:activityViewController
+                       animated:YES
+                     completion:^{
+                         NSLog(@"votingDidFinish presentViewController completion");
+                     }];
+    
 }
-
-- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo: (void *) contextInfo{
-    NSLog(@"screenshotDidSave");
-}
+//-(IBAction)saveScreenshot:(id)sender{
+//    UIImage * screenshot = [Utilities imageWithView:self.view];
+//
+//    UIImageWriteToSavedPhotosAlbum(screenshot,
+//                                   self,
+//                                   @selector(image:didFinishSavingWithError:contextInfo:),
+//                                   nil);
+//}
+//
+//- (void)image:(UIImage *)image didFinishSavingWithError:(NSError *)error contextInfo: (void *) contextInfo{
+//    NSLog(@"screenshotDidSave");
+//}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -102,7 +122,7 @@
 {
     //    self.origins = [NSMutableArray array];
     NSArray* participants = [self.chatDialog occupantIDs];
-    NSLog(@"showConcludeMeetingView participants count %d",[participants count]);
+    NSLog(@"showConcludeMeetingView participants count %lu",(unsigned long)[participants count]);
     
     self.conclusionCards = [NSMutableArray array];
     UIStoryboard* storyBoard =[UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -191,7 +211,8 @@
     NSInteger participants = self.users.count;
     if(totalVotesForPersonalCard == participants){
         NSLog(@"Meeting Conclusion did finish");
-        [self saveScreenshot:nil];
+        //        [self saveScreenshot:nil];
+        [self votingDidFinish];
     }
     
 }
@@ -203,14 +224,14 @@
     {
         NSInteger count = [self getCardsCountForType:card.type andIndex:card.index];
         card.cardVotes = count;
-        [card.cardCountLabel setText:[NSString stringWithFormat:@"%d",count]];
+        [card.cardCountLabel setText:[NSString stringWithFormat:@"%ld",(long)count]];
         [card reloadScreen];
         [temp addObject:card];
     }
     
     NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"self" ascending: NO];
     NSArray* temp2=  [temp sortedArrayUsingDescriptors: [NSArray arrayWithObject: sortOrder]];
-    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
+//    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
     int index = 0;
     CGSize size = self.topLeftViewConclude.frame.size;
     for(HostConcludeCardViewController* card in temp2)

@@ -17,7 +17,10 @@
 #define QUICK_BLOX_SERVICE_SECRET @"BRjDAHj6VS4ecSX"
 #define QUICK_BLOX_ACCOUNT_KEY @"sPS3sLj1ckQRB7koe5hw"
 
-#define INSTABUG_APP_TOKEN @"6970dd76a24378c0a418ea19419a8f8f"
+//#define INSTABUG_APP_TOKEN @"6970dd76a24378c0a418ea19419a8f8f"
+#define INSTABUG_APP_TOKEN @"adcd586d6f5830fe42d60d744248c8c9" // inova app id
+
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

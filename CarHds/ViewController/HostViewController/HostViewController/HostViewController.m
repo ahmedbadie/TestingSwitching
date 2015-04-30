@@ -79,18 +79,10 @@
             [self.viewControllers replaceObjectAtIndex:card.index withObject:card];
         }
         
-        UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-//        if(UIDeviceOrientationIsPortrait(orientation))
-//        {
-//            [self setPortaitMode];
-//        }else if (UIDeviceOrientationIsLandscape(orientation))
-//        {
-//            
-//            [self setLandscapeMode];
-//        }
-        [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
+        
+        [self.numberOfParticipants setText:[NSString stringWithFormat:@"%lu",(unsigned long)[[self.users allKeys] count]]];
         [self.view addSubview:self.IpadView];
-         }else{
+    }else{
         [self.IphoneView setHidden:NO];
         [self.IpadView removeFromSuperview];
     }
@@ -111,25 +103,15 @@
 -(void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
-//    if(UIDeviceOrientationIsPortrait(orientation))
-//    {
-//        [self setPortaitMode];
-//    }else if (UIDeviceOrientationIsLandscape(orientation))
-//    {
-//        
-//        [self setLandscapeMode];
-//    }
-    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-      
     
     
     
-#warning Uncommint the 2 lines
+    
+    //#warning Uncommint the 2 lines
     self.title = self.chatDialog.name;
     
     [[MeetingHandler sharedInstance] connectToChatDialog:self.chatDialog];
@@ -225,7 +207,7 @@
             [newMessages addObject:msg];
         }
     }
-
+    
     [self.msgs addObjectsFromArray:newMessages];
     for(QBChatMessage* msg in newMessages){
         if([Utilities withinRoomLife:msg.datetime]){
@@ -250,7 +232,7 @@
     if(dictionary==nil)
     {
         dictionary = [NSMutableDictionary dictionary];
-        [dictionary setObject:[NSString stringWithFormat:@"%u",userId] forKey:MESSAGE_LOGIN_USERNAME];
+        [dictionary setObject:[NSString stringWithFormat:@"%lu",(unsigned long)userId] forKey:MESSAGE_LOGIN_USERNAME];
         NSMutableArray* cards = [NSMutableArray array];
         for(int i=0;i<5;i++)
             [cards addObject:@YES];
@@ -276,14 +258,14 @@
 }
 -(void)receivedConclusionSignal
 {
-//    [self.hud hide:YES];
-//    self.canConclude = NO;
-//    [self warnUserWithMessage:@"Meeting Conclusion started"];
-//    if(!self.concludeMeetingOn)
-//    {
-//        self.concludeMeetingOn = YES;
-//        [self showConcludeMeetingView];
-//    }
+    //    [self.hud hide:YES];
+    //    self.canConclude = NO;
+    //    [self warnUserWithMessage:@"Meeting Conclusion started"];
+    //    if(!self.concludeMeetingOn)
+    //    {
+    //        self.concludeMeetingOn = YES;
+    //        [self showConcludeMeetingView];
+    //    }
     
     
 }
@@ -313,14 +295,14 @@
     {
         NSInteger count = [self getCardsCountForType:card.type andIndex:card.index];
         card.cardVotes = count;
-        [card.cardCountLabel setText:[NSString stringWithFormat:@"%d",count]];
+        [card.cardCountLabel setText:[NSString stringWithFormat:@"%ld",(long)count]];
         [card reloadScreen];
         [temp addObject:card];
     }
     
     NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"self" ascending: NO];
     NSArray* temp2=  [temp sortedArrayUsingDescriptors: [NSArray arrayWithObject: sortOrder]];
-    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
+    //    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
     int index = 0;
     CGSize size = self.topLeftViewConclude.frame.size;
     for(HostConcludeCardViewController* card in temp2)
@@ -363,7 +345,7 @@
         [dictionary setObject:cards forKey:@"cards"];
         [self.users setObject:dictionary forKey:@(userId)];
     }
-    [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
+    [self.numberOfParticipants setText:[NSString stringWithFormat:@"%lu",(unsigned long)[[self.users allKeys] count]]];
     
 }
 
@@ -377,7 +359,7 @@
         BOOL value = YES;
         
         NSArray* allKeys = [self.users allKeys];
-        [self.numberOfParticipants setText:[NSString stringWithFormat:@"%d",[[self.users allKeys] count]]];
+        [self.numberOfParticipants setText:[NSString stringWithFormat:@"%lu",(unsigned long)[[self.users allKeys] count]]];
         
         for(NSString* key in allKeys)
         {
@@ -395,11 +377,11 @@
 - (IBAction)concludeMeeting:(id)sender {
     NSLog(@"Conclude Meeting");
     if(self.canConclude){
-       if([[self.users allKeys] count] <1)
-       {
-           [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
+        if([[self.users allKeys] count] <1)
+        {
+            [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
             return;
-}
+        }
         UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Conclude Meeting"
                                                            message:STRING(@"ConcludeMeetingConfirmation")
                                                           delegate:self
@@ -531,7 +513,7 @@
                         self.card0View.frame = CGRectMake(247, 277, 275, 470);
                         self.numberOfParticipants.frame = CGRectMake(15, 23, 80, 80);
                         self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
-
+                        
                         for(UIViewController* card in self.viewControllers)
                             card.view.frame = CGRectMake(0, 0, size.width, size.height);
                         
