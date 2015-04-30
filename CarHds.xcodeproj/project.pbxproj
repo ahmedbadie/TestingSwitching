@@ -11,6 +11,7 @@
 		210757E11AEE97C3005D158C /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757DF1AEE97C3005D158C /* checkbox.png */; };
 		210757E41AEE9C31005D158C /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757E21AEE9C31005D158C /* checkbox_checked@2x.png */; };
 		210757E51AEE9C31005D158C /* checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757E31AEE9C31005D158C /* checkbox@2x.png */; };
+		210BAC801AF2A49E00D4BEC0 /* LucidaGrande.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 210BAC7F1AF2A49E00D4BEC0 /* LucidaGrande.ttc */; };
 		390424481A52D9FC00370E80 /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390424471A52D9FC00370E80 /* ClientViewController.m */; };
 		3904244C1A52F74200370E80 /* MeetingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904244B1A52F74200370E80 /* MeetingHandler.m */; };
 		390424501A530E7900370E80 /* JsonMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904244F1A530E7900370E80 /* JsonMessageParser.m */; };
@@ -127,6 +128,7 @@
 		210757DF1AEE97C3005D158C /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
 		210757E21AEE9C31005D158C /* checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_checked@2x.png"; sourceTree = "<group>"; };
 		210757E31AEE9C31005D158C /* checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox@2x.png"; sourceTree = "<group>"; };
+		210BAC7F1AF2A49E00D4BEC0 /* LucidaGrande.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = LucidaGrande.ttc; sourceTree = "<group>"; };
 		390424461A52D9FC00370E80 /* ClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientViewController.h; sourceTree = "<group>"; };
 		390424471A52D9FC00370E80 /* ClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientViewController.m; sourceTree = "<group>"; };
 		3904244A1A52F74200370E80 /* MeetingHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingHandler.h; sourceTree = "<group>"; };
@@ -594,6 +596,7 @@
 		396769C61A5C3720003444D2 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				210BAC7F1AF2A49E00D4BEC0 /* LucidaGrande.ttc */,
 				396769C71A5C3720003444D2 /* Arial Narrow.ttf */,
 			);
 			path = Fonts;
@@ -677,26 +680,26 @@
 		398AADC51A51DE870003EF8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				39116A161A5453840043C245 /* Instabug.bundle */,
-				39116A171A5453840043C245 /* Instabug.framework */,
+				39116A0A1A54532B0043C245 /* AudioToolbox.framework */,
+				395E4CCC1A51EAF2006361BA /* CFNetwork.framework */,
+				398AADD21A51DF470003EF8C /* CoreGraphics.framework */,
+				39116A061A54531F0043C245 /* CoreMotion.framework */,
+				39116A081A5453250043C245 /* CoreTelephony.framework */,
 				39116A141A5453600043C245 /* Foundation.framework */,
 				39116A121A5453520043C245 /* GLKit.framework */,
-				39116A101A54534B0043C245 /* OpenGLES.framework */,
-				39116A0E1A54533E0043C245 /* MessageUI.framework */,
-				39116A0C1A5453310043C245 /* QuartzCore.framework */,
-				39116A0A1A54532B0043C245 /* AudioToolbox.framework */,
-				39116A081A5453250043C245 /* CoreTelephony.framework */,
-				39116A061A54531F0043C245 /* CoreMotion.framework */,
+				39116A161A5453840043C245 /* Instabug.bundle */,
+				39116A171A5453840043C245 /* Instabug.framework */,
+				395E4CC81A51EAB8006361BA /* libbz2.1.0.dylib */,
 				39116A041A5453170043C245 /* libc++.dylib */,
 				395E4CCE1A51F05B006361BA /* libresolv.dylib */,
-				395E4CCC1A51EAF2006361BA /* CFNetwork.framework */,
-				395E4CCA1A51EAE6006361BA /* libz.dylib */,
-				395E4CC81A51EAB8006361BA /* libbz2.1.0.dylib */,
-				395E4CC61A51EA80006361BA /* SystemConfiguration.framework */,
-				395E4CC41A51EA5D006361BA /* MobileCoreServices.framework */,
 				395E4CBD1A51E401006361BA /* libxml2.dylib */,
+				395E4CCA1A51EAE6006361BA /* libz.dylib */,
+				39116A0E1A54533E0043C245 /* MessageUI.framework */,
+				395E4CC41A51EA5D006361BA /* MobileCoreServices.framework */,
+				39116A101A54534B0043C245 /* OpenGLES.framework */,
+				39116A0C1A5453310043C245 /* QuartzCore.framework */,
 				398AADD41A51DF5F0003EF8C /* Quickblox.framework */,
-				398AADD21A51DF470003EF8C /* CoreGraphics.framework */,
+				395E4CC61A51EA80006361BA /* SystemConfiguration.framework */,
 				398AADD01A51DF360003EF8C /* UIKit.framework */,
 			);
 			name = Frameworks;
@@ -860,6 +863,7 @@
 				391C20A41A5AE08000A44F30 /* registerButton_ipad@2x.png in Resources */,
 				396769A11A5BFDA9003444D2 /* icon.png in Resources */,
 				391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */,
+				210BAC801AF2A49E00D4BEC0 /* LucidaGrande.ttc in Resources */,
 				396769A21A5BFDA9003444D2 /* icon@2x.png in Resources */,
 				394680D01A63168700ECA925 /* meetingConclusion2Gray.png in Resources */,
 				398AADB01A51DE530003EF8C /* LaunchScreen.xib in Resources */,

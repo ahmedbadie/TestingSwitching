@@ -8,18 +8,72 @@
 
 #import "SingleCardViewController.h"
 
-@interface SingleCardViewController()
+@interface SingleCardViewController()<UITableViewDataSource>
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
+@property (weak, nonatomic) IBOutlet UITableView *namesTableview;
+@property (strong, nonatomic)  NSArray *namesArray;
 
 @end
 
 @implementation SingleCardViewController
 
+-(NSString *)getUserNameForIndexPath:(NSIndexPath *)indexPath{
+    
+    if(indexPath.row == 0){
+        return  @"";
+    }
+    
+    if(indexPath.row == self.namesArray.count + 1){
+        return  @"";
+    }
+    NSInteger userIndex =(indexPath.row-1);
+    NSDictionary * user = [self.namesArray objectAtIndex:userIndex];
+    return [user objectForKey:@"username"];
+    
+    //    return [NSString stringWithFormat:@"index %ld",(long)userIndex];
+}
+
+-(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
+    
+    static NSString * cellIdentifier = @"NameCell";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    if(cell == nil){
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell.textLabel.textAlignment = NSTextAlignmentCenter;
+        cell.textLabel.textColor = [UIColor whiteColor];
+        cell.textLabel.font = [UIFont fontWithName:@"LucidaGrande-Bold" size:21];
+        cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
+        
+    }
+    
+    cell.textLabel.text = [self getUserNameForIndexPath:indexPath];
+    
+    return  cell;
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    
+    
+    if(self.namesArray == nil || self.namesArray.count == 0){
+        return 0;
+    }
+    return self.namesArray.count + 2;
+}
+
+-(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
+    return 1;
+}
+
+-(void)setCardUserNames:(NSArray *)usersNames{
+    self.namesArray = usersNames;
+    [self.namesTableview reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-
+    
     if(!self.manualImage)
         [self setImageWithAnimation:NO];
     
@@ -29,14 +83,14 @@
 {
     NSString* imageName = @"";
     if(self.type == 0)
-     imageName = [NSString stringWithFormat:@"caRHds for odesk project.%ld%@.png",(self.index+1),self.value? @"a":@"b"];
+        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%ld%@.png",(long)(self.index+1),self.value? @"a":@"b"];
     if(self.type==1)
     {
-        imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(self.index+1)];
+        imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(long)(self.index+1)];
         animated= NO;
     }else if (self.type == 2)
     {
-        imageName= [NSString stringWithFormat:@"meetingConclusion%ld.png",(self.index+1)];
+        imageName= [NSString stringWithFormat:@"meetingConclusion%ld.png",(long)(self.index+1)];
         animated= NO;
     }
     UIImage* image = [UIImage imageNamed:imageName];
@@ -53,21 +107,21 @@
                         } completion:^(BOOL finished) {
                             //  Do whatever when the animation is finished
                         }];
-    
+        
     }else{
-    [self.imageView  setImage:image];
+        [self.imageView  setImage:image];
         //    [self.view addSubview:self.imageView];
-
+        
     }
-
+    
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     if(self.shouldHandleTap){
-    self.gesuterRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap)];
-    self.gesuterRecognizer.delegate = self;
-    [self.view addGestureRecognizer:self.gesuterRecognizer];
+        self.gesuterRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(handleTap)];
+        self.gesuterRecognizer.delegate = self;
+        [self.view addGestureRecognizer:self.gesuterRecognizer];
     }
 }
 -(void)viewDidAppear:(BOOL)animated
@@ -79,9 +133,9 @@
 -(void)viewWillDisappear:(BOOL)animated
 {
     if(self.shouldHandleTap){
-    [self.gesuterRecognizer removeTarget:self action:@selector(handleTap)];
-    self.gesuterRecognizer.delegate = self;
-    [self.view removeGestureRecognizer:self.gesuterRecognizer];
+        [self.gesuterRecognizer removeTarget:self action:@selector(handleTap)];
+        self.gesuterRecognizer.delegate = self;
+        [self.view removeGestureRecognizer:self.gesuterRecognizer];
     }
 }
 - (void)didReceiveMemoryWarning {
@@ -98,14 +152,14 @@
     
 }
 /*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
+ #pragma mark - Navigation
+ 
+ // In a storyboard-based application, you will often want to do a little preparation before navigation
+ - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+ // Get the new view controller using [segue destinationViewController].
+ // Pass the selected object to the new view controller.
+ }
+ */
 - (UIImage *)imageRotatedByDegrees:(UIImage*)oldImage deg:(CGFloat)degrees{
     //Calculate the size of the rotated view's containing box for our drawing space
     UIView *rotatedViewBox = [[UIView alloc] initWithFrame:CGRectMake(0,0,oldImage.size.width, oldImage.size.height)];
@@ -135,7 +189,7 @@
 -(BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldReceiveTouch:(UITouch *)touch
 {
     return YES;
-    }
+}
 
 -(UIImage *)getImage
 {
@@ -150,7 +204,7 @@
 {
     NSString* imageName = @"";
     if(self.type == 0)
-        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%ld%@.png",(self.index+1),self.value? @"a":@"b"];
+        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
     if(self.type==1)
     {
         imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(self.index+1)];
@@ -180,6 +234,6 @@
         //    [self.view addSubview:self.imageView];
         
     }
-
+    
 }
 @end

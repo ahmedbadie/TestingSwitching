@@ -28,4 +28,6 @@
 -(void) setImageForced:(UIImage*)image;
 -(UIImage*) getImage;
 -(void)setImageWithAnimation:(BOOL) animated ofType:(UIViewAnimationOptions) animationType;
+-(void)setCardUserNames:(NSArray *)usersNames;
+
 @end

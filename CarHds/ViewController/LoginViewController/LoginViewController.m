@@ -174,7 +174,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     self.rememberMe = [self loadRememberMe];
     [self updateRemberMeButton:self.rememberMe];
     
@@ -192,7 +192,7 @@
     self.operationTypeSegmentedControl.layer.cornerRadius = 4.0f;
     self.operationTypeSegmentedControl.layer.masksToBounds = YES;
     self.goButton.layer.cornerRadius = self.goButton.frame.size.width/2;
-    NSLog(@"----> %f    %f",self.goButton.frame.size.height/2,self.goButton.frame.size.width/2);
+//    NSLog(@"----> %f    %f",self.goButton.frame.size.height/2,self.goButton.frame.size.width/2);
     self.goButton.clipsToBounds= YES;
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
     

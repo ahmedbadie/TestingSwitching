@@ -41,15 +41,15 @@ static MeetingHandler* handler;
                 [[MeetingHandler sharedInstance] leaveRoom:YES];
                 [[QBChat instance]logout];
             }else{
-            [self chatRoomDidEnter:self.chatRoom];
+                [self chatRoomDidEnter:self.chatRoom];
             }
-            }];
-
+        }];
+        
     }
     
     // get messages history
     [QBChat messagesWithDialogID:self.chatDialog.ID extendedRequest:nil delegate:self];
-
+    
 }
 
 
@@ -71,11 +71,11 @@ static MeetingHandler* handler;
     NSString *roomJID = notification.userInfo[kRoomJID];
     
     
-//    if(self.logOut && [message.ID isEqualToString:self.logOutmsgID])
-//    {
-//        [self.delegate didLogOut];
-//    }
-
+    //    if(self.logOut && [message.ID isEqualToString:self.logOutmsgID])
+    //    {
+    //        [self.delegate didLogOut];
+    //    }
+    
     if(![[self.chatDialog chatRoom].JID isEqualToString:roomJID]){
         return;
     }
@@ -85,7 +85,7 @@ static MeetingHandler* handler;
 }
 -(void)sendMessage:(NSString *)msg toChatRoom:(QBChatRoom *)chatRoom save:(BOOL)save
 {
-   
+    
     
     QBChatMessage *message = [[QBChatMessage alloc] init];
     message.text = msg;
@@ -94,7 +94,7 @@ static MeetingHandler* handler;
     [message setCustomParameters:params];
     [[ChatService instance] sendMessage:message toRoom:self.chatRoom];
     
-
+    
 }
 
 -(void)leaveRoom:(BOOL)write
@@ -108,7 +108,7 @@ static MeetingHandler* handler;
     [message setCustomParameters:params];
     
     [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
-
+    
 }
 #pragma mark QBActionStatusDelegate
 
@@ -122,7 +122,7 @@ static MeetingHandler* handler;
     }
 }
 
-#pragma mark 
+#pragma mark
 #pragma mark -QBChatDelegate -
 
 -(void)chatRoomDidEnter:(QBChatRoom *)room
@@ -133,7 +133,7 @@ static MeetingHandler* handler;
 
 -(void)chatDidDeliverMessageWithID:(NSString *)messageID
 {
-    }
+}
 
 -(void)closeRoom{
     // Close the room
@@ -146,7 +146,7 @@ static MeetingHandler* handler;
     NSMutableDictionary* params = [NSMutableDictionary dictionary];
     params[@"save_to_history"] = @YES;
     [message setCustomParameters:params];
-     [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
+    [[QBChat instance] sendChatMessage:message toRoom:self.chatRoom];
 }
 
 @end

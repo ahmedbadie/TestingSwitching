@@ -246,13 +246,26 @@
     
     NSArray* allKeys = [self.users allKeys];
     
+    NSMutableArray * rejectedUsers = [[NSMutableArray alloc] init];
     for(NSString* key in allKeys)
     {
-        value = value & [[[[self.users objectForKey:key] objectForKey:@"cards"] objectAtIndex:cardNo] boolValue];
+        NSDictionary * user = [self.users objectForKey:key];
+        NSArray * userCards =[user objectForKey:@"cards"];
+        BOOL cardValue = [[userCards objectAtIndex:cardNo] boolValue];
+        value = value & cardValue;
+        
+        if(!cardValue){
+            [rejectedUsers addObject:user];
+        }
     }
     if(vc.value != value){
         vc.value = value;
         [vc setImageWithAnimation:YES];
+    }
+    if(value){
+        [vc setCardUserNames:nil];
+    }else{
+        [vc setCardUserNames:rejectedUsers];
     }
     
 }
@@ -353,6 +366,8 @@
 {
     [self.users removeObjectForKey:@(msg.senderID)];
     
+    NSMutableArray * rejectedUsers = [[NSMutableArray alloc] init];
+
     for(int i=0;i<5;i++)
     {
         SingleCardViewController* vc = [self.viewControllers objectAtIndex:i];
@@ -363,12 +378,23 @@
         
         for(NSString* key in allKeys)
         {
-            value = value & [[[[self.users objectForKey:key] objectForKey:@"cards"] objectAtIndex:i] boolValue];
+            
+            
+            NSDictionary * user = [self.users objectForKey:key];
+            NSArray * userCards =[user objectForKey:@"cards"];
+            BOOL cardValue = [[userCards objectAtIndex:i] boolValue];
+            value = value & cardValue;
+            
+            if(!cardValue){
+                [rejectedUsers addObject:user];
+            }
         }
         if(vc.value != value){
             vc.value = value;
             [vc setImageWithAnimation:YES];
         }
+        
+        [vc setCardUserNames:rejectedUsers];
         
     }
     
@@ -481,8 +507,8 @@
                         self.card4View.frame = CGRectMake(xOffset, 768-20-(size.height), size.width,size.height);
                         self.card0View.frame = CGRectMake((1024/2)-(size.width/2), (768/2)-(size.height/2), size.width,size.height);
                         self.card0View.center = self.IpadView.center;
-                        self.numberOfParticipants.frame = CGRectMake(xOffset-(40), 20, 80, 80);
-                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
+//                        self.numberOfParticipants.frame = CGRectMake(xOffset-(40), 20, 80, 80);
+//                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
                         for(UIViewController* card in self.viewControllers)
                             card.view.frame = CGRectMake(0, 0, size.width, size.height);
                     } completion:^(BOOL finished) {
@@ -511,8 +537,8 @@
                         self.card3View.frame = CGRectMake(473, 534, 275, 470);
                         self.card4View.frame = CGRectMake(20, 534, 275, 470);
                         self.card0View.frame = CGRectMake(247, 277, 275, 470);
-                        self.numberOfParticipants.frame = CGRectMake(15, 23, 80, 80);
-                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
+//                        self.numberOfParticipants.frame = CGRectMake(15, 23, 80, 80);
+//                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
                         
                         for(UIViewController* card in self.viewControllers)
                             card.view.frame = CGRectMake(0, 0, size.width, size.height);
