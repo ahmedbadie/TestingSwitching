@@ -8,7 +8,8 @@
 
 #import "SingleCardViewController.h"
 
-@interface SingleCardViewController
+@interface SingleCardViewController()
+
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 
 @end
