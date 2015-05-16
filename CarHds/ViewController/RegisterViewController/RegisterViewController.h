@@ -10,8 +10,11 @@
 #import "AbstractViewController.h"
 #import "QuickBloxManager.h"
 @interface RegisterViewController : AbstractViewController
-@property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
-@property (weak, nonatomic) IBOutlet UITextField *emailTextField;
-@property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField * usernameTextField;
+@property (weak, nonatomic) IBOutlet UITextField * emailTextField;
+@property (weak, nonatomic) IBOutlet UITextField * passwordTextField;
+@property (weak, nonatomic) IBOutlet UITextField * firstNameTextField;
+@property (weak, nonatomic) IBOutlet UITextField * lastNameTextField;
+
 @property (nonatomic,weak) AbstractViewController* delegate;
 @end

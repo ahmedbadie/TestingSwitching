@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+#import <Quickblox/QBError.h>
 @interface ErrorMapper : NSObject
 @property (nonatomic,strong) NSMutableDictionary* errorDictionary;
 

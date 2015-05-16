@@ -156,7 +156,7 @@
 }
 -(void)didLogOut
 {
-    [[ChatService instance] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
+    [[ChatService shared] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
     [self.hud hide:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -199,6 +199,7 @@
 
 -(void)didReciveMessages:(NSArray *)msgs
 {
+    NSLog(@"didReciveMessages [%d]",msgs.count);
     NSMutableArray* newMessages = [NSMutableArray array];
     for (QBChatMessage* msg in msgs){
         if([JsonMessageParser isCloseRoomMessage:msg.text] && [msg.datetime compare:connectionDate] == NSOrderedAscending){
@@ -342,16 +343,18 @@
     }
 }
 
--(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
-{
+-(void)receivedLoginMessageForUsername:(NSString *)username fullname:(NSString *)fullName fromMsg:(QBChatMessage *)msg{
+    
     NSUInteger userId = msg.senderID;
     
-    NSMutableDictionary* dictionary = [self.users objectForKey:@(userId)];
+    NSMutableDictionary * dictionary = [self.users objectForKey:@(userId)];
     
     if(dictionary==nil)
     {
         dictionary = [NSMutableDictionary dictionary];
         [dictionary setObject:username forKey:MESSAGE_LOGIN_USERNAME];
+        [dictionary setObject:fullName forKey:MESSAGE_LOGIN_FULLNAME];
+        
         NSMutableArray* cards = [NSMutableArray array];
         for(int i=0;i<5;i++)
             [cards addObject:@YES];
@@ -367,7 +370,7 @@
     [self.users removeObjectForKey:@(msg.senderID)];
     
     NSMutableArray * rejectedUsers = [[NSMutableArray alloc] init];
-
+    
     for(int i=0;i<5;i++)
     {
         SingleCardViewController* vc = [self.viewControllers objectAtIndex:i];
@@ -507,8 +510,8 @@
                         self.card4View.frame = CGRectMake(xOffset, 768-20-(size.height), size.width,size.height);
                         self.card0View.frame = CGRectMake((1024/2)-(size.width/2), (768/2)-(size.height/2), size.width,size.height);
                         self.card0View.center = self.IpadView.center;
-//                        self.numberOfParticipants.frame = CGRectMake(xOffset-(40), 20, 80, 80);
-//                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
+                        //                        self.numberOfParticipants.frame = CGRectMake(xOffset-(40), 20, 80, 80);
+                        //                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
                         for(UIViewController* card in self.viewControllers)
                             card.view.frame = CGRectMake(0, 0, size.width, size.height);
                     } completion:^(BOOL finished) {
@@ -537,8 +540,8 @@
                         self.card3View.frame = CGRectMake(473, 534, 275, 470);
                         self.card4View.frame = CGRectMake(20, 534, 275, 470);
                         self.card0View.frame = CGRectMake(247, 277, 275, 470);
-//                        self.numberOfParticipants.frame = CGRectMake(15, 23, 80, 80);
-//                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
+                        //                        self.numberOfParticipants.frame = CGRectMake(15, 23, 80, 80);
+                        //                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
                         
                         for(UIViewController* card in self.viewControllers)
                             card.view.frame = CGRectMake(0, 0, size.width, size.height);

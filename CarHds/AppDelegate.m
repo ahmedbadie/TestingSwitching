@@ -25,7 +25,8 @@
     [QBConnection registerServiceKey:QUICK_BLOX_SERVICE_KEY];
     [QBConnection registerServiceSecret:QUICK_BLOX_SERVICE_SECRET];
     [QBSettings setAccountKey:QUICK_BLOX_ACCOUNT_KEY];
-
+    [QBSettings setLogLevel:QBLogLevelErrors];
+    
     NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:USER_ID_KEY];
     [defaults removeObjectForKey:USER_PASSWORD_KEY];
@@ -45,8 +46,8 @@
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
     // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-//    loggedIn = [[QBChat instance] isLoggedIn];
-//    [[QBChat instance]logout];
+    //    loggedIn = [[QBChat instance] isLoggedIn];
+    //    [[QBChat instance]logout];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -57,13 +58,13 @@
         QBUUser* user = [QBUUser new];
         user.ID = [[defualts objectForKey:USER_ID_KEY] unsignedIntegerValue];
         user.password = [defualts objectForKey:USER_PASSWORD_KEY];
-        [[ChatService instance] loginWithUser:user completionBlock:^{
-        
+        [[ChatService shared] loginWithUser:user completionBlock:^{
+            
             if([MeetingHandler sharedInstance].chatDialog!=nil)
             {
                 QBChatDialog* chatDialog  = [MeetingHandler sharedInstance].chatDialog;
                 [[MeetingHandler sharedInstance] connectToChatDialog:chatDialog];
-                }
+            }
         }];
         
     }
@@ -81,20 +82,20 @@
         QBUUser* user = [QBUUser new];
         user.ID = [[defualts objectForKey:USER_ID_KEY] unsignedIntegerValue];
         user.password = [defualts objectForKey:USER_PASSWORD_KEY];
-        [[ChatService instance] loginWithUser:user completionBlock:^{
+        [[ChatService shared] loginWithUser:user completionBlock:^{
             
             if([MeetingHandler sharedInstance].chatDialog!=nil)
             {
-//                QBChatDialog* chatDialog  = [MeetingHandler sharedInstance].chatDialog;
-//                [MeetingHandler sharedInstance].terminate = YES;
-//                [[MeetingHandler sharedInstance] connectToChatDialog:chatDialog];
-
+                //                QBChatDialog* chatDialog  = [MeetingHandler sharedInstance].chatDialog;
+                //                [MeetingHandler sharedInstance].terminate = YES;
+                //                [[MeetingHandler sharedInstance] connectToChatDialog:chatDialog];
+                
                 [[MeetingHandler sharedInstance] leaveRoom:YES];
             }
         }];
         
     }
-
+    
 }
 
 @end

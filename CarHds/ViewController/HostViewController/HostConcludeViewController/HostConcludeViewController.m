@@ -47,7 +47,8 @@
     
 }
 
--(void)votingDidFinish{
+-(void)takeScreenShotAndShare{
+    
     UIImage * screenshot = [Utilities imageWithView:self.view];
     
     UIActivityViewController *activityViewController =
@@ -56,15 +57,25 @@
     
     if ( [activityViewController respondsToSelector:@selector(popoverPresentationController)] )
     {
-        activityViewController.popoverPresentationController.sourceView = self.view;
-        
+        activityViewController.popoverPresentationController.sourceView = self.shareScreenShotButton;
+        activityViewController.popoverPresentationController.sourceRect = CGRectMake(self.shareScreenShotButton.frame.size.width/2, 0, 1, 1);
+        activityViewController.popoverPresentationController.permittedArrowDirections = UIPopoverArrowDirectionDown;
     }
+    
     
     [self presentViewController:activityViewController
                        animated:YES
                      completion:^{
                          NSLog(@"votingDidFinish presentViewController completion");
                      }];
+}
+
+-(IBAction)takeScreenShotAndShare:(id)sender{
+    [self takeScreenShotAndShare];
+}
+
+-(void)votingDidFinish{
+    [self takeScreenShotAndShare];
     
 }
 //-(IBAction)saveScreenshot:(id)sender{
@@ -112,7 +123,7 @@
 }
 -(void)didLogOut
 {
-    [[ChatService instance] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
+    [[ChatService shared] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
     [self.hud hide:YES];
     [self dismissViewControllerAnimated:YES completion:nil];
 }
@@ -193,7 +204,7 @@
         }
         int index = (type*3) + val;
         HostConcludeCardViewController* newCard = [self.conclusionCards objectAtIndex:index];
-        [newCard addVote:[[self.users objectForKey:@(key)] objectForKey:MESSAGE_LOGIN_USERNAME] :key];
+        [newCard addVote:[[self.users objectForKey:@(key)] objectForKey:MESSAGE_LOGIN_FULLNAME] :key];
         
         
         [array replaceObjectAtIndex:type withObject:@(val)];
@@ -231,7 +242,7 @@
     
     NSSortDescriptor* sortOrder = [NSSortDescriptor sortDescriptorWithKey: @"self" ascending: NO];
     NSArray* temp2=  [temp sortedArrayUsingDescriptors: [NSArray arrayWithObject: sortOrder]];
-//    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
+    //    NSArray* views = @[self.topLeftViewConclude,self.topMiddleViewConclude,self.topRightViewConclude,self.BottomLeftViewConclude,self.BottomMiddleViewConclude,self.BottomRightViewConclude];
     int index = 0;
     CGSize size = self.topLeftViewConclude.frame.size;
     for(HostConcludeCardViewController* card in temp2)

@@ -174,11 +174,11 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     self.rememberMe = [self loadRememberMe];
     [self updateRemberMeButton:self.rememberMe];
     
-        [self loadCredentials];
+    [self loadCredentials];
     
     
     self.index = 0;
@@ -188,28 +188,26 @@
         [self.operationTypeSegmentedControl setSelectedSegmentIndex:1];
         [self.operationTypeSegmentedControl setHidden:YES];
         [self.operationTypeSegmentedControl setEnabled:NO forSegmentAtIndex:0];
+        self.titleLabel.text = @"Join Meeting";
+    }else{
+        self.titleLabel.text = @"Open or Join Meeting";
     }
+    
     self.operationTypeSegmentedControl.layer.cornerRadius = 4.0f;
     self.operationTypeSegmentedControl.layer.masksToBounds = YES;
-    self.goButton.layer.cornerRadius = self.goButton.frame.size.width/2;
-//    NSLog(@"----> %f    %f",self.goButton.frame.size.height/2,self.goButton.frame.size.width/2);
     self.goButton.clipsToBounds= YES;
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-    
+
     UIInterfaceOrientation orientation = self.interfaceOrientation;
     if(UIInterfaceOrientationIsPortrait(orientation))
     {
         [self setPortaitMode];
-    }else if (UIInterfaceOrientationIsLandscape(orientation))
-    {
-        
+    }else if (UIInterfaceOrientationIsLandscape(orientation)){
         [self setLandscapeMode];
-    }else
-    {
+    }else{
         [self setPortaitMode];
     }
-    
-    
+
     
 }
 
@@ -238,8 +236,7 @@
     }
 }
 - (IBAction)startMeeting:(id)sender {
-    
-
+    NSLog(@"startMeeting");
     
     if([[QBChat instance]isLoggedIn])
     {
@@ -285,6 +282,23 @@
     parameters.userLogin = [self.usernameTextField text];
     parameters.userPassword =[self.passwordTextField text];
     
+    
+    //
+    //
+    //    [QBRequest logInWithUserLogin:[self.usernameTextField text] password:[self.passwordTextField text] successBlock:^(QBResponse *response, QBUUser *user) {
+    //        NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
+    //
+    //        NSLog(@"logInWithUserLogin ******* success");
+    //    } errorBlock:^(QBResponse *response) {
+    //
+    //        NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
+    //
+    //        NSLog(@"logInWithUserLogin ******* fail");
+    //
+    //    }];
+    //
+    //    return;
+    
     //    [self performSelector:@selector(stopTasks:) withObject:@(self.index) afterDelay:3];
     [QBRequest createSessionWithExtendedParameters:parameters successBlock:^(QBResponse *response, QBASession *session) {
         self.index++ ;
@@ -292,33 +306,60 @@
         NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
         
         NSLog(STRING(@"LoginSucceded"));
+        
+        //        NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
+        //        NSLog(@"LoginSucceded [%@]",responseData);
+        
         // If logged In continue to next step
         
         NSLog(@"loggedin with [%lu] [%@] [%lu]",(unsigned long)session.userID,session.token,(unsigned long)session.deviceID);
-
-        self.user =[QBUUser new];
-        self.user.ID = session.userID;
-        self.user.login = [self.usernameTextField text];
-        self.user.password = [self.passwordTextField text];
-        [defaults setObject:@(self.user.ID) forKey: USER_ID_KEY];
-        [defaults setObject:self.user.password forKey:USER_PASSWORD_KEY];
-        [QBChat instance].delegate =self;
-
-        [[ChatService instance] loginWithUser:self.user completionBlock:^{
-            [MeetingHandler sharedInstance].qbUser = [QBUUser new];
-            [MeetingHandler sharedInstance].qbUser.login = [self.usernameTextField text];
-            [MeetingHandler sharedInstance].qbUser.ID = self.user.ID;
-            [MeetingHandler sharedInstance].qbUser.password= [self.passwordTextField text];
-            [self chatDidLogin];
-        }];
         
+        
+        [QBRequest logInWithUserLogin:[self.usernameTextField text] password:[self.passwordTextField text] successBlock:^(QBResponse *response, QBUUser *user) {
+            NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
+            
+            NSLog(@"logInWithUserLogin ******* success");
+            
+            
+            //            self.user =[QBUUser new];
+            //            self.user.ID = session.userID;
+            //            self.user.login = [self.usernameTextField text];
+            //            self.user.password = [self.passwordTextField text];
+            
+            self.user = user;
+            self.user.password = [self.passwordTextField text];
+            [defaults setObject:@(self.user.ID) forKey: USER_ID_KEY];
+            [defaults setObject:self.user.password forKey:USER_PASSWORD_KEY];
+            
+            [[ChatService shared] loginWithUser:self.user completionBlock:^{
+                NSLog(@"loginWithUser completionBlock");
+                [MeetingHandler sharedInstance].qbUser = [QBUUser new];
+                [MeetingHandler sharedInstance].qbUser.login = [self.usernameTextField text];
+                [MeetingHandler sharedInstance].qbUser.ID = self.user.ID;
+                [MeetingHandler sharedInstance].qbUser.password= [self.passwordTextField text];
+                [self chatDidLogin];
+            }];
+            
+        } errorBlock:^(QBResponse *response) {
+            
+            NSLog(@"logInWithUserLogin error");
+            
+            NSDictionary* reasons =  response.error.reasons;
+            NSLog(@"logInWithUserLogin error %@",[reasons description]);
+            
+            self.state = NO;
+            
+            [self.hud hide:YES];
+            [self warnUserWithMessage:DESC(response.error.error)];
+            
+        }];
         
     } errorBlock:^(QBResponse *response) {
         
         NSLog(@"error login");
         
         NSDictionary* reasons =  response.error.reasons;
-        NSLog(@"%@",[reasons description]);
+        NSLog(@"error login %@",[reasons description]);
         //        NSLog(@"error login message [%@]",QBDESC(response.error));
         self.state = NO;
         
@@ -338,10 +379,24 @@
     // First check if chat dialouge exists or not?
     QBChatDialog* chatDialog = [QBChatDialog new];
     chatDialog.type = QBChatDialogTypePublicGroup;
-    self.chatDialog = chatDialog;
     chatDialog.name = [self.meetingIDTextField text];
+    self.chatDialog = chatDialog;
     
-    [QBChat createDialog:chatDialog delegate:self];
+    //    [QBChat createDialog:chatDialog delegate:self];
+    [QBRequest createDialog:chatDialog successBlock:^(QBResponse *response, QBChatDialog *createdDialog) {
+        
+        NSLog(@"createDialog:chatDialog successBlock [%@][%@]",createdDialog.ID,createdDialog.name);
+        QBChatDialog* dialog = createdDialog;
+        self.chatDialog = dialog;
+        [MeetingHandler sharedInstance].chatDialog = dialog;
+        QBChatRoom* room = dialog.chatRoom;
+        
+        [MeetingHandler sharedInstance].chatRoom = room;
+        [self performSegueWithIdentifier:@"HostViewSegue" sender:self];
+        
+    } errorBlock:^(QBResponse *response) {
+        
+    }];
     
 }
 
@@ -368,14 +423,15 @@
 }
 
 #pragma mark - QuickBlox Delegate -
--(void)completedWithResult:(Result *)result
+
+-(void)completedWithResult:(QBResult *)result
 {
-    NSLog(@"completedWithResult");
+    NSLog(@"Loginviewcontroller completedWithResult");
     [self.hud hide:YES];
     if(result.success && [result isKindOfClass:[QBChatDialogResult class]])
     {
         NSLog(@"completedWithResult success QBChatDialogResult");
-
+        
         QBChatDialogResult * dialogRes = (QBChatDialogResult*) result;
         QBChatDialog* dialog = dialogRes.dialog;
         self.chatDialog = dialog;
@@ -387,7 +443,7 @@
         
     }else if (result.success && [result isKindOfClass:[QBDialogsPagedResult class]]) {
         NSLog(@"completedWithResult success QBDialogsPagedResult");
-
+        
         QBDialogsPagedResult *pagedResult = (QBDialogsPagedResult *)result;
         //
         NSArray *dialogs = pagedResult.dialogs;
@@ -397,7 +453,7 @@
         for(QBChatDialog* dialog in dialogs)
         {
             NSLog(@"[%@]  [%lu]  [%@]  [%@]",dialog.roomJID,(unsigned long)dialog.userID,dialog.ID,dialog.name);
-
+            
             if([dialog.name isEqualToString:[self.meetingIDTextField text]])
             {
                 
@@ -462,7 +518,7 @@
     {
         
         NSLog(@"completedWithResult QBRestResponse");
-
+        
         if(result.success)
         {
             [self createMeetingRoom];
@@ -474,7 +530,7 @@
     }else{
         
         NSLog(@"completedWithResult errors");
-
+        
         NSArray* errors = result.errors;
         for(NSString* error in errors)
             [self warnUserWithMessage:error];
@@ -489,12 +545,93 @@
 
 -(void)chatDidLogin
 {
-    NSLog(@"chatDidLogin");
+    NSLog(@"chatDidLogin [%@]",[self.meetingIDTextField text]);
     // If successfully loged in to chat
     NSMutableDictionary* dictionary =[NSMutableDictionary dictionary];
-    [dictionary setObject:[self.meetingIDTextField text] forKey:@"name"];
-    [QBChat dialogsWithExtendedRequest:dictionary delegate:self];
+    [dictionary setObject:[self.meetingIDTextField text] forKey:@"ـname"];
+    //    [QBChat dialogsWithExtendedRequest:dictionary delegate:self];
     
+    
+    [QBRequest dialogsForPage:nil extendedRequest:dictionary successBlock:^(QBResponse *response, NSArray *dialogObjects, NSSet *dialogsUsersIDs, QBResponsePage *page) {
+        
+        [self.hud hide:YES];
+        NSLog(@"completedWithResult success QBDialogsPagedResult");
+        
+        //
+        NSArray *dialogs = dialogObjects;
+        QBChatDialog* chatDialog;
+        QBChatRoom* room ;
+        
+        for(QBChatDialog* dialog in dialogs)
+        {
+            //            NSLog(@"[%@]  [%lu]  [%@]  [%@]",dialog.roomJID,(unsigned long)dialog.userID,dialog.ID,dialog.name);
+            
+            if([dialog.name isEqualToString:[self.meetingIDTextField text]])
+            {
+                
+                NSDate* date = dialog.lastMessageDate;
+                
+                switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
+                    case HOST_MEETING_INDEX:
+                    {
+                        // first check for last message text
+                        BOOL canResume = NO;
+                        if(dialog.userID == self.user.ID){
+                            canResume = YES;
+                        }
+                        if( !canResume && [Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText] ){
+                            [self warnUserWithMessage:@"Meeting room already exists"];
+                        }else{
+                            //                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
+                            chatDialog = dialog;
+                            self.chatDialog = chatDialog;
+                            [MeetingHandler sharedInstance].chatDialog = chatDialog;
+                            room = chatDialog.chatRoom;
+                            [MeetingHandler sharedInstance].chatRoom = room;
+                            
+                            [self joinMeetingRoomAsHost];
+                        }
+                    }
+                        break;
+                    case JOIN_MEETING_INDEX:
+                        if([Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText]){
+                            // first check for last message text
+                            chatDialog = dialog;
+                            self.chatDialog = chatDialog;
+                            [MeetingHandler sharedInstance].chatDialog = chatDialog;
+                            room = chatDialog.chatRoom;
+                            [MeetingHandler sharedInstance].chatRoom = room;
+                            [self joinMeetingRoom];
+                        }else{
+                            [self warnUserWithMessage:STRING(@"RoomExpired")];
+                        }
+                        break;
+                    default:
+                        break;
+                }
+                return;
+            }
+        }
+        // NOT Found
+        
+        switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
+            case HOST_MEETING_INDEX:
+                [self createMeetingRoom];
+                break;
+            case JOIN_MEETING_INDEX:
+                [self warnUserWithMessage:@"Meeting room doesn't exist"];
+                break;
+            default:
+                break;
+        }
+        
+        
+        
+        
+        
+    } errorBlock:^(QBResponse *response) {
+        [self.hud hide:YES];
+    }];
 }
 
 -(void) chatDidNotLogin
@@ -513,21 +650,21 @@
 
 -(void)chatRoomDidEnter:(QBChatRoom *)room
 {
-    NSLog(@"Chat room joined");
+    NSLog(@"Chat room joined [%@]",room.name);
 }
 
 -(void)chatRoomDidNotEnter:(NSString *)roomName error:(NSError *)error
 {
-    NSLog(@"Chat room wasn't entered due to error %@",DESC(error));
+    NSLog(@"Chat room name [%@] wasn't entered due to error %@",roomName,DESC(error));
 }
 - (void)chatRoomDidNotEnterRoomWithJID:(NSString *)roomJID error:(NSError *)error;
 {
-    NSLog(@"Chat room wasn't entered due to error %@",DESC(error));
+    NSLog(@"Chat room jid [%@] wasn't entered due to error %@",roomJID,DESC(error));
     
 }
 - (void)chatRoomDidLeave:(NSString *)roomName
 {
-    NSLog(@"Chat Room Did Leave");
+    NSLog(@"Chat Room Did Leave [%@]",roomName);
 }
 /**
  Fired when you did leave room
@@ -536,7 +673,7 @@
  */
 - (void)chatRoomDidLeaveRoomWithJID:(NSString *)roomJID
 {
-    NSLog(@"Chat Room Did leave room with JID");
+    NSLog(@"Chat Room Did leave room with JID [%@]",roomJID);
 }
 
 /**
@@ -546,7 +683,7 @@
  */
 - (void)chatRoomDidDestroy:(NSString *)roomName
 {
-    NSLog(@"Chat Room Did Destroy");
+    NSLog(@"Chat Room Did Destroy [%@]",roomName);
 }
 
 #pragma mark - Prepare for Segue -
@@ -610,17 +747,9 @@
     }];
 }
 
--(void) setLandscapeMode
-{
-}
+-(void) setLandscapeMode{}
 
--(void) setPortaitMode
-{
-    
-    
-    
-    
-}
+-(void) setPortaitMode{}
 
 -(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
 {
@@ -642,17 +771,13 @@
 
 -(NSUInteger)supportedInterfaceOrientations
 {
-    
     return IS_IPAD? UIInterfaceOrientationMaskAll: UIInterfaceOrientationPortrait;
-    
 }
 
 
 -(BOOL)shouldAutorotate
 {
-    
     return IS_IPAD;
-    
 }
 
 

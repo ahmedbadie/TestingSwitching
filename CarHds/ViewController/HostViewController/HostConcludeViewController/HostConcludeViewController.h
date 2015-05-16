@@ -22,5 +22,5 @@
 @property (weak, nonatomic) IBOutlet UIView *BottomMiddleViewConclude;
 @property (weak, nonatomic) IBOutlet UIView *BottomRightViewConclude;
 @property (weak, nonatomic) IBOutlet UIView *concludeIPadView;
-
+@property (weak, nonatomic) IBOutlet UIButton *shareScreenShotButton;
 @end

@@ -7,7 +7,6 @@
 //
 
 #import "AbstractViewController.h"
-#import "ChatService.h"
 #import "ChatMessageTableViewCell.h"
 #import "CardViewController.h"
 #import "HostConcludeCardViewController.h"

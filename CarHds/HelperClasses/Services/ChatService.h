@@ -7,25 +7,46 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Quickblox/Quickblox.h>
 
-#define kNotificationDidReceiveNewMessage @"kNotificationDidReceiveNewMessage"
-#define kNotificationDidReceiveNewMessageFromRoom @"kNotificationDidReceiveNewMessageFromRoom"
-#define kMessage @"kMessage"
-#define kRoomJID @"kRoomJID"
+#define kDialogUpdatedNotification @"kDialogUpdatedNotification"
+
+//#define kNotificationDidReceiveNewMessage @"kNotificationDidReceiveNewMessage"
+//#define kNotificationDidReceiveNewMessageFromRoom @"kNotificationDidReceiveNewMessageFromRoom"
+//#define kMessage @"kMessage"
+//#define kRoomJID @"kRoomJID"
+
+@protocol ChatServiceDelegate <NSObject>
+- (BOOL)chatDidReceiveMessage:(QBChatMessage *)message;
+- (BOOL)chatRoomDidReceiveMessage:(QBChatMessage *)message fromRoomJID:(NSString *)roomJID;
+- (void)chatDidLogin;
+@end
 
 @interface ChatService : NSObject<QBChatDelegate>
 
-+ (instancetype)instance;
+@property (nonatomic, readonly) QBUUser *currentUser;
+@property (weak) id<ChatServiceDelegate> delegate;
+@property (nonatomic, strong) NSMutableArray *users;
+@property (nonatomic, readonly) NSDictionary *usersAsDictionary;
+@property (nonatomic, strong) NSMutableArray *dialogs;
+@property (nonatomic, strong) NSMutableDictionary *messages;
+
++ (instancetype)shared;
 
 - (void)loginWithUser:(QBUUser *)user completionBlock:(void(^)())completionBlock;
+- (void)logout;
 
 - (void)sendMessage:(QBChatMessage *)message;
-
+- (void)sendMessage:(QBChatMessage *)message sentBlock:(void (^)(NSError *error))sentBlock;
 - (void)sendMessage:(QBChatMessage *)message toRoom:(QBChatRoom *)chatRoom;
-- (void)createOrJoinRoomWithName:(NSString *)roomName completionBlock:(void(^)(QBChatRoom *))completionBlock;
+
 - (void)joinRoom:(QBChatRoom *)room completionBlock:(void(^)(QBChatRoom *))completionBlock;
 - (void)leaveRoom:(QBChatRoom *)room;
-- (void)requestRoomsWithCompletionBlock:(void(^)(NSArray *))completionBlock;
+
+- (NSMutableArray *)messagsForDialogId:(NSString *)dialogId;
+- (void)addMessages:(NSArray *)messages forDialogId:(NSString *)dialogId;
+- (void)addMessage:(QBChatAbstractMessage *)message forDialogId:(NSString *)dialogId;
+
+- (void)requestDialogsWithCompletionBlock:(void(^)())completionBlock;
+- (void)requestDialogUpdateWithId:(NSString *)dialogId completionBlock:(void(^)())completionBlock;
 
 @end

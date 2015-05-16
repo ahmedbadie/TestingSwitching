@@ -105,9 +105,8 @@
 -(void)receivedContributionMessageForType:(CONTRIBUTION_TYPE)type withValue:(CONTRIBUTION_VALUE)val fromMsg:(QBChatMessage *)msg
 {
 }
--(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
+-(void) receivedLoginMessageForUsername:(NSString*)username fullname:(NSString *)fullName fromMsg:(QBChatMessage*) msg
 {
-
 }
 -(void)receivedCardVoteForCard:(NSInteger)cardNo withValue:(BOOL)val fromMsg:(QBChatMessage *)msg{
 

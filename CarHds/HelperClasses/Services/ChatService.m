@@ -14,19 +14,18 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
 
 @interface ChatService ()
 
-@property (copy) QBUUser *currentUser;
 @property (retain) NSTimer *presenceTimer;
 
 @property (copy) CompletionBlock loginCompletionBlock;
 @property (copy) JoinRoomCompletionBlock joinRoomCompletionBlock;
-@property (copy) CompletionBlockWithResult requestRoomsCompletionBlock;
+@property (copy) CompletionBlock getDialogsCompletionBlock;
 
 @end
 
 
 @implementation ChatService
 
-+ (instancetype)instance{
++ (instancetype)shared{
     static id instance_ = nil;
     
     static dispatch_once_t onceToken;
@@ -40,31 +39,43 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
 - (id)init{
     self = [super init];
     if(self){
-        [QBChat instance].delegate = self;
+        [[QBChat instance] addDelegate:self];
+        //
+        [QBChat instance].autoReconnectEnabled = NO;
+        //
+        [QBChat instance].streamManagementEnabled = NO;
+        
+        self.messages = [NSMutableDictionary dictionary];
     }
     return self;
+}
+
+- (QBUUser *)currentUser{
+    return [[QBChat instance] currentUser];
 }
 
 - (void)loginWithUser:(QBUUser *)user completionBlock:(void(^)())completionBlock{
     self.loginCompletionBlock = completionBlock;
     
-    self.currentUser = user;
-    
     [[QBChat instance] loginWithUser:user];
+}
+
+- (void)logout{
+    [[QBChat instance] logout];
 }
 
 - (void)sendMessage:(QBChatMessage *)message{
     [[QBChat instance] sendMessage:message];
 }
 
-- (void)sendMessage:(QBChatMessage *)message toRoom:(QBChatRoom *)chatRoom{
-    [[QBChat instance] sendChatMessage:message toRoom:chatRoom];
+- (void)sendMessage:(QBChatMessage *)message sentBlock:(void (^)(NSError *error))sentBlock{
+    [[QBChat instance] sendMessage:message sentBlock:^(NSError *error) {
+        sentBlock(error);
+    }];
 }
 
-- (void)createOrJoinRoomWithName:(NSString *)roomName completionBlock:(void(^)(QBChatRoom *))completionBlock{
-    self.joinRoomCompletionBlock = completionBlock;
-    
-    [[QBChat instance] createOrJoinRoomWithName:roomName membersOnly:NO persistent:YES];
+- (void)sendMessage:(QBChatMessage *)message toRoom:(QBChatRoom *)chatRoom{
+    [[QBChat instance] sendChatMessage:message toRoom:chatRoom];
 }
 
 - (void)joinRoom:(QBChatRoom *)room completionBlock:(void(^)(QBChatRoom *))completionBlock{
@@ -77,10 +88,110 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
     [[QBChat instance] leaveRoom:room];
 }
 
-- (void)requestRoomsWithCompletionBlock:(void(^)(NSArray *))completionBlock{
-    self.requestRoomsCompletionBlock = completionBlock;
+- (void)setUsers:(NSMutableArray *)users
+{
+    _users = users;
     
-    [[QBChat instance]  requestAllRooms];
+    NSMutableDictionary *__usersAsDictionary = [NSMutableDictionary dictionary];
+    for(QBUUser *user in users){
+        [__usersAsDictionary setObject:user forKey:@(user.ID)];
+    }
+    
+    _usersAsDictionary = [__usersAsDictionary copy];
+}
+
+- (NSMutableArray *)messagsForDialogId:(NSString *)dialogId{
+    NSMutableArray *messages = [self.messages objectForKey:dialogId];
+    if(messages == nil){
+        messages = [NSMutableArray array];
+        [self.messages setObject:messages forKey:dialogId];
+    }
+    
+    return messages;
+}
+
+- (void)addMessages:(NSArray *)messages forDialogId:(NSString *)dialogId{
+    NSMutableArray *messagesArray = [self.messages objectForKey:dialogId];
+    if(messagesArray != nil){
+        [messagesArray addObjectsFromArray:messages];
+    }else{
+        [self.messages setObject:messages forKey:dialogId];
+    }
+}
+
+- (void)addMessage:(QBChatAbstractMessage *)message forDialogId:(NSString *)dialogId{
+    NSMutableArray *messagesArray = [self.messages objectForKey:dialogId];
+    if(messagesArray != nil){
+        [messagesArray addObject:message];
+    }else{
+        NSMutableArray *messages = [NSMutableArray array];
+        [messages addObject:message];
+        [self.messages setObject:messages forKey:dialogId];
+    }
+}
+
+- (void)requestDialogsWithCompletionBlock:(void(^)())completionBlock{
+    
+    self.getDialogsCompletionBlock = completionBlock;
+    
+    [QBRequest dialogsWithSuccessBlock:^(QBResponse *response, NSArray *dialogObjects, NSSet *dialogsUsersIDs) {
+        
+        self.dialogs = dialogObjects.mutableCopy;
+        
+        [QBRequest usersWithIDs:[dialogsUsersIDs allObjects] page:nil
+                   successBlock:^(QBResponse *response, QBGeneralResponsePage *page, NSArray *users) {
+                       
+                       self.users = users;
+                       
+                       if(self.getDialogsCompletionBlock != nil){
+                           self.getDialogsCompletionBlock();
+                           self.getDialogsCompletionBlock = nil;
+                       }
+                       
+                   } errorBlock:nil];
+        
+    } errorBlock:nil];
+}
+
+- (void)requestDialogUpdateWithId:(NSString *)dialogId completionBlock:(void(^)())completionBlock{
+    self.getDialogsCompletionBlock = completionBlock;
+    
+    [QBRequest dialogsForPage:nil
+              extendedRequest:@{@"_id": dialogId}
+                 successBlock:^(QBResponse *response, NSArray *dialogObjects, NSSet *dialogsUsersIDs, QBResponsePage *page) {
+                     
+                     BOOL found = NO;
+                     NSArray *dialogsCopy = [NSArray arrayWithArray:self.dialogs];
+                     for(QBChatDialog *dialog in dialogsCopy){
+                         if([dialog.ID isEqualToString:dialogId]){
+                             [self.dialogs removeObject:dialog];
+                             found = YES;
+                             break;
+                         }
+                     }
+                     
+                     [self.dialogs insertObject:dialogObjects.firstObject atIndex:0];
+                     
+                     if(!found){
+                         [QBRequest usersWithIDs:[dialogsUsersIDs allObjects] page:nil
+                                    successBlock:^(QBResponse *response, QBGeneralResponsePage *page, NSArray *users) {
+                                        
+                                        [self.users addObjectsFromArray:users];
+                                        
+                                        if(self.getDialogsCompletionBlock != nil){
+                                            self.getDialogsCompletionBlock();
+                                            self.getDialogsCompletionBlock = nil;
+                                        }
+                                        
+                                    } errorBlock:nil];
+                     }else{
+                         if(self.getDialogsCompletionBlock != nil){
+                             self.getDialogsCompletionBlock();
+                             self.getDialogsCompletionBlock = nil;
+                         }
+                     }
+                     
+                 } errorBlock:nil];
 }
 
 
@@ -98,6 +209,10 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
         self.loginCompletionBlock();
         self.loginCompletionBlock = nil;
     }
+    
+    if([self.delegate respondsToSelector:@selector(chatDidLogin)]){
+        [self.delegate chatDidLogin];
+    }
 }
 
 - (void)chatDidFailWithError:(NSInteger)code{
@@ -106,64 +221,43 @@ typedef void(^CompletionBlockWithResult)(NSArray *);
 }
 
 - (void)chatRoomDidEnter:(QBChatRoom *)room{
-    if(self.joinRoomCompletionBlock){
-        self.joinRoomCompletionBlock(room);
-        self.joinRoomCompletionBlock = nil;
-    }
-}
--(void)chatRoomDidNotEnter:(NSString *)roomName error:(NSError *)error
-{
-    
-    self.joinRoomCompletionBlock (nil);
+    self.joinRoomCompletionBlock(room);
     self.joinRoomCompletionBlock = nil;
 }
 
-- (void)chatDidReceiveListOfRooms:(NSArray *)rooms{
-    self.requestRoomsCompletionBlock(rooms);
-    self.requestRoomsCompletionBlock = nil;
-}
-
 - (void)chatDidReceiveMessage:(QBChatMessage *)message{
-    // play sound notification
-    [self playNotificationSound];
     
     // notify observers
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationDidReceiveNewMessage
-                                                        object:nil userInfo:@{kMessage: message}];
-}
-
--(void)chatDidDeliverMessageWithID:(NSString *)messageID
-{
-    NSLog(@"Message sent");
+    BOOL processed = NO;
+    if([self.delegate respondsToSelector:@selector(chatDidReceiveMessage:)]){
+        processed = [self.delegate chatDidReceiveMessage:message];
+    }
+    [[MeetingHandler sharedInstance] chatDidReceiveMessage:message];
+    
+//    if(!processed){
+//        [[TWMessageBarManager sharedInstance] showMessageWithTitle:@"New message"
+//                                                       description:message.text
+//                                                              type:TWMessageBarMessageTypeInfo];
+//        
+//        [[SoundService instance] playNotificationSound];
+//        
+//        NSString *dialogId = message.customParameters[@"dialog_id"];
+//        [[NSNotificationCenter defaultCenter] postNotificationName:kDialogUpdatedNotification object:nil userInfo:@{@"dialog_id": dialogId}];
+//    }
 }
 
 - (void)chatRoomDidReceiveMessage:(QBChatMessage *)message fromRoomJID:(NSString *)roomJID{
-    // play sound notification
-    [self playNotificationSound];
     
-    [[NSNotificationCenter defaultCenter] postNotificationName:kNotificationDidReceiveNewMessageFromRoom
-                                                        object:nil userInfo:@{kMessage: message, kRoomJID: roomJID}];
-}
-
--(void)chatRoomDidLeave:(NSString *)roomName
-{
-    NSLog(@"Left chat room %@",roomName);
-}
-
-#pragma mark
-#pragma mark Additional
-
-static SystemSoundID soundID;
-- (void)playNotificationSound
-{
-    if(soundID == 0){
-        NSString *path = [NSString stringWithFormat: @"%@/sound.mp3", [[NSBundle mainBundle] resourcePath]];
-        NSURL *filePath = [NSURL fileURLWithPath: path isDirectory: NO];
-        
-        AudioServicesCreateSystemSoundID((__bridge CFURLRef)filePath, &soundID);
+    // notify observers
+    BOOL processed = NO;
+    if([self.delegate respondsToSelector:@selector(chatRoomDidReceiveMessage:fromRoomJID:)]){
+        processed = [self.delegate chatRoomDidReceiveMessage:message fromRoomJID:roomJID];
     }
     
-    AudioServicesPlaySystemSound(soundID);
+    [[MeetingHandler sharedInstance] chatRoomDidReceiveMessage:message fromRoom:roomJID];
+    
+
 }
+
 
 @end

@@ -200,7 +200,7 @@
     NSInteger index = ((SingleCardViewController*)[pageViewController.viewControllers firstObject]).index;
     [self.pageControl setCurrentPage:index];
     self.currentIndex = index;
-    NSLog(@"Index %ld",(long)index);
+    //    NSLog(@"Index %ld",(long)index);
 }
 
 #pragma mark
@@ -292,7 +292,9 @@
         
     }
     NSString* username = self.user.login;
-    NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:username];
+    NSString* fullname = self.user.fullName;
+    
+    NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:username fullname:fullname];
     [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom save:YES];
 }
 - (IBAction)valueChanged:(id)sender forEvent:(UIEvent *)event {
@@ -306,7 +308,7 @@
 
 -(void)didLogOut
 {
-    [[ChatService instance] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
+    [[ChatService shared] leaveRoom:[MeetingHandler sharedInstance].chatRoom];
     [self.hud hide:YES];
     self.pageController.delegate =nil;
     [MeetingHandler sharedInstance].delegate = nil;
@@ -340,9 +342,8 @@
     //        [self dismissViewControllerAnimated:YES completion:nil];
     //    }
 }
--(void)receivedLoginMessageForUsername:(NSString *)username fromMsg:(QBChatMessage *)msg
+-(void) receivedLoginMessageForUsername:(NSString*)username fullname:(NSString *)fullName fromMsg:(QBChatMessage*) msg
 {
-    
 }
 -(void)receivedCardVoteForCard:(NSInteger)cardNo withValue:(BOOL)val fromMsg:(QBChatMessage *)msg{
     

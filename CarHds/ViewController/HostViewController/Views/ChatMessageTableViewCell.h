@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <Quickblox/Quickblox.h>
 @interface ChatMessageTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UITextView  *messageTextView;

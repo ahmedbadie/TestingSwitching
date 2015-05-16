@@ -29,7 +29,7 @@
     }
     NSInteger userIndex =(indexPath.row-1);
     NSDictionary * user = [self.namesArray objectAtIndex:userIndex];
-    return [user objectForKey:@"username"];
+    return [user objectForKey:MESSAGE_LOGIN_FULLNAME];
     
     //    return [NSString stringWithFormat:@"index %ld",(long)userIndex];
 }
@@ -77,6 +77,8 @@
     if(!self.manualImage)
         [self setImageWithAnimation:NO];
     
+    
+    [self.namesTableview setUserInteractionEnabled:NO];
 }
 
 -(void)setImageWithAnimation:(BOOL)animated
@@ -144,7 +146,7 @@
 }
 - (void) handleTap
 {
-    NSLog(@"Tap");
+//    NSLog(@"Tap");
     
     [self.delegate changePageState:self.index :self.value];
     self.value = !self.value;
@@ -204,14 +206,14 @@
 {
     NSString* imageName = @"";
     if(self.type == 0)
-        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%d%@.png",(self.index+1),self.value? @"a":@"b"];
+        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%ld%@.png",(long)(self.index+1),self.value? @"a":@"b"];
     if(self.type==1)
     {
-        imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(self.index+1)];
+        imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(long)(self.index+1)];
         animated= NO;
     }else if (self.type == 2)
     {
-        imageName= [NSString stringWithFormat:@"meetingConclusion%ld.png",(self.index+1)];
+        imageName= [NSString stringWithFormat:@"meetingConclusion%ld.png",(long)(self.index+1)];
         animated= NO;
     }
     UIImage* image = [UIImage imageNamed:imageName];

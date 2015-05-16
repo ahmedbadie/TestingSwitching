@@ -9,7 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "MBProgressHUD.h"
 #import "QuickBloxManager.h"
-#import "ChatService.h"
 #import "MeetingHandler.h"
 #import "JsonMessageParser.h"
 

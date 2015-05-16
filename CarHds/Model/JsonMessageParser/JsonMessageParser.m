@@ -11,7 +11,7 @@
 @implementation JsonMessageParser
 
 
-+(NSString *)loginMessageWithUsername:(NSString *)username
++(NSString *)loginMessageWithUsername:(NSString *)username fullname:(NSString *)fullname
 {
     
     if(username==nil)
@@ -21,7 +21,8 @@
     NSDictionary* dictionary = @{
                                  MESSAGE_TARGET:MESSAGE_TARGET_HOST,
                                  MESSAGE_HOST_TYPE: MESSAGE_HOST_TYPE_LOGIN,
-                                 MESSAGE_LOGIN_USERNAME: username
+                                 MESSAGE_LOGIN_USERNAME: username,
+                                 MESSAGE_LOGIN_FULLNAME: fullname
                                  };
     CJSONSerializer* json = [[CJSONSerializer alloc]init];
     NSData *jsonData = [json serializeDictionary:dictionary error:nil];
@@ -104,7 +105,10 @@
         NSString* type = [dict objectForKey:MESSAGE_HOST_TYPE];
         if([type isEqualToString:MESSAGE_HOST_TYPE_LOGIN])
         {
-            [delegate receivedLoginMessageForUsername:[dict objectForKey:MESSAGE_LOGIN_USERNAME] fromMsg:message];
+            NSString * username = [dict objectForKey:MESSAGE_LOGIN_USERNAME];
+            NSString * fullname = [dict objectForKey:MESSAGE_LOGIN_FULLNAME];
+            
+            [delegate receivedLoginMessageForUsername:username fullname:fullname fromMsg:message];
             return YES;
         }else if ([type isEqualToString:MESSAGE_HOST_TYPE_CONCLUDE])
         {
@@ -115,7 +119,7 @@
             return YES;
         }else if ([type isEqualToString:MESSAGE_HOST_TYPE_CARD_VOTE])
         {
-           NSInteger number =  [[dict objectForKey:MESSAGE_CARD_VOTE_CARD_NO] integerValue];
+            NSInteger number =  [[dict objectForKey:MESSAGE_CARD_VOTE_CARD_NO] integerValue];
             BOOL val = [[dict objectForKey:MESSAGE_CARD_VOTE_VALUE] boolValue];
             [delegate receivedCardVoteForCard:number withValue:val fromMsg:message];
             return YES;
@@ -125,14 +129,14 @@
         }
         
     }
-
-
+    
+    
     return NO;
 }
 +(BOOL)isCloseRoomMessage:(NSString *)msg{
     NSData *theData = [msg dataUsingEncoding:NSUTF8StringEncoding];
     NSDictionary* dict = [[CJSONDeserializer deserializer] deserialize:theData error:nil];
-
+    
     NSString* target = [dict objectForKey:MESSAGE_TARGET];
     if([target isEqualToString:MESSAGE_TARGET_BROADCAST])
     {
@@ -151,6 +155,6 @@
     CJSONSerializer* json = [[CJSONSerializer alloc]init];
     NSData* jsonData = [json serializeDictionary:dictionary error:nil];
     return [[NSString alloc]initWithData:jsonData encoding:NSUTF8StringEncoding];
-
+    
 }
 @end

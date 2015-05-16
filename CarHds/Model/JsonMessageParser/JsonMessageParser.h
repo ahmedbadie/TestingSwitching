@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 #import "CJSONDeserializer.h"
 #import "CJSONSerializer.h"
-#import <Quickblox/Quickblox.h>
+#import <Quickblox/QBChatMessage.h>
+
 #define MESSAGE_TARGET @"target"
 #define MESSAGE_TARGET_BROADCAST @"broadcast"
 #define MESSAGE_TARGET_HOST @"host"
@@ -27,6 +28,7 @@
 #define MESSAGE_CONCLUDE_CONTRIBUTION_TYPE @"contributionType"
 #define MESSAGE_CONCLUDE_CONTRIBUTION_VALUE @"value"
 #define MESSAGE_LOGIN_USERNAME @"username"
+#define MESSAGE_LOGIN_FULLNAME @"fullname"
 
 typedef enum
 {
@@ -48,7 +50,7 @@ typedef enum{
 
 @protocol JsonMessageParserDelegate <NSObject>
 
--(void) receivedLoginMessageForUsername:(NSString*) username  fromMsg:(QBChatMessage*) msg;
+-(void) receivedLoginMessageForUsername:(NSString*)username fullname:(NSString *)fullName fromMsg:(QBChatMessage*) msg;
 -(void) receivedConclusionSignal;
 -(void) receivedCardVoteForCard:(NSInteger) cardNo withValue:(BOOL) val fromMsg:(QBChatMessage*) msg;
 -(void) receivedContributionMessageForType:(CONTRIBUTION_TYPE) type withValue:(CONTRIBUTION_VALUE) val fromMsg:(QBChatMessage*)msg;
@@ -57,7 +59,7 @@ typedef enum{
 @end
 @interface JsonMessageParser : NSObject
 
-+(NSString*) loginMessageWithUsername:(NSString*)username;
++(NSString*) loginMessageWithUsername:(NSString *)username fullname:(NSString *)fullname;
 +(NSString*) contributionMessageWithContributionIndex:(CONTRIBUTION_TYPE) contributionIndex withValue:(CONTRIBUTION_VALUE) value;
 +(NSString*) broadcastContributionSignal;
 +(NSString*) cardVoteMessageForCard:(NSInteger) cardNo withValue:(BOOL) value;

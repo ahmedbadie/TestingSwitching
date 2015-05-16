@@ -7,10 +7,12 @@
 //
 
 #import "MeetingHandler.h"
-#import "ChatService.h"
+
+@interface MeetingHandler () <QBChatDelegate>
+
+@end
+
 @implementation MeetingHandler
-
-
 
 static MeetingHandler* handler;
 
@@ -25,17 +27,17 @@ static MeetingHandler* handler;
 }
 -(void)connectToChatDialog:(QBChatDialog *)chatDialog
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatDidReceiveMessageNotification:)
-                                                 name:kNotificationDidReceiveNewMessage object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatRoomDidReceiveMessageNotification:)
-                                                 name:kNotificationDidReceiveNewMessageFromRoom object:nil];
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatDidReceiveMessageNotification:)
+    //                                                 name:kNotificationDidReceiveNewMessage object:nil];
+    //    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(chatRoomDidReceiveMessageNotification:)
+    //                                                 name:kNotificationDidReceiveNewMessageFromRoom object:nil];
     
     // Join room
     QBChatRoom* room = self.chatDialog.chatRoom;
     self.chatRoom = room;
-    [QBChat instance].delegate = [ChatService instance];
+    [[QBChat instance] addDelegate:[ChatService shared]];
     if(self.chatDialog.type != QBChatDialogTypePrivate){
-        [[ChatService instance] joinRoom:self.chatRoom completionBlock:^(QBChatRoom * room) {
+        [[ChatService shared] joinRoom:self.chatRoom completionBlock:^(QBChatRoom * room) {
             if(self.terminate)
             {
                 [[MeetingHandler sharedInstance] leaveRoom:YES];
@@ -48,16 +50,62 @@ static MeetingHandler* handler;
     }
     
     // get messages history
-    [QBChat messagesWithDialogID:self.chatDialog.ID extendedRequest:nil delegate:self];
+//    [QBChat messagesWithDialogID:self.chatDialog.ID extendedRequest:nil delegate:self];
+    
+    //    [QBRequest messagesWithDialogID:self.chatDialog.ID extendedRequest:nil forPage:nil successBlock:^(QBResponse *response, NSArray *array, QBResponsePage *page) {
+    //
+    //
+    //        //        if (result.success && [result isKindOfClass:QBChatHistoryMessageResult.class]) {
+    //        //            QBChatHistoryMessageResult *res = (QBChatHistoryMessageResult *)result;
+    //        //            NSArray *messages = res.messages;
+    //        //            [self.delegate didReciveMessages:messages];
+    //        //
+    //        //        }
+    //
+    //    } errorBlock:^(QBResponse *response) {
+    //
+    //    }];
+    //
+        [QBRequest messagesWithDialogID:self.chatDialog.ID successBlock:^(QBResponse *response, NSArray *messages) {
+    
+            [self.delegate didReciveMessages:messages];
+    
+        } errorBlock:^(QBResponse *response) {
+    
+        }];
+    
     
 }
 
 
 #pragma mark - Chat Notification Methods -
 
-- (void)chatDidReceiveMessageNotification:(NSNotification *)notification{
+//- (void)chatDidReceiveMessageNotification:(NSNotification *)notification{
+//
+//    QBChatMessage *message = notification.userInfo[kMessage];
+//    if(message.senderID != self.chatDialog.recipientID){
+//        return;
+//    }
+//
+//    // save message
+//    [self.delegate didReciveMessages:@[message]];
+//}
+//
+//- (void)chatRoomDidReceiveMessageNotification:(NSNotification *)notification{
+//    QBChatMessage *message = notification.userInfo[kMessage];
+//    NSString *roomJID = notification.userInfo[kRoomJID];
+//    if(![[self.chatDialog chatRoom].JID isEqualToString:roomJID]){
+//        return;
+//    }
+//
+//    // save message
+//    [self.delegate didReciveMessages:@[message]];
+//}
+
+
+
+- (void)chatDidReceiveMessage:(QBChatMessage *)message{
     
-    QBChatMessage *message = notification.userInfo[kMessage];
     if(message.senderID != self.chatDialog.recipientID){
         return;
     }
@@ -66,15 +114,7 @@ static MeetingHandler* handler;
     [self.delegate didReciveMessages:@[message]];
 }
 
-- (void)chatRoomDidReceiveMessageNotification:(NSNotification *)notification{
-    QBChatMessage *message = notification.userInfo[kMessage];
-    NSString *roomJID = notification.userInfo[kRoomJID];
-    
-    
-    //    if(self.logOut && [message.ID isEqualToString:self.logOutmsgID])
-    //    {
-    //        [self.delegate didLogOut];
-    //    }
+- (void)chatRoomDidReceiveMessage:(QBChatMessage *)message fromRoom:(NSString *)roomJID{
     
     if(![[self.chatDialog chatRoom].JID isEqualToString:roomJID]){
         return;
@@ -83,18 +123,16 @@ static MeetingHandler* handler;
     // save message
     [self.delegate didReciveMessages:@[message]];
 }
+
 -(void)sendMessage:(NSString *)msg toChatRoom:(QBChatRoom *)chatRoom save:(BOOL)save
 {
-    
     
     QBChatMessage *message = [[QBChatMessage alloc] init];
     message.text = msg;
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     params[@"save_to_history"] = @(save);
     [message setCustomParameters:params];
-    [[ChatService instance] sendMessage:message toRoom:self.chatRoom];
-    
-    
+    [[ChatService shared] sendMessage:message toRoom:self.chatRoom];
 }
 
 -(void)leaveRoom:(BOOL)write
@@ -112,8 +150,7 @@ static MeetingHandler* handler;
 }
 #pragma mark QBActionStatusDelegate
 
-- (void)completedWithResult:(Result *)result
-{
+-(void)completedWithResult:(QBResult *)result{
     if (result.success && [result isKindOfClass:QBChatHistoryMessageResult.class]) {
         QBChatHistoryMessageResult *res = (QBChatHistoryMessageResult *)result;
         NSArray *messages = res.messages;
@@ -122,12 +159,12 @@ static MeetingHandler* handler;
     }
 }
 
+
 #pragma mark
 #pragma mark -QBChatDelegate -
 
 -(void)chatRoomDidEnter:(QBChatRoom *)room
 {
-    
     [self.delegate didConnectToRoom:room];
 }
 

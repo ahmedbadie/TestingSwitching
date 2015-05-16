@@ -40,5 +40,17 @@
 #define HOST_CONCLUDE_CONTROLLER @"HostConcludeController"
 #define HOST_CONCLUDE_SEGUE @"HostConcludeSegue"
 
+
+//#ifdef __OBJC__
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+#import <MobileCoreServices/MobileCoreServices.h>
+#import <SystemConfiguration/SystemConfiguration.h>
+#import <Quickblox/Quickblox.h>
+#import "ChatService.h"
+//#endif
+
+#define SYSTEM_VERSION_GREATER_THAN_OR_EQUAL_TO(v)  ([[[UIDevice currentDevice] systemVersion] compare:v options:NSNumericSearch] != NSOrderedAscending)
+
 //#define DEV
 #endif

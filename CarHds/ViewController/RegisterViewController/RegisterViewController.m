@@ -52,10 +52,13 @@
 
 -(void) registerUser
 {
-    NSString* username = [[self.usernameTextField text] lowercaseString];
-//    NSString* email = [self.emailTextField text];
-    NSString* password =[self.passwordTextField text];
-    NSString* email = [self.emailTextField text];
+    NSString * username = [[self.usernameTextField text] lowercaseString];
+    NSString * password =[self.passwordTextField text];
+    NSString * email = [self.emailTextField text];
+    
+    NSString * firstName = [self.firstNameTextField text];
+    NSString * lastName = [self.lastNameTextField text];
+
     if (username ==nil || username.length ==0)
     {
         [self warnUserWithMessage:@"Can't create a user with empty username"];
@@ -72,10 +75,25 @@
         [self warnUserWithMessage:@"Invalid email Address"];
         return;
     }
+    
+    if (firstName ==nil || firstName.length ==0)
+    {
+        [self warnUserWithMessage:@"Can't create a user with empty first name"];
+        return;
+    }
+    
+    
+    if (lastName ==nil || lastName.length ==0)
+    {
+        [self warnUserWithMessage:@"Can't create a user with empty last name"];
+        return;
+    }
+    
+    
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Creating user";
     [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
-        [QuickBloxManager registerUserWithUsername:username andPassword:password andEmail:email withCompletionHandler:^(APIResponse *response) {
+        [QuickBloxManager registerUserWithUsername:username andPassword:password andFirstName:firstName andLastName:lastName  andEmail:email withCompletionHandler:^(APIResponse *response) {
             [self.hud hide:YES];
             if(response.error)
             {

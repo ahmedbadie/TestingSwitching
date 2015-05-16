@@ -7,11 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <Quickblox/Quickblox.h>
 #import "APIResponse.h"
 @interface QuickBloxManager : NSObject
 
-+(void) loginWithUser:(NSString*) username andPassword:(NSString*) password withCompletionHandler:(void(^) (APIResponse* response))handler;
+//+(void) loginWithUser:(NSString*) username andPassword:(NSString*) password withCompletionHandler:(void(^) (APIResponse* response))handler;
 
-+(void) registerUserWithUsername:(NSString*) username andPassword:(NSString*) password andEmail:(NSString*)email withCompletionHandler:(void(^)(APIResponse* response))handler;
++(void)registerUserWithUsername:(NSString *)username andPassword:(NSString *)password andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email withCompletionHandler:(void (^)(APIResponse *))handler;
+
 @end
