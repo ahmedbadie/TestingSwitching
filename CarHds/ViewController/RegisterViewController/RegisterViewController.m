@@ -14,6 +14,14 @@
 
 @implementation RegisterViewController
 
+- (void)keyboardWasShown:(NSNotification *)notification {
+    _registerScrollView.contentSize = CGSizeMake(320, 700);
+    [_registerScrollView setContentOffset:CGPointMake(0, 100) animated:YES];
+}
+
+- (void)keyboardWillBeHidden:(NSNotification *)notification {
+        _registerScrollView.contentSize = _registerScrollView.frame.size;
+}
 - (void)registerForKeyboardNotifications {
     
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -44,7 +52,7 @@
     [super viewWillAppear:animated];
     
     [self registerForKeyboardNotifications];
-    _registerScrollView.contentSize = CGSizeMake(320, 700);
+
     
     
 }
