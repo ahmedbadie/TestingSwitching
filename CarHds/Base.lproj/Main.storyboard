@@ -135,12 +135,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="a9h-Io-a0t" userLabel="BottomLeftView">
-                                        <rect key="frame" x="24" y="531.00000170694511" width="224" height="465"/>
+                                        <rect key="frame" x="24" y="531" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="fb4-K9-MpO" userLabel="BottomMiddleView">
-                                        <rect key="frame" x="272" y="531.00000170694511" width="224" height="465"/>
+                                        <rect key="frame" x="272" y="531" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -461,7 +461,7 @@
         <scene sceneID="mEG-tj-3Ft">
             <objects>
                 <viewController id="7xD-L5-2Dy" customClass="RegisterViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="D2B-jI-HHa">
+                    <view key="view" contentMode="scaleToFill" id="D2B-jI-HHa" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -620,6 +620,7 @@
                         <outlet property="firstNameTextField" destination="SEb-oD-sw6" id="7N4-xs-CCr"/>
                         <outlet property="lastNameTextField" destination="6WS-IE-2L9" id="d9w-kl-p8j"/>
                         <outlet property="passwordTextField" destination="hOL-Cf-9br" id="Xy6-jz-JZX"/>
+                        <outlet property="registerScrollView" destination="D2B-jI-HHa" id="tz4-P7-Qbf"/>
                         <outlet property="usernameTextField" destination="ZB2-Nx-swi" id="WkQ-UC-y6I"/>
                     </connections>
                 </viewController>

@@ -15,6 +15,6 @@
 @property (weak, nonatomic) IBOutlet UITextField * passwordTextField;
 @property (weak, nonatomic) IBOutlet UITextField * firstNameTextField;
 @property (weak, nonatomic) IBOutlet UITextField * lastNameTextField;
-
+@property (weak, nonatomic) IBOutlet UIScrollView * registerScrollView;
 @property (nonatomic,weak) AbstractViewController* delegate;
 @end
