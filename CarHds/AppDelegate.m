@@ -7,7 +7,9 @@
 //
 
 #import "AppDelegate.h"
+#import "GAI.h"
 
+#define GOOGLE_ANALYTICS_TRACKING_ID @"UA-63038258-1"
 @interface AppDelegate ()
 @property (nonatomic) BOOL loggedIn;
 @end
@@ -17,6 +19,20 @@
 @synthesize loggedIn;
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    
+    // Optional: automatically send uncaught exceptions to Google Analytics.
+    [GAI sharedInstance].trackUncaughtExceptions = YES;
+    
+    // Optional: set Google Analytics dispatch interval to e.g. 20 seconds.
+    [GAI sharedInstance].dispatchInterval = 20;
+    
+    // Optional: set Logger to VERBOSE for debug information.
+    [[[GAI sharedInstance] logger] setLogLevel:kGAILogLevelVerbose];
+    
+    // Initialize tracker. Replace with your tracking ID.
+    [[GAI sharedInstance] trackerWithTrackingId:GOOGLE_ANALYTICS_TRACKING_ID];
+    
     
     // Set QuickBlox credentials (You must create application in admin.quickblox.com)
     //

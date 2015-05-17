@@ -9,6 +9,10 @@
 
 
 #import "LoginViewController.h"
+#import "GAI.h"
+#import "GAIFields.h"
+#import "GAIDictionaryBuilder.h"
+
 @interface LoginViewController ()
 @property (nonatomic) NSInteger index;
 @property (nonatomic) BOOL state;
@@ -197,7 +201,7 @@
     self.operationTypeSegmentedControl.layer.masksToBounds = YES;
     self.goButton.clipsToBounds= YES;
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-
+    
     UIInterfaceOrientation orientation = self.interfaceOrientation;
     if(UIInterfaceOrientationIsPortrait(orientation))
     {
@@ -207,7 +211,7 @@
     }else{
         [self setPortaitMode];
     }
-
+    
     
 }
 
@@ -237,6 +241,15 @@
 }
 - (IBAction)startMeeting:(id)sender {
     NSLog(@"startMeeting");
+    
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Login"];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"login_action"     // Event category (required)
+                                                          action:@"button_press"  // Event action (required)
+                                                           label:@"login"          // Event label
+                                                           value:nil] build]];    // Event value
+    
     
     if([[QBChat instance]isLoggedIn])
     {
@@ -375,7 +388,7 @@
 -(void) createMeetingRoom
 {
     self.hud.labelText = STRING(@"CreatingMeeting");
-    
+
     // First check if chat dialouge exists or not?
     QBChatDialog* chatDialog = [QBChatDialog new];
     chatDialog.type = QBChatDialogTypePublicGroup;

@@ -7,6 +7,9 @@
 //
 
 #import "ClientViewController.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
 
 @interface ClientViewController ()
 @property (nonatomic)NSInteger  selectedPageIndex;
@@ -220,7 +223,39 @@
 }
 
 
-
+-(void)sendSignalToCarhdsServerWithSenderID:(NSString *)senderID meetingID:(NSString *)meetingID cardID:(NSInteger)cardID{
+    
+    
+    //         https://services.digital-bauhaus.solutions/rh.starhs/logCaRHdsV1.aspx?AppGuid=dbh.RH.CaRHds.SVC1&AppCred=8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F&SenderID=Ahmd&ReceiverID=ResourcefulHumans&Message=APISuccessful&MeetingID=ExampleMeetingID&CardID=ExampleCardID
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        NSString * url = [NSString stringWithFormat:@"https://services.digital-bauhaus.solutions/rh.starhs/logCaRHdsV1.aspx?AppGuid=dbh.RH.CaRHds.SVC1&AppCred=8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F&SenderID=%@&ReceiverID=ResourcefulHumans&Message=APISuccessful&MeetingID=%@&CardID=%ld",senderID,meetingID,(long)cardID];
+        
+        
+        
+        NSLog(@"sendSignalToCarhdsServerWithSenderID request url [%@]",url);
+        
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+        
+        NSURLResponse *connectionResponse;
+        NSError *connectionError;
+        NSData * responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&connectionResponse error:&connectionError];
+        
+        // On the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+        });
+        
+    });
+    
+    
+    
+    
+    
+    
+}
 #pragma mark
 
 -(void)setIndex:(NSInteger)index
@@ -233,6 +268,20 @@
 -(void) changePageState:(NSInteger) pageIndex :(BOOL) pageOldValue
 {
     if(self.state== STATE_CARD_VOTING){
+        
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker set:kGAIScreenName value:@"Vote"];
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"vote_action"     // Event category (required)
+                                                              action:@"cardFlipped"  // Event action (required)
+                                                               label:@"vote"          // Event label
+                                                               value:nil] build]];    // Event value
+        
+        NSString * senderID = self.user.login;
+        NSString * meetingID = [MeetingHandler sharedInstance].chatDialog.name;
+        NSInteger cardID = pageIndex;
+        
+        [self sendSignalToCarhdsServerWithSenderID:senderID meetingID:meetingID cardID:cardID];
+        
         [self.values replaceObjectAtIndex:pageIndex withObject:@(!pageOldValue)];
         NSString* msg = [JsonMessageParser cardVoteMessageForCard:pageIndex withValue:!pageOldValue];
         QBChatRoom* chatRoom = [self.chatDialog chatRoom];
@@ -293,7 +342,9 @@
     }
     NSString* username = self.user.login;
     NSString* fullname = self.user.fullName;
-    
+    if(fullname == nil || fullname.length == 0){
+        fullname = username;
+    }
     NSString* jsonMsg= [JsonMessageParser loginMessageWithUsername:username fullname:fullname];
     [[MeetingHandler sharedInstance] sendMessage:jsonMsg toChatRoom:chatRoom save:YES];
 }

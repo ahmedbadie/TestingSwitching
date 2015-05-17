@@ -8,6 +8,10 @@
 
 #import "HostViewController.h"
 #import "SingleCardViewController.h"
+#import "GAI.h"
+#import "GAIDictionaryBuilder.h"
+#import "GAIFields.h"
+
 @interface HostViewController ()
 @property (weak, nonatomic) IBOutlet UIView *IphoneView;
 @property (weak, nonatomic) IBOutlet UIView *IpadView;
@@ -427,6 +431,15 @@
 {
     if(buttonIndex == 0)
     {
+        
+        
+        id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+        [tracker set:kGAIScreenName value:@"Conclude"];
+        [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"conclude_action"     // Event category (required)
+                                                              action:@"conclude_button_press"  // Event action (required)
+                                                               label:@"conclude"          // Event label
+                                                               value:nil] build]];    // Event value
+        
         self.canConclude = NO;
         self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         self.hud.labelText = @"Preparing for meeting conclusion";

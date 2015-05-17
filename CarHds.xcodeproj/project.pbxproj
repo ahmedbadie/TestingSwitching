@@ -15,6 +15,9 @@
 		218613DF1B078F2100F06E36 /* AGENDALC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 218613DE1B078F2100F06E36 /* AGENDALC.ttf */; };
 		218613E21B07995D00F06E36 /* registerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 218613E01B07995D00F06E36 /* registerBackground@2x.png */; };
 		218613E31B07995D00F06E36 /* registerBackground~iPad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 218613E11B07995D00F06E36 /* registerBackground~iPad@2x.png */; };
+		21E142491B07B5A200E1FD79 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E142481B07B5A200E1FD79 /* CoreData.framework */; };
+		21E1424B1B07B5C100E1FD79 /* libsqlite3.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E1424A1B07B5C100E1FD79 /* libsqlite3.dylib */; };
+		21E1424D1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E1424C1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a */; };
 		21FD7BF61AF9141600B4E195 /* share_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 21FD7BF41AF9141600B4E195 /* share_btn.png */; };
 		21FD7BF71AF9141600B4E195 /* share_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21FD7BF51AF9141600B4E195 /* share_btn@2x.png */; };
 		390424481A52D9FC00370E80 /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390424471A52D9FC00370E80 /* ClientViewController.m */; };
@@ -135,6 +138,19 @@
 		218613DE1B078F2100F06E36 /* AGENDALC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AGENDALC.ttf; sourceTree = "<group>"; };
 		218613E01B07995D00F06E36 /* registerBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "registerBackground@2x.png"; sourceTree = "<group>"; };
 		218613E11B07995D00F06E36 /* registerBackground~iPad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "registerBackground~iPad@2x.png"; sourceTree = "<group>"; };
+		21E142481B07B5A200E1FD79 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		21E1424A1B07B5C100E1FD79 /* libsqlite3.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libsqlite3.dylib; path = usr/lib/libsqlite3.dylib; sourceTree = SDKROOT; };
+		21E1424C1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libGoogleAnalyticsServices.a; path = GoogleAnalyticsServicesiOS_3.12/libGoogleAnalyticsServices.a; sourceTree = "<group>"; };
+		21E142501B07B62800E1FD79 /* GAI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAI.h; sourceTree = "<group>"; };
+		21E142511B07B62800E1FD79 /* GAIDictionaryBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIDictionaryBuilder.h; sourceTree = "<group>"; };
+		21E142521B07B62800E1FD79 /* GAIEcommerceFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceFields.h; sourceTree = "<group>"; };
+		21E142531B07B62800E1FD79 /* GAIEcommerceProduct.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProduct.h; sourceTree = "<group>"; };
+		21E142541B07B62800E1FD79 /* GAIEcommerceProductAction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommerceProductAction.h; sourceTree = "<group>"; };
+		21E142551B07B62800E1FD79 /* GAIEcommercePromotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIEcommercePromotion.h; sourceTree = "<group>"; };
+		21E142561B07B62800E1FD79 /* GAIFields.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAIFields.h; sourceTree = "<group>"; };
+		21E142571B07B62800E1FD79 /* GAILogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAILogger.h; sourceTree = "<group>"; };
+		21E142581B07B62800E1FD79 /* GAITrackedViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITrackedViewController.h; sourceTree = "<group>"; };
+		21E142591B07B62800E1FD79 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		21FD7BF41AF9141600B4E195 /* share_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_btn.png; sourceTree = "<group>"; };
 		21FD7BF51AF9141600B4E195 /* share_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_btn@2x.png"; sourceTree = "<group>"; };
 		390424461A52D9FC00370E80 /* ClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientViewController.h; sourceTree = "<group>"; };
@@ -276,6 +292,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21E1424D1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a in Frameworks */,
+				21E1424B1B07B5C100E1FD79 /* libsqlite3.dylib in Frameworks */,
+				395E4CCB1A51EAE6006361BA /* libz.dylib in Frameworks */,
+				21E142491B07B5A200E1FD79 /* CoreData.framework in Frameworks */,
 				39116A151A5453600043C245 /* Foundation.framework in Frameworks */,
 				398AADD31A51DF470003EF8C /* CoreGraphics.framework in Frameworks */,
 				39116A131A5453520043C245 /* GLKit.framework in Frameworks */,
@@ -291,7 +311,6 @@
 				39116A051A5453170043C245 /* libc++.dylib in Frameworks */,
 				395E4CCF1A51F05B006361BA /* libresolv.dylib in Frameworks */,
 				395E4CCD1A51EAF2006361BA /* CFNetwork.framework in Frameworks */,
-				395E4CCB1A51EAE6006361BA /* libz.dylib in Frameworks */,
 				395E4CC51A51EA5D006361BA /* MobileCoreServices.framework in Frameworks */,
 				395E4CBE1A51E401006361BA /* libxml2.dylib in Frameworks */,
 				398AADD51A51DF5F0003EF8C /* Quickblox.framework in Frameworks */,
@@ -308,6 +327,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		21E1424E1B07B5FF00E1FD79 /* GoogleAnalytics */ = {
+			isa = PBXGroup;
+			children = (
+				21E1424F1B07B62800E1FD79 /* Library */,
+			);
+			name = GoogleAnalytics;
+			sourceTree = "<group>";
+		};
+		21E1424F1B07B62800E1FD79 /* Library */ = {
+			isa = PBXGroup;
+			children = (
+				21E142501B07B62800E1FD79 /* GAI.h */,
+				21E142511B07B62800E1FD79 /* GAIDictionaryBuilder.h */,
+				21E142521B07B62800E1FD79 /* GAIEcommerceFields.h */,
+				21E142531B07B62800E1FD79 /* GAIEcommerceProduct.h */,
+				21E142541B07B62800E1FD79 /* GAIEcommerceProductAction.h */,
+				21E142551B07B62800E1FD79 /* GAIEcommercePromotion.h */,
+				21E142561B07B62800E1FD79 /* GAIFields.h */,
+				21E142571B07B62800E1FD79 /* GAILogger.h */,
+				21E142581B07B62800E1FD79 /* GAITrackedViewController.h */,
+				21E142591B07B62800E1FD79 /* GAITracker.h */,
+			);
+			name = Library;
+			path = GoogleAnalyticsServicesiOS_3.12/GoogleAnalytics/Library;
+			sourceTree = "<group>";
+		};
 		390424491A52F73100370E80 /* MeetingHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -689,6 +734,10 @@
 		398AADC51A51DE870003EF8C /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				21E1424E1B07B5FF00E1FD79 /* GoogleAnalytics */,
+				21E1424C1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a */,
+				21E1424A1B07B5C100E1FD79 /* libsqlite3.dylib */,
+				21E142481B07B5A200E1FD79 /* CoreData.framework */,
 				39116A0A1A54532B0043C245 /* AudioToolbox.framework */,
 				395E4CCC1A51EAF2006361BA /* CFNetwork.framework */,
 				398AADD21A51DF470003EF8C /* CoreGraphics.framework */,
@@ -1079,8 +1128,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1094,6 +1143,10 @@
 				INFOPLIST_FILE = CarHds/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CarHds/Frameworks/GoogleAnalyticsServicesiOS_3.12",
+				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"-lxml2",
@@ -1101,7 +1154,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1bc4d0b-2acd-4f82-881d-a9f506a3ccb1";
+				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1112,8 +1165,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1127,13 +1180,17 @@
 				INFOPLIST_FILE = CarHds/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/CarHds/Frameworks/GoogleAnalyticsServicesiOS_3.12",
+				);
 				OTHER_LDFLAGS = (
 					"-lxml2",
 					"-ObjC",
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1bc4d0b-2acd-4f82-881d-a9f506a3ccb1";
+				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
