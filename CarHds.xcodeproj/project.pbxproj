@@ -7,10 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		210757E01AEE97C3005D158C /* checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757DE1AEE97C3005D158C /* checkbox_checked.png */; };
-		210757E11AEE97C3005D158C /* checkbox.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757DF1AEE97C3005D158C /* checkbox.png */; };
-		210757E41AEE9C31005D158C /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757E21AEE9C31005D158C /* checkbox_checked@2x.png */; };
-		210757E51AEE9C31005D158C /* checkbox@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 210757E31AEE9C31005D158C /* checkbox@2x.png */; };
 		210BAC801AF2A49E00D4BEC0 /* LucidaGrande.ttc in Resources */ = {isa = PBXBuildFile; fileRef = 210BAC7F1AF2A49E00D4BEC0 /* LucidaGrande.ttc */; };
 		218613DF1B078F2100F06E36 /* AGENDALC.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 218613DE1B078F2100F06E36 /* AGENDALC.ttf */; };
 		218613E21B07995D00F06E36 /* registerBackground@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 218613E01B07995D00F06E36 /* registerBackground@2x.png */; };
@@ -20,6 +16,20 @@
 		21E1424D1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E1424C1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a */; };
 		21FD7BF61AF9141600B4E195 /* share_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 21FD7BF41AF9141600B4E195 /* share_btn.png */; };
 		21FD7BF71AF9141600B4E195 /* share_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21FD7BF51AF9141600B4E195 /* share_btn@2x.png */; };
+		2FF20E251B0A2F6100ACD991 /* iphone_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E231B0A2F6100ACD991 /* iphone_background@2x.png */; };
+		2FF20E261B0A2F6100ACD991 /* iphone_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E241B0A2F6100ACD991 /* iphone_background.png */; };
+		2FF20E281B0A2F6F00ACD991 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E271B0A2F6F00ACD991 /* background.png */; };
+		2FF20E2C1B0A2FA900ACD991 /* background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E2B1B0A2FA900ACD991 /* background@2x.png */; };
+		2FF20E2E1B0A314E00ACD991 /* checkbox_new@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E2D1B0A314E00ACD991 /* checkbox_new@2x.png */; };
+		2FF20E311B0A3BC900ACD991 /* cancel_button.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E2F1B0A3BC900ACD991 /* cancel_button.png */; };
+		2FF20E321B0A3BC900ACD991 /* cancel_button@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E301B0A3BC900ACD991 /* cancel_button@2x.png */; };
+		2FF20E351B0A3C2A00ACD991 /* register_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E331B0A3C2A00ACD991 /* register_btn@2x.png */; };
+		2FF20E361B0A3C2A00ACD991 /* register_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E341B0A3C2A00ACD991 /* register_btn.png */; };
+		2FF20E391B0A3D8C00ACD991 /* textfield_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E371B0A3D8C00ACD991 /* textfield_background.png */; };
+		2FF20E3A1B0A3D8C00ACD991 /* textfield_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E381B0A3D8C00ACD991 /* textfield_background@2x.png */; };
+		2FF20E401B0A409600ACD991 /* checkbox_new.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E3F1B0A409600ACD991 /* checkbox_new.png */; };
+		2FF20E431B0A4AD400ACD991 /* checkbox_checked.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E411B0A4AD400ACD991 /* checkbox_checked.png */; };
+		2FF20E441B0A4AD400ACD991 /* checkbox_checked@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E421B0A4AD400ACD991 /* checkbox_checked@2x.png */; };
 		390424481A52D9FC00370E80 /* ClientViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390424471A52D9FC00370E80 /* ClientViewController.m */; };
 		3904244C1A52F74200370E80 /* MeetingHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904244B1A52F74200370E80 /* MeetingHandler.m */; };
 		390424501A530E7900370E80 /* JsonMessageParser.m in Sources */ = {isa = PBXBuildFile; fileRef = 3904244F1A530E7900370E80 /* JsonMessageParser.m */; };
@@ -130,10 +140,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		210757DE1AEE97C3005D158C /* checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_checked.png; sourceTree = "<group>"; };
-		210757DF1AEE97C3005D158C /* checkbox.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox.png; sourceTree = "<group>"; };
-		210757E21AEE9C31005D158C /* checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_checked@2x.png"; sourceTree = "<group>"; };
-		210757E31AEE9C31005D158C /* checkbox@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox@2x.png"; sourceTree = "<group>"; };
 		210BAC7F1AF2A49E00D4BEC0 /* LucidaGrande.ttc */ = {isa = PBXFileReference; lastKnownFileType = file; path = LucidaGrande.ttc; sourceTree = "<group>"; };
 		218613DE1B078F2100F06E36 /* AGENDALC.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = AGENDALC.ttf; sourceTree = "<group>"; };
 		218613E01B07995D00F06E36 /* registerBackground@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "registerBackground@2x.png"; sourceTree = "<group>"; };
@@ -153,6 +159,20 @@
 		21E142591B07B62800E1FD79 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		21FD7BF41AF9141600B4E195 /* share_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_btn.png; sourceTree = "<group>"; };
 		21FD7BF51AF9141600B4E195 /* share_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_btn@2x.png"; sourceTree = "<group>"; };
+		2FF20E231B0A2F6100ACD991 /* iphone_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone_background@2x.png"; sourceTree = "<group>"; };
+		2FF20E241B0A2F6100ACD991 /* iphone_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_background.png; sourceTree = "<group>"; };
+		2FF20E271B0A2F6F00ACD991 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
+		2FF20E2B1B0A2FA900ACD991 /* background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "background@2x.png"; sourceTree = "<group>"; };
+		2FF20E2D1B0A314E00ACD991 /* checkbox_new@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_new@2x.png"; sourceTree = "<group>"; };
+		2FF20E2F1B0A3BC900ACD991 /* cancel_button.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cancel_button.png; sourceTree = "<group>"; };
+		2FF20E301B0A3BC900ACD991 /* cancel_button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cancel_button@2x.png"; sourceTree = "<group>"; };
+		2FF20E331B0A3C2A00ACD991 /* register_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "register_btn@2x.png"; sourceTree = "<group>"; };
+		2FF20E341B0A3C2A00ACD991 /* register_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = register_btn.png; sourceTree = "<group>"; };
+		2FF20E371B0A3D8C00ACD991 /* textfield_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = textfield_background.png; sourceTree = "<group>"; };
+		2FF20E381B0A3D8C00ACD991 /* textfield_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "textfield_background@2x.png"; sourceTree = "<group>"; };
+		2FF20E3F1B0A409600ACD991 /* checkbox_new.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_new.png; sourceTree = "<group>"; };
+		2FF20E411B0A4AD400ACD991 /* checkbox_checked.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = checkbox_checked.png; sourceTree = "<group>"; };
+		2FF20E421B0A4AD400ACD991 /* checkbox_checked@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkbox_checked@2x.png"; sourceTree = "<group>"; };
 		390424461A52D9FC00370E80 /* ClientViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClientViewController.h; sourceTree = "<group>"; };
 		390424471A52D9FC00370E80 /* ClientViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClientViewController.m; sourceTree = "<group>"; };
 		3904244A1A52F74200370E80 /* MeetingHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MeetingHandler.h; sourceTree = "<group>"; };
@@ -458,6 +478,12 @@
 		391C20991A5AD73900A44F30 /* Register */ = {
 			isa = PBXGroup;
 			children = (
+				2FF20E371B0A3D8C00ACD991 /* textfield_background.png */,
+				2FF20E381B0A3D8C00ACD991 /* textfield_background@2x.png */,
+				2FF20E331B0A3C2A00ACD991 /* register_btn@2x.png */,
+				2FF20E341B0A3C2A00ACD991 /* register_btn.png */,
+				2FF20E2F1B0A3BC900ACD991 /* cancel_button.png */,
+				2FF20E301B0A3BC900ACD991 /* cancel_button@2x.png */,
 				218613E01B07995D00F06E36 /* registerBackground@2x.png */,
 				218613E11B07995D00F06E36 /* registerBackground~iPad@2x.png */,
 				391C20A21A5AE08000A44F30 /* registerButton_ipad@2x.png */,
@@ -610,10 +636,10 @@
 		396769921A5BFC99003444D2 /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				210757E21AEE9C31005D158C /* checkbox_checked@2x.png */,
-				210757E31AEE9C31005D158C /* checkbox@2x.png */,
-				210757DE1AEE97C3005D158C /* checkbox_checked.png */,
-				210757DF1AEE97C3005D158C /* checkbox.png */,
+				2FF20E411B0A4AD400ACD991 /* checkbox_checked.png */,
+				2FF20E421B0A4AD400ACD991 /* checkbox_checked@2x.png */,
+				2FF20E3F1B0A409600ACD991 /* checkbox_new.png */,
+				2FF20E2D1B0A314E00ACD991 /* checkbox_new@2x.png */,
 				3967699F1A5BFDA9003444D2 /* icon.png */,
 				396769A01A5BFDA9003444D2 /* icon@2x.png */,
 				396769931A5BFC99003444D2 /* caRHds background */,
@@ -625,6 +651,10 @@
 		396769931A5BFC99003444D2 /* caRHds background */ = {
 			isa = PBXGroup;
 			children = (
+				2FF20E231B0A2F6100ACD991 /* iphone_background@2x.png */,
+				2FF20E2B1B0A2FA900ACD991 /* background@2x.png */,
+				2FF20E271B0A2F6F00ACD991 /* background.png */,
+				2FF20E241B0A2F6100ACD991 /* iphone_background.png */,
 				396769A31A5BFE4C003444D2 /* loginBackground.jpg */,
 			);
 			path = "caRHds background";
@@ -876,7 +906,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "caRHds" */;
+			buildConfigurationList = 398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "CarHds" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -901,6 +931,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				218613E31B07995D00F06E36 /* registerBackground~iPad@2x.png in Resources */,
+				2FF20E3A1B0A3D8C00ACD991 /* textfield_background@2x.png in Resources */,
 				396769C31A5C2578003444D2 /* appIcon120.png in Resources */,
 				3967699B1A5BFC99003444D2 /* Logon Screen.001.jpg in Resources */,
 				396769A41A5BFE4C003444D2 /* loginBackground.jpg in Resources */,
@@ -909,7 +940,10 @@
 				394680CF1A63168700ECA925 /* meetingConclusion1Gray.png in Resources */,
 				21FD7BF61AF9141600B4E195 /* share_btn.png in Resources */,
 				3908BF311A532C5000017D84 /* caRHds for odesk project.2a.png in Resources */,
+				2FF20E2C1B0A2FA900ACD991 /* background@2x.png in Resources */,
 				39116A181A5453840043C245 /* Instabug.bundle in Resources */,
+				2FF20E391B0A3D8C00ACD991 /* textfield_background.png in Resources */,
+				2FF20E281B0A2F6F00ACD991 /* background.png in Resources */,
 				396769C51A5C2578003444D2 /* appIcon180.png in Resources */,
 				396769BF1A5C2578003444D2 /* appIcon58.png in Resources */,
 				3908BF321A532C5000017D84 /* caRHds for odesk project.2b.png in Resources */,
@@ -917,9 +951,7 @@
 				396769C41A5C2578003444D2 /* appIcon152.png in Resources */,
 				3908BF351A532C5000017D84 /* caRHds for odesk project.4a.png in Resources */,
 				396769BD1A5C2578003444D2 /* appIcon29.png in Resources */,
-				210757E01AEE97C3005D158C /* checkbox_checked.png in Resources */,
 				398AADAB1A51DE530003EF8C /* Main.storyboard in Resources */,
-				210757E51AEE9C31005D158C /* checkbox@2x.png in Resources */,
 				391C20A41A5AE08000A44F30 /* registerButton_ipad@2x.png in Resources */,
 				396769A11A5BFDA9003444D2 /* icon.png in Resources */,
 				391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */,
@@ -928,34 +960,42 @@
 				396769A21A5BFDA9003444D2 /* icon@2x.png in Resources */,
 				394680D01A63168700ECA925 /* meetingConclusion2Gray.png in Resources */,
 				398AADB01A51DE530003EF8C /* LaunchScreen.xib in Resources */,
+				2FF20E441B0A4AD400ACD991 /* checkbox_checked@2x.png in Resources */,
 				396769BE1A5C2578003444D2 /* appIcon40.png in Resources */,
 				394680D41A63168700ECA925 /* participantConclusion3Gray.png in Resources */,
 				391C20AE1A5B0B3F00A44F30 /* meetingConclusion3.png in Resources */,
 				391C20AC1A5B0B3F00A44F30 /* meetingConclusion1.png in Resources */,
 				396769C01A5C2578003444D2 /* appIcon76.png in Resources */,
 				3908BF371A532C5000017D84 /* caRHds for odesk project.5a.png in Resources */,
+				2FF20E361B0A3C2A00ACD991 /* register_btn.png in Resources */,
 				21FD7BF71AF9141600B4E195 /* share_btn@2x.png in Resources */,
+				2FF20E311B0A3BC900ACD991 /* cancel_button.png in Resources */,
 				391C209E1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png in Resources */,
+				2FF20E321B0A3BC900ACD991 /* cancel_button@2x.png in Resources */,
 				3908BF301A532C5000017D84 /* caRHds for odesk project.1b.png in Resources */,
 				396769C11A5C2578003444D2 /* appIcon80.png in Resources */,
 				3908BF2F1A532C5000017D84 /* caRHds for odesk project.1a.png in Resources */,
+				2FF20E251B0A2F6100ACD991 /* iphone_background@2x.png in Resources */,
 				391C20A51A5AE08000A44F30 /* registerButton_ipad.png in Resources */,
 				394680D21A63168700ECA925 /* participantConclusion1Gray.png in Resources */,
 				39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */,
 				394680D11A63168700ECA925 /* meetingConclusion3Gray.png in Resources */,
-				210757E41AEE9C31005D158C /* checkbox_checked@2x.png in Resources */,
 				391C20AD1A5B0B3F00A44F30 /* meetingConclusion2.png in Resources */,
+				2FF20E431B0A4AD400ACD991 /* checkbox_checked.png in Resources */,
+				2FF20E351B0A3C2A00ACD991 /* register_btn@2x.png in Resources */,
 				3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */,
 				3908BF381A532C5000017D84 /* caRHds for odesk project.5b.png in Resources */,
 				391C20B01A5B0B3F00A44F30 /* participantConclusion2.png in Resources */,
-				210757E11AEE97C3005D158C /* checkbox.png in Resources */,
+				2FF20E261B0A2F6100ACD991 /* iphone_background.png in Resources */,
 				3908BF331A532C5000017D84 /* caRHds for odesk project.3a.png in Resources */,
 				398AADAD1A51DE530003EF8C /* Images.xcassets in Resources */,
+				2FF20E401B0A409600ACD991 /* checkbox_new.png in Resources */,
 				391C20B11A5B0B3F00A44F30 /* participantConclusion3.png in Resources */,
 				394680D31A63168700ECA925 /* participantConclusion2Gray.png in Resources */,
 				391F93751A599BFA0062A7E5 /* ErrorMessages.plist in Resources */,
 				391C20AF1A5B0B3F00A44F30 /* participantConclusion1.png in Resources */,
 				396769C21A5C2578003444D2 /* appIcon87.png in Resources */,
+				2FF20E2E1B0A314E00ACD991 /* checkbox_new@2x.png in Resources */,
 				396769C81A5C3720003444D2 /* Arial Narrow.ttf in Resources */,
 				391C20A01A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png in Resources */,
 			);
@@ -1128,8 +1168,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1154,7 +1194,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1bc4d0b-2acd-4f82-881d-a9f506a3ccb1";
+				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1165,8 +1205,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1190,7 +1230,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1bc4d0b-2acd-4f82-881d-a9f506a3ccb1";
+				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1233,7 +1273,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "caRHds" */ = {
+		398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "CarHds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				398AADBD1A51DE530003EF8C /* Debug */,

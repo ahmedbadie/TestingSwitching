@@ -7,14 +7,14 @@
 	<key>IDESourceControlProjectIdentifier</key>
 	<string>D719CA1C-C172-4AB9-AA57-3B4DECDAC70C</string>
 	<key>IDESourceControlProjectName</key>
-	<string>caRHds</string>
+	<string>project</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
 		<key>3362370CC3A6E132CCBA42AB2E55461C1E70F623</key>
 		<string>https://bitbucket.org/inova_eg/carhds.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>caRHds.xcodeproj</string>
+	<string>CarHds.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3362370CC3A6E132CCBA42AB2E55461C1E70F623</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>3362370CC3A6E132CCBA42AB2E55461C1E70F623</string>
 			<key>IDESourceControlWCCName</key>
-			<string>CarHDs</string>
+			<string>carhds</string>
 		</dict>
 	</array>
 </dict>

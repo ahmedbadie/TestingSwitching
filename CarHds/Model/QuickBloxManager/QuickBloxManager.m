@@ -22,7 +22,7 @@
     user.login = username;
     user.password = password;
     user.email = email;
-    user.fullName = [NSString stringWithFormat:@"%@, %@",firstName,lastName];
+    user.fullName = [NSString stringWithFormat:@"%@ %@",firstName,lastName];
     
     NSDictionary * customJsonObject = [NSDictionary dictionaryWithObjectsAndKeys:
                                        firstName,FIRST_NAME_JSON_KEY,

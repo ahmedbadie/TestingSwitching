@@ -164,7 +164,7 @@
     if(rememberMe){
         [self.rememberMeButton setImage:[UIImage imageNamed:@"checkbox_checked"] forState:UIControlStateNormal];
     }else{
-        [self.rememberMeButton setImage:[UIImage imageNamed:@"checkbox"] forState:UIControlStateNormal];
+        [self.rememberMeButton setImage:[UIImage imageNamed:@"checkbox_new"] forState:UIControlStateNormal];
     }
 }
 
