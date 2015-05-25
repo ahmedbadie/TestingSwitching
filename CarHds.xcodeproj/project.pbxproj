@@ -906,7 +906,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "CarHds" */;
+			buildConfigurationList = 398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "caRHds" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -1168,8 +1168,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1194,7 +1194,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
+				PROVISIONING_PROFILE = "c1bc4d0b-2acd-4f82-881d-a9f506a3ccb1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1205,8 +1205,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1230,7 +1230,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
+				PROVISIONING_PROFILE = "c1bc4d0b-2acd-4f82-881d-a9f506a3ccb1";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1273,7 +1273,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "CarHds" */ = {
+		398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "caRHds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				398AADBD1A51DE530003EF8C /* Debug */,

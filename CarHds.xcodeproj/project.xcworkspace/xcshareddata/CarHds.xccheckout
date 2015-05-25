@@ -14,7 +14,7 @@
 		<string>https://bitbucket.org/inova_eg/carhds.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>CarHds.xcodeproj/project.xcworkspace</string>
+	<string>caRHds.xcodeproj/project.xcworkspace</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
 		<key>3362370CC3A6E132CCBA42AB2E55461C1E70F623</key>
@@ -34,7 +34,7 @@
 			<key>IDESourceControlWCCIdentifierKey</key>
 			<string>3362370CC3A6E132CCBA42AB2E55461C1E70F623</string>
 			<key>IDESourceControlWCCName</key>
-			<string>carhds</string>
+			<string>CarHDs</string>
 		</dict>
 	</array>
 </dict>

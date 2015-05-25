@@ -329,7 +329,7 @@
         
         
         [QBRequest logInWithUserLogin:[self.usernameTextField text] password:[self.passwordTextField text] successBlock:^(QBResponse *response, QBUUser *user) {
-            NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
+           // NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
             
             NSLog(@"logInWithUserLogin ******* success");
             
