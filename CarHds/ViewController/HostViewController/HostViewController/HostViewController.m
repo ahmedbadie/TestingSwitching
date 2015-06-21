@@ -73,10 +73,13 @@
             card.view.frame = CGRectMake(0, 0, view.frame.size.width, view.frame.size.height);
             card.shouldHandleTap = NO;
             [self addChildViewController:card];
+            card.view.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
             [view addSubview:card.view];
-            card.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |  UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+            //card.view.autoresizingMask = UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin |  UIViewAutoresizingFlexibleTopMargin | UIViewAutoresizingFlexibleBottomMargin;
+
             [card didMoveToParentViewController:self];
             self.numberOfParticipants.layer.borderWidth=1.0f;
+            self.numberOfParticipants.layer.borderColor = [[UIColor clearColor] CGColor];
             [self.numberOfParticipants.layer setCornerRadius:self.numberOfParticipants.frame.size.width/2];
             self.numberOfParticipants.clipsToBounds = YES;
             
@@ -142,6 +145,22 @@
     }
 }
 
+-(IBAction)breakMeetingClicked:(UIButton *)sender {
+    
+    NSString* message = @"pause_meeting";
+    NSString* senderID = [MeetingHandler sharedInstance].qbUser.login;
+    NSString* meetingID = self.chatDialog.name;
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                            @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                            message,@"Message",
+                            meetingID,@"MeetingID",
+                            @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+    [self sendSignalToCarhdsServerWithParams:params];
+    
+    // Meeting is still running, just closed the host view controller
+    [self dismissViewControllerAnimated:YES completion:nil];
+}
+
 
 -(void) showFinalStatistics
 {
@@ -149,6 +168,18 @@
 }
 -(void) leaveMeeting
 {
+    
+    NSString* message = @"leave_meeting";
+    NSString* senderID = [MeetingHandler sharedInstance].qbUser.login;
+    NSString* meetingID = self.chatDialog.name;
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                            @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                            message,@"Message",
+                            meetingID,@"MeetingID",
+                            @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+    [self sendSignalToCarhdsServerWithParams:params];
+
+    
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Leave Meeting";
     //    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
@@ -174,6 +205,16 @@
         return;
         
     }else{
+        
+        // Sharing the name of the host with everyone in the meeting room
+        QBChatMessage* message = [[QBChatMessage alloc]init];
+        message.text = [JsonMessageParser hostNameShareMessage];
+        NSMutableDictionary* params = [NSMutableDictionary dictionary];
+        params[@"save_to_history"] = @YES;
+        [message setCustomParameters:params];
+        [[QBChat instance] sendChatMessage:message toRoom:chatRoom];
+        
+        
         NSString* msg = [JsonMessageParser dummyMessage];
         QBChatRoom* room = chatRoom;
         [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room save:YES];
@@ -203,7 +244,7 @@
 
 -(void)didReciveMessages:(NSArray *)msgs
 {
-    NSLog(@"didReciveMessages [%d]",msgs.count);
+    NSLog(@"didReciveMessages [%lu]",(unsigned long)msgs.count);
     NSMutableArray* newMessages = [NSMutableArray array];
     for (QBChatMessage* msg in msgs){
         if([JsonMessageParser isCloseRoomMessage:msg.text] && [msg.datetime compare:connectionDate] == NSOrderedAscending){
@@ -412,7 +453,9 @@
     if(self.canConclude){
         if([[self.users allKeys] count] <1)
         {
-            [self warnUserWithMessage:STRING(@"NeedUsersMsg")];
+            //[self warnUserWithMessage:STRING(@"NeedUsersMsg")];
+            [self leaveMeeting];
+            
             return;
         }
         UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Conclude Meeting"
@@ -517,16 +560,22 @@
                        options:UIViewAnimationOptionTransitionNone
                     animations:^{
                         
+                        
+                        
                         self.card1View.frame = CGRectMake(xOffset, 20, size.width,size.height);
                         self.card2View.frame = CGRectMake(1024-xOffset-(size.width), 20,size.width,size.height);
                         self.card3View.frame = CGRectMake(1024-xOffset-(size.width), 768-20-(size.height),size.width,size.height);
                         self.card4View.frame = CGRectMake(xOffset, 768-20-(size.height), size.width,size.height);
                         self.card0View.frame = CGRectMake((1024/2)-(size.width/2), (768/2)-(size.height/2), size.width,size.height);
                         self.card0View.center = self.IpadView.center;
+                        
+                        /*for(UIViewController* card in self.viewControllers)
+                            card.view.frame = CGRectMake(0, 0, size.width, size.height);*/
+
                         //                        self.numberOfParticipants.frame = CGRectMake(xOffset-(40), 20, 80, 80);
                         //                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
-                        for(UIViewController* card in self.viewControllers)
-                            card.view.frame = CGRectMake(0, 0, size.width, size.height);
+                        
+                        
                     } completion:^(BOOL finished) {
                         //  Do whatever when the animation is finished
                     }];
@@ -547,6 +596,9 @@
                       duration:0.5
                        options:UIViewAnimationOptionTransitionNone
                     animations:^{
+
+                        /*for(UIViewController* card in self.viewControllers)
+                            card.view.frame = CGRectMake(0, 0, size.width, size.height);*/
                         
                         self.card1View.frame = CGRectMake(20, 20, 275, 470);
                         self.card2View.frame = CGRectMake(473, 20, 275, 470);
@@ -556,8 +608,7 @@
                         //                        self.numberOfParticipants.frame = CGRectMake(15, 23, 80, 80);
                         //                        self.concludeMeetingButton.frame = self.numberOfParticipants.frame;
                         
-                        for(UIViewController* card in self.viewControllers)
-                            card.view.frame = CGRectMake(0, 0, size.width, size.height);
+
                         
                     } completion:^(BOOL finished) {
                         //  Do whatever when the animation is finished

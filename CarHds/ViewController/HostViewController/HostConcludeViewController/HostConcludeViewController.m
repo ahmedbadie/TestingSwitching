@@ -112,13 +112,29 @@
  }
  */
 - (IBAction)leaveMeating:(id)sender {
+    
+    
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Leave Meeting";
+    
+    NSString* message = @"leave_meeting";
+    NSString* senderID = [MeetingHandler sharedInstance].qbUser.login;
+    NSString* meetingID = [MeetingHandler sharedInstance].chatDialog.name;
+    NSString* hostname =[MeetingHandler sharedInstance].qbUser.login;
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                            @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                            message,@"Message",
+                            meetingID,@"MeetingID",
+                            hostname,@"ReceiverID",
+                            @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+    [self sendSignalToCarhdsServerWithParams:params];
+    
     //    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
     //    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     [[MeetingHandler sharedInstance] closeRoom];
     [MeetingHandler sharedInstance].logOut = YES;
     [self didLogOut];
+    
     
 }
 -(void)didLogOut

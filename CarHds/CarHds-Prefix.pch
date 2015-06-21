@@ -39,7 +39,7 @@
 #define HOST_STATISTICS_SEGUE @"HostStatisticsSegue"
 #define HOST_CONCLUDE_CONTROLLER @"HostConcludeController"
 #define HOST_CONCLUDE_SEGUE @"HostConcludeSegue"
-
+#define BASE_URL @"https://services.digital-bauhaus.solutions/rh.starhs/logCaRHdsV1.aspx?"
 
 //#ifdef __OBJC__
 #import <UIKit/UIKit.h>

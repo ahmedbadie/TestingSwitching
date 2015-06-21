@@ -23,4 +23,6 @@
 -(BOOL) NSStringIsValidEmail:(NSString *)checkString;
 -(void) setLandscapeMode;
 -(void) setPortaitMode;
+
+-(void)sendSignalToCarhdsServerWithParams:(NSDictionary*)params;
 @end

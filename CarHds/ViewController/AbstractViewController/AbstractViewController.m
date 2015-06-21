@@ -80,6 +80,49 @@
     [mbHud hide:YES afterDelay:2];
 }
 
+#pragma -
+#pragma Server logging methods
+-(NSString*)createURLRequestParams:(NSDictionary*)dict{
+    NSMutableArray *parts = [NSMutableArray array];
+    for (NSString* key in dict) {
+        NSString* value = [dict objectForKey: key];
+        NSString *part = [NSString stringWithFormat: @"%@=%@", [key stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding], [value stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+        [parts addObject: part];
+    }
+    return [parts componentsJoinedByString: @"&"];
+}
+
+-(void)sendSignalToCarhdsServerWithParams:(NSDictionary*)params{
+    
+    
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        
+        
+        NSString* paramsUrl  = [self createURLRequestParams:params];
+        
+        //NSLog(@"paramsUrl  %@",paramsUrl);
+        
+        
+        // Old way to create URL
+        //NSString * url = [NSString stringWithFormat:@"%@AppGuid=dbh.RH.CaRHds.SVC1&AppCred=8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F&SenderID=%@&ReceiverID=ResourcefulHumans&Message=APISuccessful&MeetingID=%@&CardID=%ld",BASE_URL,senderID,meetingID,(long)cardID];
+        NSString * url = [NSString stringWithFormat:@"%@%@",BASE_URL,paramsUrl];
+        
+        
+        NSLog(@"URL :: %@",url);
+        
+        
+        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
+        
+        NSURLResponse *connectionResponse;
+        NSError *connectionError;
+        [NSURLConnection sendSynchronousRequest:request returningResponse:&connectionResponse error:&connectionError];
+        
+        // On the main thread
+        dispatch_async(dispatch_get_main_queue(), ^{
+        });
+        
+    });
+}
 
 #pragma mark - Meeting Handler Delegate -
 

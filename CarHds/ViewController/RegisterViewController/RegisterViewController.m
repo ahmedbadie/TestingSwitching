@@ -150,6 +150,15 @@
             {
                 [self warnUserWithMessage:DESC(response.error)];
             }else{
+                
+                NSString* message = @"registered";
+                NSString* senderID = self.usernameTextField.text;
+                NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                          @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                          message,@"Message",
+                          @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+                [self sendSignalToCarhdsServerWithParams:params];
+                
                 [self.delegate warnUserWithMessage:[NSString stringWithFormat:@"User %@ created",username]];
                 
                 [self dismissViewControllerAnimated:YES completion:nil];

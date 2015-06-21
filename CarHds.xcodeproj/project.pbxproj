@@ -16,6 +16,12 @@
 		21E1424D1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 21E1424C1B07B5DE00E1FD79 /* libGoogleAnalyticsServices.a */; };
 		21FD7BF61AF9141600B4E195 /* share_btn.png in Resources */ = {isa = PBXBuildFile; fileRef = 21FD7BF41AF9141600B4E195 /* share_btn.png */; };
 		21FD7BF71AF9141600B4E195 /* share_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21FD7BF51AF9141600B4E195 /* share_btn@2x.png */; };
+		2FC296861B1CA291006DD593 /* gobutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC296841B1CA291006DD593 /* gobutton.png */; };
+		2FC296871B1CA291006DD593 /* gobutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC296851B1CA291006DD593 /* gobutton@2x.png */; };
+		2FE0F1221B14D5C10070B052 /* closeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE0F11E1B14D5C10070B052 /* closeBtn.png */; };
+		2FE0F1231B14D5C10070B052 /* closeBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE0F11F1B14D5C10070B052 /* closeBtn@2x.png */; };
+		2FE0F1241B14D5C10070B052 /* meetingBreakBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE0F1201B14D5C10070B052 /* meetingBreakBtn.png */; };
+		2FE0F1251B14D5C10070B052 /* meetingBreakBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE0F1211B14D5C10070B052 /* meetingBreakBtn@2x.png */; };
 		2FF20E251B0A2F6100ACD991 /* iphone_background@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E231B0A2F6100ACD991 /* iphone_background@2x.png */; };
 		2FF20E261B0A2F6100ACD991 /* iphone_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E241B0A2F6100ACD991 /* iphone_background.png */; };
 		2FF20E281B0A2F6F00ACD991 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FF20E271B0A2F6F00ACD991 /* background.png */; };
@@ -159,6 +165,12 @@
 		21E142591B07B62800E1FD79 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		21FD7BF41AF9141600B4E195 /* share_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_btn.png; sourceTree = "<group>"; };
 		21FD7BF51AF9141600B4E195 /* share_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_btn@2x.png"; sourceTree = "<group>"; };
+		2FC296841B1CA291006DD593 /* gobutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gobutton.png; sourceTree = "<group>"; };
+		2FC296851B1CA291006DD593 /* gobutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gobutton@2x.png"; sourceTree = "<group>"; };
+		2FE0F11E1B14D5C10070B052 /* closeBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeBtn.png; sourceTree = "<group>"; };
+		2FE0F11F1B14D5C10070B052 /* closeBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeBtn@2x.png"; sourceTree = "<group>"; };
+		2FE0F1201B14D5C10070B052 /* meetingBreakBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = meetingBreakBtn.png; sourceTree = "<group>"; };
+		2FE0F1211B14D5C10070B052 /* meetingBreakBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "meetingBreakBtn@2x.png"; sourceTree = "<group>"; };
 		2FF20E231B0A2F6100ACD991 /* iphone_background@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iphone_background@2x.png"; sourceTree = "<group>"; };
 		2FF20E241B0A2F6100ACD991 /* iphone_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = iphone_background.png; sourceTree = "<group>"; };
 		2FF20E271B0A2F6F00ACD991 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
@@ -373,6 +385,17 @@
 			path = GoogleAnalyticsServicesiOS_3.12/GoogleAnalytics/Library;
 			sourceTree = "<group>";
 		};
+		2FE0F11D1B14D5C10070B052 /* HostMeeting */ = {
+			isa = PBXGroup;
+			children = (
+				2FE0F11E1B14D5C10070B052 /* closeBtn.png */,
+				2FE0F11F1B14D5C10070B052 /* closeBtn@2x.png */,
+				2FE0F1201B14D5C10070B052 /* meetingBreakBtn.png */,
+				2FE0F1211B14D5C10070B052 /* meetingBreakBtn@2x.png */,
+			);
+			path = HostMeeting;
+			sourceTree = "<group>";
+		};
 		390424491A52F73100370E80 /* MeetingHandler */ = {
 			isa = PBXGroup;
 			children = (
@@ -417,6 +440,7 @@
 		3908BF231A532C5000017D84 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				2FE0F11D1B14D5C10070B052 /* HostMeeting */,
 				21FD7BF41AF9141600B4E195 /* share_btn.png */,
 				21FD7BF51AF9141600B4E195 /* share_btn@2x.png */,
 				396769AB1A5C235F003444D2 /* AppIcon */,
@@ -637,6 +661,8 @@
 			isa = PBXGroup;
 			children = (
 				2FF20E411B0A4AD400ACD991 /* checkbox_checked.png */,
+				2FC296841B1CA291006DD593 /* gobutton.png */,
+				2FC296851B1CA291006DD593 /* gobutton@2x.png */,
 				2FF20E421B0A4AD400ACD991 /* checkbox_checked@2x.png */,
 				2FF20E3F1B0A409600ACD991 /* checkbox_new.png */,
 				2FF20E2D1B0A314E00ACD991 /* checkbox_new@2x.png */,
@@ -906,7 +932,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "caRHds" */;
+			buildConfigurationList = 398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "CarHds" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -935,6 +961,7 @@
 				396769C31A5C2578003444D2 /* appIcon120.png in Resources */,
 				3967699B1A5BFC99003444D2 /* Logon Screen.001.jpg in Resources */,
 				396769A41A5BFE4C003444D2 /* loginBackground.jpg in Resources */,
+				2FE0F1251B14D5C10070B052 /* meetingBreakBtn@2x.png in Resources */,
 				3908BF361A532C5000017D84 /* caRHds for odesk project.4b.png in Resources */,
 				391C20A11A5AD73900A44F30 /* passwordFieldBgRegister_iphone@2x.png in Resources */,
 				394680CF1A63168700ECA925 /* meetingConclusion1Gray.png in Resources */,
@@ -945,6 +972,8 @@
 				2FF20E391B0A3D8C00ACD991 /* textfield_background.png in Resources */,
 				2FF20E281B0A2F6F00ACD991 /* background.png in Resources */,
 				396769C51A5C2578003444D2 /* appIcon180.png in Resources */,
+				2FC296871B1CA291006DD593 /* gobutton@2x.png in Resources */,
+				2FE0F1221B14D5C10070B052 /* closeBtn.png in Resources */,
 				396769BF1A5C2578003444D2 /* appIcon58.png in Resources */,
 				3908BF321A532C5000017D84 /* caRHds for odesk project.2b.png in Resources */,
 				218613E21B07995D00F06E36 /* registerBackground@2x.png in Resources */,
@@ -959,6 +988,7 @@
 				218613DF1B078F2100F06E36 /* AGENDALC.ttf in Resources */,
 				396769A21A5BFDA9003444D2 /* icon@2x.png in Resources */,
 				394680D01A63168700ECA925 /* meetingConclusion2Gray.png in Resources */,
+				2FE0F1231B14D5C10070B052 /* closeBtn@2x.png in Resources */,
 				398AADB01A51DE530003EF8C /* LaunchScreen.xib in Resources */,
 				2FF20E441B0A4AD400ACD991 /* checkbox_checked@2x.png in Resources */,
 				396769BE1A5C2578003444D2 /* appIcon40.png in Resources */,
@@ -981,6 +1011,8 @@
 				39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */,
 				394680D11A63168700ECA925 /* meetingConclusion3Gray.png in Resources */,
 				391C20AD1A5B0B3F00A44F30 /* meetingConclusion2.png in Resources */,
+				2FE0F1241B14D5C10070B052 /* meetingBreakBtn.png in Resources */,
+				2FC296861B1CA291006DD593 /* gobutton.png in Resources */,
 				2FF20E431B0A4AD400ACD991 /* checkbox_checked.png in Resources */,
 				2FF20E351B0A3C2A00ACD991 /* register_btn@2x.png in Resources */,
 				3908BF341A532C5000017D84 /* caRHds for odesk project.3b.png in Resources */,
@@ -1168,8 +1200,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1194,7 +1226,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1bc4d0b-2acd-4f82-881d-a9f506a3ccb1";
+				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1205,8 +1237,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1230,7 +1262,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "c1bc4d0b-2acd-4f82-881d-a9f506a3ccb1";
+				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1273,7 +1305,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "caRHds" */ = {
+		398AAD971A51DE530003EF8C /* Build configuration list for PBXProject "CarHds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				398AADBD1A51DE530003EF8C /* Debug */,

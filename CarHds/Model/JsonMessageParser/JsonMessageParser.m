@@ -73,6 +73,17 @@
     NSData *jsonData = [json serializeDictionary:dictionary error:nil];
     return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];;
 }
++(NSString*)hostNameShareMessage
+{
+    NSDictionary* dictionary = @{
+                                 MESSAGE_TARGET:MESSAGE_TARGET_BROADCAST,
+                                 MESSAGE_HOST_TYPE: MESSAGE_BROADCAST_TYPE_NAME,
+                                 MESSAGE_HOST_NAME: [MeetingHandler sharedInstance].qbUser.login,
+                                 };
+    CJSONSerializer* json = [[CJSONSerializer alloc]init];
+    NSData *jsonData = [json serializeDictionary:dictionary error:nil];
+    return [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];;
+}
 +(NSString *)closeRoomMessage{
     NSDictionary* dictionary = @{
                                  MESSAGE_TARGET:MESSAGE_TARGET_BROADCAST,
@@ -90,12 +101,21 @@
     NSString* target = [dict objectForKey:MESSAGE_TARGET];
     if([target isEqualToString:MESSAGE_TARGET_BROADCAST])
     {
+        // The goal of retriving the previous message is to get the current status of the client
+        // Therefor, he should not give any attention to any messages from the host sent in a date before his (client) join date.
+
+
         NSString* type = [dict objectForKey:MESSAGE_BROADCAST_TYPE];
         if([type isEqualToString:MESSAGE_BROADCAST_TYPE_CONCLUDE])
         {
             [delegate receivedConclusionSignal];
             return YES;
-        }else if ([type isEqualToString:MESSAGE_BROADCAST_TYPE_CLOSE]){
+        }else if ([type isEqualToString:MESSAGE_BROADCAST_TYPE_NAME]){
+            NSString* hostName = [dict objectForKey:MESSAGE_HOST_NAME];
+            [MeetingHandler sharedInstance].hostname = hostName;
+            //NSLog(@"I have the host name %@",hostName);
+        }
+        else if ([type isEqualToString:MESSAGE_BROADCAST_TYPE_CLOSE]){
             [delegate receivedCloseRoom];
         }
         

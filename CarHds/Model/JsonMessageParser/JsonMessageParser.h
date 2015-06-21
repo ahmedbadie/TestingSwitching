@@ -18,9 +18,11 @@
 #define MESSAGE_BROADCAST_TYPE_CONCLUDE @"conclude"
 #define MESSAGE_BROADCAST_TYPE_DUMMY @"dummy"
 #define MESSAGE_HOST_TYPE @"type"
+#define MESSAGE_HOST_NAME @"hostName"
 #define MESSAGE_HOST_TYPE_LOGIN @"login"
 #define MESSAGE_HOST_TYPE_LOGOUT @"logout"
 #define MESSAGE_BROADCAST_TYPE_CLOSE @"closeRoom"
+#define MESSAGE_BROADCAST_TYPE_NAME @"shareName"
 #define MESSAGE_HOST_TYPE_CARD_VOTE @"cardVote"
 #define MESSAGE_HOST_TYPE_CONCLUDE @"conclude"
 #define MESSAGE_CARD_VOTE_CARD_NO @"cardNo"
@@ -65,6 +67,7 @@ typedef enum{
 +(NSString*) cardVoteMessageForCard:(NSInteger) cardNo withValue:(BOOL) value;
 +(NSString*) logOutMessageForUser:(NSString*)username;
 +(NSString*) dummyMessage;
++(NSString*)hostNameShareMessage;
 +(NSString*) closeRoomMessage;
 +(BOOL) isCloseRoomMessage:(NSString*) msg;
 +(BOOL) decodeMessage:(QBChatMessage*) message withDelegate:(NSObject<JsonMessageParserDelegate>*) delegate;

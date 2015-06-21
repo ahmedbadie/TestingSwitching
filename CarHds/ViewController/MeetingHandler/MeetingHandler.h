@@ -25,6 +25,7 @@
 @property(nonatomic,strong) QBChatDialog* chatDialog;
 @property (nonatomic,strong) QBUUser* qbUser;
 @property (nonatomic,strong) QBChatRoom* chatRoom;
+@property (nonatomic,strong) NSString* hostname;
 @property (nonatomic,strong) UIViewController<MeetingHandlerDelegate>* delegate;
 @property (nonatomic) BOOL isLoggedIn;
 @property (nonatomic) BOOL isJoinedToChat;

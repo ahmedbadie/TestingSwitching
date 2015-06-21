@@ -30,9 +30,21 @@
             <string>Agenda-LightCondensed</string>
             <string>Agenda-LightCondensed</string>
             <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
         </mutableArray>
         <mutableArray key="Arial Narrow.ttf">
-            <string>ArialNarrow</string>
             <string>ArialNarrow</string>
             <string>ArialNarrow</string>
             <string>ArialNarrow</string>
@@ -98,8 +110,8 @@
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <tableView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YgU-cd-Jzt">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="YgU-cd-Jzt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="520"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -135,12 +147,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="a9h-Io-a0t" userLabel="BottomLeftView">
-                                        <rect key="frame" x="24" y="531.00000126230168" width="224" height="465"/>
+                                        <rect key="frame" x="24" y="531.00000040915711" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="fb4-K9-MpO" userLabel="BottomMiddleView">
-                                        <rect key="frame" x="272" y="531.00000126230168" width="224" height="465"/>
+                                        <rect key="frame" x="272" y="531.00000040915711" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -353,9 +365,9 @@
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Odd-Op-LYq">
                                         <rect key="frame" x="13" y="214" width="294" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" red="0.019607843137254902" green="0.396078431372549" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="20"/>
-                                        <state key="normal" title="Go" backgroundImage="register_btn.png">
+                                        <state key="normal" title="Go" backgroundImage="gobutton.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
@@ -366,9 +378,9 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <view contentMode="center" id="4E1-6H-aBB">
+                            <view clipsSubviews="YES" contentMode="center" id="4E1-6H-aBB">
                                 <rect key="frame" x="0.0" y="433" width="320" height="136"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="Fhd-e8-edw">
                                         <rect key="frame" x="0.0" y="23" width="320" height="90"/>
@@ -379,7 +391,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" red="0.30980392156862746" green="0.6470588235294118" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <state key="normal" title="Register" backgroundImage="cancel_button.png">
+                                                <state key="normal" backgroundImage="cancel_button.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -387,12 +399,20 @@
                                                     <action selector="registerUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tZh-od-J06"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5aT-8v-Dcj">
+                                                <rect key="frame" x="13" y="0.0" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="tintColor" red="0.96078431369999995" green="0.96078431369999995" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nUT-d9-CrD">
                                                 <rect key="frame" x="13" y="50" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                                 <color key="backgroundColor" red="0.30980392156862746" green="0.6470588235294118" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <state key="normal" title="I forgot my password" backgroundImage="cancel_button.png">
+                                                <state key="normal" backgroundImage="cancel_button.png">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
@@ -400,8 +420,14 @@
                                                     <action selector="forgetPassword:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HG5-YJ-u9b"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I forgot my password" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="LWW-Uh-SZv">
+                                                <rect key="frame" x="13" y="50" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -511,17 +537,16 @@
                             </label>
                             <view contentMode="scaleToFill" id="6da-3s-KNE" userLabel="Fields View">
                                 <rect key="frame" x="13" y="186" width="294" height="240"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" id="8BH-dO-Y3D" userLabel="username">
                                         <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailFieldBgRegister_ipad.png" id="Bwc-ia-aT9">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="Bwc-ia-aT9">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Username" textAlignment="center" minimumFontSize="8" id="ZB2-Nx-swi">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="8" id="ZB2-Nx-swi">
                                                 <rect key="frame" x="10" y="0.0" width="284" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
@@ -537,12 +562,12 @@
                                         <rect key="frame" x="0.0" y="50" width="294" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passwordFieldBgRegister_iphone.png" id="qTj-PC-eBM">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="qTj-PC-eBM">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Password" textAlignment="center" minimumFontSize="17" id="hOL-Cf-9br">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="hOL-Cf-9br">
+                                                <rect key="frame" x="10" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
@@ -557,12 +582,12 @@
                                         <rect key="frame" x="0.0" y="100" width="294" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailFieldBgRegister_ipad.png" id="qJK-6m-Us1">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="qJK-6m-Us1">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="email" textAlignment="center" minimumFontSize="17" id="Vxr-dW-G94">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="Vxr-dW-G94">
+                                                <rect key="frame" x="10" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
@@ -577,12 +602,12 @@
                                         <rect key="frame" x="0.0" y="150" width="294" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailFieldBgRegister_ipad.png" id="583-HQ-5bx">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="583-HQ-5bx">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="First Name" textAlignment="center" minimumFontSize="8" id="SEb-oD-sw6">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="8" id="SEb-oD-sw6">
+                                                <rect key="frame" x="10" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -597,12 +622,12 @@
                                         <rect key="frame" x="0.0" y="200" width="294" height="40"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailFieldBgRegister_ipad.png" id="7zM-W8-1SQ">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="7zM-W8-1SQ">
                                                 <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Last Name" textAlignment="center" minimumFontSize="8" id="6WS-IE-2L9">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="8" id="6WS-IE-2L9">
+                                                <rect key="frame" x="10" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
@@ -620,25 +645,39 @@
                                 <rect key="frame" x="13" y="447" width="294" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                <state key="normal" title="Register" backgroundImage="register_btn.png">
+                                <state key="normal" backgroundImage="register_btn.png">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="MLe-2W-QNC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vwU-Az-4qA">
+                                <rect key="frame" x="13" y="447" width="294" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b8L-CX-hyu">
                                 <rect key="frame" x="13" y="507" width="294" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.30980392156862746" green="0.6470588235294118" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                <state key="normal" title="Cancel and go back to login" backgroundImage="cancel_button.png">
+                                <state key="normal" backgroundImage="cancel_button.png">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="cr3-9c-19Z"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel and go back to login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pJ2-7R-gDn">
+                                <rect key="frame" x="13" y="507" width="294" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" id="Vpf-Jf-eMK">
                                 <rect key="frame" x="25" y="21" width="271" height="88"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
@@ -691,11 +730,11 @@
                                         <rect key="frame" x="210" y="0.0" width="315" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailFieldBgRegister_ipad.png" id="Pqf-vj-zvn">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="Pqf-vj-zvn">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="username" minimumFontSize="8" id="Gno-sr-fv2">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="8" id="Gno-sr-fv2">
                                                 <rect key="frame" x="17" y="0.0" width="257" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
@@ -710,11 +749,11 @@
                                         <rect key="frame" x="210" y="50" width="315" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="passwordFieldBgRegister_iphone.png" id="8nd-zM-jhU">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="8nd-zM-jhU">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="password" minimumFontSize="17" id="3TE-Ob-j7j">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="3TE-Ob-j7j">
                                                 <rect key="frame" x="17" y="0.0" width="257" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
@@ -729,11 +768,11 @@
                                         <rect key="frame" x="210" y="100" width="315" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailFieldBgRegister_ipad.png" id="N8Y-Ad-VRV">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="N8Y-Ad-VRV">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="email" minimumFontSize="17" id="Qqb-hl-8in">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="Qqb-hl-8in">
                                                 <rect key="frame" x="17" y="0.0" width="257" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
@@ -745,15 +784,15 @@
                                         <rect key="frame" x="210" y="150" width="315" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailFieldBgRegister_ipad.png" id="cen-hq-gK7">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="cen-hq-gK7">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="first name" minimumFontSize="8" id="EbU-AC-UHr">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="First name" minimumFontSize="8" id="EbU-AC-UHr">
                                                 <rect key="frame" x="17" y="0.0" width="257" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="6Xq-wp-JXt" id="UAm-xz-3mU"/>
                                                 </connections>
@@ -764,15 +803,15 @@
                                         <rect key="frame" x="210" y="200" width="315" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="emailFieldBgRegister_ipad.png" id="Y5Z-Wh-39A">
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="Y5Z-Wh-39A">
                                                 <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="last name" minimumFontSize="8" id="NQy-FL-OyM">
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Last name" minimumFontSize="8" id="NQy-FL-OyM">
                                                 <rect key="frame" x="17" y="0.0" width="257" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no"/>
                                                 <connections>
                                                     <outlet property="delegate" destination="6Xq-wp-JXt" id="y11-ZG-pwD"/>
                                                 </connections>
@@ -786,28 +825,40 @@
                                 <rect key="frame" x="0.0" y="666" width="768" height="110"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KzU-Gy-KMP" userLabel="Register">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KzU-Gy-KMP" userLabel="Register">
                                         <rect key="frame" x="227" y="0.0" width="315" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                        <state key="normal" title="Register me" backgroundImage="register_btn.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
+                                        <state key="normal" backgroundImage="register_btn.png"/>
                                         <connections>
                                             <action selector="buttonClicked:" destination="6Xq-wp-JXt" eventType="touchUpInside" id="2CY-oF-qAt"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register me" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SIE-cc-FTt">
+                                        <rect key="frame" x="227" y="0.0" width="315" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                     <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xja-kZ-iux">
                                         <rect key="frame" x="226" y="70" width="315" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                        <state key="normal" title="Cancel and go back to login" backgroundImage="cancel_button.png">
+                                        <state key="normal" backgroundImage="cancel_button.png">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         </state>
                                         <connections>
                                             <action selector="buttonClicked:" destination="6Xq-wp-JXt" eventType="touchUpInside" id="lpj-NY-j8S"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel and go back to login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aei-Wo-jAk">
+                                        <rect key="frame" x="226" y="70" width="315" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                        <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -833,7 +884,7 @@
         <scene sceneID="lV5-d9-o5U">
             <objects>
                 <viewController storyboardIdentifier="SingleCardViewController2" id="Bmk-Ov-0kJ" customClass="SingleCardViewController" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleAspectFit" id="xjK-tX-UaN">
+                    <view key="view" clipsSubviews="YES" contentMode="scaleAspectFit" id="xjK-tX-UaN">
                         <rect key="frame" x="0.0" y="0.0" width="275" height="470"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -842,8 +893,23 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </imageView>
+                            <view hidden="YES" contentMode="scaleToFill" id="eDL-48-hNg">
+                                <rect key="frame" x="11" y="11" width="253" height="40"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <label hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SfI-wr-4NR">
+                                        <rect key="frame" x="0.0" y="0.0" width="253" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="24"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.69803921568627447" green="0.10588235294117647" blue="0.0078431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </view>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="30" sectionHeaderHeight="22" sectionFooterHeight="22" id="rHN-13-j3r">
-                                <rect key="frame" x="10" y="10" width="255" height="450"/>
+                                <rect key="frame" x="11" y="51" width="253" height="409"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
@@ -857,6 +923,8 @@
                     <size key="freeformSize" width="275" height="470"/>
                     <connections>
                         <outlet property="imageView" destination="skf-1t-UQl" id="yAp-Yv-kLa"/>
+                        <outlet property="namesCountLabel" destination="SfI-wr-4NR" id="fQd-Gk-bNm"/>
+                        <outlet property="namesCountView" destination="eDL-48-hNg" id="afX-S4-euh"/>
                         <outlet property="namesTableview" destination="rHN-13-j3r" id="NAn-jT-F3v"/>
                     </connections>
                 </viewController>
@@ -1003,21 +1071,35 @@
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="fUk-2z-2zj">
-                                        <rect key="frame" x="344" y="63" width="80" height="80"/>
+                                    <view contentMode="scaleToFill" id="f2m-BR-X1Q">
+                                        <rect key="frame" x="344" y="63" width="80" height="104"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="60"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="6" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" id="fUk-2z-2zj">
+                                                <rect key="frame" x="10" y="10" width="60" height="60"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                                <color key="textColor" red="0.019607843137254902" green="0.396078431372549" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="highlightedColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Members" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="h5q-gS-Dn9">
+                                                <rect key="frame" x="0.0" y="80" width="80" height="24"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                     <view contentMode="scaleAspectFit" id="WTQ-UW-3DU" userLabel="Center">
                                         <rect key="frame" x="247" y="277" width="275" height="470"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         <color key="tintColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w0Y-Z3-gD9">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="w0Y-Z3-gD9">
                                         <rect key="frame" x="328" y="18" width="112" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="17"/>
@@ -1029,16 +1111,49 @@
                                             <action selector="buttonPressed:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="cHd-yT-a3L"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="kPx-xn-rVs" userLabel="concludeMeeting">
-                                        <rect key="frame" x="344" y="63" width="80" height="80"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal">
-                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="concludeMeeting:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="Wtf-vz-D6R"/>
-                                        </connections>
-                                    </button>
+                                    <view contentMode="scaleToFill" id="var-MF-gxR">
+                                        <rect key="frame" x="317" y="850" width="135" height="102"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZXm-rg-4AR">
+                                                <rect key="frame" x="0.0" y="0.0" width="135" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                <state key="normal" backgroundImage="closeBtn.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="concludeMeeting:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="v22-Dw-e4X"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Close Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="qHz-eV-gAo">
+                                                <rect key="frame" x="0.0" y="0.0" width="135" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="E31-Dc-z4s">
+                                                <rect key="frame" x="0.0" y="62" width="135" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                <state key="normal" backgroundImage="meetingBreakBtn.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="breakMeetingClicked:" destination="YAk-f5-8XZ" eventType="touchUpInside" id="xgv-qd-rep"/>
+                                                </connections>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Meeting Break" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="86U-AV-nyn">
+                                                <rect key="frame" x="0.0" y="62" width="135" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
@@ -1060,7 +1175,7 @@
                         <outlet property="card3View" destination="7gZ-rU-I1w" id="vsH-yq-mys"/>
                         <outlet property="card4View" destination="Ey4-uK-aza" id="287-Us-ADQ"/>
                         <outlet property="concludeIPadView" destination="kR1-SA-aLi" id="2Yf-he-ARX"/>
-                        <outlet property="concludeMeetingButton" destination="kPx-xn-rVs" id="JSv-JN-eHm"/>
+                        <outlet property="concludeMeetingButton" destination="ZXm-rg-4AR" id="0NS-c9-8LS"/>
                         <outlet property="ipadViewLandscape" destination="pwj-tC-Arg" id="w3g-Py-ckK"/>
                         <outlet property="leaveMeetingButton" destination="w0Y-Z3-gD9" id="U3F-cv-NkD"/>
                         <outlet property="numberOfParticipants" destination="fUk-2z-2zj" id="U1X-sJ-KXX"/>
@@ -1227,7 +1342,7 @@
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6ui-tf-saJ">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="6ui-tf-saJ">
                                         <rect key="frame" x="186" y="21" width="116" height="22"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="17"/>
@@ -1280,11 +1395,12 @@
         <image name="caRHds for odesk project.1a.png" width="1080" height="1920"/>
         <image name="cancel_button.png" width="315" height="40"/>
         <image name="checkbox_new.png" width="20" height="20"/>
-        <image name="emailFieldBgRegister_ipad.png" width="365" height="60"/>
+        <image name="closeBtn.png" width="206" height="41"/>
+        <image name="gobutton.png" width="295" height="40"/>
         <image name="icon.png" width="354" height="128"/>
         <image name="iphone_background.png" width="320" height="568"/>
         <image name="loginBackground.jpg" width="1080" height="1920"/>
-        <image name="passwordFieldBgRegister_iphone.png" width="214" height="35"/>
+        <image name="meetingBreakBtn.png" width="205" height="40"/>
         <image name="register_btn.png" width="315" height="40"/>
         <image name="share_btn.png" width="19" height="26"/>
         <image name="textfield_background.png" width="315" height="40"/>

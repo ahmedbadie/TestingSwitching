@@ -66,13 +66,24 @@ static MeetingHandler* handler;
     //
     //    }];
     //
-        [QBRequest messagesWithDialogID:self.chatDialog.ID successBlock:^(QBResponse *response, NSArray *messages) {
     
-            [self.delegate didReciveMessages:messages];
+    //  Tmp fix for not returning all the messages in the dialgo
+    QBResponsePage *page = [QBResponsePage responsePageWithLimit:1000 skip:0];
+    NSMutableDictionary *extendedRequest = [NSMutableDictionary new];
     
-        } errorBlock:^(QBResponse *response) {
+    // This constraint is to make sure you get only message records within the valid meeting time duration (6 hours) any message before such time will not be returned
+    NSDate *now = [NSDate date];
+    NSDate *since = [now dateByAddingTimeInterval:-MAX_TIME_INTERVAL];
+    extendedRequest[@"date_sent[gte]"]= @([since timeIntervalSince1970]);
     
-        }];
+     [QBRequest messagesWithDialogID:self.chatDialog.ID extendedRequest:extendedRequest forPage:page successBlock:^(QBResponse *response, NSArray *messages, QBResponsePage *page) {
+        
+        [self.delegate didReciveMessages:messages];
+        
+    } errorBlock:^(QBResponse *response) {
+        
+    }];
+
     
     
 }
@@ -166,6 +177,7 @@ static MeetingHandler* handler;
 -(void)chatRoomDidEnter:(QBChatRoom *)room
 {
     [self.delegate didConnectToRoom:room];
+
 }
 
 -(void)chatDidDeliverMessageWithID:(NSString *)messageID

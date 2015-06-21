@@ -12,28 +12,45 @@
 
 @property (weak, nonatomic) IBOutlet UIImageView *imageView;
 @property (weak, nonatomic) IBOutlet UITableView *namesTableview;
+@property (weak, nonatomic) IBOutlet UILabel *namesCountLabel;
+@property (weak, nonatomic) IBOutlet UIView *namesCountView;
 @property (strong, nonatomic)  NSArray *namesArray;
 
 @end
 
 @implementation SingleCardViewController
 
+
 -(NSString *)getUserNameForIndexPath:(NSIndexPath *)indexPath{
     
-    if(indexPath.row == 0){
-        return  @"";
-    }
+    NSInteger userIndex =(indexPath.row);
     
-    if(indexPath.row == self.namesArray.count + 1){
-        return  @"";
+    // Caution checking to handle incoming message after called reload
+    if(self.namesArray == nil || self.namesArray.count == 0){
+        return @"";
     }
-    NSInteger userIndex =(indexPath.row-1);
     NSDictionary * user = [self.namesArray objectAtIndex:userIndex];
     return [user objectForKey:MESSAGE_LOGIN_FULLNAME];
     
     //    return [NSString stringWithFormat:@"index %ld",(long)userIndex];
 }
+/*- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
 
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+//    UITableViewHeaderFooterView* tableViewHeaderFooterView = [[UITableViewHeaderFooterView alloc] init];
+//    tableViewHeaderFooterView.textLabel.text = @"15";
+//    return tableViewHeaderFooterView;
+    UILabel* countLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 40)];
+    countLabel.text = @"15";
+    countLabel.textAlignment = NSTextAlignmentCenter;
+    countLabel.backgroundColor = [UIColor colorWithRed:178/255.0 green:27/255.0 blue:2/255.0 alpha:1];
+    countLabel.autoresizingMask = UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth  ;
+    return countLabel;
+}*/
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     
     static NSString * cellIdentifier = @"NameCell";
@@ -42,13 +59,13 @@
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         cell.textLabel.textAlignment = NSTextAlignmentCenter;
         cell.textLabel.textColor = [UIColor whiteColor];
-        cell.textLabel.font = [UIFont fontWithName:@"LucidaGrande-Bold" size:21];
+        cell.textLabel.font = [UIFont fontWithName:@"Agenda-LightCondensed" size:18];
         cell.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
         
     }
     
     cell.textLabel.text = [self getUserNameForIndexPath:indexPath];
-    
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return  cell;
 }
 
@@ -58,7 +75,7 @@
     if(self.namesArray == nil || self.namesArray.count == 0){
         return 0;
     }
-    return self.namesArray.count + 2;
+    return self.namesArray.count;
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -66,8 +83,32 @@
 }
 
 -(void)setCardUserNames:(NSArray *)usersNames{
+    /**
+     You can use this code to test the look of the tableview when the number of users is too big to fit inside the card view
+     **/
+//    NSMutableArray * users = [[NSMutableArray alloc]init];
+//    for(int i=0;i<usersNames.count;i++)
+//    {
+//        for(int k=0;k<15;k++)
+//            [users addObject:[usersNames objectAtIndex:i]];
+//        
+//    }
+//    self.namesArray = users;
+    
     self.namesArray = usersNames;
-    [self.namesTableview reloadData];
+    if(self.namesArray == nil || self.namesArray.count == 0){
+        self.namesTableview.hidden = YES;
+        self.namesCountLabel.hidden = YES;
+        self.namesCountView.hidden = YES;
+        self.namesCountLabel.text = @"";
+    }else
+    {
+        self.namesCountLabel.hidden = NO;
+        self.namesCountView.hidden = NO;
+        self.namesTableview.hidden = NO;
+        self.namesCountLabel.text = [NSString stringWithFormat:@"%lu",(unsigned long)self.namesArray.count];
+        [self.namesTableview reloadData];
+    }
 }
 
 - (void)viewDidLoad {
@@ -78,7 +119,7 @@
         [self setImageWithAnimation:NO];
     
     
-    [self.namesTableview setUserInteractionEnabled:NO];
+    //[self.namesTableview setUserInteractionEnabled:NO];
 }
 
 -(void)setImageWithAnimation:(BOOL)animated

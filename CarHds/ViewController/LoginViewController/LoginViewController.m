@@ -329,7 +329,7 @@
         
         
         [QBRequest logInWithUserLogin:[self.usernameTextField text] password:[self.passwordTextField text] successBlock:^(QBResponse *response, QBUUser *user) {
-           // NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
+            // NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
             
             NSLog(@"logInWithUserLogin ******* success");
             
@@ -388,7 +388,7 @@
 -(void) createMeetingRoom
 {
     self.hud.labelText = STRING(@"CreatingMeeting");
-
+    
     // First check if chat dialouge exists or not?
     QBChatDialog* chatDialog = [QBChatDialog new];
     chatDialog.type = QBChatDialogTypePublicGroup;
@@ -561,20 +561,25 @@
     NSLog(@"chatDidLogin [%@]",[self.meetingIDTextField text]);
     // If successfully loged in to chat
     NSMutableDictionary* dictionary =[NSMutableDictionary dictionary];
-    [dictionary setObject:[self.meetingIDTextField text] forKey:@"ـname"];
+    // This constraint is to make sure you get only one record for the dialog with the correct name
+    [dictionary setObject:[self.meetingIDTextField text] forKey:@"name"];
     //    [QBChat dialogsWithExtendedRequest:dictionary delegate:self];
     
     
     [QBRequest dialogsForPage:nil extendedRequest:dictionary successBlock:^(QBResponse *response, NSArray *dialogObjects, NSSet *dialogsUsersIDs, QBResponsePage *page) {
         
         [self.hud hide:YES];
-        NSLog(@"completedWithResult success QBDialogsPagedResult");
+        NSLog(@"completedWithResult success QBDialogsPagedResult [%d]",dialogObjects.count);
         
         //
         NSArray *dialogs = dialogObjects;
         QBChatDialog* chatDialog;
         QBChatRoom* room ;
         
+        NSString* message;
+        NSString* senderID;
+        NSString* meetingID;
+        NSDictionary* params;
         for(QBChatDialog* dialog in dialogs)
         {
             //            NSLog(@"[%@]  [%lu]  [%@]  [%@]",dialog.roomJID,(unsigned long)dialog.userID,dialog.ID,dialog.name);
@@ -591,16 +596,44 @@
                         BOOL canResume = NO;
                         if(dialog.userID == self.user.ID){
                             canResume = YES;
+                        }else{
+                            /*
+                             ** This line of code is added to avoid the following case scenario
+                             ** User A created a room. dialog.userID = "User A". Then User A leave it
+                             ** User B used the same room later, he was able to join the room because User A's meeting expire
+                             ** User B took a meeting break
+                             ** If User B try to resume meeting, he won't be able to do so because the room is busy and dialog.userID = "User A"
+                             ** To avoid that, when user B join the room that was assigned to User A, he won't be able to do so even if the meeting expire"
+                             ** A better solution is to change dialog.userID but I don't think that's feasible.
+                             ** May be a better solution exists
+                            */
+                            [self warnUserWithMessage:@"Meeting room already exists"];
+                            return ;
                         }
                         if( !canResume && [Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText] ){
                             [self warnUserWithMessage:@"Meeting room already exists"];
                         }else{
+                            // Room was created before
+                            //
                             //                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
                             chatDialog = dialog;
                             self.chatDialog = chatDialog;
                             [MeetingHandler sharedInstance].chatDialog = chatDialog;
+                            
+                            
                             room = chatDialog.chatRoom;
                             [MeetingHandler sharedInstance].chatRoom = room;
+                            
+                            message = @"enter_meeting";
+                            senderID = self.usernameTextField.text;
+                            meetingID = [MeetingHandler sharedInstance].chatDialog.name;
+                            params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                                                    @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                                                    message,@"Message",
+                                                    meetingID,@"MeetingID",
+                                                    @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+                            
+                            [self sendSignalToCarhdsServerWithParams:params];
                             
                             [self joinMeetingRoomAsHost];
                         }
@@ -614,8 +647,28 @@
                             [MeetingHandler sharedInstance].chatDialog = chatDialog;
                             room = chatDialog.chatRoom;
                             [MeetingHandler sharedInstance].chatRoom = room;
+                            
+                            message = @"enter_meeting";
+                            senderID = self.usernameTextField.text;
+                            meetingID = [MeetingHandler sharedInstance].chatDialog.name;
+                            params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                                                    @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                                                    message,@"Message",
+                                                    meetingID,@"MeetingID",
+                                                    @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+                            [self sendSignalToCarhdsServerWithParams:params];
+                            
                             [self joinMeetingRoom];
                         }else{
+                            
+                            message = @"login_fail_RoomExpired";
+                            senderID = self.usernameTextField.text;
+                            params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                                                    @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                                                    message,@"Message",
+                                                    @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+                            [self sendSignalToCarhdsServerWithParams:params];
+                            
                             [self warnUserWithMessage:STRING(@"RoomExpired")];
                         }
                         break;
@@ -629,9 +682,30 @@
         
         switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
             case HOST_MEETING_INDEX:
+                // Room not found so we are going to create a new room
+                senderID = self.usernameTextField.text;
+                meetingID = [MeetingHandler sharedInstance].chatDialog.name;
+                message = @"create_meeting";
+                params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                                        meetingID,@"MeetingID",
+                                        @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                                        message,@"Message",
+                                        @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+                
+                [self sendSignalToCarhdsServerWithParams:params];
+                
                 [self createMeetingRoom];
                 break;
             case JOIN_MEETING_INDEX:
+                
+                message = @"login_fail_Room_Doesn't_exist";
+                senderID = self.usernameTextField.text;
+                params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                                        @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                                        message,@"Message",
+                                        @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+                [self sendSignalToCarhdsServerWithParams:params];
+                
                 [self warnUserWithMessage:@"Meeting room doesn't exist"];
                 break;
             default:

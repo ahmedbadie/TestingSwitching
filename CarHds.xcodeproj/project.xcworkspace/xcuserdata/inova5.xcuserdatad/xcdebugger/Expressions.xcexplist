@@ -11,6 +11,9 @@
             <PersistentString
                value = "[JsonMessageParser isCloseRoomMessage:dialog.lastMessageText]">
             </PersistentString>
+            <PersistentString
+               value = "self.user.ID">
+            </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
@@ -27,6 +30,14 @@
             </PersistentString>
             <PersistentString
                value = "components.hour">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[HostConcludeViewController leaveMeating:]:HostConcludeViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "[MeetingHandler sharedInstance].chatDialog">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

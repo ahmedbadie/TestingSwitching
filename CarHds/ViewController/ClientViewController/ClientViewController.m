@@ -152,9 +152,11 @@
             [newMessages addObject:msg];
         }
     }
+
     [self.messages addObjectsFromArray:newMessages];
     for(QBChatMessage* msg in newMessages){
         if([Utilities withinRoomLife:msg.datetime]){
+            //NSLog(@"%@",msg.datetime);
             [JsonMessageParser decodeMessage:msg withDelegate:self];
         }
     }
@@ -223,39 +225,9 @@
 }
 
 
--(void)sendSignalToCarhdsServerWithSenderID:(NSString *)senderID meetingID:(NSString *)meetingID cardID:(NSInteger)cardID{
-    
-    
-    //         https://services.digital-bauhaus.solutions/rh.starhs/logCaRHdsV1.aspx?AppGuid=dbh.RH.CaRHds.SVC1&AppCred=8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F&SenderID=Ahmd&ReceiverID=ResourcefulHumans&Message=APISuccessful&MeetingID=ExampleMeetingID&CardID=ExampleCardID
-    
-    
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        
-        NSString * url = [NSString stringWithFormat:@"https://services.digital-bauhaus.solutions/rh.starhs/logCaRHdsV1.aspx?AppGuid=dbh.RH.CaRHds.SVC1&AppCred=8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F&SenderID=%@&ReceiverID=ResourcefulHumans&Message=APISuccessful&MeetingID=%@&CardID=%ld",senderID,meetingID,(long)cardID];
-        
-        
-        
-        NSLog(@"sendSignalToCarhdsServerWithSenderID request url [%@]",url);
-        
-        
-        NSMutableURLRequest *request = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:url]];
-        
-        NSURLResponse *connectionResponse;
-        NSError *connectionError;
-        NSData * responseData = [NSURLConnection sendSynchronousRequest:request returningResponse:&connectionResponse error:&connectionError];
-        
-        // On the main thread
-        dispatch_async(dispatch_get_main_queue(), ^{
-        });
-        
-    });
-    
-    
-    
-    
-    
-    
-}
+
+
+
 #pragma mark
 
 -(void)setIndex:(NSInteger)index
@@ -278,9 +250,23 @@
         
         NSString * senderID = self.user.login;
         NSString * meetingID = [MeetingHandler sharedInstance].chatDialog.name;
+        NSString* hostname =[MeetingHandler sharedInstance].hostname;
         NSInteger cardID = pageIndex;
         
-        [self sendSignalToCarhdsServerWithSenderID:senderID meetingID:meetingID cardID:cardID];
+        NSString* message;
+        if(pageOldValue)
+            message = @"card_turned_red";
+        else
+            message = @"card_turned_blue";
+        NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                                meetingID,@"MeetingID",
+                                @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                                hostname,@"ReceiverID",
+                                message,@"Message",
+                                @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred",
+                                [NSString stringWithFormat:@"%ld",(long)cardID],@"CardID", nil];
+        
+        [self sendSignalToCarhdsServerWithParams:params];
         
         [self.values replaceObjectAtIndex:pageIndex withObject:@(!pageOldValue)];
         NSString* msg = [JsonMessageParser cardVoteMessageForCard:pageIndex withValue:!pageOldValue];
@@ -317,6 +303,20 @@
 }
 
 - (IBAction)leaveMeeting:(id)sender {
+    
+    NSString* message = @"leave_meeting";
+    NSString* senderID = [MeetingHandler sharedInstance].qbUser.login;
+    NSString* meetingID = self.chatDialog.name;
+    NSString* hostname =[MeetingHandler sharedInstance].hostname;
+    NSDictionary* params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
+                            @"dbh.RH.CaRHds.SVC1",@"AppGuid",
+                            message,@"Message",
+                            meetingID,@"MeetingID",
+                            hostname,@"ReceiverID",
+                            @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
+    [self sendSignalToCarhdsServerWithParams:params];
+
+    
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText = @"Leave Meeting";
     NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
