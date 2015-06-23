@@ -167,8 +167,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Remember me functions
-    //self.rememberMe = [self loadRememberMe]; //return boolean value if remember me was checked before or not
-    //[self updateRemberMeButton:self.rememberMe]; // update the checkbox with the returned remember me value
+    self.rememberMe = [self loadRememberMe]; //return boolean value if remember me was checked before or not
     if (IS_IPAD) {
         [self adjustView];
     }
@@ -241,11 +240,11 @@
         return;
     }
     // tabe3 el remember me
-    /*if(self.rememberMe){
+    if(self.rememberMe){
         [self saveUsername:self.usernameTextField.text Password:self.passwordTextField.text];
     }else{
         [self saveUsername:@"" Password:@""];
-    }*/
+    }
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= STRING(@"Login");
