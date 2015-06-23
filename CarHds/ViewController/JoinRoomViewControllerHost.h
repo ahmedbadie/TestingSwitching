@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "HostViewController.h"
+#import "ClientViewController.h"
 @interface JoinRoomViewControllerHost : AbstractViewController
 @property (weak, nonatomic) IBOutlet UITextField *meetingIDTextField;
 @property (nonatomic,strong) NSMutableDictionary* users;

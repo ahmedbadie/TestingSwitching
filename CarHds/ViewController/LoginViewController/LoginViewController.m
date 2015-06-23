@@ -285,6 +285,7 @@
                 [MeetingHandler sharedInstance].qbUser.login = [self.usernameTextField text];
                 [MeetingHandler sharedInstance].qbUser.ID = self.user.ID;
                 [MeetingHandler sharedInstance].qbUser.password= [self.passwordTextField text];
+                [self.hud hide:YES];
                 if(IS_IPAD)
                     [self performSegueWithIdentifier:@"JoinMeetingHostIpad" sender:self];
                 else
@@ -351,7 +352,7 @@
         joinRoom.username = self.usernameTextField.text;
         joinRoom.state = self.state;
         joinRoom.user = self.user;
-    } else if ([segue.identifier isEqualToString:@"JoinMeetingIphone"]) {
+    } else if ([segue.identifier isEqualToString:@"JoinMeetingHostIpad"]) {
         JoinRoomViewControllerHost *joinRoom = (JoinRoomViewControllerHost*)segue.destinationViewController;
         joinRoom.username = self.usernameTextField.text;
         joinRoom.state = self.state;

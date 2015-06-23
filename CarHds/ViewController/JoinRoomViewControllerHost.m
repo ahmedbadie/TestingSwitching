@@ -14,7 +14,7 @@
     [self chatDidLogin];
 }
 - (IBAction)joinRoom:(id)sender {
-    self.isHost = YES;
+    self.isHost = NO;
     [self chatDidLogin];
 }
 
@@ -53,13 +53,18 @@
         dst.chatDialog = self.chatDialog;
         dst.user = self.user;
         dst.delegate = self;
-    } if([segue.identifier isEqualToString:HOST_CONCLUDE_SEGUE])
+    } else if([segue.identifier isEqualToString:HOST_CONCLUDE_SEGUE])
     {
         HostConcludeViewController* dst = segue.destinationViewController;
         dst.delegate = self;
         dst.users = self.users;
         [MeetingHandler sharedInstance].delegate = dst;
+    } else if ([segue.identifier isEqualToString:CLIENT_VIEW_SEGUE]) {
+        ClientViewController* dst = segue.destinationViewController;
+        dst.chatDialog = self.chatDialog;
+        dst.user = self.user;
     }
+    
 
 }
 
@@ -200,6 +205,17 @@
     
 }
 
+- (IBAction)logout:(UIButton *)sender {
+    NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
+    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    
+    [MeetingHandler sharedInstance].logOut = YES;
+    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom save:YES];
+    [self didLogOut];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
 
 
 

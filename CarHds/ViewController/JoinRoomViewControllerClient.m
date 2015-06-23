@@ -145,6 +145,18 @@
         dst.user = self.user;
     }
 }
+- (IBAction)logout:(UIButton *)sender {
+    NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
+    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+    
+    [MeetingHandler sharedInstance].logOut = YES;
+    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom save:YES];
+    [self didLogOut];
+    [self dismissViewControllerAnimated:YES completion:^{
+        
+    }];
+}
+
  #pragma mark - QBChat Delegate -
 -(void)chatDidLogin
 {
