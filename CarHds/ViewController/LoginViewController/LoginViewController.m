@@ -169,12 +169,19 @@
     //Remember me functions
     //self.rememberMe = [self loadRememberMe]; //return boolean value if remember me was checked before or not
     //[self updateRemberMeButton:self.rememberMe]; // update the checkbox with the returned remember me value
+    if (IS_IPAD) {
+        [self adjustView];
+    }
+    
     [self loadCredentials]; // get saved credentials username and password
     
     self.index = 0;
     self.state = NO;
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+}
+-(void)adjustView {
+    self.loginLabel.frame = CGRectMake(self.loginLabel.frame.origin.x, self.fieldsView.frame.origin.y - 144, self.loginLabel.frame.size.width, self.loginLabel.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning {

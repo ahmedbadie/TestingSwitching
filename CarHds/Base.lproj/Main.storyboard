@@ -150,12 +150,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="a9h-Io-a0t" userLabel="BottomLeftView">
-                                        <rect key="frame" x="24" y="531.00000163093546" width="224" height="465"/>
+                                        <rect key="frame" x="24" y="531" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="fb4-K9-MpO" userLabel="BottomMiddleView">
-                                        <rect key="frame" x="272" y="531.00000163093546" width="224" height="465"/>
+                                        <rect key="frame" x="272" y="531" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -276,12 +276,12 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GNb-Tb-Uq4" userLabel="Login Label">
                                 <rect key="frame" x="116" y="164" width="88" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="Lu6-Qc-QfB">
+                            <view contentMode="scaleToFill" id="Lu6-Qc-QfB" userLabel="field view">
                                 <rect key="frame" x="0.0" y="218" width="320" height="118"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
@@ -367,7 +367,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="fieldsView" destination="Lu6-Qc-QfB" id="pkK-Pa-vz3"/>
                         <outlet property="forgetPasswordIphoneView" destination="sRl-HV-T62" id="rQu-4e-OJv"/>
+                        <outlet property="loginLabel" destination="GNb-Tb-Uq4" id="e2i-VD-vWj"/>
                         <outlet property="passwordTextField" destination="svS-uE-Dkx" id="Mwc-96-Mjj"/>
                         <outlet property="usernameTextField" destination="aSc-yR-Dq2" id="6z2-Td-zQU"/>
                         <segue destination="7xD-L5-2Dy" kind="modal" identifier="RegisterNewUser" id="XsN-wN-Vqu"/>

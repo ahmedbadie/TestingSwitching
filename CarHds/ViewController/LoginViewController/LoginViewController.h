@@ -24,5 +24,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
 
 @property (nonatomic,strong) NSMutableDictionary* users;
+@property (weak, nonatomic) IBOutlet UILabel *loginLabel;
+@property (weak, nonatomic) IBOutlet UIView *fieldsView;
 
 @end
