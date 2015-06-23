@@ -7,13 +7,37 @@
 //
 
 #import "RegisterViewController.h"
-
+#define IPAD_FOOTER_Y_PAD 49
 @interface RegisterViewController ()
+@property (weak, nonatomic) IBOutlet UIView *footerView;
+@property (weak, nonatomic) IBOutlet UIView *fieldView;
 
 @end
 
 @implementation RegisterViewController
 
+#pragma mark - view modifications -
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    [self setModalPresentationStyle:UIModalPresentationCurrentContext];
+    [self adjustViewControllerBasedOnOrientation];
+
+}
+
+-(void)adjustViewControllerBasedOnOrientation {
+    if (IS_IPAD) {
+        self.footerView.frame = CGRectMake(self.footerView.frame.origin.x,(self.fieldView.frame.origin.y+self.fieldView.frame.size.height )+ IPAD_FOOTER_Y_PAD, self.footerView.frame.size.width, self.footerView.frame.size.height);
+    }
+}
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    [self registerForKeyboardNotifications];
+}
+
+
+#pragma mark - keyboard delegates -
 - (void)keyboardWasShown:(NSNotification *)notification {
     _registerScrollView.contentSize = CGSizeMake(320, 700);
     [_registerScrollView setContentOffset:CGPointMake(0, 100) animated:YES];
@@ -47,15 +71,6 @@
                                                   object:nil];
     
 }
-- (void)viewWillAppear:(BOOL)animated {
-    
-    [super viewWillAppear:animated];
-    
-    [self registerForKeyboardNotifications];
-
-    
-    
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
     
@@ -65,10 +80,6 @@
     
 }
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
-    // Do any additional setup after loading the view.
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -173,4 +184,17 @@
     }];
    
 }
+#pragma mark - Orientation delegates -
+-(NSUInteger)supportedInterfaceOrientations
+{
+    return IS_IPAD? UIInterfaceOrientationMaskAll: UIInterfaceOrientationPortrait;
+}
+
+
+-(BOOL)shouldAutorotate
+{
+    return IS_IPAD;
+}
+
+
 @end

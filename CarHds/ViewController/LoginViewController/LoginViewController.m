@@ -80,9 +80,6 @@
     [self forgetPasswordForText:text];
     
 }
-- (IBAction)back:(id)sender {
-    [self dismissViewControllerAnimated:YES completion:nil];
-}
 
 -(void) resetPasswordForEmail:(NSString*)email
 {
@@ -146,18 +143,9 @@
 - (IBAction)closeForgetPasswordIphone:(id)sender {
     [self.forgetPasswordIphoneView removeFromSuperview];
 }
+
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-    //    if(IS_IPAD){
-    //        // Host
-    //        [self.usernameTextField setText:@"host"];
-    //    }else{
-    //        // Client
-    //        [self.usernameTextField setText:@"client"];
-    //    }
-    //    [self.passwordTextField setText:@"12345678"];
-    //    [self.meetingIDTextField setText:@"Inova Room"];
-    
 }
 
 -(void)updateRemberMeButton:(BOOL)rememberMe{
@@ -178,41 +166,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    self.rememberMe = [self loadRememberMe];
-    [self updateRemberMeButton:self.rememberMe];
-    
-    [self loadCredentials];
-    
+    //Remember me functions
+    //self.rememberMe = [self loadRememberMe]; //return boolean value if remember me was checked before or not
+    //[self updateRemberMeButton:self.rememberMe]; // update the checkbox with the returned remember me value
+    [self loadCredentials]; // get saved credentials username and password
     
     self.index = 0;
     self.state = NO;
-    if(!IS_IPAD)
-    {
-        [self.operationTypeSegmentedControl setSelectedSegmentIndex:1];
-        [self.operationTypeSegmentedControl setHidden:YES];
-        [self.operationTypeSegmentedControl setEnabled:NO forSegmentAtIndex:0];
-        self.titleLabel.text = @"Join Meeting";
-    }else{
-        self.titleLabel.text = @"Open or Join Meeting";
-    }
     
-    self.operationTypeSegmentedControl.layer.cornerRadius = 4.0f;
-    self.operationTypeSegmentedControl.layer.masksToBounds = YES;
-    self.goButton.clipsToBounds= YES;
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
-    
-    UIInterfaceOrientation orientation = self.interfaceOrientation;
-    if(UIInterfaceOrientationIsPortrait(orientation))
-    {
-        [self setPortaitMode];
-    }else if (UIInterfaceOrientationIsLandscape(orientation)){
-        [self setLandscapeMode];
-    }else{
-        [self setPortaitMode];
-    }
-    
-    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -239,8 +201,7 @@
         [self warnUserWithMessage:@"Time out"];
     }
 }
-- (IBAction)startMeeting:(id)sender {
-    NSLog(@"startMeeting");
+- (IBAction)login:(id)sender {
     
     
     id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
@@ -256,17 +217,7 @@
         [[QBChat instance] logout];
     }
     
-    if(!IS_IPAD && [self.operationTypeSegmentedControl selectedSegmentIndex] == HOST_MEETING_INDEX)
-    {
-        [self warnUserWithMessage:@"Host Meeting is currently supported by IPad version only."];
-        return;
-    }
-    
-    if([self.meetingIDTextField text]==nil || [self.meetingIDTextField text].length==0)
-    {
-        [self warnUserWithMessage:@"Missing meeting name"];
-        return;
-    }
+
     if([self.usernameTextField text]==nil || [self.usernameTextField text].length==0)
     {
         [self warnUserWithMessage:@"Missing Username"];
@@ -282,37 +233,21 @@
         [self warnUserWithMessage:@"Password too short"];
         return;
     }
-    
-    if(self.rememberMe){
+    // tabe3 el remember me
+    /*if(self.rememberMe){
         [self saveUsername:self.usernameTextField.text Password:self.passwordTextField.text];
     }else{
         [self saveUsername:@"" Password:@""];
-    }
+    }*/
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= STRING(@"Login");
+    
     QBSessionParameters* parameters = [QBSessionParameters new];
     parameters.userLogin = [self.usernameTextField text];
     parameters.userPassword =[self.passwordTextField text];
     
     
-    //
-    //
-    //    [QBRequest logInWithUserLogin:[self.usernameTextField text] password:[self.passwordTextField text] successBlock:^(QBResponse *response, QBUUser *user) {
-    //        NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
-    //
-    //        NSLog(@"logInWithUserLogin ******* success");
-    //    } errorBlock:^(QBResponse *response) {
-    //
-    //        NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
-    //
-    //        NSLog(@"logInWithUserLogin ******* fail");
-    //
-    //    }];
-    //
-    //    return;
-    
-    //    [self performSelector:@selector(stopTasks:) withObject:@(self.index) afterDelay:3];
     [QBRequest createSessionWithExtendedParameters:parameters successBlock:^(QBResponse *response, QBASession *session) {
         self.index++ ;
         
@@ -350,7 +285,10 @@
                 [MeetingHandler sharedInstance].qbUser.login = [self.usernameTextField text];
                 [MeetingHandler sharedInstance].qbUser.ID = self.user.ID;
                 [MeetingHandler sharedInstance].qbUser.password= [self.passwordTextField text];
-                [self chatDidLogin];
+                if(IS_IPAD)
+                    [self performSegueWithIdentifier:@"JoinMeetingHostIpad" sender:self];
+                else
+                    [self performSegueWithIdentifier:@"JoinMeetingIphone" sender:self];
             }];
             
         } errorBlock:^(QBResponse *response) {
@@ -383,50 +321,7 @@
     
 }
 
-#pragma mark - Create Meeting Methods -
 
--(void) createMeetingRoom
-{
-    self.hud.labelText = STRING(@"CreatingMeeting");
-    
-    // First check if chat dialouge exists or not?
-    QBChatDialog* chatDialog = [QBChatDialog new];
-    chatDialog.type = QBChatDialogTypePublicGroup;
-    chatDialog.name = [self.meetingIDTextField text];
-    self.chatDialog = chatDialog;
-    
-    //    [QBChat createDialog:chatDialog delegate:self];
-    [QBRequest createDialog:chatDialog successBlock:^(QBResponse *response, QBChatDialog *createdDialog) {
-        
-        NSLog(@"createDialog:chatDialog successBlock [%@][%@]",createdDialog.ID,createdDialog.name);
-        QBChatDialog* dialog = createdDialog;
-        self.chatDialog = dialog;
-        [MeetingHandler sharedInstance].chatDialog = dialog;
-        QBChatRoom* room = dialog.chatRoom;
-        
-        [MeetingHandler sharedInstance].chatRoom = room;
-        [self performSegueWithIdentifier:@"HostViewSegue" sender:self];
-        
-    } errorBlock:^(QBResponse *response) {
-        
-    }];
-    
-}
-
-#pragma mark - Join Meeting Methods -
-
--(void) joinMeetingRoom
-{
-    self.state = NO;
-    [self performSegueWithIdentifier:CLIENT_VIEW_SEGUE sender:self];
-    
-}
-
--(void) joinMeetingRoomAsHost
-{
-    self.state = NO;
-    [self performSegueWithIdentifier:HOST_VIEW_SEGUE sender:self];
-}
 #pragma mark - UITextField Delegate -
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField
@@ -437,289 +332,9 @@
 
 #pragma mark - QuickBlox Delegate -
 
--(void)completedWithResult:(QBResult *)result
-{
-    NSLog(@"Loginviewcontroller completedWithResult");
-    [self.hud hide:YES];
-    if(result.success && [result isKindOfClass:[QBChatDialogResult class]])
-    {
-        NSLog(@"completedWithResult success QBChatDialogResult");
-        
-        QBChatDialogResult * dialogRes = (QBChatDialogResult*) result;
-        QBChatDialog* dialog = dialogRes.dialog;
-        self.chatDialog = dialog;
-        [MeetingHandler sharedInstance].chatDialog = dialog;
-        QBChatRoom* room = dialog.chatRoom;
-        
-        [MeetingHandler sharedInstance].chatRoom = room;
-        [self performSegueWithIdentifier:@"HostViewSegue" sender:self];
-        
-    }else if (result.success && [result isKindOfClass:[QBDialogsPagedResult class]]) {
-        NSLog(@"completedWithResult success QBDialogsPagedResult");
-        
-        QBDialogsPagedResult *pagedResult = (QBDialogsPagedResult *)result;
-        //
-        NSArray *dialogs = pagedResult.dialogs;
-        QBChatDialog* chatDialog;
-        QBChatRoom* room ;
-        
-        for(QBChatDialog* dialog in dialogs)
-        {
-            NSLog(@"[%@]  [%lu]  [%@]  [%@]",dialog.roomJID,(unsigned long)dialog.userID,dialog.ID,dialog.name);
-            
-            if([dialog.name isEqualToString:[self.meetingIDTextField text]])
-            {
-                
-                NSDate* date = dialog.lastMessageDate;
-                
-                switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
-                    case HOST_MEETING_INDEX:
-                    {
-                        // first check for last message text
-                        BOOL canResume = NO;
-                        if(dialog.userID == self.user.ID){
-                            canResume = YES;
-                        }
-                        if( !canResume && [Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText] ){
-                            [self warnUserWithMessage:@"Meeting room already exists"];
-                        }else{
-                            //                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
-                            chatDialog = dialog;
-                            self.chatDialog = chatDialog;
-                            [MeetingHandler sharedInstance].chatDialog = chatDialog;
-                            room = chatDialog.chatRoom;
-                            [MeetingHandler sharedInstance].chatRoom = room;
-                            
-                            [self joinMeetingRoomAsHost];
-                        }
-                    }
-                        break;
-                    case JOIN_MEETING_INDEX:
-                        if([Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText]){
-                            // first check for last message text
-                            chatDialog = dialog;
-                            self.chatDialog = chatDialog;
-                            [MeetingHandler sharedInstance].chatDialog = chatDialog;
-                            room = chatDialog.chatRoom;
-                            [MeetingHandler sharedInstance].chatRoom = room;
-                            [self joinMeetingRoom];
-                        }else{
-                            [self warnUserWithMessage:STRING(@"RoomExpired")];
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                return;
-            }
-        }
-        // NOT Found
-        
-        switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
-            case HOST_MEETING_INDEX:
-                [self createMeetingRoom];
-                break;
-            case JOIN_MEETING_INDEX:
-                [self warnUserWithMessage:@"Meeting room doesn't exist"];
-                break;
-            default:
-                break;
-        }
-        
-        
-    }else if ([result.answer isKindOfClass:[QBRestResponse class]])
-    {
-        
-        NSLog(@"completedWithResult QBRestResponse");
-        
-        if(result.success)
-        {
-            [self createMeetingRoom];
-            
-        }else{
-            [self warnUserWithMessage:@"Meeting room already exists"];
-        }
-        
-    }else{
-        
-        NSLog(@"completedWithResult errors");
-        
-        NSArray* errors = result.errors;
-        for(NSString* error in errors)
-            [self warnUserWithMessage:error];
-    }
-    
-}
-
-
 
 
 #pragma mark - QBChat Delegate -
-
--(void)chatDidLogin
-{
-    NSLog(@"chatDidLogin [%@]",[self.meetingIDTextField text]);
-    // If successfully loged in to chat
-    NSMutableDictionary* dictionary =[NSMutableDictionary dictionary];
-    // This constraint is to make sure you get only one record for the dialog with the correct name
-    [dictionary setObject:[self.meetingIDTextField text] forKey:@"name"];
-    //    [QBChat dialogsWithExtendedRequest:dictionary delegate:self];
-    
-    
-    [QBRequest dialogsForPage:nil extendedRequest:dictionary successBlock:^(QBResponse *response, NSArray *dialogObjects, NSSet *dialogsUsersIDs, QBResponsePage *page) {
-        
-        [self.hud hide:YES];
-        NSLog(@"completedWithResult success QBDialogsPagedResult [%d]",dialogObjects.count);
-        
-        //
-        NSArray *dialogs = dialogObjects;
-        QBChatDialog* chatDialog;
-        QBChatRoom* room ;
-        
-        NSString* message;
-        NSString* senderID;
-        NSString* meetingID;
-        NSDictionary* params;
-        for(QBChatDialog* dialog in dialogs)
-        {
-            //            NSLog(@"[%@]  [%lu]  [%@]  [%@]",dialog.roomJID,(unsigned long)dialog.userID,dialog.ID,dialog.name);
-            
-            if([dialog.name isEqualToString:[self.meetingIDTextField text]])
-            {
-                
-                NSDate* date = dialog.lastMessageDate;
-                
-                switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
-                    case HOST_MEETING_INDEX:
-                    {
-                        // first check for last message text
-                        BOOL canResume = NO;
-                        if(dialog.userID == self.user.ID){
-                            canResume = YES;
-                        }else{
-                            /*
-                             ** This line of code is added to avoid the following case scenario
-                             ** User A created a room. dialog.userID = "User A". Then User A leave it
-                             ** User B used the same room later, he was able to join the room because User A's meeting expire
-                             ** User B took a meeting break
-                             ** If User B try to resume meeting, he won't be able to do so because the room is busy and dialog.userID = "User A"
-                             ** To avoid that, when user B join the room that was assigned to User A, he won't be able to do so even if the meeting expire"
-                             ** A better solution is to change dialog.userID but I don't think that's feasible.
-                             ** May be a better solution exists
-                            */
-                            [self warnUserWithMessage:@"Meeting room already exists"];
-                            return ;
-                        }
-                        if( !canResume && [Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText] ){
-                            [self warnUserWithMessage:@"Meeting room already exists"];
-                        }else{
-                            // Room was created before
-                            //
-                            //                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
-                            chatDialog = dialog;
-                            self.chatDialog = chatDialog;
-                            [MeetingHandler sharedInstance].chatDialog = chatDialog;
-                            
-                            
-                            room = chatDialog.chatRoom;
-                            [MeetingHandler sharedInstance].chatRoom = room;
-                            
-                            message = @"enter_meeting";
-                            senderID = self.usernameTextField.text;
-                            meetingID = [MeetingHandler sharedInstance].chatDialog.name;
-                            params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
-                                                    @"dbh.RH.CaRHds.SVC1",@"AppGuid",
-                                                    message,@"Message",
-                                                    meetingID,@"MeetingID",
-                                                    @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
-                            
-                            [self sendSignalToCarhdsServerWithParams:params];
-                            
-                            [self joinMeetingRoomAsHost];
-                        }
-                    }
-                        break;
-                    case JOIN_MEETING_INDEX:
-                        if([Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText]){
-                            // first check for last message text
-                            chatDialog = dialog;
-                            self.chatDialog = chatDialog;
-                            [MeetingHandler sharedInstance].chatDialog = chatDialog;
-                            room = chatDialog.chatRoom;
-                            [MeetingHandler sharedInstance].chatRoom = room;
-                            
-                            message = @"enter_meeting";
-                            senderID = self.usernameTextField.text;
-                            meetingID = [MeetingHandler sharedInstance].chatDialog.name;
-                            params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
-                                                    @"dbh.RH.CaRHds.SVC1",@"AppGuid",
-                                                    message,@"Message",
-                                                    meetingID,@"MeetingID",
-                                                    @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
-                            [self sendSignalToCarhdsServerWithParams:params];
-                            
-                            [self joinMeetingRoom];
-                        }else{
-                            
-                            message = @"login_fail_RoomExpired";
-                            senderID = self.usernameTextField.text;
-                            params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
-                                                    @"dbh.RH.CaRHds.SVC1",@"AppGuid",
-                                                    message,@"Message",
-                                                    @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
-                            [self sendSignalToCarhdsServerWithParams:params];
-                            
-                            [self warnUserWithMessage:STRING(@"RoomExpired")];
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                return;
-            }
-        }
-        // NOT Found
-        
-        switch ([self.operationTypeSegmentedControl selectedSegmentIndex]) {
-            case HOST_MEETING_INDEX:
-                // Room not found so we are going to create a new room
-                senderID = self.usernameTextField.text;
-                meetingID = [MeetingHandler sharedInstance].chatDialog.name;
-                message = @"create_meeting";
-                params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
-                                        meetingID,@"MeetingID",
-                                        @"dbh.RH.CaRHds.SVC1",@"AppGuid",
-                                        message,@"Message",
-                                        @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
-                
-                [self sendSignalToCarhdsServerWithParams:params];
-                
-                [self createMeetingRoom];
-                break;
-            case JOIN_MEETING_INDEX:
-                
-                message = @"login_fail_Room_Doesn't_exist";
-                senderID = self.usernameTextField.text;
-                params = [NSDictionary dictionaryWithObjectsAndKeys:senderID,@"SenderID",
-                                        @"dbh.RH.CaRHds.SVC1",@"AppGuid",
-                                        message,@"Message",
-                                        @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
-                [self sendSignalToCarhdsServerWithParams:params];
-                
-                [self warnUserWithMessage:@"Meeting room doesn't exist"];
-                break;
-            default:
-                break;
-        }
-        
-        
-        
-        
-        
-    } errorBlock:^(QBResponse *response) {
-        [self.hud hide:YES];
-    }];
-}
 
 -(void) chatDidNotLogin
 {
@@ -728,132 +343,34 @@
     self.state = NO;
 }
 
--(void)chatRoomDidCreate:(NSString *)roomName
-{
-    QBChatDialog* chatDialog = self.chatDialog;
-    [MeetingHandler sharedInstance].chatDialog = chatDialog;
-    [self performSegueWithIdentifier:HOST_VIEW_SEGUE sender:self];
-}
-
--(void)chatRoomDidEnter:(QBChatRoom *)room
-{
-    NSLog(@"Chat room joined [%@]",room.name);
-}
-
--(void)chatRoomDidNotEnter:(NSString *)roomName error:(NSError *)error
-{
-    NSLog(@"Chat room name [%@] wasn't entered due to error %@",roomName,DESC(error));
-}
-- (void)chatRoomDidNotEnterRoomWithJID:(NSString *)roomJID error:(NSError *)error;
-{
-    NSLog(@"Chat room jid [%@] wasn't entered due to error %@",roomJID,DESC(error));
-    
-}
-- (void)chatRoomDidLeave:(NSString *)roomName
-{
-    NSLog(@"Chat Room Did Leave [%@]",roomName);
-}
-/**
- Fired when you did leave room
- 
- @param roomJID JID of room which you have leaved
- */
-- (void)chatRoomDidLeaveRoomWithJID:(NSString *)roomJID
-{
-    NSLog(@"Chat Room Did leave room with JID [%@]",roomJID);
-}
-
-/**
- Fired when you did destroy room
- 
- @param roomName of room which you have destroyed
- */
-- (void)chatRoomDidDestroy:(NSString *)roomName
-{
-    NSLog(@"Chat Room Did Destroy [%@]",roomName);
-}
 
 #pragma mark - Prepare for Segue -
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
-{
-    
-    if([segue.identifier isEqualToString:HOST_VIEW_SEGUE])
-    {
-        HostViewController* dst = segue.destinationViewController;
-        dst.chatDialog = self.chatDialog;
-        dst.user = self.user;
-        dst.delegate = self;
-    }else if ([segue.identifier isEqualToString:CLIENT_VIEW_SEGUE])
-    {
-        ClientViewController* dst = segue.destinationViewController;
-        dst.chatDialog = self.chatDialog;
-        dst.user = self.user;
-    }else if ([segue.identifier isEqualToString:@"RegisterNewUserIPad"] || [segue.identifier isEqualToString:@"RegisterNewUserIPhone"])
-    {
-        RegisterViewController* dst = (RegisterViewController*)segue.destinationViewController;
-        dst.delegate = self;
-    }else  if([segue.identifier isEqualToString:HOST_CONCLUDE_SEGUE])
-    {
-        HostConcludeViewController* dst = segue.destinationViewController;
-        dst.delegate = self;
-        dst.users = self.users;
-        [MeetingHandler sharedInstance].delegate = dst;
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if([segue.identifier isEqualToString:@"JoinMeetingIphone"]) {
+        JoinRoomViewControllerClient *joinRoom = (JoinRoomViewControllerClient*)segue.destinationViewController;
+        joinRoom.username = self.usernameTextField.text;
+        joinRoom.state = self.state;
+        joinRoom.user = self.user;
+    } else if ([segue.identifier isEqualToString:@"JoinMeetingIphone"]) {
+        JoinRoomViewControllerHost *joinRoom = (JoinRoomViewControllerHost*)segue.destinationViewController;
+        joinRoom.username = self.usernameTextField.text;
+        joinRoom.state = self.state;
+        joinRoom.user = self.user;
     }
-    
 }
-
 
 #pragma mark - Register -
 
 
 - (IBAction)registerUser:(id)sender {
-    
-    if(IS_IPAD)
-    {
-        [self performSegueWithIdentifier:@"RegisterNewUserIPad" sender:self];
-    }else{
-        [self performSegueWithIdentifier:@"RegisterNewUserIPhone" sender:self];
-    }
-    
-    
+    [self performSegueWithIdentifier:@"RegisterNewUser" sender:self];
 }
 
 - (IBAction)forgetPassword:(id)sender {
     if(IS_IPAD)
-        [self performSegueWithIdentifier:[NSString stringWithFormat:@"ForgetPassword%@",IS_IPAD? @"IPad":@"IPhone" ]sender:self];
+        [self performSegueWithIdentifier:@"ForgetPassword" sender:self];
     else
         [self.view addSubview:self.forgetPasswordIphoneView];
-}
-
--(void)concludeMeeting:(NSArray *)data
-{
-    self.users = [data firstObject];
-    
-    [self dismissViewControllerAnimated:NO completion:^{
-        [self performSegueWithIdentifier:HOST_CONCLUDE_SEGUE sender:self];
-    }];
-}
-
--(void) setLandscapeMode{}
-
--(void) setPortaitMode{}
-
--(void)didRotateFromInterfaceOrientation:(UIInterfaceOrientation)fromInterfaceOrientation
-{
-    UIDeviceOrientation toInterfaceOrientation = [[UIDevice currentDevice] orientation];
-    switch (toInterfaceOrientation) {
-        case UIDeviceOrientationPortrait:
-            [self setPortaitMode];
-            break;
-        case UIDeviceOrientationLandscapeLeft:
-            [self setLandscapeMode];
-            break;
-        case UIDeviceOrientationLandscapeRight:
-            [self setLandscapeMode];
-            break;
-        default:
-            break;
-    }
 }
 
 -(NSUInteger)supportedInterfaceOrientations

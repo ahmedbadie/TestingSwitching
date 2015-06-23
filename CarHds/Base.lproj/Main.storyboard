@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="J4X-Nj-1dL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
@@ -43,8 +43,25 @@
             <string>Agenda-LightCondensed</string>
             <string>Agenda-LightCondensed</string>
             <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
+            <string>Agenda-LightCondensed</string>
         </mutableArray>
         <mutableArray key="Arial Narrow.ttf">
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
+            <string>ArialNarrow</string>
             <string>ArialNarrow</string>
             <string>ArialNarrow</string>
             <string>ArialNarrow</string>
@@ -147,12 +164,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="a9h-Io-a0t" userLabel="BottomLeftView">
-                                        <rect key="frame" x="24" y="531.00000040915711" width="224" height="465"/>
+                                        <rect key="frame" x="24" y="531" width="224" height="465.00000126230168"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="fb4-K9-MpO" userLabel="BottomMiddleView">
-                                        <rect key="frame" x="272" y="531.00000040915711" width="224" height="465"/>
+                                        <rect key="frame" x="272" y="531.00000126230168" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -223,7 +240,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tsd-re-fkH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1677" y="-508"/>
+            <point key="canvasLocation" x="1445" y="-1019"/>
         </scene>
         <!--Host Conclude Card View Controller-->
         <scene sceneID="mlg-WG-LjX">
@@ -253,6 +270,189 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SQm-Q3-s6A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2272" y="-871"/>
+        </scene>
+        <!--Login controller-->
+        <scene sceneID="D6w-zh-hJB">
+            <objects>
+                <viewController id="J4X-Nj-1dL" userLabel="Login controller" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GDu-hM-xDk">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="hnf-Qd-TXF">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" id="IOu-YB-oTl">
+                                <rect key="frame" x="24" y="21" width="271" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GNb-Tb-Uq4" userLabel="Login Label">
+                                <rect key="frame" x="116" y="164" width="88" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="Lu6-Qc-QfB">
+                                <rect key="frame" x="0.0" y="218" width="320" height="118"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="Tz2-3y-vmz" userLabel="Username">
+                                        <rect key="frame" x="13" y="0.0" width="294" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="Pgt-gv-rgl">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="8" id="aSc-yR-Dq2">
+                                                <rect key="frame" x="8" y="0.0" width="286" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="J4X-Nj-1dL" id="ypA-2e-7ry"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </view>
+                                    <view contentMode="scaleToFill" id="00H-yf-dUD" userLabel="Password">
+                                        <rect key="frame" x="13" y="50" width="294" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="PZa-gE-kh5">
+                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                            </imageView>
+                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="8" id="svS-uE-Dkx" userLabel="password">
+                                                <rect key="frame" x="8" y="0.0" width="286" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="THe-Rz-WGM"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                    </view>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ECg-DC-4mP">
+                                        <rect key="frame" x="13" y="100" width="294" height="18"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="16"/>
+                                        <state key="normal" title="I forgot my password">
+                                            <color key="titleColor" red="0.019607843137254902" green="0.396078431372549" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="forgetPassword:" destination="J4X-Nj-1dL" eventType="touchUpInside" id="iQc-DD-TBN"/>
+                                            <action selector="resetPassword:" destination="JiG-ja-9aR" eventType="touchUpInside" id="maf-5W-vz7"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Pf-4b-BMd">
+                                <rect key="frame" x="13" y="497" width="294" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                <state key="normal" title="Don't have an account? Register here" backgroundImage="dontHaveAccountBorder.png">
+                                    <color key="titleColor" red="0.019607843140000001" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="registerUser:" destination="J4X-Nj-1dL" eventType="touchUpInside" id="pgS-0v-trR"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yi5-h5-yxn" userLabel="Login Button">
+                                <rect key="frame" x="13" y="381" width="294" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="20"/>
+                                <state key="normal" title="Login" backgroundImage="gobutton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login:" destination="J4X-Nj-1dL" eventType="touchUpInside" id="XMT-8Z-M3u"/>
+                                    <action selector="startMeeting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eJW-yH-UrM"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="forgetPasswordIphoneView" destination="sRl-HV-T62" id="rQu-4e-OJv"/>
+                        <outlet property="passwordTextField" destination="svS-uE-Dkx" id="Mwc-96-Mjj"/>
+                        <outlet property="usernameTextField" destination="aSc-yR-Dq2" id="6z2-Td-zQU"/>
+                        <segue destination="7xD-L5-2Dy" kind="modal" identifier="RegisterNewUser" id="XsN-wN-Vqu"/>
+                        <segue destination="JiG-ja-9aR" kind="modal" identifier="ForgetPassword" modalPresentationStyle="formSheet" id="x25-mb-ASO"/>
+                        <segue destination="1aX-Oj-4kA" kind="modal" identifier="JoinMeetingIphone" id="16l-hz-oq5"/>
+                        <segue destination="JgH-ys-lps" kind="modal" identifier="JoinMeetingHostIpad" id="Fcr-Td-wVt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t62-TC-wNf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view opaque="NO" contentMode="scaleToFill" id="sRl-HV-T62">
+                    <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginBackground.jpg" id="LaK-OW-31o">
+                            <rect key="frame" x="20" y="109" width="280" height="350"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.41999999999999998" colorSpace="calibratedWhite"/>
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7bq-mo-EdR">
+                            <rect key="frame" x="99" y="352" width="123" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="16"/>
+                            <state key="normal" title="Reset Password">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="resetPasswordIPhone:" destination="J4X-Nj-1dL" eventType="touchUpInside" id="ZFy-Yf-2i1"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="KYv-2S-OMp">
+                            <rect key="frame" x="137" y="392" width="46" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="16"/>
+                            <state key="normal" title="Back">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="closeForgetPasswordIphone:" destination="J4X-Nj-1dL" eventType="touchUpInside" id="lZb-Kp-TNL"/>
+                            </connections>
+                        </button>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username/email" textAlignment="center" minimumFontSize="17" id="ghZ-27-gGJ">
+                            <rect key="frame" x="32" y="269" width="255" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="BYZ-38-t0r" id="X3E-45-aW8"/>
+                            </connections>
+                        </textField>
+                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Please enter your username/email to receive a password reset email from QuickBlox." textAlignment="center" selectable="NO" id="s14-2d-lbH">
+                            <rect key="frame" x="20" y="128" width="280" height="114"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <fontDescription key="fontDescription" name="ArialNarrow" family="Arial Narrow" pointSize="21"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                        </textView>
+                    </subviews>
+                    <color key="backgroundColor" white="0.0" alpha="0.46999999999999997" colorSpace="calibratedWhite"/>
+                </view>
+            </objects>
+            <point key="canvasLocation" x="-1438" y="-1292"/>
         </scene>
         <!--Login View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -296,9 +496,6 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="dYH-xS-lyh"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </view>
@@ -315,9 +512,6 @@
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="BYZ-38-t0r" id="gc5-Ll-9Qd"/>
-                                                </connections>
                                             </textField>
                                         </subviews>
                                     </view>
@@ -395,9 +589,6 @@
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                                 </state>
-                                                <connections>
-                                                    <action selector="registerUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tZh-od-J06"/>
-                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="5aT-8v-Dcj">
                                                 <rect key="frame" x="13" y="0.0" width="294" height="40"/>
@@ -438,22 +629,14 @@
                     <navigationItem key="navigationItem" id="nhU-za-sjZ"/>
                     <simulatedStatusBarMetrics key="simulatedStatusBarMetrics" statusBarStyle="lightContent"/>
                     <connections>
-                        <outlet property="forgetPasswordIphoneView" destination="WgH-As-lg2" id="m7f-XK-zMH"/>
                         <outlet property="forgetPasswordText" destination="vo0-8q-dSF" id="aho-6p-aaI"/>
                         <outlet property="goButton" destination="Odd-Op-LYq" id="Y5l-0U-ZHb"/>
-                        <outlet property="meetingIDTextField" destination="n70-ji-ahe" id="5uh-UT-3GM"/>
                         <outlet property="operationTypeSegmentedControl" destination="PjG-xy-up4" id="ViW-R9-RAN"/>
-                        <outlet property="passwordTextField" destination="Jy1-Tz-xdx" id="tO8-3R-chn"/>
                         <outlet property="rememberMeButton" destination="aHf-29-REy" id="x8f-Gg-70n"/>
                         <outlet property="titleLabel" destination="imJ-HW-GsN" id="yfz-4V-ztt"/>
-                        <outlet property="usernameTextField" destination="VIK-sA-Wiy" id="21E-Ju-mID"/>
                         <segue destination="YAk-f5-8XZ" kind="modal" identifier="HostViewSegue" id="u9g-xR-R2m"/>
                         <segue destination="CBa-mb-4AC" kind="modal" identifier="ClientViewSegue" id="R62-gf-qAt"/>
-                        <segue destination="7xD-L5-2Dy" kind="modal" identifier="RegisterNewUserIPhone" id="cRv-6z-h2X"/>
-                        <segue destination="6Xq-wp-JXt" kind="modal" identifier="RegisterNewUserIPad" id="2bZ-kM-4IP"/>
                         <segue destination="epq-L0-nla" kind="modal" identifier="HostConcludeSegue" id="TQq-7x-cK7"/>
-                        <segue destination="JiG-ja-9aR" kind="modal" identifier="ForgetPasswordIPhone" modalPresentationStyle="formSheet" id="N5z-gO-ADz"/>
-                        <segue destination="JiG-ja-9aR" kind="modal" identifier="ForgetPasswordIPad" modalPresentationStyle="formSheet" id="vYh-mO-yz1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -476,9 +659,6 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <connections>
-                                <action selector="resetPasswordIPhone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="23H-cg-3ma"/>
-                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="qo2-2d-cGQ">
                             <rect key="frame" x="137" y="392" width="46" height="30"/>
@@ -489,9 +669,6 @@
                                 <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
-                            <connections>
-                                <action selector="closeForgetPasswordIphone:" destination="BYZ-38-t0r" eventType="touchUpInside" id="a4Y-Xe-ffz"/>
-                            </connections>
                         </button>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="username/email" textAlignment="center" minimumFontSize="17" id="v50-1u-ED6">
                             <rect key="frame" x="32" y="269" width="255" height="30"/>
@@ -514,7 +691,7 @@
                     <color key="backgroundColor" white="0.0" alpha="0.46999999999999997" colorSpace="calibratedWhite"/>
                 </view>
             </objects>
-            <point key="canvasLocation" x="98" y="-317"/>
+            <point key="canvasLocation" x="680" y="-378"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="mEG-tj-3Ft">
@@ -530,157 +707,158 @@
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mIn-Nv-DyM">
                                 <rect key="frame" x="0.0" y="126" width="320" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" id="6da-3s-KNE" userLabel="Fields View">
-                                <rect key="frame" x="13" y="186" width="294" height="240"/>
+                            <view contentMode="scaleToFill" id="4mx-Ol-ojk">
+                                <rect key="frame" x="0.0" y="186" width="320" height="361"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" id="8BH-dO-Y3D" userLabel="username">
-                                        <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" id="6da-3s-KNE" userLabel="Fields View">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="240"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="Bwc-ia-aT9">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="8" id="ZB2-Nx-swi">
-                                                <rect key="frame" x="10" y="0.0" width="284" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="7xD-L5-2Dy" id="5Mg-1s-YsS"/>
-                                                </connections>
-                                            </textField>
+                                            <view contentMode="scaleToFill" id="8BH-dO-Y3D" userLabel="username">
+                                                <rect key="frame" x="13" y="0.0" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="Bwc-ia-aT9">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Username" minimumFontSize="8" id="ZB2-Nx-swi">
+                                                        <rect key="frame" x="10" y="0.0" width="284" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="7xD-L5-2Dy" id="5Mg-1s-YsS"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="Xpc-rR-ebP" userLabel="password">
+                                                <rect key="frame" x="13" y="50" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="qTj-PC-eBM">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="hOL-Cf-9br">
+                                                        <rect key="frame" x="10" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="7xD-L5-2Dy" id="wOI-as-TkZ"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="czD-T2-tAg" userLabel="email">
+                                                <rect key="frame" x="13" y="100" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="qJK-6m-Us1">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="Vxr-dW-G94">
+                                                        <rect key="frame" x="10" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="7xD-L5-2Dy" id="5uo-P9-25F"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="YrB-PM-Gzp" userLabel="FirstName">
+                                                <rect key="frame" x="13" y="150" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="583-HQ-5bx">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="8" id="SEb-oD-sw6">
+                                                        <rect key="frame" x="10" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="7xD-L5-2Dy" id="6Rr-gP-gsn"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
+                                            <view contentMode="scaleToFill" id="jfL-dN-wpZ" userLabel="LastName">
+                                                <rect key="frame" x="13" y="200" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <subviews>
+                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="7zM-W8-1SQ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                    </imageView>
+                                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="8" id="6WS-IE-2L9">
+                                                        <rect key="frame" x="10" y="0.0" width="294" height="40"/>
+                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="7xD-L5-2Dy" id="HEy-9L-yOA"/>
+                                                        </connections>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                            </view>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
-                                    <view contentMode="scaleToFill" id="Xpc-rR-ebP" userLabel="password">
-                                        <rect key="frame" x="0.0" y="50" width="294" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" id="U1a-Vj-pF2" userLabel="Footer View">
+                                        <rect key="frame" x="0.0" y="261" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="qTj-PC-eBM">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="hOL-Cf-9br">
-                                                <rect key="frame" x="10" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zN7-3w-JQ2" userLabel="Register">
+                                                <rect key="frame" x="13" y="0.0" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                                <state key="normal" title="Register" backgroundImage="register_btn.png">
+                                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
-                                                    <outlet property="delegate" destination="7xD-L5-2Dy" id="wOI-as-TkZ"/>
+                                                    <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="MLe-2W-QNC"/>
                                                 </connections>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="czD-T2-tAg" userLabel="email">
-                                        <rect key="frame" x="0.0" y="100" width="294" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="qJK-6m-Us1">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="Vxr-dW-G94">
-                                                <rect key="frame" x="10" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
+                                            </button>
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b8L-CX-hyu" userLabel="cancel and go back to login">
+                                                <rect key="frame" x="13" y="60" width="294" height="40"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <color key="backgroundColor" red="0.30980392156862746" green="0.6470588235294118" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="emailAddress"/>
+                                                <state key="normal" title="Cancel and go back to login" backgroundImage="cancel_button.png">
+                                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                </state>
                                                 <connections>
-                                                    <outlet property="delegate" destination="7xD-L5-2Dy" id="5uo-P9-25F"/>
+                                                    <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="cr3-9c-19Z"/>
                                                 </connections>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="YrB-PM-Gzp" userLabel="FirstName">
-                                        <rect key="frame" x="0.0" y="150" width="294" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="583-HQ-5bx">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="First Name" minimumFontSize="8" id="SEb-oD-sw6">
-                                                <rect key="frame" x="10" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="7xD-L5-2Dy" id="6Rr-gP-gsn"/>
-                                                </connections>
-                                            </textField>
-                                        </subviews>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" id="jfL-dN-wpZ" userLabel="LastName">
-                                        <rect key="frame" x="0.0" y="200" width="294" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                        <subviews>
-                                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="7zM-W8-1SQ">
-                                                <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES"/>
-                                            </imageView>
-                                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" placeholder="Last Name" minimumFontSize="8" id="6WS-IE-2L9">
-                                                <rect key="frame" x="10" y="0.0" width="294" height="40"/>
-                                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
-                                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                                                <connections>
-                                                    <outlet property="delegate" destination="7xD-L5-2Dy" id="HEy-9L-yOA"/>
-                                                </connections>
-                                            </textField>
+                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zN7-3w-JQ2" userLabel="Register">
-                                <rect key="frame" x="13" y="447" width="294" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                <state key="normal" backgroundImage="register_btn.png">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="MLe-2W-QNC"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="vwU-Az-4qA">
-                                <rect key="frame" x="13" y="447" width="294" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="b8L-CX-hyu">
-                                <rect key="frame" x="13" y="507" width="294" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.30980392156862746" green="0.6470588235294118" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                <state key="normal" backgroundImage="cancel_button.png">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="cr3-9c-19Z"/>
-                                </connections>
-                            </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cancel and go back to login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="pJ2-7R-gDn">
-                                <rect key="frame" x="13" y="507" width="294" height="40"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" id="Vpf-Jf-eMK">
-                                <rect key="frame" x="25" y="21" width="271" height="88"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <rect key="frame" x="24" y="21" width="271" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -688,7 +866,9 @@
                     <navigationItem key="navigationItem" id="th5-yX-bmM"/>
                     <connections>
                         <outlet property="emailTextField" destination="Vxr-dW-G94" id="Jd2-P4-Dll"/>
+                        <outlet property="fieldView" destination="6da-3s-KNE" id="BQI-nh-uys"/>
                         <outlet property="firstNameTextField" destination="SEb-oD-sw6" id="7N4-xs-CCr"/>
+                        <outlet property="footerView" destination="U1a-Vj-pF2" id="0n9-CB-ODX"/>
                         <outlet property="lastNameTextField" destination="6WS-IE-2L9" id="d9w-kl-p8j"/>
                         <outlet property="passwordTextField" destination="hOL-Cf-9br" id="Xy6-jz-JZX"/>
                         <outlet property="registerScrollView" destination="D2B-jI-HHa" id="tz4-P7-Qbf"/>
@@ -697,7 +877,106 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="asG-1N-SlW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="807" y="144"/>
+            <point key="canvasLocation" x="-760" y="-1592"/>
+        </scene>
+        <!--Create or join a room for host-->
+        <scene sceneID="KXF-5L-cqf">
+            <objects>
+                <viewController id="JgH-ys-lps" userLabel="Create or join a room for host" customClass="JoinRoomViewControllerHost" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Iax-OF-hWq">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="1RY-6D-7A7">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yz2-mG-x5W">
+                                <rect key="frame" x="0.0" y="967" width="768" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="16"/>
+                                <state key="normal" title="Christopher, do you want to Logout">
+                                    <color key="titleColor" red="0.019607843140000001" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" id="n9C-iC-NBw">
+                                <rect key="frame" x="177" y="93" width="413" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open or Join Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jGl-Fx-pV7">
+                                <rect key="frame" x="0.0" y="315" width="768" height="43"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="slc-2R-KZA" userLabel="meeting_name">
+                                <rect key="frame" x="226" y="476" width="315" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="dzR-qz-85H">
+                                        <rect key="frame" x="0.0" y="0.0" width="315" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Meeting Name" minimumFontSize="8" id="iH8-uU-qST">
+                                        <rect key="frame" x="8" y="0.0" width="307" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                    </textField>
+                                </subviews>
+                            </view>
+                            <view contentMode="scaleToFill" id="WAv-6Z-mft">
+                                <rect key="frame" x="226" y="682" width="315" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2zr-wG-IXf" userLabel="Open">
+                                        <rect key="frame" x="0.0" y="0.0" width="155" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="20"/>
+                                        <state key="normal" title="Open" backgroundImage="gobutton.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openRoom:" destination="JgH-ys-lps" eventType="touchUpInside" id="Yv3-hn-JZz"/>
+                                            <action selector="startMeeting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ufT-Va-kVG"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D1x-AP-oDt" userLabel="Join">
+                                        <rect key="frame" x="160" y="0.0" width="155" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="20"/>
+                                        <state key="normal" title="Join" backgroundImage="gobutton.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="joinRoom:" destination="JgH-ys-lps" eventType="touchUpInside" id="8dg-3a-WeN"/>
+                                            <action selector="startMeeting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="H5b-cq-Pb3"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <size key="freeformSize" width="768" height="1024"/>
+                    <connections>
+                        <outlet property="meetingIDTextField" destination="iH8-uU-qST" id="3B7-ay-4lA"/>
+                        <segue destination="YAk-f5-8XZ" kind="modal" identifier="HostViewSegue" id="LzW-2v-lRW"/>
+                        <segue destination="epq-L0-nla" kind="modal" identifier="HostConcludeSegue" id="drA-bB-IWX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LUD-wI-3oK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-157" y="-352"/>
         </scene>
         <!--Register View Controller-->
         <scene sceneID="dn6-Ir-eUr">
@@ -878,7 +1157,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZtT-Mx-SAE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="424" y="1301"/>
+            <point key="canvasLocation" x="328" y="2053"/>
         </scene>
         <!--Single Card View Controller-->
         <scene sceneID="lV5-d9-o5U">
@@ -969,7 +1248,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="back:" destination="JiG-ja-9aR" eventType="touchUpInside" id="KSA-Hi-gnG"/>
+                                    <action selector="back:" destination="JiG-ja-9aR" eventType="touchUpInside" id="BPx-Fz-hgd"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" text="Please enter your username/email to receive a password reset email from QuickBlox." textAlignment="center" selectable="NO" id="NOW-R3-hbU">
@@ -1003,7 +1282,86 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kLD-Bf-FrJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="591" y="-508"/>
+            <point key="canvasLocation" x="-1438" y="-556"/>
+        </scene>
+        <!--Join A Room-->
+        <scene sceneID="0qx-Q4-0hU">
+            <objects>
+                <viewController id="1aX-Oj-4kA" userLabel="Join A Room" customClass="JoinRoomViewControllerClient" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YZx-qr-HTy">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="yYp-aA-GUt">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="calibratedRGB"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="icon.png" id="D2V-8h-Sdb">
+                                <rect key="frame" x="24" y="21" width="271" height="88"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SEP-oI-DJt">
+                                <rect key="frame" x="0.0" y="164" width="320" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <view contentMode="scaleToFill" id="YZE-7A-emu" userLabel="meeting_name">
+                                <rect key="frame" x="13" y="268" width="294" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="textfield_background.png" id="Yqv-nV-Dxx">
+                                        <rect key="frame" x="0.0" y="0.0" width="294" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </imageView>
+                                    <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Meeting Name" minimumFontSize="8" id="HZc-0g-f2g">
+                                        <rect key="frame" x="8" y="0.0" width="286" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
+                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="1aX-Oj-4kA" id="eRa-Lx-nxy"/>
+                                        </connections>
+                                    </textField>
+                                </subviews>
+                            </view>
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A2B-hN-7RD" userLabel="Enter the meeting">
+                                <rect key="frame" x="13" y="381" width="294" height="40"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="20"/>
+                                <state key="normal" title="Enter the meeting" backgroundImage="gobutton.png">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="enterMeeting:" destination="1aX-Oj-4kA" eventType="touchUpInside" id="4V5-DV-8AQ"/>
+                                    <action selector="startMeeting:" destination="BYZ-38-t0r" eventType="touchUpInside" id="w5W-L1-BC5"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B14-tq-di1">
+                                <rect key="frame" x="13" y="512" width="294" height="23"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="16"/>
+                                <state key="normal" title="Christopher, do you want to Logout">
+                                    <color key="titleColor" red="0.019607843140000001" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="meetingIDTextField" destination="HZc-0g-f2g" id="Ok0-yF-Rot"/>
+                        <segue destination="CBa-mb-4AC" kind="modal" identifier="ClientViewSegue" id="oWI-gi-ieX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FKk-ay-hwF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-903" y="-532"/>
         </scene>
         <!--Single Card View Controller-->
         <scene sceneID="ApZ-Km-fJd">
@@ -1396,6 +1754,7 @@
         <image name="cancel_button.png" width="315" height="40"/>
         <image name="checkbox_new.png" width="20" height="20"/>
         <image name="closeBtn.png" width="206" height="41"/>
+        <image name="dontHaveAccountBorder.png" width="295" height="40"/>
         <image name="gobutton.png" width="295" height="40"/>
         <image name="icon.png" width="354" height="128"/>
         <image name="iphone_background.png" width="320" height="568"/>
@@ -1411,6 +1770,8 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="vYh-mO-yz1"/>
+        <segue reference="TQq-7x-cK7"/>
+        <segue reference="u9g-xR-R2m"/>
+        <segue reference="R62-gf-qAt"/>
     </inferredMetricsTieBreakers>
 </document>
