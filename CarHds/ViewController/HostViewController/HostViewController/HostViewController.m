@@ -158,7 +158,9 @@
     [self sendSignalToCarhdsServerWithParams:params];
     
     // Meeting is still running, just closed the host view controller
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:YES completion:^{
+        int x =3;
+    }];
 }
 
 

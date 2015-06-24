@@ -13,4 +13,7 @@
 @property (nonatomic,strong) NSMutableDictionary* users;
 @property (strong, nonatomic) NSString *username;
 @property (nonatomic)BOOL state;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (nonatomic)BOOL credentialsWasSaved;
+
 @end

@@ -15,4 +15,6 @@
 @property (strong, nonatomic) NSString *username;
 @property (nonatomic)BOOL state;
 @property (nonatomic)BOOL isHost;
+@property (weak, nonatomic) IBOutlet UIButton *logoutButton;
+@property (nonatomic)BOOL credentialsWasSaved;
 @end

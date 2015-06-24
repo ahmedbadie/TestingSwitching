@@ -137,6 +137,7 @@
 		4BAFC5271B37E41600F299F2 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BAFC5261B37E41600F299F2 /* LoginViewController.m */; };
 		4BBBF7001B3828800073828D /* JoinRoomViewControllerClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF6FF1B3828800073828D /* JoinRoomViewControllerClient.m */; };
 		4BBBF7031B3828AC0073828D /* JoinRoomViewControllerHost.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BBBF7021B3828AC0073828D /* JoinRoomViewControllerHost.m */; };
+		4BD3E6221B3AAF380027387C /* UIButtonHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BD3E6211B3AAF380027387C /* UIButtonHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -327,6 +328,8 @@
 		4BBBF6FF1B3828800073828D /* JoinRoomViewControllerClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinRoomViewControllerClient.m; sourceTree = "<group>"; };
 		4BBBF7011B3828AC0073828D /* JoinRoomViewControllerHost.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JoinRoomViewControllerHost.h; sourceTree = "<group>"; };
 		4BBBF7021B3828AC0073828D /* JoinRoomViewControllerHost.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JoinRoomViewControllerHost.m; sourceTree = "<group>"; };
+		4BD3E6201B3AAF380027387C /* UIButtonHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIButtonHelper.h; sourceTree = "<group>"; };
+		4BD3E6211B3AAF380027387C /* UIButtonHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIButtonHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -602,6 +605,7 @@
 				395E4CDD1A521AC0006361BA /* Services */,
 				395E4CD01A51F204006361BA /* MBProgressHUD */,
 				395E4CC01A51E4D6006361BA /* Callback Responses */,
+				4BD3E6231B3ADD2C0027387C /* UIButton Helper */,
 			);
 			path = HelperClasses;
 			sourceTree = "<group>";
@@ -891,6 +895,15 @@
 			path = ForgetPasswordViewController;
 			sourceTree = "<group>";
 		};
+		4BD3E6231B3ADD2C0027387C /* UIButton Helper */ = {
+			isa = PBXGroup;
+			children = (
+				4BD3E6201B3AAF380027387C /* UIButtonHelper.h */,
+				4BD3E6211B3AAF380027387C /* UIButtonHelper.m */,
+			);
+			name = "UIButton Helper";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1070,6 +1083,7 @@
 				390424B21A53182F00370E80 /* NSDictionary_JSONExtensions.m in Sources */,
 				395E4CE61A521AC0006361BA /* LocalStorageService.m in Sources */,
 				399A54671A66D199003FA861 /* ForgetPasswordViewController.m in Sources */,
+				4BD3E6221B3AAF380027387C /* UIButtonHelper.m in Sources */,
 				395E4CC31A51E4E1006361BA /* APIResponse.m in Sources */,
 				395E4CE51A521AC0006361BA /* ChatService.m in Sources */,
 				39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */,

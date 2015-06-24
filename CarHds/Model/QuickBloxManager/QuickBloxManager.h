@@ -14,4 +14,5 @@
 
 +(void)registerUserWithUsername:(NSString *)username andPassword:(NSString *)password andFirstName:(NSString *)firstName andLastName:(NSString *)lastName andEmail:(NSString *)email withCompletionHandler:(void (^)(APIResponse *))handler;
 
+
 @end

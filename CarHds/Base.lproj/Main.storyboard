@@ -150,12 +150,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="a9h-Io-a0t" userLabel="BottomLeftView">
-                                        <rect key="frame" x="24" y="531" width="224" height="465"/>
+                                        <rect key="frame" x="24" y="531.00000040915711" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="fb4-K9-MpO" userLabel="BottomMiddleView">
-                                        <rect key="frame" x="272" y="531" width="224" height="465"/>
+                                        <rect key="frame" x="272" y="531.00000040915711" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -260,7 +260,7 @@
         <!--Login controller-->
         <scene sceneID="D6w-zh-hJB">
             <objects>
-                <viewController id="J4X-Nj-1dL" userLabel="Login controller" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginViewController" id="J4X-Nj-1dL" userLabel="Login controller" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GDu-hM-xDk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -320,7 +320,7 @@
                                             </textField>
                                         </subviews>
                                     </view>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ECg-DC-4mP">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ECg-DC-4mP" customClass="UIButtonHelper">
                                         <rect key="frame" x="13" y="100" width="294" height="18"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -337,20 +337,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Pf-4b-BMd">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="7Pf-4b-BMd" customClass="UIButtonHelper">
                                 <rect key="frame" x="13" y="497" width="294" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
                                 <state key="normal" title="Don't have an account? Register here" backgroundImage="dontHaveAccountBorder.png">
                                     <color key="titleColor" red="0.019607843140000001" green="0.39607843139999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <action selector="registerUser:" destination="J4X-Nj-1dL" eventType="touchUpInside" id="pgS-0v-trR"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yi5-h5-yxn" userLabel="Login Button">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="yi5-h5-yxn" userLabel="Login Button" customClass="UIButtonHelper">
                                 <rect key="frame" x="13" y="381" width="294" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -371,6 +370,7 @@
                         <outlet property="forgetPasswordIphoneView" destination="sRl-HV-T62" id="rQu-4e-OJv"/>
                         <outlet property="loginLabel" destination="GNb-Tb-Uq4" id="e2i-VD-vWj"/>
                         <outlet property="passwordTextField" destination="svS-uE-Dkx" id="Mwc-96-Mjj"/>
+                        <outlet property="registerButton" destination="7Pf-4b-BMd" id="mQW-cB-HjV"/>
                         <outlet property="usernameTextField" destination="aSc-yR-Dq2" id="6z2-Td-zQU"/>
                         <segue destination="7xD-L5-2Dy" kind="modal" identifier="RegisterNewUser" id="XsN-wN-Vqu"/>
                         <segue destination="JiG-ja-9aR" kind="modal" identifier="ForgetPassword" modalPresentationStyle="formSheet" id="x25-mb-ASO"/>
@@ -569,7 +569,7 @@
                                         <rect key="frame" x="0.0" y="261" width="320" height="100"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zN7-3w-JQ2" userLabel="Register">
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zN7-3w-JQ2" userLabel="Register" customClass="UIButtonHelper">
                                                 <rect key="frame" x="13" y="0.0" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
@@ -580,7 +580,7 @@
                                                     <action selector="buttonClicked:" destination="7xD-L5-2Dy" eventType="touchUpInside" id="MLe-2W-QNC"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aLV-nn-0RM">
+                                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="aLV-nn-0RM" customClass="UIButtonHelper">
                                                 <rect key="frame" x="13" y="60" width="294" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -625,7 +625,7 @@
         <!--Create or join a room for host-->
         <scene sceneID="KXF-5L-cqf">
             <objects>
-                <viewController id="JgH-ys-lps" userLabel="Create or join a room for host" customClass="JoinRoomViewControllerHost" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JoinRoomViewControllerIpad" id="JgH-ys-lps" userLabel="Create or join a room for host" customClass="JoinRoomViewControllerHost" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Iax-OF-hWq">
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -634,7 +634,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yz2-mG-x5W">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Yz2-mG-x5W" customClass="UIButtonHelper">
                                 <rect key="frame" x="0.0" y="967" width="768" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -678,7 +678,7 @@
                                 <rect key="frame" x="0.0" y="682" width="768" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2zr-wG-IXf" userLabel="Open">
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2zr-wG-IXf" userLabel="Open" customClass="UIButtonHelper">
                                         <rect key="frame" x="226" y="0.0" width="155" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -691,7 +691,7 @@
                                             <action selector="openRoom:" destination="JgH-ys-lps" eventType="touchUpInside" id="Yv3-hn-JZz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D1x-AP-oDt" userLabel="Join">
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D1x-AP-oDt" userLabel="Join" customClass="UIButtonHelper">
                                         <rect key="frame" x="386" y="0.0" width="155" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -713,10 +713,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="768" height="1024"/>
                     <connections>
+                        <outlet property="logoutButton" destination="Yz2-mG-x5W" id="RDf-KM-6aB"/>
                         <outlet property="meetingIDTextField" destination="iH8-uU-qST" id="3B7-ay-4lA"/>
-                        <segue destination="YAk-f5-8XZ" kind="modal" identifier="HostViewSegue" id="LzW-2v-lRW"/>
                         <segue destination="epq-L0-nla" kind="modal" identifier="HostConcludeSegue" id="drA-bB-IWX"/>
                         <segue destination="CBa-mb-4AC" kind="modal" identifier="ClientViewSegue" id="6KI-49-Tgf"/>
+                        <segue destination="YAk-f5-8XZ" kind="modal" identifier="HostViewSegue" id="bBl-hk-2ZK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LUD-wI-3oK" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1032,7 +1033,7 @@
         <!--Join A Room-->
         <scene sceneID="0qx-Q4-0hU">
             <objects>
-                <viewController id="1aX-Oj-4kA" userLabel="Join A Room" customClass="JoinRoomViewControllerClient" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="JoinRoomViewControllerIphone" id="1aX-Oj-4kA" userLabel="Join A Room" customClass="JoinRoomViewControllerClient" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="YZx-qr-HTy">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1072,7 +1073,7 @@
                                     </textField>
                                 </subviews>
                             </view>
-                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A2B-hN-7RD" userLabel="Enter the meeting">
+                            <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="A2B-hN-7RD" userLabel="Enter the meeting" customClass="UIButtonHelper">
                                 <rect key="frame" x="13" y="381" width="294" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1085,7 +1086,7 @@
                                     <action selector="enterMeeting:" destination="1aX-Oj-4kA" eventType="touchUpInside" id="4V5-DV-8AQ"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B14-tq-di1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="B14-tq-di1" customClass="UIButtonHelper">
                                 <rect key="frame" x="13" y="512" width="294" height="23"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -1102,6 +1103,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <connections>
+                        <outlet property="logoutButton" destination="B14-tq-di1" id="3Qg-kW-j8g"/>
                         <outlet property="meetingIDTextField" destination="HZc-0g-f2g" id="Ok0-yF-Rot"/>
                         <segue destination="CBa-mb-4AC" kind="modal" identifier="ClientViewSegue" id="oWI-gi-ieX"/>
                     </connections>
@@ -1145,7 +1147,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="background.png" id="KAX-Dc-PyP">
-                                <rect key="frame" x="-170" y="-401" width="938" height="1425"/>
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <view hidden="YES" contentMode="scaleToFill" id="o0M-93-8h5" userLabel="IpadView">
@@ -1372,6 +1374,7 @@
         <!--View Controller-->
         <scene sceneID="fzz-BU-I37">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1L2-o1-IiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="La6-wt-2AY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fZG-n6-DFl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1379,7 +1382,6 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1L2-o1-IiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3467" y="719"/>
         </scene>
@@ -1489,8 +1491,8 @@
         <!--Page View Controller-->
         <scene sceneID="6i0-UY-KFl">
             <objects>
-                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="4nB-zT-VLH" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K2z-Kb-ds9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="4nB-zT-VLH" sceneMemberID="viewController"/>
             </objects>
             <point key="canvasLocation" x="2505" y="257"/>
         </scene>
@@ -1516,6 +1518,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="oWI-gi-ieX"/>
+        <segue reference="6KI-49-Tgf"/>
     </inferredMetricsTieBreakers>
 </document>

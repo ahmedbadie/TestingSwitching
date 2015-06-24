@@ -12,15 +12,10 @@
 #import "GAI.h"
 #import "GAIFields.h"
 #import "GAIDictionaryBuilder.h"
-
+#define LOGIN_BUTTON_PAD 144
 @interface LoginViewController ()
-@property (nonatomic) NSInteger index;
-@property (nonatomic) BOOL state;
-@property (nonatomic) BOOL close;
+
 @property (strong, nonatomic) IBOutlet UIView *forgetPasswordIphoneView;
-@property (weak, nonatomic) IBOutlet UIButton *goButton;
-@property (weak, nonatomic) IBOutlet UITextView *forgetPasswordText;
-@property (weak, nonatomic) IBOutlet UIButton *rememberMeButton;
 @property (nonatomic) BOOL rememberMe;
 
 @end
@@ -64,8 +59,10 @@
     if(username == nil || password == nil){
         username = @"";
         password = @"";
+    } else {
+        self.view.hidden = YES;
+        self.credentialsWasSaved = YES;
     }
-    
     self.usernameTextField.text = username;
     self.passwordTextField.text = password;
 }
@@ -146,27 +143,22 @@
 
 -(void)viewDidAppear:(BOOL)animated{
     [super viewDidAppear:animated];
-}
-
--(void)updateRemberMeButton:(BOOL)rememberMe{
-    if(rememberMe){
-        [self.rememberMeButton setImage:[UIImage imageNamed:@"checkbox_checked"] forState:UIControlStateNormal];
-    }else{
-        [self.rememberMeButton setImage:[UIImage imageNamed:@"checkbox_new"] forState:UIControlStateNormal];
+    if (self.credentialsWasSaved) {
+        if(IS_IPAD)
+            [self performSegueWithIdentifier:@"JoinMeetingHostIpad" sender:self];
+        else
+            [self performSegueWithIdentifier:@"JoinMeetingIphone" sender:self];
     }
 }
-
--(IBAction)rememberMeClicked:(id)sender{
-    
-    self.rememberMe = !self.rememberMe;
-    [self saveRememberMe:self.rememberMe];
-    [self updateRemberMeButton:self.rememberMe];
-    
+-(void)viewWillAppear:(BOOL)animated {
+    if (!self.credentialsWasSaved) {
+        self.view.hidden = NO;
+    }
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Remember me functions
+    self.credentialsWasSaved = NO;
     self.rememberMe = [self loadRememberMe]; //return boolean value if remember me was checked before or not
     if (IS_IPAD) {
         [self adjustView];
@@ -180,7 +172,7 @@
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
 }
 -(void)adjustView {
-    self.loginLabel.frame = CGRectMake(self.loginLabel.frame.origin.x, self.fieldsView.frame.origin.y - 144, self.loginLabel.frame.size.width, self.loginLabel.frame.size.height);
+    self.loginLabel.frame = CGRectMake(self.loginLabel.frame.origin.x, self.fieldsView.frame.origin.y - LOGIN_BUTTON_PAD, self.loginLabel.frame.size.width, self.loginLabel.frame.size.height);
 }
 
 - (void)didReceiveMemoryWarning {
@@ -207,23 +199,7 @@
         [self warnUserWithMessage:@"Time out"];
     }
 }
-- (IBAction)login:(id)sender {
-    
-    
-    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
-    [tracker set:kGAIScreenName value:@"Login"];
-    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"login_action"     // Event category (required)
-                                                          action:@"button_press"  // Event action (required)
-                                                           label:@"login"          // Event label
-                                                           value:nil] build]];    // Event value
-    
-    
-    if([[QBChat instance]isLoggedIn])
-    {
-        [[QBChat instance] logout];
-    }
-    
-
+-(void)validateCredentials {
     if([self.usernameTextField text]==nil || [self.usernameTextField text].length==0)
     {
         [self warnUserWithMessage:@"Missing Username"];
@@ -239,16 +215,16 @@
         [self warnUserWithMessage:@"Password too short"];
         return;
     }
-    // tabe3 el remember me
-    if(self.rememberMe){
-        [self saveUsername:self.usernameTextField.text Password:self.passwordTextField.text];
-    }else{
-        [self saveUsername:@"" Password:@""];
-    }
-    
+
+}
+
+-(void)connectToQuickBlox {
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     self.hud.labelText= STRING(@"Login");
-    
+    if([[QBChat instance]isLoggedIn])
+    {
+        [[QBChat instance] logout];
+    }
     QBSessionParameters* parameters = [QBSessionParameters new];
     parameters.userLogin = [self.usernameTextField text];
     parameters.userPassword =[self.passwordTextField text];
@@ -325,6 +301,27 @@
         [self warnUserWithMessage:DESC(response.error.error)];
         
     }];
+}
+
+- (IBAction)login:(id)sender {
+    
+    
+    id<GAITracker> tracker = [[GAI sharedInstance] defaultTracker];
+    [tracker set:kGAIScreenName value:@"Login"];
+    [tracker send:[[GAIDictionaryBuilder createEventWithCategory:@"login_action"     // Event category (required)
+                                                          action:@"button_press"  // Event action (required)
+                                                           label:@"login"          // Event label
+                                                           value:nil] build]];    // Event value
+    
+    [self validateCredentials];
+    
+    if(self.rememberMe){
+        [self saveUsername:self.usernameTextField.text Password:self.passwordTextField.text];
+    }else{
+        [self saveUsername:@"" Password:@""];
+    }
+    
+    [self connectToQuickBlox];
     
 }
 
@@ -353,16 +350,21 @@
 
 #pragma mark - Prepare for Segue -
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.hud.hidden = YES;
     if([segue.identifier isEqualToString:@"JoinMeetingIphone"]) {
         JoinRoomViewControllerClient *joinRoom = (JoinRoomViewControllerClient*)segue.destinationViewController;
         joinRoom.username = self.usernameTextField.text;
         joinRoom.state = self.state;
         joinRoom.user = self.user;
+        joinRoom.credentialsWasSaved = self.credentialsWasSaved;
+        self.credentialsWasSaved = NO;
     } else if ([segue.identifier isEqualToString:@"JoinMeetingHostIpad"]) {
         JoinRoomViewControllerHost *joinRoom = (JoinRoomViewControllerHost*)segue.destinationViewController;
         joinRoom.username = self.usernameTextField.text;
         joinRoom.state = self.state;
         joinRoom.user = self.user;
+        joinRoom.credentialsWasSaved = self.credentialsWasSaved;
+        self.credentialsWasSaved = NO;
     }
 }
 

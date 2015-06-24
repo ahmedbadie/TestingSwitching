@@ -26,5 +26,10 @@
 @property (nonatomic,strong) NSMutableDictionary* users;
 @property (weak, nonatomic) IBOutlet UILabel *loginLabel;
 @property (weak, nonatomic) IBOutlet UIView *fieldsView;
-
+@property (weak, nonatomic) IBOutlet UIButton *registerButton;
+@property (nonatomic) NSInteger index;
+@property (nonatomic) BOOL state;
+@property (nonatomic) BOOL close;
+@property (nonatomic)BOOL credentialsWasSaved;
+-(void)connectToQuickBlox;
 @end

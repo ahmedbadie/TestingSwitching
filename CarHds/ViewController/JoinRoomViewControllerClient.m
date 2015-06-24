@@ -9,6 +9,99 @@
 #import "JoinRoomViewControllerClient.h"
 
 @implementation JoinRoomViewControllerClient
+-(void)viewDidLoad {
+    [super viewDidLoad];
+    if (self.credentialsWasSaved) {
+        
+        [self connectToQuickBlox];
+    }
+    NSString *logoutButtonText = [NSString stringWithFormat:@"%@, do you want to Logout?", self.username];
+    [self.logoutButton setTitle:logoutButtonText forState: UIControlStateNormal];
+}
+-(void)connectToQuickBlox {
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText= STRING(@"Login");
+    NSString *username,*password;
+    NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
+    username=[prefs objectForKey:@"username"];
+    password=[prefs objectForKey:@"password"];
+    
+    
+    if([[QBChat instance]isLoggedIn])
+    {
+        [[QBChat instance] logout];
+    }
+    QBSessionParameters* parameters = [QBSessionParameters new];
+    parameters.userLogin = username;
+    parameters.userPassword =password;
+    
+    
+    [QBRequest createSessionWithExtendedParameters:parameters successBlock:^(QBResponse *response, QBASession *session) {
+        NSUserDefaults* defaults = [NSUserDefaults standardUserDefaults];
+        
+        NSLog(STRING(@"LoginSucceded"));
+        
+        //        NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
+        //        NSLog(@"LoginSucceded [%@]",responseData);
+        
+        // If logged In continue to next step
+        
+        NSLog(@"loggedin with [%lu] [%@] [%lu]",(unsigned long)session.userID,session.token,(unsigned long)session.deviceID);
+        
+        
+        [QBRequest logInWithUserLogin:username password:password successBlock:^(QBResponse *response, QBUUser *user) {
+            // NSString *responseData = [[NSString alloc] initWithData:response.data encoding:NSUTF8StringEncoding];
+            
+            NSLog(@"logInWithUserLogin ******* success");
+            
+            
+            //            self.user =[QBUUser new];
+            //            self.user.ID = session.userID;
+            //            self.user.login = [self.usernameTextField text];
+            //            self.user.password = [self.passwordTextField text];
+            
+            self.user = user;
+            self.user.password = password;
+            [defaults setObject:@(self.user.ID) forKey: USER_ID_KEY];
+            [defaults setObject:self.user.password forKey:USER_PASSWORD_KEY];
+            
+            [[ChatService shared] loginWithUser:self.user completionBlock:^{
+                NSLog(@"loginWithUser completionBlock");
+                [MeetingHandler sharedInstance].qbUser = [QBUUser new];
+                [MeetingHandler sharedInstance].qbUser.login = username;
+                [MeetingHandler sharedInstance].qbUser.ID = self.user.ID;
+                [MeetingHandler sharedInstance].qbUser.password= password;
+                [self.hud hide:YES];
+                
+            }];
+            
+        } errorBlock:^(QBResponse *response) {
+            
+            NSLog(@"logInWithUserLogin error");
+            
+            NSDictionary* reasons =  response.error.reasons;
+            NSLog(@"logInWithUserLogin error %@",[reasons description]);
+            
+            self.state = NO;
+            
+            [self.hud hide:YES];
+            [self warnUserWithMessage:DESC(response.error.error)];
+        }];
+        
+    } errorBlock:^(QBResponse *response) {
+        
+        NSLog(@"error login");
+        
+        NSDictionary* reasons =  response.error.reasons;
+        NSLog(@"error login %@",[reasons description]);
+        //        NSLog(@"error login message [%@]",QBDESC(response.error));
+        self.state = NO;
+        
+        [self.hud hide:YES];
+        [self warnUserWithMessage:DESC(response.error.error)];
+    }];
+}
+
 
 -(void) createMeetingRoom {
     self.hud.labelText = STRING(@"CreatingMeeting");
@@ -135,10 +228,13 @@
 
  
 - (IBAction)enterMeeting:(id)sender {
+    self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    self.hud.labelText= STRING(@"Loading");
     [self chatDidLogin];
 }
  
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    self.hud.hidden = YES;
     if ([segue.identifier isEqualToString:CLIENT_VIEW_SEGUE]) {
         ClientViewController* dst = segue.destinationViewController;
         dst.chatDialog = self.chatDialog;
@@ -146,12 +242,14 @@
     }
 }
 - (IBAction)logout:(UIButton *)sender {
-    NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
-    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+        NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
+        QBChatRoom* chatRoom = [self.chatDialog chatRoom];
+        
+        [MeetingHandler sharedInstance].logOut = YES;
+        [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom save:YES];
+        [self didLogOut];
+        
     
-    [MeetingHandler sharedInstance].logOut = YES;
-    [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:chatRoom save:YES];
-    [self didLogOut];
     [self dismissViewControllerAnimated:YES completion:^{
         
     }];
