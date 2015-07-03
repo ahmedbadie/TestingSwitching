@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14B25" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="J4X-Nj-1dL">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7702" systemVersion="14A389" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="J4X-Nj-1dL">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7701"/>
@@ -41,11 +41,13 @@
             <string>Agenda-LightCondensed</string>
             <string>Agenda-LightCondensed</string>
             <string>Agenda-LightCondensed</string>
-            <string>Agenda-LightCondensed</string>
-            <string>Agenda-LightCondensed</string>
-            <string>Agenda-LightCondensed</string>
-            <string>Agenda-LightCondensed</string>
-            <string>Agenda-LightCondensed</string>
+        </mutableArray>
+        <mutableArray key="Agenda-ThinCond.otf">
+            <string>Agenda-ThinCondensed</string>
+            <string>Agenda-ThinCondensed</string>
+            <string>Agenda-ThinCondensed</string>
+            <string>Agenda-ThinCondensed</string>
+            <string>Agenda-ThinCondensed</string>
         </mutableArray>
         <mutableArray key="Arial Narrow.ttf">
             <string>ArialNarrow</string>
@@ -150,12 +152,12 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="a9h-Io-a0t" userLabel="BottomLeftView">
-                                        <rect key="frame" x="24" y="531.00000040915711" width="224" height="465"/>
+                                        <rect key="frame" x="24" y="531.00000082981649" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" id="fb4-K9-MpO" userLabel="BottomMiddleView">
-                                        <rect key="frame" x="272" y="531.00000040915711" width="224" height="465"/>
+                                        <rect key="frame" x="272" y="531.00000082981649" width="224" height="465"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES"/>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     </view>
@@ -277,7 +279,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Login" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GNb-Tb-Uq4" userLabel="Login Label">
                                 <rect key="frame" x="116" y="164" width="88" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="Agenda-ThinCondensed" family="Agenda" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -316,7 +318,10 @@
                                                 <rect key="frame" x="8" y="0.0" width="286" height="40"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="21"/>
-                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="J4X-Nj-1dL" id="HGo-Xi-GNo"/>
+                                                </connections>
                                             </textField>
                                         </subviews>
                                     </view>
@@ -450,7 +455,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="mIn-Nv-DyM">
                                 <rect key="frame" x="0.0" y="126" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="Agenda-ThinCondensed" family="Agenda" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -654,7 +659,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open or Join Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jGl-Fx-pV7">
                                 <rect key="frame" x="0.0" y="315" width="768" height="43"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="Agenda-ThinCondensed" family="Agenda" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -678,19 +683,6 @@
                                 <rect key="frame" x="0.0" y="682" width="768" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2zr-wG-IXf" userLabel="Open" customClass="UIButtonHelper">
-                                        <rect key="frame" x="226" y="0.0" width="155" height="40"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="20"/>
-                                        <state key="normal" title="Open" backgroundImage="gobutton.png">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="openRoom:" destination="JgH-ys-lps" eventType="touchUpInside" id="Yv3-hn-JZz"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="D1x-AP-oDt" userLabel="Join" customClass="UIButtonHelper">
                                         <rect key="frame" x="386" y="0.0" width="155" height="40"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -702,6 +694,19 @@
                                         </state>
                                         <connections>
                                             <action selector="joinRoom:" destination="JgH-ys-lps" eventType="touchUpInside" id="8dg-3a-WeN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="center" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="2zr-wG-IXf" userLabel="Open" customClass="UIButtonHelper">
+                                        <rect key="frame" x="223" y="0.0" width="155" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="20"/>
+                                        <state key="normal" title="Open" backgroundImage="gobutton.png">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            <color key="titleShadowColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="openRoom:" destination="JgH-ys-lps" eventType="touchUpInside" id="Yv3-hn-JZz"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -743,7 +748,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Register" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="83N-iK-Acj">
                                 <rect key="frame" x="284" y="260" width="200" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="Agenda-ThinCondensed" family="Agenda" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1050,7 +1055,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Join Meeting" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SEP-oI-DJt">
                                 <rect key="frame" x="0.0" y="164" width="320" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" name="Agenda-LightCondensed" family="Agenda" pointSize="36"/>
+                                <fontDescription key="fontDescription" name="Agenda-ThinCondensed" family="Agenda" pointSize="36"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -1374,7 +1379,6 @@
         <!--View Controller-->
         <scene sceneID="fzz-BU-I37">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="1L2-o1-IiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="La6-wt-2AY" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fZG-n6-DFl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
@@ -1382,6 +1386,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1L2-o1-IiN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3467" y="719"/>
         </scene>
@@ -1491,8 +1496,8 @@
         <!--Page View Controller-->
         <scene sceneID="6i0-UY-KFl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="K2z-Kb-ds9" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <pageViewController autoresizesArchivedViewToFullSize="NO" transitionStyle="pageCurl" navigationOrientation="horizontal" spineLocation="min" id="4nB-zT-VLH" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K2z-Kb-ds9" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2505" y="257"/>
         </scene>
@@ -1518,6 +1523,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="6KI-49-Tgf"/>
+        <segue reference="oWI-gi-ieX"/>
     </inferredMetricsTieBreakers>
 </document>
