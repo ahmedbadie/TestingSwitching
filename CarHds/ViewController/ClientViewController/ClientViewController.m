@@ -276,11 +276,11 @@
     }else if (self.state == STATE_MEETING_CONCLUDE)
     {
         
-        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Meeting Conclusion"
+        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:STRING(@"Meeting Conclusion")
                                                            message:STRING(@"MeetingConclusionConfirmation")
                                                           delegate:self
-                                                 cancelButtonTitle:@"Yes"
-                                                 otherButtonTitles:@"No", nil];
+                                                 cancelButtonTitle:STRING(@"Yes")
+                                                 otherButtonTitles:STRING(@"No"), nil];
         
         [alertView show];
         
@@ -289,11 +289,11 @@
     {
         
         
-        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Meeting Conclusion"
+        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:STRING(@"Meeting Conclusion")
                                                            message:STRING(@"SelfConclusionConfirmation")
                                                           delegate:self
-                                                 cancelButtonTitle:@"Yes"
-                                                 otherButtonTitles:@"No", nil];
+                                                 cancelButtonTitle:STRING(@"Yes")
+                                                 otherButtonTitles:STRING(@"No"), nil];
         
         [alertView show];
         
@@ -318,7 +318,7 @@
 
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText = @"Leave Meeting";
+    self.hud.labelText = STRING(@"Leave Meeting");
     NSString* msg = [JsonMessageParser logOutMessageForUser:self.user.login];
     QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     
@@ -335,7 +335,7 @@
 {
     if(chatRoom == nil)
     {
-        [self warnUserWithMessage:@"Failed to join room"];
+        [self warnUserWithMessage:STRING(@"Failed to join room")];
         [self leaveMeeting:self];
         return;
         
@@ -374,11 +374,11 @@
     NSLog(@"Contribution");
     if(self.state == STATE_CARD_VOTING && !self.showingMsg){
         self.showingMsg = YES;
-        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Meeting Conclusion"
+        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:STRING(@"Meeting Conclusion")
                                                            message:STRING(@"ConcludeMeetingMessage")
                                                           delegate:self
-                                                 cancelButtonTitle:@"Yes"
-                                                 otherButtonTitles:@"No", nil];
+                                                 cancelButtonTitle:STRING(@"Yes")
+                                                 otherButtonTitles:STRING(@"No"), nil];
         alertView.tag = 1;
         [alertView show];
         
@@ -404,9 +404,9 @@
     
 }
 -(void)receivedCloseRoom{
-    [self warnUserWithMessage:@"Meeting room closed by Host"];
+    [self warnUserWithMessage:STRING(@"Meeting room closed by Host")];
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText = @"Leave Meeting";
+    self.hud.labelText = STRING(@"Leave Meeting");
     [JsonMessageParser logOutMessageForUser:self.user.login];
     [self.chatDialog chatRoom];
     

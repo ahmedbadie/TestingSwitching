@@ -1,0 +1,153 @@
+
+/* Class = "UITextField"; placeholder = "username/email"; ObjectID = "1Zu-Wh-RAd"; */
+"1Zu-Wh-RAd.placeholder" = "username/email";
+
+/* Class = "UIButton"; normalTitle = "Open"; ObjectID = "2zr-wG-IXf"; */
+"2zr-wG-IXf.normalTitle" = "Open";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "3TE-Ob-j7j"; */
+"3TE-Ob-j7j.placeholder" = "Password";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "5y9-Fa-h3d"; */
+"5y9-Fa-h3d.normalTitle" = "Back";
+
+/* Class = "UITextField"; placeholder = "Last Name"; ObjectID = "6WS-IE-2L9"; */
+"6WS-IE-2L9.placeholder" = "Last Name";
+
+/* Class = "UIButton"; normalTitle = "Leave Meeting"; ObjectID = "6ui-tf-saJ"; */
+"6ui-tf-saJ.normalTitle" = "Leave Meeting";
+
+/* Class = "UIButton"; normalTitle = "Don't have an account? Register here"; ObjectID = "7Pf-4b-BMd"; */
+"7Pf-4b-BMd.normalTitle" = "Don't have an account? Register here";
+
+/* Class = "UIButton"; normalTitle = "Reset Password"; ObjectID = "7bq-mo-EdR"; */
+"7bq-mo-EdR.normalTitle" = "Reset Password";
+
+/* Class = "UIButton"; normalTitle = "Leave Meeting"; ObjectID = "7wc-qT-Y4Y"; */
+"7wc-qT-Y4Y.normalTitle" = "Leave Meeting";
+
+/* Class = "UILabel"; text = "Register"; ObjectID = "83N-iK-Acj"; */
+"83N-iK-Acj.text" = "Register";
+
+/* Class = "UILabel"; text = "Meeting Break"; ObjectID = "86U-AV-nyn"; */
+"86U-AV-nyn.text" = "Meeting Break";
+
+/* Class = "UIButton"; normalTitle = "Enter the meeting"; ObjectID = "A2B-hN-7RD"; */
+"A2B-hN-7RD.normalTitle" = "Enter the meeting";
+
+/* Class = "UIButton"; normalTitle = "Christopher, do you want to Logout"; ObjectID = "B14-tq-di1"; */
+"B14-tq-di1.normalTitle" = "Christopher, do you want to Logout";
+
+/* Class = "UIButton"; normalTitle = "Join"; ObjectID = "D1x-AP-oDt"; */
+"D1x-AP-oDt.normalTitle" = "Join";
+
+/* Class = "UIButton"; normalTitle = "I forgot my password"; ObjectID = "ECg-DC-4mP"; */
+"ECg-DC-4mP.normalTitle" = "I forgot my password :(";
+
+/* Class = "UITextField"; placeholder = "First name"; ObjectID = "EbU-AC-UHr"; */
+"EbU-AC-UHr.placeholder" = "First name";
+
+/* Class = "UIButton"; normalTitle = "Leave Meeting"; ObjectID = "FoX-UV-COe"; */
+"FoX-UV-COe.normalTitle" = "Leave Meeting";
+
+/* Class = "UIButton"; normalTitle = "Leave Meeting"; ObjectID = "GDW-6Q-HCV"; */
+"GDW-6Q-HCV.normalTitle" = "Leave Meeting";
+
+/* Class = "UILabel"; text = "Login"; ObjectID = "GNb-Tb-Uq4"; */
+"GNb-Tb-Uq4.text" = "Login";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "Gno-sr-fv2"; */
+"Gno-sr-fv2.placeholder" = "Username";
+
+/* Class = "UITextField"; placeholder = "Meeting Name"; ObjectID = "HZc-0g-f2g"; */
+"HZc-0g-f2g.placeholder" = "Meeting Name";
+
+/* Class = "UIButton"; normalTitle = "Back"; ObjectID = "KYv-2S-OMp"; */
+"KYv-2S-OMp.normalTitle" = "Back";
+
+/* Class = "UITextView"; text = "Please enter your username/email to receive a password reset email from QuickBlox."; ObjectID = "NOW-R3-hbU"; */
+"NOW-R3-hbU.text" = "Please enter your username/email to receive a password reset email from QuickBlox.";
+
+/* Class = "UITextField"; placeholder = "Last name"; ObjectID = "NQy-FL-OyM"; */
+"NQy-FL-OyM.placeholder" = "Last name";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "Qqb-hl-8in"; */
+"Qqb-hl-8in.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "Join Meeting"; ObjectID = "SEP-oI-DJt"; */
+"SEP-oI-DJt.text" = "Join Meeting";
+
+/* Class = "UITextField"; placeholder = "First Name"; ObjectID = "SEb-oD-sw6"; */
+"SEb-oD-sw6.placeholder" = "First Name";
+
+/* Class = "UILabel"; text = "Register me"; ObjectID = "SIE-cc-FTt"; */
+"SIE-cc-FTt.text" = "Register me";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "Vxr-dW-G94"; */
+"Vxr-dW-G94.placeholder" = "Email";
+
+/* Class = "UILabel"; text = "Meeting Concluded"; ObjectID = "Xi6-Mu-F2X"; */
+"Xi6-Mu-F2X.text" = "Meeting Concluded";
+
+/* Class = "UIButton"; normalTitle = "Christopher, do you want to Logout"; ObjectID = "Yz2-mG-x5W"; */
+"Yz2-mG-x5W.normalTitle" = "Christopher, do you want to Logout";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "ZB2-Nx-swi"; */
+"ZB2-Nx-swi.placeholder" = "Username";
+
+/* Class = "UIButton"; normalTitle = "Cancel and go back to login"; ObjectID = "aLV-nn-0RM"; */
+"aLV-nn-0RM.normalTitle" = "Cancel and go back to login";
+
+/* Class = "UITextField"; placeholder = "Username"; ObjectID = "aSc-yR-Dq2"; */
+"aSc-yR-Dq2.placeholder" = "Username";
+
+/* Class = "UILabel"; text = "Cancel and go back to login"; ObjectID = "aei-Wo-jAk"; */
+"aei-Wo-jAk.text" = "Cancel and go back to login";
+
+/* Class = "UILabel"; text = "6"; ObjectID = "fUk-2z-2zj"; */
+"fUk-2z-2zj.text" = "6";
+
+/* Class = "UITextField"; placeholder = "username/email"; ObjectID = "ghZ-27-gGJ"; */
+"ghZ-27-gGJ.placeholder" = "username/email";
+
+/* Class = "UILabel"; text = "Members"; ObjectID = "h5q-gS-Dn9"; */
+"h5q-gS-Dn9.text" = "Members";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "hOL-Cf-9br"; */
+"hOL-Cf-9br.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Meeting Name"; ObjectID = "iH8-uU-qST"; */
+"iH8-uU-qST.placeholder" = "Meeting Name";
+
+/* Class = "UILabel"; text = "Open or Join Meeting"; ObjectID = "jGl-Fx-pV7"; */
+"jGl-Fx-pV7.text" = "Open or Join Meeting";
+
+/* Class = "UILabel"; text = "Register"; ObjectID = "mIn-Nv-DyM"; */
+"mIn-Nv-DyM.text" = "Register";
+
+/* Class = "UILabel"; text = "Close Meeting"; ObjectID = "qHz-eV-gAo"; */
+"qHz-eV-gAo.text" = "Close Meeting";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "quN-Kv-Wae"; */
+"quN-Kv-Wae.text" = "Label";
+
+/* Class = "UITextView"; text = "Please enter your username/email to receive a password reset email from QuickBlox."; ObjectID = "s14-2d-lbH"; */
+"s14-2d-lbH.text" = "Please enter your username/email to receive a password reset email from QuickBlox.";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "svS-uE-Dkx"; */
+"svS-uE-Dkx.placeholder" = "Password";
+
+/* Class = "UILabel"; text = "6"; ObjectID = "vjz-Tr-gtH"; */
+"vjz-Tr-gtH.text" = "6";
+
+/* Class = "UIButton"; normalTitle = "Leave Meeting"; ObjectID = "w0Y-Z3-gD9"; */
+"w0Y-Z3-gD9.normalTitle" = "Leave Meeting";
+
+/* Class = "UIButton"; normalTitle = "Reset Password"; ObjectID = "wpg-93-86E"; */
+"wpg-93-86E.normalTitle" = "Reset Password";
+
+/* Class = "UIButton"; normalTitle = "Login"; ObjectID = "yi5-h5-yxn"; */
+"yi5-h5-yxn.normalTitle" = "Login";
+
+/* Class = "UIButton"; normalTitle = "Register"; ObjectID = "zN7-3w-JQ2"; */
+"zN7-3w-JQ2.normalTitle" = "Register";

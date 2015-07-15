@@ -15,7 +15,7 @@
         
         [self connectToQuickBlox];
     }
-    NSString *logoutButtonText = [NSString stringWithFormat:@"%@, do you want to Logout?", self.username];
+    NSString *logoutButtonText = [NSString stringWithFormat:STRING(@", do you want to Logout?"), self.username];
     [self.logoutButton setTitle:logoutButtonText forState: UIControlStateNormal];
 }
 -(void)connectToQuickBlox {
@@ -198,7 +198,7 @@
             }
         }
         // NOT Found
-        [self warnUserWithMessage:@"Meeting room doesn't exist"];
+        [self warnUserWithMessage:STRING(@"Meeting room doesn't exist")];
         
         
         
@@ -212,7 +212,7 @@
             [self createMeetingRoom];
             
         }else{
-            [self warnUserWithMessage:@"Meeting room already exists"];
+            [self warnUserWithMessage:STRING(@"Meeting room already exists")];
         }
         
     }else{
@@ -332,7 +332,7 @@
                   @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
         [self sendSignalToCarhdsServerWithParams:params];
         
-        [self warnUserWithMessage:@"Meeting room doesn't exist"];
+        [self warnUserWithMessage:STRING(@"Meeting room doesn't exist")];
     
     } errorBlock:^(QBResponse *response) {
         [self.hud hide:YES];
@@ -342,7 +342,7 @@
 -(void) chatDidNotLogin
 {
     [self.hud hide:YES];
-    [self warnUserWithMessage:@"Failed to login"];
+    [self warnUserWithMessage:STRING(@"Failed to login")];
     self.state = NO;
 }
 

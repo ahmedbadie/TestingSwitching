@@ -86,7 +86,7 @@
     NSMutableArray *parts = [NSMutableArray array];
     for (NSString* key in dict) {
         NSString* value = [dict objectForKey: key];
-        NSString *part = [NSString stringWithFormat: @"%@=%@", [key stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding], [value stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
+        NSString *part = [NSString stringWithFormat:@"%@=%@", [key stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding], [value stringByAddingPercentEscapesUsingEncoding: NSUTF8StringEncoding]];
         [parts addObject: part];
     }
     return [parts componentsJoinedByString: @"&"];
@@ -104,7 +104,7 @@
         
         
         // Old way to create URL
-        //NSString * url = [NSString stringWithFormat:@"%@AppGuid=dbh.RH.CaRHds.SVC1&AppCred=8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F&SenderID=%@&ReceiverID=ResourcefulHumans&Message=APISuccessful&MeetingID=%@&CardID=%ld",BASE_URL,senderID,meetingID,(long)cardID];
+     //   NSString * url = [NSString stringWithFormat:@"%@AppGuid=dbh.RH.CaRHds.SVC1&AppCred=8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F&SenderID=%@&ReceiverID=ResourcefulHumans&Message=APISuccessful&MeetingID=%@&CardID=%ld",BASE_URL,senderID,meetingID,(long)cardID];
         NSString * url = [NSString stringWithFormat:@"%@%@",BASE_URL,paramsUrl];
         
         

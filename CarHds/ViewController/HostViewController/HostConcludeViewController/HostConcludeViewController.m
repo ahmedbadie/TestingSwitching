@@ -115,7 +115,7 @@
     
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText = @"Leave Meeting";
+    self.hud.labelText = STRING(@"Leave Meeting");
     
     NSString* message = @"leave_meeting";
     NSString* senderID = [MeetingHandler sharedInstance].qbUser.login;

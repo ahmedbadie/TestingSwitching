@@ -171,6 +171,8 @@
 		21E142591B07B62800E1FD79 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		21FD7BF41AF9141600B4E195 /* share_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_btn.png; sourceTree = "<group>"; };
 		21FD7BF51AF9141600B4E195 /* share_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_btn@2x.png"; sourceTree = "<group>"; };
+		2F98034D1B56724D003ED497 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		2F98034E1B56724E003ED497 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		2FC296841B1CA291006DD593 /* gobutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gobutton.png; sourceTree = "<group>"; };
 		2FC296851B1CA291006DD593 /* gobutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gobutton@2x.png"; sourceTree = "<group>"; };
 		2FDA58D11B3D58CA0088453E /* Agenda-ThinCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agenda-ThinCond.otf"; sourceTree = "<group>"; };
@@ -1140,6 +1142,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				398AADAA1A51DE530003EF8C /* Base */,
+				2F98034D1B56724D003ED497 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1148,6 +1151,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				398AADAF1A51DE530003EF8C /* Base */,
+				2F98034E1B56724E003ED497 /* de */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";

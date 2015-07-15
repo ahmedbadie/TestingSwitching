@@ -103,7 +103,7 @@
             [self registerUser];
             break;
         case 1:
-            [self.delegate warnUserWithMessage:@"Creation Canceled"];
+            [self.delegate warnUserWithMessage:STRING(@"Creation Canceled")];
             [self dismissViewControllerAnimated:YES completion:nil];
             break;
         default:
@@ -123,37 +123,37 @@
 
     if (username ==nil || username.length ==0)
     {
-        [self warnUserWithMessage:@"Can't create a user with empty username"];
+        [self warnUserWithMessage:STRING(@"Can't create a user with empty username")];
         return;
     }
 
     if(password==nil||password.length < 8 )
     {
-        [self warnUserWithMessage:@"Password should be more than 8 letters"];
+        [self warnUserWithMessage:STRING(@"Password should be more than 8 letters")];
         return;
     }
     if(email==nil||email.length ==0 ||![self NSStringIsValidEmail:email])
     {
-        [self warnUserWithMessage:@"Invalid email Address"];
+        [self warnUserWithMessage:STRING(@"Invalid email Address")];
         return;
     }
     
     if (firstName ==nil || firstName.length ==0)
     {
-        [self warnUserWithMessage:@"Can't create a user with empty first name"];
+        [self warnUserWithMessage:STRING(@"Can't create a user with empty first name")];
         return;
     }
     
     
     if (lastName ==nil || lastName.length ==0)
     {
-        [self warnUserWithMessage:@"Can't create a user with empty last name"];
+        [self warnUserWithMessage:STRING(@"Can't create a user with empty last name")];
         return;
     }
     
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText = @"Creating user";
+    self.hud.labelText = STRING(@"Creating user");
     [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
         [QuickBloxManager registerUserWithUsername:username andPassword:password andFirstName:firstName andLastName:lastName  andEmail:email withCompletionHandler:^(APIResponse *response) {
             [self.hud hide:YES];
@@ -170,7 +170,7 @@
                           @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
                 [self sendSignalToCarhdsServerWithParams:params];
                 
-                [self.delegate warnUserWithMessage:[NSString stringWithFormat:@"User %@ created",username]];
+                [self.delegate warnUserWithMessage:[NSString stringWithFormat:STRING(@"User created"),username]];
                 
                 [self dismissViewControllerAnimated:YES completion:nil];
                 
@@ -180,7 +180,7 @@
 
     } errorBlock:^(QBResponse *response) {
         [self.hud hide:YES];
-        [self warnUserWithMessage:@"Failed to Start Session"];
+        [self warnUserWithMessage:STRING(@"Failed to Start Session")];
     }];
    
 }

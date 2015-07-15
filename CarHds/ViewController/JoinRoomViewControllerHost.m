@@ -17,7 +17,7 @@
        [self connectToQuickBlox];
     }
     
-    NSString *logoutButtonText = [NSString stringWithFormat:@"%@, do you want to Logout?", self.username];
+    NSString *logoutButtonText = [NSString stringWithFormat:STRING(@", do you want to Logout?"), self.username];
     [self.logoutButton setTitle:logoutButtonText forState: UIControlStateNormal];
 }
 
@@ -249,7 +249,7 @@
                         canResume = YES;
                     }
                     if( !canResume && [Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText] ){
-                        [self warnUserWithMessage:@"Meeting room already exists"];
+                        [self warnUserWithMessage:STRING(@"Meeting room already exists")];
                     }else{
                         //                            [QBChat deleteDialogWithID:dialog.ID delegate:self];
                         chatDialog = dialog;
@@ -283,7 +283,7 @@
             [self createMeetingRoom];
         
         else
-            [self warnUserWithMessage:@"Meeting room doesn't exist"];
+            [self warnUserWithMessage:STRING(@"Meeting room doesn't exist")];
         
         
         
@@ -298,7 +298,7 @@
             [self createMeetingRoom];
             
         }else{
-            [self warnUserWithMessage:@"Meeting room already exists"];
+            [self warnUserWithMessage:STRING(@"Meeting room already exists")];
         }
         
     }else{
@@ -380,11 +380,11 @@
                          ** A better solution is to change dialog.userID but I don't think that's feasible.
                          ** May be a better solution exists
                          */
-                        [self warnUserWithMessage:@"Meeting room already exists"];
+                        [self warnUserWithMessage:STRING(@"Meeting room already exists")];
                         return ;
                     }
                     if( !canResume && [Utilities withinRoomLife:date] && ![JsonMessageParser isCloseRoomMessage:dialog.lastMessageText] ){
-                        [self warnUserWithMessage:@"Meeting room already exists"];
+                        [self warnUserWithMessage:STRING(@"Meeting room already exists")];
                     }else{
                         // Room was created before
                         //
@@ -473,7 +473,7 @@
                       @"8E1ED66A-ECB5-422D-B8B8-77FF9E195D7F",@"AppCred", nil];
             [self sendSignalToCarhdsServerWithParams:params];
             
-            [self warnUserWithMessage:@"Meeting room doesn't exist"];
+            [self warnUserWithMessage:STRING(@"Meeting room doesn't exist")];
         }
         
         
@@ -490,7 +490,7 @@
 -(void) chatDidNotLogin
 {
     [self.hud hide:YES];
-    [self warnUserWithMessage:@"Failed to login"];
+    [self warnUserWithMessage:STRING(@"Failed to login")];
     self.state = NO;
 }
 

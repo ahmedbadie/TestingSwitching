@@ -71,7 +71,7 @@
     NSString* text = [self.usernameTextField text];
     if(text==nil || text.length==0)
     {
-        [self warnUserWithMessage:@"Missing username/email"];
+        [self warnUserWithMessage:STRING(@"Missing username/email")];
         return;
     }
     [self forgetPasswordForText:text];
@@ -83,7 +83,7 @@
     [QBRequest resetUserPasswordWithEmail:email successBlock:^(QBResponse *response) {
         [self.hud hide:YES];
         
-        [self warnUserWithMessage:@"Password reset email was sent"];
+        [self warnUserWithMessage:STRING(@"Password reset email was sent")];
     } errorBlock:^(QBResponse *response) {
         // Error
         [self.hud hide:YES];
@@ -94,7 +94,7 @@
 }
 - (void)forgetPasswordForText:(NSString*) text {
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText = @"Reset Password";
+    self.hud.labelText = STRING(@"Reset Password");
     
     [QBRequest createSessionWithSuccessBlock:^(QBResponse *response, QBASession *session) {
         
@@ -109,7 +109,7 @@
                 if(users==nil || [users count]==0 )
                 {
                     
-                    [self warnUserWithMessage:[NSString stringWithFormat:@"No users with username %@",[self.usernameTextField text]]];
+                    [self warnUserWithMessage:[NSString stringWithFormat:STRING(@"No users with username"),[self.usernameTextField text]]];
                     return ;
                 }
                 QBUUser* user =[users firstObject];
@@ -118,7 +118,7 @@
                     [self resetPasswordForEmail:user.email];
                     
                 }else{
-                    [self warnUserWithMessage:[NSString stringWithFormat:@"User %@ doesn't have an email",text]];
+                    [self warnUserWithMessage:[NSString stringWithFormat:STRING(@"User doesn't have an email"),text]];
                 }
                 
             } errorBlock:^(QBResponse *response) {
@@ -196,23 +196,23 @@
         self.state = NO;
         
         [self.hud hide:YES];
-        [self warnUserWithMessage:@"Time out"];
+        [self warnUserWithMessage:STRING(@"Time out")];
     }
 }
 -(void)validateCredentials {
     if([self.usernameTextField text]==nil || [self.usernameTextField text].length==0)
     {
-        [self warnUserWithMessage:@"Missing Username"];
+        [self warnUserWithMessage:STRING(@"Missing Username")];
         return;
     }
     
     if([self.passwordTextField text]==nil || [self.passwordTextField text].length==0)
     {
-        [self warnUserWithMessage:@"Missing password"];
+        [self warnUserWithMessage:STRING(@"Missing password")];
         return;
     }else if ([self.passwordTextField text].length <8)
     {
-        [self warnUserWithMessage:@"Password too short"];
+        [self warnUserWithMessage:STRING(@"Password too short")];
         return;
     }
 
@@ -343,7 +343,7 @@
 -(void) chatDidNotLogin
 {
     [self.hud hide:YES];
-    [self warnUserWithMessage:@"Failed to login"];
+    [self warnUserWithMessage:STRING(@"Failed to login")];
     self.state = NO;
 }
 

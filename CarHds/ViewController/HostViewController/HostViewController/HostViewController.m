@@ -183,7 +183,7 @@
 
     
     self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    self.hud.labelText = @"Leave Meeting";
+    self.hud.labelText = STRING(@"Leave Meeting");
     //    NSString* msg = [JsonMessageParser logOutMessageForUser:[MeetingHandler sharedInstance].qbUser.login];
     //    QBChatRoom* chatRoom = [self.chatDialog chatRoom];
     [[MeetingHandler sharedInstance]closeRoom];
@@ -202,7 +202,7 @@
 {
     if(chatRoom == nil)
     {
-        [self warnUserWithMessage:@"Failed to join room"];
+        [self warnUserWithMessage:STRING(@"Failed to join room")];
         [self leaveMeeting];
         return;
         
@@ -408,7 +408,7 @@
         [dictionary setObject:cards forKey:@"cards"];
         [self.users setObject:dictionary forKey:@(userId)];
     }
-    [self.numberOfParticipants setText:[NSString stringWithFormat:@"%lu",(unsigned long)[[self.users allKeys] count]]];
+    [self.numberOfParticipants setText:[NSString stringWithFormat:@"%ld",(unsigned long)[[self.users allKeys] count]]];
     
 }
 
@@ -460,11 +460,11 @@
             
             return;
         }
-        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:@"Conclude Meeting"
+        UIAlertView* alertView= [[UIAlertView alloc] initWithTitle:STRING(@"Conclude Meeting")
                                                            message:STRING(@"ConcludeMeetingConfirmation")
                                                           delegate:self
-                                                 cancelButtonTitle:@"Yes"
-                                                 otherButtonTitles:@"No", nil];
+                                                 cancelButtonTitle:STRING(@"Yes")
+                                                 otherButtonTitles:STRING(@"No"), nil];
         
         [alertView show];
         
@@ -487,7 +487,7 @@
         
         self.canConclude = NO;
         self.hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-        self.hud.labelText = @"Preparing for meeting conclusion";
+        self.hud.labelText = STRING(@"Preparing for meeting conclusion");
         NSString* msg = [JsonMessageParser broadcastContributionSignal];
         QBChatRoom* room = self.chatDialog.chatRoom;
         [[MeetingHandler sharedInstance] sendMessage:msg toChatRoom:room save:YES];
