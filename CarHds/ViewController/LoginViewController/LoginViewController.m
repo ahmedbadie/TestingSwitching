@@ -23,25 +23,6 @@
 
 @implementation LoginViewController
 
--(void)saveRememberMe:(BOOL)rememberMe{
-    
-    NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
-    [pref setObject:[NSNumber numberWithBool:rememberMe] forKey:@"rememberMe"];
-    [pref synchronize];
-}
-
--(BOOL)loadRememberMe{
-    NSNumber * rememberMe;
-    NSUserDefaults *prefs=[NSUserDefaults standardUserDefaults];
-    rememberMe=[prefs objectForKey:@"rememberMe"];
-    
-    if(rememberMe != nil){
-        return  rememberMe.boolValue;
-    }
-    
-    return  false;
-}
-
 -(void)saveUsername:(NSString *)username Password:(NSString *)password{
     
     NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
@@ -53,10 +34,23 @@
 -(void)loadCredentials{
     NSString *username,*password;
     NSUserDefaults *prefs= [NSUserDefaults standardUserDefaults];
-    username=[prefs objectForKey:@"username"];
-    password=[prefs objectForKey:@"password"];
+    if(self.rememberMe)
+    {
+        username=[prefs objectForKey:@"username"];
+        password=[prefs objectForKey:@"password"];
+    }
+    //Noubi
+    /*
+    NSLog(@"User %@",username);
+    NSLog(@"PAss %@",password);
+    if([username length]==0)
+    {
+        username = nil;
+    }
+   */
+    //Noubi
     
-    if(username == nil || password == nil){
+    if(username == nil || password == nil ||[username length] ==0 ){
         username = @"";
         password = @"";
     } else {
@@ -154,23 +148,26 @@
     if (!self.credentialsWasSaved) {
         self.view.hidden = NO;
     }
+    
+    self.rememberMe = [Utilities loadRememberMe]; //return boolean value if remember me was checked before or not
+    [self loadCredentials]; // get saved credentials username and password
+
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     //Remember me functions
     self.credentialsWasSaved = NO;
-    self.rememberMe = [self loadRememberMe]; //return boolean value if remember me was checked before or not
     if (IS_IPAD) {
         [self adjustView];
     }
     
-    [self loadCredentials]; // get saved credentials username and password
     
     self.index = 0;
     self.state = NO;
     
     [self setModalPresentationStyle:UIModalPresentationCurrentContext];
 }
+
 -(void)adjustView {
     self.loginLabel.frame = CGRectMake(self.loginLabel.frame.origin.x, self.fieldsView.frame.origin.y - LOGIN_BUTTON_PAD, self.loginLabel.frame.size.width, self.loginLabel.frame.size.height);
 }
@@ -314,12 +311,10 @@
                                                            value:nil] build]];    // Event value
     
     [self validateCredentials];
-    
-    if(self.rememberMe){
-        [self saveUsername:self.usernameTextField.text Password:self.passwordTextField.text];
-    }else{
-        [self saveUsername:@"" Password:@""];
-    }
+    [Utilities saveRememberMe:YES];//Noubi
+
+    [self saveUsername:self.usernameTextField.text Password:self.passwordTextField.text];
+
     
     [self connectToQuickBlox];
     

@@ -1,0 +1,53 @@
+/* 
+  Localizable.strings
+  CarHds
+
+  Created by Inova010 on 1/1/15.
+  Copyright (c) 2015 Inova. All rights reserved.
+*/
+"KEY" = "CONTENT";
+"Error" = "Error";
+"Ok" = "Ok";
+"Login"="Login";
+"LoginFailed"="Login Failed with error %@";
+"LoginSucceded"= "Login Succeded";
+"CreatingMeeting" = "Creating Meeting";
+"ConcludeMeetingConfirmation" = "Really conclude the Meeting?";
+"ConcludeMeetingMessage" = "Meeting concluded, please rate the quality of this Meeting.";
+"MeetingConclusionConfirmation" = "Confirm your choice and move on to rating your own contribution making the best possible Meeting.";
+"SelfConclusionConfirmation" = "Please confirm your choice and stay hungry and foolish.";
+"RoomExpired" = "Expired Room, can't join it";
+"NeedUsersMsg" = "Can't conclude a meeting with no users!";
+"Loading" = "Loading";
+
+
+"Meeting Conclusion" = "Meeting Conclusion";
+"Yes" = "Yes";
+"No" = "No";
+"Leave Meeting" = "Leave Meeting";
+"Failed to join room" = "Failed to join room";
+"Meeting room closed by Host" = "Meeting room closed by Host";
+"Missing username/email" = "Missing username/email";
+"Conclude Meeting" = "Conclude Meeting";
+"Preparing for meeting conclusion" = "Preparing for meeting conclusion";
+", do you want to Logout?" = "%@, do you want to Logout?";
+"Meeting room doesn't exist" = "Meeting room doesn't exist";
+"Meeting room already exists" = "Meeting room already exists";
+"Failed to login" = "Failed to login";
+"Password reset email was sent" = "Password reset email was sent";
+"Reset Password" = "Reset Password";
+"No users with username" = "No users with username %@";
+"User doesn't have an email" = "User %@ doesn't have an email";
+"Time out"  = "Time out";
+"Missing Username" = "Missing Username";
+"Missing password" = "Missing password";
+"Password too short" = "Password too short";
+"Creation Canceled" = "Creation Canceled";
+"Can't create a user with empty username" = "Can't create a user with empty username";
+"Password should be more than 8 letters" = "Password should be more than 8 letters";
+"Invalid email Address" = "Invalid email Address";
+"Can't create a user with empty first name" = "Can't create a user with empty first name";
+"Can't create a user with empty last name" = "Can't create a user with empty last name";
+"Creating user" = "Creating user";
+"User created" = "User %@ created";
+"Failed to Start Session" = "Failed to Start Session";

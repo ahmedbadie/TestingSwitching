@@ -140,7 +140,8 @@
 
 -(void)didLogOut
 {
-    
+   
+
 }
 #pragma mark - json message parser delegate -
 -(void)receivedConclusionSignal

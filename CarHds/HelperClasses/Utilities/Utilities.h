@@ -13,5 +13,7 @@
 
 + (BOOL) withinRoomLife:(NSDate*) startDate;
 + (UIImage *) imageWithView:(UIView *)view;
++(void)saveRememberMe:(BOOL)rememberMe;
++(BOOL)loadRememberMe;
 
 @end

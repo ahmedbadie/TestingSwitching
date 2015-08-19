@@ -18,6 +18,7 @@
 		21FD7BF71AF9141600B4E195 /* share_btn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 21FD7BF51AF9141600B4E195 /* share_btn@2x.png */; };
 		2FC296861B1CA291006DD593 /* gobutton.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC296841B1CA291006DD593 /* gobutton.png */; };
 		2FC296871B1CA291006DD593 /* gobutton@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FC296851B1CA291006DD593 /* gobutton@2x.png */; };
+		2FC7A81A1B73A617006D92DC /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 2FC7A81C1B73A617006D92DC /* Localizable.strings */; };
 		2FDA58D21B3D58CA0088453E /* Agenda-ThinCond.otf in Resources */ = {isa = PBXBuildFile; fileRef = 2FDA58D11B3D58CA0088453E /* Agenda-ThinCond.otf */; };
 		2FE0F1221B14D5C10070B052 /* closeBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE0F11E1B14D5C10070B052 /* closeBtn.png */; };
 		2FE0F1231B14D5C10070B052 /* closeBtn@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FE0F11F1B14D5C10070B052 /* closeBtn@2x.png */; };
@@ -66,7 +67,6 @@
 		39116A181A5453840043C245 /* Instabug.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 39116A161A5453840043C245 /* Instabug.bundle */; };
 		39116A191A5453840043C245 /* Instabug.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39116A171A5453840043C245 /* Instabug.framework */; };
 		39116A1D1A55A42D0043C245 /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39116A1C1A55A42D0043C245 /* RegisterViewController.m */; };
-		39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 39116A1E1A55B0C90043C245 /* Localizable.strings */; };
 		391C209E1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C209A1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png */; };
 		391C209F1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C209B1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png */; };
 		391C20A01A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 391C209C1A5AD73900A44F30 /* passwordFieldBgRegister_iphone.png */; };
@@ -171,10 +171,15 @@
 		21E142591B07B62800E1FD79 /* GAITracker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GAITracker.h; sourceTree = "<group>"; };
 		21FD7BF41AF9141600B4E195 /* share_btn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share_btn.png; sourceTree = "<group>"; };
 		21FD7BF51AF9141600B4E195 /* share_btn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "share_btn@2x.png"; sourceTree = "<group>"; };
-		2F98034D1B56724D003ED497 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
-		2F98034E1B56724E003ED497 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2FBBFB1C1B82620F000F2E95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Main.strings; sourceTree = "<group>"; };
+		2FBBFB1F1B82677B000F2E95 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2FBBFB231B84BA50000F2E95 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
+		2FBBFB241B84BA50000F2E95 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		2FBBFB251B84BA50000F2E95 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2FC296841B1CA291006DD593 /* gobutton.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gobutton.png; sourceTree = "<group>"; };
 		2FC296851B1CA291006DD593 /* gobutton@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gobutton@2x.png"; sourceTree = "<group>"; };
+		2FC7A81B1B73A617006D92DC /* Base */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = Base; path = Base.lproj/Localizable.strings; sourceTree = "<group>"; };
+		2FC7A81D1B73A61B006D92DC /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		2FDA58D11B3D58CA0088453E /* Agenda-ThinCond.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Agenda-ThinCond.otf"; sourceTree = "<group>"; };
 		2FE0F11E1B14D5C10070B052 /* closeBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = closeBtn.png; sourceTree = "<group>"; };
 		2FE0F11F1B14D5C10070B052 /* closeBtn@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "closeBtn@2x.png"; sourceTree = "<group>"; };
@@ -232,7 +237,6 @@
 		39116A171A5453840043C245 /* Instabug.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Instabug.framework; sourceTree = "<group>"; };
 		39116A1B1A55A42D0043C245 /* RegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
 		39116A1C1A55A42D0043C245 /* RegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
-		39116A1E1A55B0C90043C245 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		39116A201A55B1CB0043C245 /* CarHds-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "CarHds-Prefix.pch"; sourceTree = "<group>"; };
 		391C209A1A5AD73900A44F30 /* emailFieldBgRegister_ipad.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = emailFieldBgRegister_ipad.png; sourceTree = "<group>"; };
 		391C209B1A5AD73900A44F30 /* emailFieldBgRegister_ipad@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "emailFieldBgRegister_ipad@2x.png"; sourceTree = "<group>"; };
@@ -784,7 +788,7 @@
 				398AADAE1A51DE530003EF8C /* LaunchScreen.xib */,
 				398AADA01A51DE530003EF8C /* Info.plist */,
 				398AADA11A51DE530003EF8C /* main.m */,
-				39116A1E1A55B0C90043C245 /* Localizable.strings */,
+				2FC7A81C1B73A617006D92DC /* Localizable.strings */,
 				39116A201A55B1CB0043C245 /* CarHds-Prefix.pch */,
 				391F93741A599BFA0062A7E5 /* ErrorMessages.plist */,
 			);
@@ -973,6 +977,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 398AAD931A51DE530003EF8C;
 			productRefGroup = 398AAD9D1A51DE530003EF8C /* Products */;
@@ -1044,7 +1049,7 @@
 				2FF20E251B0A2F6100ACD991 /* iphone_background@2x.png in Resources */,
 				391C20A51A5AE08000A44F30 /* registerButton_ipad.png in Resources */,
 				394680D21A63168700ECA925 /* participantConclusion1Gray.png in Resources */,
-				39116A1F1A55B0C90043C245 /* Localizable.strings in Resources */,
+				2FC7A81A1B73A617006D92DC /* Localizable.strings in Resources */,
 				394680D11A63168700ECA925 /* meetingConclusion3Gray.png in Resources */,
 				4BAFC5201B37CC0C00F299F2 /* dontHaveAccountBorder.png in Resources */,
 				391C20AD1A5B0B3F00A44F30 /* meetingConclusion2.png in Resources */,
@@ -1138,11 +1143,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		2FC7A81C1B73A617006D92DC /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2FC7A81B1B73A617006D92DC /* Base */,
+				2FC7A81D1B73A61B006D92DC /* en */,
+				2FBBFB251B84BA50000F2E95 /* de */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 		398AADA91A51DE530003EF8C /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				398AADAA1A51DE530003EF8C /* Base */,
-				2F98034D1B56724D003ED497 /* de */,
+				2FBBFB1C1B82620F000F2E95 /* en */,
+				2FBBFB231B84BA50000F2E95 /* de */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -1151,7 +1167,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				398AADAF1A51DE530003EF8C /* Base */,
-				2F98034E1B56724E003ED497 /* de */,
+				2FBBFB1F1B82677B000F2E95 /* en */,
+				2FBBFB241B84BA50000F2E95 /* de */,
 			);
 			name = LaunchScreen.xib;
 			sourceTree = "<group>";
@@ -1176,7 +1193,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -1196,6 +1214,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				PROVISIONING_PROFILE = "22a2a17c-1bd9-4a29-9dca-a93c30c23e87";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -1218,7 +1237,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -1231,6 +1251,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
+				PROVISIONING_PROFILE = "22a2a17c-1bd9-4a29-9dca-a93c30c23e87";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -1242,8 +1263,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1268,7 +1289,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
+				PROVISIONING_PROFILE = "22a2a17c-1bd9-4a29-9dca-a93c30c23e87";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};
@@ -1279,8 +1300,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Resourceful Humans GmbH (VEL7YUDW64)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Inova Eg (7Y6XDR5RY3)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/CarHds/Frameworks",
@@ -1304,7 +1325,7 @@
 					"-lstdc++",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6faaff60-c7a2-48bd-acd2-c5e70a339b5e";
+				PROVISIONING_PROFILE = "22a2a17c-1bd9-4a29-9dca-a93c30c23e87";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALID_ARCHS = "armv7 armv7s arm64";
 			};

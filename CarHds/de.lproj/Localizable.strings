@@ -1,0 +1,53 @@
+/*
+ Localizable.strings
+ CarHds
+ 
+ Created by Inova010 on 1/1/15.
+ Copyright (c) 2015 Inova. All rights reserved.
+ */
+"KEY" = "CONTENT";
+"Error" = "Fehler";
+"Ok" = "Ok";
+"Login"="Login";
+"LoginFailed"="Login fehlgeschlagen weil %@";
+"LoginSucceded"= "Login erfolgreich";
+"CreatingMeeting" = "Meeting eröffnen";
+"ConcludeMeetingConfirmation" = "Meeting wirklich beenden?";
+"ConcludeMeetingMessage" = "Meeting beendet. Bitte bewerte die Qualität dieses Meeting";
+"MeetingConclusionConfirmation" = "Auswahl bestätigen und jetzt deinen Beitrag einschätzen ein sehr gutes Meeting mitgestaltet zu haben";
+"SelfConclusionConfirmation" = "Bitte deine Auswahl bestätigen. Stay hungry, stay foolish!";
+"RoomExpired" = "Meeting existiert nicht mehr";
+"NeedUsersMsg" = "Kann kein Meeting ohne Teilnehmer beenden!";
+"Loading" = "Loading";
+
+
+"Meeting Conclusion" = "Meeting Abschluss";
+"Yes" = "Ja";
+"No" = "Nein";
+"Leave Meeting" = "Meeting verlassen";
+"Failed to join room" = "Konnte dem Meeting nicht beitreten";
+"Meeting room closed by Host" = "Meeting vom BigBoss geschlossen";
+"Missing username/email" = "Benutzername/email fehlen";
+"Conclude Meeting" = "Meeting abschliessen";
+"Preparing for meeting conclusion" = "Meeting Abschluss vorbereiten";
+", do you want to Logout?" = "%@, willst du dich ausloggen?";
+"Meeting room doesn't exist" = "Meeting existiert nicht";
+"Meeting room already exists" = "Meeting existiert bereits";
+"Failed to login" = "Login fehlgeschlagen";
+"Password reset email was sent" = "Password reset email wurde geschickt";
+"Reset Password" = "Reset Password";
+"No users with username" = "Kein User mit username %@";
+"User doesn't have an email" = "User %@ hat keine email";
+"Time out"  = "Zeit abgelaufen";
+"Missing Username" = "Benutzername fehlt";
+"Missing password" = "Passwort fehlt";
+"Password too short" = "Password zu kurz";
+"Creation Canceled" = "Abbruch";
+"Can't create a user with empty username" = "Ohne Bitte, kein Keks. Ohne Username, kein User";
+"Password should be more than 8 letters" = "Passwort sollte mehr als 8 Buchstaben enthalten";
+"Invalid email Address" = "Keine valide email Adresse";
+"Can't create a user with empty first name" = "Ohne Huhn, kein Ei. Ohne Vorname, kein User";
+"Can't create a user with empty last name" = "Ohne Dunkelheit, kein Licht. Ohne Nachname, kein User";
+"Creating user" = "Benutzer wird angelegt";
+"User created" = "Benutzer %@ angelegt";
+"Failed to Start Session" = "Start der Session fehlgeschlagen";

@@ -47,5 +47,23 @@ static NSDate* maxInterval;
     return img;
 }
 
++(void)saveRememberMe:(BOOL)rememberMe{
+    
+    NSUserDefaults *pref=[NSUserDefaults standardUserDefaults];
+    [pref setObject:[NSNumber numberWithBool:rememberMe] forKey:@"rememberMe"];
+    [pref synchronize];
+}
+
++(BOOL)loadRememberMe{
+    NSNumber * rememberMe;
+    NSUserDefaults *prefs=[NSUserDefaults standardUserDefaults];
+    rememberMe=[prefs objectForKey:@"rememberMe"];
+    
+    if(rememberMe != nil){
+        return  rememberMe.boolValue;
+    }
+    
+    return  false;
+}
 
 @end
