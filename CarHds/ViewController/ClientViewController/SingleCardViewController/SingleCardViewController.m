@@ -126,7 +126,7 @@
 {
     NSString* imageName = @"";
     if(self.type == 0)
-        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%ld%@.png",(long)(self.index+1),self.value? @"a":@"b"];
+        imageName = [NSString stringWithFormat:@"%@%ld.png",self.value? @"a":@"b",(long)(self.index+1)];
     if(self.type==1)
     {
         imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(long)(self.index+1)];
@@ -247,7 +247,7 @@
 {
     NSString* imageName = @"";
     if(self.type == 0)
-        imageName = [NSString stringWithFormat:@"caRHds for odesk project.%ld%@.png",(long)(self.index+1),self.value? @"a":@"b"];
+        imageName = [NSString stringWithFormat:@"%@%ld.png",self.value? @"a":@"b",(long)(self.index+1)];
     if(self.type==1)
     {
         imageName= [NSString stringWithFormat:@"participantConclusion%ld.png",(long)(self.index+1)];
