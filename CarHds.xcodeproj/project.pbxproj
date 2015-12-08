@@ -307,14 +307,14 @@
 		396769C71A5C3720003444D2 /* Arial Narrow.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Narrow.ttf"; sourceTree = "<group>"; };
 		3969931E1A5D5D0700AFD089 /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		3969931F1A5D5D0700AFD089 /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
-		398AAD9C1A51DE530003EF8C /* CarHds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CarHds.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		398AAD9C1A51DE530003EF8C /* carHds.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = carHds.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		398AADA01A51DE530003EF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		398AADA11A51DE530003EF8C /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		398AADA31A51DE530003EF8C /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		398AADA41A51DE530003EF8C /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		398AADAA1A51DE530003EF8C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		398AADAC1A51DE530003EF8C /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
-		398AADB51A51DE530003EF8C /* CarHdsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CarHdsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		398AADB51A51DE530003EF8C /* carHdsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = carHdsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		398AADBA1A51DE530003EF8C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		398AADBB1A51DE530003EF8C /* CarHdsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CarHdsTests.m; sourceTree = "<group>"; };
 		398AADC91A51DF030003EF8C /* AbstractViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AbstractViewController.h; sourceTree = "<group>"; };
@@ -755,8 +755,8 @@
 		398AAD9D1A51DE530003EF8C /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				398AAD9C1A51DE530003EF8C /* CarHds.app */,
-				398AADB51A51DE530003EF8C /* CarHdsTests.xctest */,
+				398AAD9C1A51DE530003EF8C /* carHds.app */,
+				398AADB51A51DE530003EF8C /* carHdsTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -911,9 +911,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		398AAD9B1A51DE530003EF8C /* CarHds */ = {
+		398AAD9B1A51DE530003EF8C /* carHds */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 398AADBF1A51DE530003EF8C /* Build configuration list for PBXNativeTarget "CarHds" */;
+			buildConfigurationList = 398AADBF1A51DE530003EF8C /* Build configuration list for PBXNativeTarget "carHds" */;
 			buildPhases = (
 				398AAD981A51DE530003EF8C /* Sources */,
 				398AAD991A51DE530003EF8C /* Frameworks */,
@@ -923,14 +923,14 @@
 			);
 			dependencies = (
 			);
-			name = CarHds;
+			name = carHds;
 			productName = CarHds;
-			productReference = 398AAD9C1A51DE530003EF8C /* CarHds.app */;
+			productReference = 398AAD9C1A51DE530003EF8C /* carHds.app */;
 			productType = "com.apple.product-type.application";
 		};
-		398AADB41A51DE530003EF8C /* CarHdsTests */ = {
+		398AADB41A51DE530003EF8C /* carHdsTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 398AADC21A51DE530003EF8C /* Build configuration list for PBXNativeTarget "CarHdsTests" */;
+			buildConfigurationList = 398AADC21A51DE530003EF8C /* Build configuration list for PBXNativeTarget "carHdsTests" */;
 			buildPhases = (
 				398AADB11A51DE530003EF8C /* Sources */,
 				398AADB21A51DE530003EF8C /* Frameworks */,
@@ -941,9 +941,9 @@
 			dependencies = (
 				398AADB71A51DE530003EF8C /* PBXTargetDependency */,
 			);
-			name = CarHdsTests;
+			name = carHdsTests;
 			productName = CarHdsTests;
-			productReference = 398AADB51A51DE530003EF8C /* CarHdsTests.xctest */;
+			productReference = 398AADB51A51DE530003EF8C /* carHdsTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -979,8 +979,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				398AAD9B1A51DE530003EF8C /* CarHds */,
-				398AADB41A51DE530003EF8C /* CarHdsTests */,
+				398AAD9B1A51DE530003EF8C /* carHds */,
+				398AADB41A51DE530003EF8C /* carHdsTests */,
 			);
 		};
 /* End PBXProject section */
@@ -1131,7 +1131,7 @@
 /* Begin PBXTargetDependency section */
 		398AADB71A51DE530003EF8C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 398AAD9B1A51DE530003EF8C /* CarHds */;
+			target = 398AAD9B1A51DE530003EF8C /* carHds */;
 			targetProxy = 398AADB61A51DE530003EF8C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -1369,7 +1369,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		398AADBF1A51DE530003EF8C /* Build configuration list for PBXNativeTarget "CarHds" */ = {
+		398AADBF1A51DE530003EF8C /* Build configuration list for PBXNativeTarget "carHds" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				398AADC01A51DE530003EF8C /* Debug */,
@@ -1378,7 +1378,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		398AADC21A51DE530003EF8C /* Build configuration list for PBXNativeTarget "CarHdsTests" */ = {
+		398AADC21A51DE530003EF8C /* Build configuration list for PBXNativeTarget "carHdsTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				398AADC31A51DE530003EF8C /* Debug */,
