@@ -15,8 +15,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "398AAD9B1A51DE530003EF8C"
-               BuildableName = "carHds.app"
-               BlueprintName = "carHds"
+               BuildableName = "caRHds.app"
+               BlueprintName = "caRHds"
                ReferencedContainer = "container:caRHds.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -33,8 +33,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "398AAD9B1A51DE530003EF8C"
-            BuildableName = "carHds.app"
-            BlueprintName = "carHds"
+            BuildableName = "caRHds.app"
+            BlueprintName = "caRHds"
             ReferencedContainer = "container:caRHds.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
@@ -56,8 +56,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "398AAD9B1A51DE530003EF8C"
-            BuildableName = "carHds.app"
-            BlueprintName = "carHds"
+            BuildableName = "caRHds.app"
+            BlueprintName = "caRHds"
             ReferencedContainer = "container:caRHds.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -75,8 +75,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "398AAD9B1A51DE530003EF8C"
-            BuildableName = "carHds.app"
-            BlueprintName = "carHds"
+            BuildableName = "caRHds.app"
+            BlueprintName = "caRHds"
             ReferencedContainer = "container:caRHds.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
